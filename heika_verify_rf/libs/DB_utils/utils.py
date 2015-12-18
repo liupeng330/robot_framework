@@ -1,17 +1,19 @@
 # -*- coding: utf-8 -*-
 
-import mysql.connector
-import libs.global_config
-import libs.helper
+from .. import global_config
+from .. import helper
 from datetime import datetime
+import mysql.connector
 
 conn = mysql.connector.connect(
-    user=libs.global_config.db_user_name,
-    password=libs.global_config.db_password,
-    host=libs.global_config.db_host,
-    port=libs.global_config.db_port,
-    database=libs.global_config.db_database,
-    charset='utf8')
+    user=global_config.db_user_name,
+    password=global_config.db_password,
+    host=global_config.db_host,
+    port=global_config.db_port,
+    database=global_config.db_database,
+    charset='utf8',
+    buffered=True)
+conn.autocommit = True
 cursor = conn.cursor()
 
 
@@ -19,10 +21,10 @@ def commit(query):
     try:
         cursor.execute(query)
         conn.commit()
-        libs.helper.log("执行sql语句：\n%s\n影响行数：%d\n" % (query, cursor.rowcount))
+        helper.log("执行sql语句：\n%s\n影响行数：%d\n" % (query, cursor.rowcount))
         return cursor.rowcount
     except Exception, e:
-        libs.helper.log_error('\n\n执行sql语句%s时出错: %s，回滚\n' % (query, e))
+        helper.log_error('\n\n执行sql语句%s时出错: %s，回滚\n' % (query, e))
         conn.rollback()
 
 
@@ -90,36 +92,36 @@ def update_nick_name(*original_nick_names):
         libs.helper.log('获取一个user_id：%d' % user_id)
         if nick_name.startswith('rrd_'):
             new_nick_name = nick_name.replace('rrd_', '审核测试')
-            libs.helper.log('更新userId为%s的用户的昵称从%s更新为%s' % (user_id, nick_name, new_nick_name))
+            helper.log('更新userId为%s的用户的昵称从%s更新为%s' % (user_id, nick_name, new_nick_name))
             update_nick_name_by_user_id(user_id, new_nick_name)
 
 
 def get_verify_user_status_id_by_user_id(user_id):
-    libs.helper.log('获取user_id为%s的verify_user_status表的主键id' % user_id)
+    helper.log('获取user_id为%s的verify_user_status表的主键id' % user_id)
     sql = "SELECT id from verify_user_status where user_id = %s" % user_id
     return fetch_one(sql)
 
 
 def get_verify_user_id_by_real_name(real_name):
-    libs.helper.log('获取real_name为%s的verify_user表的主键id' % real_name)
+    helper.log('获取real_name为%s的verify_user表的主键id' % real_name)
     sql = "SELECT id from verify_user where real_name = '%s'" % real_name
     return fetch_one(sql)
 
 
 def delete_verify_user_status_by_user_id(user_id):
-    libs.helper.log('删除verify_user_status表中的数据')
+    helper.log('删除verify_user_status表中的数据')
     delete_sql = "DELETE from verify_user_status where user_id = %s" % user_id
     commit(delete_sql)
 
 
 def delete_verify_process_task_by_verify_user_status_id(id):
-    libs.helper.log('按照verify_user_status_id删除verify_process_task表中的记录')
+    helper.log('按照verify_user_status_id删除verify_process_task表中的记录')
     delete_sql = "DELETE from verify_process_task where verify_user_status_id = %s" % id
     commit(delete_sql)
 
 
 def delete_verify_process_task_by_executor_id(verify_user_id):
-    libs.helper.log('按照executor删除verify_process_task表中的记录')
+    helper.log('按照executor删除verify_process_task表中的记录')
     delete_sql = "DELETE from verify_process_task where executor = %s" % verify_user_id
     commit(delete_sql)
 
@@ -133,7 +135,7 @@ def init_user(user_id):
 
 
 def update_verify_user_status_to_inquireing(user_id):
-    libs.helper.log('将verify_user_status表的数据置为待调查')
+    helper.log('将verify_user_status表的数据置为待调查')
     update_status_sql = "UPDATE verify_user_status SET " \
                         "verify_user_status='INQUIREING'," \
                         "reject_operation=NULL," \
@@ -161,27 +163,35 @@ def update_verify_user_status_to_inquireing(user_id):
 
 
 def update_user_info_result_to_pending(user_id):
-    libs.helper.log('将verify_user_info_result表置为PENDING\n')
+    helper.log('将verify_user_info_result表置为PENDING\n')
     update_user_info_result = "UPDATE `verify_user_info_result` SET `value_` = 'PENDING' WHERE `user_id` = %s" % user_id
     commit(update_user_info_result)
 
 
 def delete_user_status_log(user_id):
-    libs.helper.log('将verify_user_status_log表中的数据删除\n')
+    helper.log('将verify_user_status_log表中的数据删除\n')
     delete_user_status_log = "delete from `verify_user_status_log` where `user_id` = %s" % user_id
     commit(delete_user_status_log)
 
 
 def delete_strategy_output(user_id):
-    libs.helper.log('将verify_strategy_output表中的数据删除\n')
+    helper.log('将verify_strategy_output表中的数据删除\n')
     delete_strategy_output = "delete from `verify_strategy_output` where `user_id` = %s" % user_id
     commit(delete_strategy_output)
 
 
 def delete_verify_user_info_refine(user_id):
-    libs.helper.log('将verify_user_info_refine表中的数据删除\n')
+    helper.log('将verify_user_info_refine表中的数据删除\n')
     delete_user_info_refine = "delete from `verify_user_info_refine` where `user_id` = %s" % user_id
     commit(delete_user_info_refine)
+
+
+def get_user_key_by_nick_name(nick_name):
+    cursor.execute("select user_key from user where nick_name = '%s'" % nick_name)
+    ret = cursor.fetchone()
+    if ret is None:
+        return None
+    return ret[0]
 
 
 def get_user_keys_by_nick_name_prefix(prefix, count):
@@ -205,6 +215,19 @@ def populate_user_into_system_grant_coupon(*user_keys):
         conn.commit()
 
 
+def populate_coupon_batch_into_active_ref(*batch_keys):
+    for key in batch_keys:
+        now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        cursor.execute("""INSERT INTO `coupon_batch_active_status_ref` (`active_action`, `coupon_batch_key`, `create_time`,
+        `update_time`) VALUES ('REGISTER_VERIFY', %s, %s, %s)""", (key, str(now), str(now)))
+        conn.commit()
+
+
+def delete_all_system_grant_coupon():
+    cursor.execute("""delete from `system_grant_coupon_users`""")
+    conn.commit()
+
+
 def delete_user_from_system_grant_coupon(*user_keys):
     for key in user_keys:
         cursor.execute("""delete from `system_grant_coupon_users` where `user_key` = %s""", (key[0],))
@@ -212,20 +235,46 @@ def delete_user_from_system_grant_coupon(*user_keys):
 
 
 def get_coupon_batch_key_by_name(name):
-    cursor.execute("select batch_key from `coupon_batch` where name = %s", (name,))
+    cursor.execute("select batch_key from `coupon_batch` where `name` = '%s'" % name)
     ret = cursor.fetchone()
     if ret is None:
         return None
     return ret[0]
 
 
+def get_coupon_batch_id_by_name(name):
+    cursor.execute("select id from `coupon_batch` where `name` = '%s'" % name)
+    ret = cursor.fetchone()
+    if ret is None:
+        return None
+    return ret[0]
+
+
+def delete_coupon_batch_by_key(batch_key):
+    cursor.execute("""delete from `coupon` where `coupon_batch_key` = %s""", (batch_key,))
+    cursor.execute("""delete from `coupon_batch_log` where `batch_key` = %s""", (batch_key,))
+    cursor.execute("""delete from `coupon_batch` where `batch_key` = %s""", (batch_key,))
+    cursor.execute("""delete from `coupon_batch_active_status_ref` where `coupon_batch_key` = %s""", (batch_key,))
+    conn.commit()
+
+
 def delete_coupon_batch_by_name(name):
     batch_key = get_coupon_batch_key_by_name(name)
     if batch_key is None:
         return
-    cursor.execute("""delete from `coupon` where `coupon_batch_key` = %s""", (batch_key,))
-    cursor.execute("""delete from `coupon_batch_log` where `batch_key` = %s""", (batch_key,))
-    cursor.execute("""delete from `coupon_batch` where `batch_key` = %s""", (batch_key,))
-    conn.commit()
+    delete_coupon_batch_by_key(batch_key)
 
+
+def delete_all_system_coupon_batch():
+    cursor.execute("select batch_key from `coupon_batch` where `grant_type` = 'SYSTEM'")
+    batch_keys = cursor.fetchall()
+    for key in batch_keys:
+        delete_coupon_batch_by_key(key[0])
+
+
+def update_user_register_time_to_current_by_user_key(*user_key):
+    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    for key in user_key:
+        cursor.execute("update user set register_time = %s where user_key = %s", (now, key[0]))
+        conn.commit()
 

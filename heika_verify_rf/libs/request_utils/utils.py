@@ -1,5 +1,5 @@
 import requests
-import libs.global_config
+from .. import global_config
 
 
 class RequestUtil(object):
@@ -11,9 +11,9 @@ class RequestUtil(object):
 
         if self.username is None:
             self.username = 'admin@renrendai.com'
-            self.password = libs.global_config.login_username_passwd_mapping.get(self.username)
+            self.password = global_config.login_username_passwd_mapping.get(self.username)
         elif self.password is None:
-            self.password = libs.global_config.login_username_passwd_mapping.get(self.username)
+            self.password = global_config.login_username_passwd_mapping.get(self.username)
 
     def login(self):
         post_data = {"username": self.username, "password": self.password}

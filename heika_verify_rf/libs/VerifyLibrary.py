@@ -1,4 +1,4 @@
-from libs.DB_utils.utils import *
+from DB_utils.utils import *
 from request_utils import *
 
 

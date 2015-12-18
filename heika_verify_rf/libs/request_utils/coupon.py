@@ -42,3 +42,15 @@ class CouponRequest(utils.RequestUtil):
 
     def create_fixed_length_manual_coupon_batch(self, name, amount, coupon_count, validity_period, validity_type):
         return self.create_fixed_length_coupon_batch(name, amount, coupon_count, validity_period, validity_type, 'MANUAL', '')
+
+    def get_coupon_batch_detail(self, batch_id):
+        post_data = {'batchId': batch_id}
+        response = requests.post(self.base_URL + "/coupons/getBatchDetail", data=post_data, headers=self.headers)
+        response.raise_for_status()
+        return response
+
+    def get_coupon_receive_detail(self, batch_id):
+        post_data = {'pageNum': 1, 'pageSize': 200, 'batchId': batch_id, 'key': '', 'value': '', 'couponsStatus': ''}
+        response = requests.post(self.base_URL + "/coupons/getCouponsReceiveDetail", data=post_data, headers=self.headers)
+        response.raise_for_status()
+        return response
