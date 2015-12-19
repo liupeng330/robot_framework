@@ -67,3 +67,8 @@ class CouponRequest(utils.RequestUtil):
         response.raise_for_status()
         return response
 
+    def disable_coupon_batch_by_batch_id(self, batch_id):
+        post_data = {'batchId': batch_id}
+        response = requests.post(self.base_URL + "/coupons/disableBatch", data=post_data, headers=self.headers)
+        response.raise_for_status()
+        return response

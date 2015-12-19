@@ -43,11 +43,10 @@ class TestCoupon:
         assert batch_id is not None
         helper.log("batch_key: " + batch_key)
         helper.log("batch_id: " + str(batch_id))
+
         helper.log("Get batch from request")
         response = self.request.get_coupon_batch_detail(batch_id)
         coupon_batch_response = response.json()['data']['rows']
-        helper.log(coupon_batch_response)
-
         tools.eq_(coupon_batch_response['batchStatus'], 1)
         tools.eq_(coupon_batch_response['couponsAmount'], 12.0)
         tools.eq_(coupon_batch_response['couponsCnt'], 1000)
@@ -65,6 +64,12 @@ class TestCoupon:
         tools.eq_(len(coupon_receive_detail_response), 0)
 
     def test_system_coupon_grant(self):
+        self._test_grant_coupon()
+
+    def test_disable_and_in_time_range_system_coupon_grant(self):
+        self._test_grant_coupon(True)
+
+    def _test_grant_coupon(self, disable_coupon_batch=False):
         now = datetime.datetime.now()
         three_days_later = (now + datetime.timedelta(days=3)).strftime('%Y-%m-%d')
         now = now.strftime('%Y-%m-%d')
@@ -73,6 +78,15 @@ class TestCoupon:
 
         batch_key = utils.get_coupon_batch_key_by_name(self.coupon_name)
         batch_id = utils.get_coupon_batch_id_by_name(self.coupon_name)
+
+        if disable_coupon_batch:
+            # Disable coupon batch
+            time.sleep(10)
+            self.request.disable_coupon_batch_by_batch_id(batch_id)
+            response = self.request.get_coupon_batch_detail(batch_id)
+            coupon_batch_response = response.json()['data']['rows']
+            tools.eq_(coupon_batch_response['batchStatus'], 0)
+
         register_time = (utils.get_start_time_in_coupon_activity_by_batch_key(batch_key) + datetime.timedelta(seconds=1)).strftime('%Y-%m-%d %H:%M:%S')
 
         user_key = utils.get_user_key_by_nick_name(self.nick_name)
