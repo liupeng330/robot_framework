@@ -4,6 +4,7 @@ import sys
 import libs.helper
 from libs.DB_utils.utils import *
 from libs.request_utils.utils import *
+from datetime import datetime
 
 
 def help_info():
@@ -100,17 +101,25 @@ if __name__ == "__main__":
     if sys.argv[1].startswith('grant_coupon'):
         count_of_user = sys.argv[2]
         user_nick_name_prefix = sys.argv[3]
-        sent_status = sys.argv[4]
+        register_time = sys.argv[4]
+        sent_status = sys.argv[5:]
         user_keys = get_user_keys_by_nick_name_prefix(user_nick_name_prefix, count_of_user)
-        update_user_register_time_to_current_by_user_key(*user_keys)
+
+        time = None
+        if register_time == 'current':
+            time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        else:
+            time = register_time
+
         if sys.argv[1].endswith('cleanup'):
             delete_user_from_system_grant_coupon(*user_keys)
         else:
-            coupon_sent_user_keys = get_user_keys_from_system_grant_coupon(sent_status)
+            coupon_sent_user_keys = get_user_keys_from_system_grant_coupon(*sent_status)
             coupon_not_sent_user_keys = []
             for i in user_keys:
-                if i not in coupon_sent_user_keys:
-                    coupon_not_sent_user_keys.append(i)
+                if i[0] not in coupon_sent_user_keys:
+                    coupon_not_sent_user_keys.append(i[0])
+            update_user_register_time_to_current_by_user_key(time, *coupon_not_sent_user_keys)
             populate_user_into_system_grant_coupon(*coupon_not_sent_user_keys)
 
     if sys.argv[1] == 'coupon_cleanup':

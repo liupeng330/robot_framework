@@ -89,7 +89,7 @@ def update_nick_name(*original_nick_names):
         user_id = get_user_id_by_nick_name(nick_name)
         if user_id is None:
             pass
-        libs.helper.log('获取一个user_id：%d' % user_id)
+        helper.log('获取一个user_id：%d' % user_id)
         if nick_name.startswith('rrd_'):
             new_nick_name = nick_name.replace('rrd_', '审核测试')
             helper.log('更新userId为%s的用户的昵称从%s更新为%s' % (user_id, nick_name, new_nick_name))
@@ -105,6 +105,11 @@ def get_verify_user_status_id_by_user_id(user_id):
 def get_verify_user_id_by_real_name(real_name):
     helper.log('获取real_name为%s的verify_user表的主键id' % real_name)
     sql = "SELECT id from verify_user where real_name = '%s'" % real_name
+    return fetch_one(sql)
+
+
+def get_start_time_in_coupon_activity_by_batch_key(batch_key):
+    sql = "SELECT start_time from coupon_activity where batch_key = '%s'" % batch_key
     return fetch_one(sql)
 
 
@@ -194,16 +199,29 @@ def get_user_key_by_nick_name(nick_name):
     return ret[0]
 
 
+def get_user_entry_by_user_key(key):
+    cursor.execute("select * from user where user_key = '%s'" % key)
+    ret = cursor.fetchone()
+    if ret is None:
+        return None
+    return ret
+
+
 def get_user_keys_by_nick_name_prefix(prefix, count):
     query = "select user_key from user where nick_name like '%s' order by nick_name LIMIT %s" % (prefix + '%', count)
     cursor.execute(query)
     return cursor.fetchall()
 
 
-def get_user_keys_from_system_grant_coupon(status=0):
-    query = "select `user_key` from `system_grant_coupon_users` where `status` = %s" % status
+def get_user_keys_from_system_grant_coupon(*status):
+    query = "select `user_key`, `status` from `system_grant_coupon_users`"
     cursor.execute(query)
-    return cursor.fetchall()
+    user_keys = cursor.fetchall()
+    ret = []
+    for row in user_keys:
+        if str(row[1]) in status:
+            ret.append(row[0])
+    return ret
 
 
 def populate_user_into_system_grant_coupon(*user_keys):
@@ -211,7 +229,7 @@ def populate_user_into_system_grant_coupon(*user_keys):
         now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         cursor.execute("""INSERT INTO `system_grant_coupon_users` (`user_key`, `status`, `create_time`, `update_time`,
         `active_action`, `version`) VALUES (%s, 1, %s, %s, 'REGISTER_VERIFY', 0)""",
-                       (key[0], str(now), str(now)))
+                       (key, str(now), str(now)))
         conn.commit()
 
 
@@ -255,6 +273,7 @@ def delete_coupon_batch_by_key(batch_key):
     cursor.execute("""delete from `coupon_batch_log` where `batch_key` = %s""", (batch_key,))
     cursor.execute("""delete from `coupon_batch` where `batch_key` = %s""", (batch_key,))
     cursor.execute("""delete from `coupon_batch_active_status_ref` where `coupon_batch_key` = %s""", (batch_key,))
+    cursor.execute("""delete from `coupon_activity` where `batch_key` = %s""", (batch_key,))
     conn.commit()
 
 
@@ -272,9 +291,17 @@ def delete_all_system_coupon_batch():
         delete_coupon_batch_by_key(key[0])
 
 
-def update_user_register_time_to_current_by_user_key(*user_key):
-    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+def update_user_register_time_to_current_by_user_key(time, *user_key):
     for key in user_key:
-        cursor.execute("update user set register_time = %s where user_key = %s", (now, key[0]))
+        cursor.execute("update user set register_time = %s where user_key = %s", (time, key))
         conn.commit()
 
+
+def get_job_interval_time_by_job_class_name(name):
+    cursor.execute(
+        "select param_value from admin_task_timer inner join admin_task_timer_param on admin_task_timer.id = admin_task_timer_param.task_id where task_class = '%s'" % name)
+    values = cursor.fetchall()
+    total = 0
+    for value in values:
+        total += int(value[0])
+    return total
