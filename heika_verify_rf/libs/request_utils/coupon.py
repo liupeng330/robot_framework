@@ -49,8 +49,21 @@ class CouponRequest(utils.RequestUtil):
         response.raise_for_status()
         return response
 
-    def get_coupon_receive_detail(self, batch_id):
-        post_data = {'pageNum': 1, 'pageSize': 200, 'batchId': batch_id, 'key': '', 'value': '', 'couponsStatus': ''}
+    def get_coupon_receive_detail(self, batch_id, page_num=1, page_size=200, key='', value='', coupons_status=''):
+        post_data = {'pageNum': page_num, 'pageSize': page_size, 'batchId': batch_id, 'key': key, 'value': value, 'couponsStatus': coupons_status}
         response = requests.post(self.base_URL + "/coupons/getCouponsReceiveDetail", data=post_data, headers=self.headers)
         response.raise_for_status()
         return response
+
+    def get_coupon_batch_report(self, batch_id):
+        post_data = {'batchId': batch_id}
+        response = requests.post(self.base_URL + "/coupons/getBatchReport", data=post_data, headers=self.headers)
+        response.raise_for_status()
+        return response
+
+    def get_coupon_batch_report_by_date(self, batch_id, page_num=1, page_size=200, start_time='', end_time=''):
+        post_data = {'pageNum': page_num, 'pageSize': page_size, 'batchId': batch_id, 'start_time': start_time, 'end_time': end_time}
+        response = requests.post(self.base_URL + "/coupons/getBatchReportByDate", data=post_data, headers=self.headers)
+        response.raise_for_status()
+        return response
+

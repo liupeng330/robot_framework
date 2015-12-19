@@ -31,10 +31,9 @@ class TestCoupon:
 
     def test_create_coupon_batch(self):
         now = datetime.datetime.now()
-        three_days_later = now + datetime.timedelta(days=3)
-        response = self.request.create_fixed_time_system_coupon_batch(self.coupon_name, 12, 1000,
-                                                                      now.strftime('%Y-%m-%d'),
-                                                                      three_days_later.strftime('%Y-%m-%d'))
+        three_days_later = (now + datetime.timedelta(days=3)).strftime('%Y-%m-%d')
+        now = now.strftime('%Y-%m-%d')
+        response = self.request.create_fixed_time_system_coupon_batch(self.coupon_name, 12, 1000, now, three_days_later)
         assert response.text is not None
         helper.log(response.text)
 
@@ -56,8 +55,8 @@ class TestCoupon:
         tools.eq_(coupon_batch_response['grantType'], 'SYSTEM')
         tools.eq_(coupon_batch_response['id'], batch_id)
         tools.eq_(coupon_batch_response['name'], self.coupon_name)
-        tools.eq_(coupon_batch_response['startTime'], now.strftime('%Y-%m-%d'))
-        tools.eq_(coupon_batch_response['endTime'], three_days_later.strftime('%Y-%m-%d'))
+        tools.eq_(coupon_batch_response['startTime'], now)
+        tools.eq_(coupon_batch_response['endTime'], three_days_later)
         tools.eq_(coupon_batch_response['type'], 'VOUCHER')
         tools.eq_(coupon_batch_response['userScope'], ['ALL_TYPES'])
 
@@ -65,21 +64,19 @@ class TestCoupon:
         coupon_receive_detail_response = response.json()['data']['rows']
         tools.eq_(len(coupon_receive_detail_response), 0)
 
-
     def test_system_coupon_grant(self):
         now = datetime.datetime.now()
-        three_days_later = now + datetime.timedelta(days=3)
-        response = self.request.create_fixed_time_system_coupon_batch(self.coupon_name, 12, 1000,
-                                                                      now.strftime('%Y-%m-%d'),
-                                                                      three_days_later.strftime('%Y-%m-%d'))
+        three_days_later = (now + datetime.timedelta(days=3)).strftime('%Y-%m-%d')
+        now = now.strftime('%Y-%m-%d')
+        response = self.request.create_fixed_time_system_coupon_batch(self.coupon_name, 12, 1000, now, three_days_later)
         assert response.text is not None
+
         batch_key = utils.get_coupon_batch_key_by_name(self.coupon_name)
         batch_id = utils.get_coupon_batch_id_by_name(self.coupon_name)
-        register_time = utils.get_start_time_in_coupon_activity_by_batch_key(batch_key) + datetime.timedelta(seconds=1)
-        helper.log(register_time.strftime('%Y-%m-%d %H:%M:%S'))
+        register_time = (utils.get_start_time_in_coupon_activity_by_batch_key(batch_key) + datetime.timedelta(seconds=1)).strftime('%Y-%m-%d %H:%M:%S')
 
         user_key = utils.get_user_key_by_nick_name(self.nick_name)
-        utils.update_user_register_time_to_current_by_user_key(register_time.strftime('%Y-%m-%d %H:%M:%S'), user_key)
+        utils.update_user_register_time_to_current_by_user_key(register_time, user_key)
         utils.populate_user_into_system_grant_coupon(user_key)
 
         wait_time_for_job = utils.get_job_interval_time_by_job_class_name(self.job_class_name)
@@ -90,9 +87,31 @@ class TestCoupon:
         coupon_receive_detail_response = response.json()['data']['rows']
         tools.eq_(len(coupon_receive_detail_response), 1)
         tools.eq_(coupon_receive_detail_response[0]['couponsStatus'], 'UNUSED')
-        tools.eq_(coupon_receive_detail_response[0]['startTime'], now.strftime('%Y-%m-%d'))
-        tools.eq_(coupon_receive_detail_response[0]['endTime'], three_days_later.strftime('%Y-%m-%d'))
+        tools.eq_(coupon_receive_detail_response[0]['startTime'], now)
+        tools.eq_(coupon_receive_detail_response[0]['endTime'], three_days_later)
         tools.eq_(coupon_receive_detail_response[0]['userId'], user_entry[0])
         tools.eq_(coupon_receive_detail_response[0]['mobile'], user_entry[6])
         tools.eq_(coupon_receive_detail_response[0]['nickName'], self.nick_name)
 
+        response = self.request.get_coupon_batch_report(batch_id)
+        batch_report_response = response.json()['data']['rows']
+        tools.eq_(batch_report_response['grantAmount'], 12)
+        tools.eq_(batch_report_response['grantedNum'], 1)
+        tools.eq_(batch_report_response['invalidAmount'], 0)
+        tools.eq_(batch_report_response['invalidCnt'], 0)
+        tools.eq_(batch_report_response['name'], self.coupon_name)
+        tools.eq_(batch_report_response['realUsedAmount'], 0)
+        tools.eq_(batch_report_response['usedAmount'], 0)
+        tools.eq_(batch_report_response['usedNum'], 0)
+
+        response = self.request.get_coupon_batch_report_by_date(batch_id)
+        batch_report_response_by_date = response.json()['data']['rows']
+        tools.eq_(len(batch_report_response_by_date), 1)
+        tools.eq_(batch_report_response_by_date[0]['grantAmount'], 12)
+        tools.eq_(batch_report_response_by_date[0]['grantCnt'], 1)
+        tools.eq_(batch_report_response_by_date[0]['invalidAmount'], 0)
+        tools.eq_(batch_report_response_by_date[0]['invalidCnt'], 0)
+        tools.eq_(batch_report_response_by_date[0]['realUsedAmount'], 0)
+        tools.eq_(batch_report_response_by_date[0]['unusedCnt'], 1)
+        tools.eq_(batch_report_response_by_date[0]['usedAmount'], 0)
+        tools.eq_(batch_report_response_by_date[0]['usedNum'], 0)
