@@ -76,20 +76,34 @@ class TestCoupon:
         coupon_receive_detail_response = response.json()['data']['rows']
         tools.eq_(len(coupon_receive_detail_response), 0)
 
-    def test_system_coupon_grant(self):
-        self._test_grant_coupon()
+    def test_system_fixed_time_coupon_grant(self):
+        self._test_grant_coupon(CouponBatchType.FixedTime)
 
-    def test_disable_and_in_time_range_system_coupon_grant(self):
-        self._test_grant_coupon(True)
+    def test_system_fixed_length_coupon_grant(self):
+        self._test_grant_coupon(CouponBatchType.FixedLength)
 
-    def test_disable_and_not_in_time_range_system_coupon_grant(self):
-        self._test_grant_coupon(True, False)
+    def test_disable_and_in_time_range_system_fixed_length_coupon_grant(self):
+        self._test_grant_coupon(CouponBatchType.FixedLength, True)
 
-    def _test_grant_coupon(self, disable_coupon_batch=False, need_to_grant_coupon=True):
+    def test_disable_and_not_in_time_range_system_fixed_length_coupon_grant(self):
+        self._test_grant_coupon(CouponBatchType.FixedLength, True, False)
+
+    def test_disable_and_in_time_range_system_fixed_time_coupon_grant(self):
+        self._test_grant_coupon(CouponBatchType.FixedTime, True)
+
+    def test_disable_and_not_in_time_range_system_fixed_time_coupon_grant(self):
+        self._test_grant_coupon(CouponBatchType.FixedTime, True, False)
+
+    def _test_grant_coupon(self, batch_type, disable_coupon_batch=False, need_to_grant_coupon=True):
         now = datetime.datetime.now()
-        three_days_later = (now + datetime.timedelta(days=3)).strftime('%Y-%m-%d')
-        now = now.strftime('%Y-%m-%d')
-        response = self.request.create_fixed_time_system_coupon_batch(self.coupon_name, 12, 1000, now, three_days_later)
+        if batch_type == CouponBatchType.FixedTime:
+            three_days_later = (now + datetime.timedelta(days=3)).strftime('%Y-%m-%d')
+            now = now.strftime('%Y-%m-%d')
+            response = self.request.create_fixed_time_system_coupon_batch(self.coupon_name, 12, 1000, now, three_days_later)
+        if batch_type == CouponBatchType.FixedLength:
+            thirty_days_later = (now + datetime.timedelta(days=30)).strftime('%Y-%m-%d')
+            now = now.strftime('%Y-%m-%d')
+            response = self.request.create_fixed_length_system_coupon_batch(self.coupon_name, 12, 1000, 30, 'DAY')
         assert response.text is not None
 
         batch_key = utils.get_coupon_batch_key_by_name(self.coupon_name)
@@ -122,7 +136,7 @@ class TestCoupon:
             tools.eq_(len(coupon_receive_detail_response), 1)
             tools.eq_(coupon_receive_detail_response[0]['couponsStatus'], 'UNUSED')
             tools.eq_(coupon_receive_detail_response[0]['startTime'], now)
-            tools.eq_(coupon_receive_detail_response[0]['endTime'], three_days_later)
+            tools.eq_(coupon_receive_detail_response[0]['endTime'], three_days_later if batch_type == CouponBatchType.FixedTime else thirty_days_later)
             tools.eq_(coupon_receive_detail_response[0]['userId'], user_entry[0])
             tools.eq_(coupon_receive_detail_response[0]['mobile'], user_entry[6])
             tools.eq_(coupon_receive_detail_response[0]['nickName'], self.nick_name)
