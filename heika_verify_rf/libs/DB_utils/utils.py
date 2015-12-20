@@ -113,6 +113,11 @@ def get_start_time_in_coupon_activity_by_batch_key(batch_key):
     return fetch_one(sql)
 
 
+def get_end_time_in_coupon_activity_by_batch_key(batch_key):
+    sql = "SELECT end_time from coupon_activity where batch_key = '%s'" % batch_key
+    return fetch_one(sql)
+
+
 def delete_verify_user_status_by_user_id(user_id):
     helper.log('删除verify_user_status表中的数据')
     delete_sql = "DELETE from verify_user_status where user_id = %s" % user_id
