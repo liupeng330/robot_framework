@@ -3,7 +3,7 @@ Test Setup       Open Browser To Login Page
 Test Teardown    Close Browser
 Resource    ../resources/resource.robot
 Library     String
-Library      VerifyLibrary   http://${SERVER}    ${ADMIN USER}
+Library      ../VerifyLibrary.py   http://${SERVER}    ${ADMIN USER}
 
 *** Test Cases ***
 Administrator permission test
@@ -20,7 +20,8 @@ Investigator permission test
     log     ${VALID USER}
     log     &{DEPARTMENT NAME AND ID}[组织]
     log     &{ROLE NAME AND ROLE ID}[调查人员]
-    UPDATE VERIFY USER ROLE     ${VALID USER}   &{DEPARTMENT NAME AND ID}[组织]   &{ROLE NAME AND ROLE ID}[调查人员]
+    ${response} =  UPDATE VERIFY USER ROLE     ${VALID USER}   &{DEPARTMENT NAME AND ID}[组织]   &{ROLE NAME AND ROLE ID}[调查人员]
+    log     ${response}
     Login With Valid Account    ${VALID USER}   ${VALID PASSWORD}
 
     :FOR    ${node}    IN    @{INV TREE NODE TITLES}
