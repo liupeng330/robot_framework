@@ -29,7 +29,7 @@ ${TREE TITLE ONLY NODE}     调额管理
 @{AUDIT MANAGER TREE NODE TITLES}     用户查询    待办任务    办结任务    我参与的进件    流程任务管理  流程配置管理
 @{AUDIT MANAGER TREE NODE TITLES NOT VISIBLE}     修改个人信息  角色授权管理  组织人员管理
 
-${IFRAME}   xpath=//*[@id="main-center"]/div[2]/div[2]/div/iframe
+${USER SEARCH IFRAME}   //iframe[contains(@src,'userSearch')]
 
 *** Keywords ***
 Open Browser To Login Page

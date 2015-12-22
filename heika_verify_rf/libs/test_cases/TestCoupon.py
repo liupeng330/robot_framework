@@ -26,7 +26,7 @@ class TestCoupon:
     def setup(self):
         self.request = coupon.CouponRequest('http://172.16.2.38:12081/')
         self.request.login()
-        self.coupon_name = 'test_at123'
+        self.coupon_name = 'test_at'
         self.nick_name = 'auto_01'
         self.job_class_name = 'systemGrantCouponJob'
         self.user_key = utils.get_user_key_by_nick_name(self.nick_name)

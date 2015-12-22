@@ -26,8 +26,8 @@ if __name__ == "__main__":
 
     if sys.argv[1] == 'init':
         for user_id in sys.argv[2:]:
-            request_util = RequestUtil('http://172.16.2.38:17788/dubbo/test/')
-            # request_util = RequestUtil('http://172.16.2.111:7020/heika-verify/dubbo/test/')
+            # request_util = RequestUtil('http://172.16.2.38:17788/dubbo/test/')
+            request_util = RequestUtil('http://172.16.2.111:7020/heika-verify/dubbo/test/')
 
             libs.helper.log('将user_id为%s的用户置为待调查状态' % user_id)
             init_user(user_id)
