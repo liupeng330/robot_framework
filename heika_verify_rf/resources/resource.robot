@@ -1,5 +1,5 @@
 *** Settings ***
-Library           Selenium2Library      2      10
+Library           ../CustomSeleniumLibrary.py    2      10
 
 *** Variables ***
 ${SERVER}           172.16.2.38:15081

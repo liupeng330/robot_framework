@@ -109,12 +109,12 @@ def get_verify_user_id_by_real_name(real_name):
 
 
 def get_start_time_in_coupon_activity_by_batch_key(batch_key):
-    sql = "SELECT start_time from coupon_activity where batch_key = '%s'" % batch_key
+    sql = "SELECT start_time from admin_coupon_activity where batch_key = '%s'" % batch_key
     return fetch_one(sql)
 
 
 def get_end_time_in_coupon_activity_by_batch_key(batch_key):
-    sql = "SELECT end_time from coupon_activity where batch_key = '%s'" % batch_key
+    sql = "SELECT end_time from admin_coupon_activity where batch_key = '%s'" % batch_key
     return fetch_one(sql)
 
 
@@ -219,7 +219,7 @@ def get_user_keys_by_nick_name_prefix(prefix, count):
 
 
 def get_user_keys_from_system_grant_coupon(*status):
-    query = "select `user_key`, `status` from `system_grant_coupon_users`"
+    query = "select `user_key`, `status` from `admin_system_grant_coupon_users`"
     cursor.execute(query)
     user_keys = cursor.fetchall()
     ret = []
@@ -232,7 +232,7 @@ def get_user_keys_from_system_grant_coupon(*status):
 def populate_user_into_system_grant_coupon(*user_keys):
     for key in user_keys:
         now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        cursor.execute("""INSERT INTO `system_grant_coupon_users` (`user_key`, `status`, `create_time`, `update_time`,
+        cursor.execute("""INSERT INTO `admin_system_grant_coupon_users` (`user_key`, `status`, `create_time`, `update_time`,
         `active_action`, `version`) VALUES (%s, 1, %s, %s, 'REGISTER_VERIFY', 0)""",
                        (key, str(now), str(now)))
         conn.commit()
@@ -247,13 +247,13 @@ def populate_coupon_batch_into_active_ref(*batch_keys):
 
 
 def delete_all_system_grant_coupon():
-    cursor.execute("""delete from `system_grant_coupon_users`""")
+    cursor.execute("""delete from `admin_system_grant_coupon_users`""")
     conn.commit()
 
 
 def delete_user_from_system_grant_coupon(*user_keys):
     for key in user_keys:
-        cursor.execute("""delete from `system_grant_coupon_users` where `user_key` = %s""", (key[0],))
+        cursor.execute("""delete from `admin_system_grant_coupon_users` where `user_key` = %s""", (key[0],))
         conn.commit()
 
 
@@ -277,8 +277,8 @@ def delete_coupon_batch_by_key(batch_key):
     cursor.execute("""delete from `coupon` where `coupon_batch_key` = %s""", (batch_key,))
     cursor.execute("""delete from `coupon_batch_log` where `batch_key` = %s""", (batch_key,))
     cursor.execute("""delete from `coupon_batch` where `batch_key` = %s""", (batch_key,))
-    cursor.execute("""delete from `coupon_batch_active_status_ref` where `coupon_batch_key` = %s""", (batch_key,))
-    cursor.execute("""delete from `coupon_activity` where `batch_key` = %s""", (batch_key,))
+    # cursor.execute("""delete from `coupon_batch_active_status_ref` where `coupon_batch_key` = %s""", (batch_key,))
+    cursor.execute("""delete from `admin_coupon_activity` where `batch_key` = %s""", (batch_key,))
     conn.commit()
 
 
