@@ -4,6 +4,7 @@ from .. import global_config
 from .. import helper
 from datetime import datetime
 import mysql.connector
+from .. import global_enum
 
 conn = mysql.connector.connect(
     user=global_config.db_user_name,
@@ -310,3 +311,57 @@ def get_job_interval_time_by_job_class_name(name):
     for value in values:
         total += int(value[0])
     return total
+
+
+def search_user(type, key,  *verify_status):
+    sql = '''
+select
+    user.user_id,
+    user.nick_name,
+    user_info.real_name,
+    user.mobile,
+    user_info.id_no,
+    user.channel,
+    verify_user_status.verify_user_status
+from
+    user
+        inner join
+    user_info ON user.user_id = user_info.user_id
+        inner join
+    verify_user_status ON user.user_id = verify_user_status.user_id
+where '''
+
+    if type == global_enum.SearchType.NickName:
+        sql += 'user.nick_name like \'%s' % key
+    elif type == global_enum.SearchType.Mobile:
+        sql += 'user.mobile like \'%s' % key
+    elif type == global_enum.SearchType.IdNum:
+        sql += 'user_info.id_no like \'%s' % key
+    elif type == global_enum.SearchType.RealName:
+        sql += 'user_info.real_name like \'%s' % key
+    sql += '%\''
+
+    if len(verify_status) > 0:
+        verify_status = ['\'' + status + '\'' for status in verify_status]
+        sql += ' and verify_user_status.verify_user_status in (' + ','.join(verify_status) + ')'
+
+    sql += ' order by user.register_time desc , user_id asc;'
+
+    helper.log('执行sql：' + sql)
+    cursor.execute(sql)
+    return cursor.fetchall()
+
+
+def get_real_name_in_verify_user(verify_user_id):
+    return fetch_one('select real_name from verify_user where id = %s' % verify_user_id)
+
+
+def get_latest_verify_user_status_log(user_id):
+    cursor.execute('select verify_user_id, create_time from verify_user_status_log where user_id = %s order by create_time desc limit 0,1' % user_id)
+    ret = cursor.fetchone()
+    if ret is not None:
+        if ret[0] is not None:
+            return get_real_name_in_verify_user(ret[0]), ret[1]
+        else:
+            return '', ret[1]
+    return None

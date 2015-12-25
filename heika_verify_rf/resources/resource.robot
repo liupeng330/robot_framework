@@ -30,6 +30,7 @@ ${TREE TITLE ONLY NODE}     调额管理
 @{AUDIT MANAGER TREE NODE TITLES NOT VISIBLE}     修改个人信息  角色授权管理  组织人员管理
 
 ${USER SEARCH IFRAME}   //iframe[contains(@src,'userSearch')]
+${USER SEARCH TABLE}    xpath=//*[@id="tabs"]/div[2]/div/div/div/div/div[2]/div[2]/div[2]/table
 
 *** Keywords ***
 Open Browser To Login Page

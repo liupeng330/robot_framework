@@ -1,17 +1,26 @@
 from Selenium2Library import Selenium2Library
+from selenium.common.exceptions import StaleElementReferenceException
+import time
 
 
 def _get_table_field_value(element, field):
-    # return element.find_element_by_xpath("./td[@field='" + field + "']").get_text().strip()
     return element.find_element_by_xpath("./td[@field='" + field + "']").text.strip()
 
 
 class CustomSeleniumLibrary(Selenium2Library):
     def get_table_row_count(self, table_locator):
-        table = self._table_element_finder.find(self._current_browser(), table_locator)
-        if table is not None:
-            return len(table.find_elements_by_xpath("./tbody/tr"))
-        raise AssertionError("Cell in table %s could not be found." % table_locator)
+        attempts = 0
+        while True:
+            try:
+                table = self._table_element_finder.find(self._current_browser(), table_locator)
+                return len(table.find_elements_by_xpath("./tbody/tr"))
+            except StaleElementReferenceException:
+                time.sleep(1)
+                if attempts >= 1:
+                    raise AssertionError("Cell in table %s could not be found." % table_locator)
+                else:
+                    pass
+            attempts += 1
 
     def get_user_search_results(self, table_locator, row_index):
         table = self._table_element_finder.find(self._current_browser(), table_locator)
@@ -32,7 +41,7 @@ class CustomSeleniumLibrary(Selenium2Library):
                     'idNo': _get_table_field_value(row, 'idNo'),
                     'userType': _get_table_field_value(row, 'userType'),
                     'verifyUserStatus': _get_table_field_value(row, 'verifyUserStatus'),
-                    'operater': _get_table_field_value(row, 'operater'),
+                    'operator': _get_table_field_value(row, 'operater'),
                     'operateTime': _get_table_field_value(row, 'operateTime'),
                 }
                 ret.append(dic)
