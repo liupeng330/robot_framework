@@ -11,11 +11,14 @@ Search user test
     Click TreeNode		 用户查询
     Page Title Visible   用户查询
     Select Frame   ${USER SEARCH IFRAME}
-    Input Text     id=oText    auto
+    Input Text     id=oText    后台
     Click Button   id=oSubmit
     Wait Until Page Contains Element    ${USER SEARCH TABLE}
+
     ${row_count} =      Get Table Row Count   ${USER SEARCH TABLE}
     Log     共有行数：${row_count}
-    ${row} =       Get User Search Results     ${USER SEARCH TABLE}    0
-    Log     第一行：${row}
-    Compare User Search Result      ${row}      0       auto
+
+    : FOR    ${i}   IN RANGE    10
+    \   ${row} =       Get User Search Results     ${USER SEARCH TABLE}    ${i}
+    \   Log     第${i}行：${row}
+    \   Compare User Search Result      ${row}      ${i}       后台

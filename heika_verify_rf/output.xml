@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20151226 23:30:30.828" generator="Robot 2.9.2 (Python 2.7.6 on linux2)">
+<suite source="/home/peng/git_test_codes/robot_framework/heika_verify_rf/verify_system_tests/user_search_tests.robot" id="s1" name="User Search Tests">
+<test id="s1-t1" name="Search user test">
+<kw type="setup" name="Open Browser To Login Page" library="resource">
+<kw name="Open Browser" library="CustomSeleniumLibrary">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20151226 23:30:30.950" level="INFO">Opening browser 'Chrome' to base url 'http://172.16.2.38:15081/login/index.html'</msg>
+<status status="PASS" endtime="20151226 23:30:34.291" starttime="20151226 23:30:30.949"></status>
+</kw>
+<kw name="Maximize Browser Window" library="CustomSeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151226 23:30:34.432" starttime="20151226 23:30:34.292"></status>
+</kw>
+<kw name="Set Selenium Speed" library="CustomSeleniumLibrary">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20151226 23:30:34.433" starttime="20151226 23:30:34.432"></status>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>登录</arg>
+</arguments>
+<msg timestamp="20151226 23:30:34.437" level="INFO">Page title is '登录'.</msg>
+<status status="PASS" endtime="20151226 23:30:34.438" starttime="20151226 23:30:34.434"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:30:34.438" starttime="20151226 23:30:34.434"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:30:34.438" starttime="20151226 23:30:30.948"></status>
+</kw>
+<kw name="Login With Valid Account" library="resource">
+<arguments>
+<arg>${ADMIN USER}</arg>
+<arg>${ADMIN PASSWORD}</arg>
+</arguments>
+<kw name="Input Username" library="resource">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20151226 23:30:34.441" level="INFO">Typing text 'admin@renrendai.com' into text field 'username'</msg>
+<status status="PASS" endtime="20151226 23:30:34.509" starttime="20151226 23:30:34.440"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:30:34.510" starttime="20151226 23:30:34.440"></status>
+</kw>
+<kw name="Input Password" library="resource">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20151226 23:30:34.511" level="INFO">Typing text 'L123456' into text field 'password'</msg>
+<status status="PASS" endtime="20151226 23:30:34.593" starttime="20151226 23:30:34.511"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:30:34.593" starttime="20151226 23:30:34.510"></status>
+</kw>
+<kw name="Submit Credentials" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>loginCheck</arg>
+</arguments>
+<msg timestamp="20151226 23:30:34.595" level="INFO">Clicking button 'loginCheck'.</msg>
+<status status="PASS" endtime="20151226 23:30:44.647" starttime="20151226 23:30:34.594"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:30:44.647" starttime="20151226 23:30:34.594"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>2 min</arg>
+<arg>10 sec</arg>
+<arg>Welcome Page Should Be Open</arg>
+</arguments>
+<kw name="Welcome Page Should Be Open" library="resource">
+<kw name="Location Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${WELCOME URL}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="CustomSeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20151226 23:30:45.452" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20151226 23:30:45.453" starttime="20151226 23:30:44.663"></status>
+</kw>
+<msg timestamp="20151226 23:30:45.453" level="FAIL">Location should have been 'http://172.16.2.38:15081/index.html' but was 'http://172.16.2.38:15081/login/index.html'</msg>
+<status status="FAIL" endtime="20151226 23:30:45.454" starttime="20151226 23:30:44.649"></status>
+</kw>
+<status status="FAIL" endtime="20151226 23:30:45.454" starttime="20151226 23:30:44.648"></status>
+</kw>
+<kw name="Welcome Page Should Be Open" library="resource">
+<kw name="Location Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${WELCOME URL}</arg>
+</arguments>
+<msg timestamp="20151226 23:30:55.459" level="INFO">Current location is 'http://172.16.2.38:15081/index.html'.</msg>
+<status status="PASS" endtime="20151226 23:30:55.460" starttime="20151226 23:30:55.456"></status>
+</kw>
+<kw name="Title Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>黑卡审核系统</arg>
+</arguments>
+<msg timestamp="20151226 23:30:55.464" level="INFO">Page title is '黑卡审核系统'.</msg>
+<status status="PASS" endtime="20151226 23:30:55.464" starttime="20151226 23:30:55.460"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:30:55.465" starttime="20151226 23:30:55.455"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:30:55.465" starttime="20151226 23:30:44.647"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:30:55.465" starttime="20151226 23:30:34.439"></status>
+</kw>
+<kw name="Click TreeNode" library="resource">
+<arguments>
+<arg>用户查询</arg>
+</arguments>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="${treetitle}"]</arg>
+</arguments>
+<msg timestamp="20151226 23:30:55.467" level="INFO">Clicking element 'xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="用户查询"]'.</msg>
+<status status="PASS" endtime="20151226 23:30:55.506" starttime="20151226 23:30:55.467"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:30:55.507" starttime="20151226 23:30:55.466"></status>
+</kw>
+<kw name="Page Title Visible" library="resource">
+<arguments>
+<arg>用户查询</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>xpath=//*[@id="main-center"]//span[@class="tabs-title tabs-closable" and text()="${pagetitle}"]</arg>
+</arguments>
+<status status="PASS" endtime="20151226 23:30:55.921" starttime="20151226 23:30:55.508"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:30:55.921" starttime="20151226 23:30:55.507"></status>
+</kw>
+<kw name="Select Frame" library="CustomSeleniumLibrary">
+<doc>Sets frame identified by `locator` as current frame.</doc>
+<arguments>
+<arg>${USER SEARCH IFRAME}</arg>
+</arguments>
+<msg timestamp="20151226 23:30:55.922" level="INFO">Selecting frame '//iframe[contains(@src,'userSearch')]'.</msg>
+<status status="PASS" endtime="20151226 23:30:55.946" starttime="20151226 23:30:55.921"></status>
+</kw>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=oText</arg>
+<arg>后台</arg>
+</arguments>
+<msg timestamp="20151226 23:30:55.948" level="INFO">Typing text '后台' into text field 'id=oText'</msg>
+<status status="PASS" endtime="20151226 23:30:56.027" starttime="20151226 23:30:55.947"></status>
+</kw>
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>id=oSubmit</arg>
+</arguments>
+<msg timestamp="20151226 23:30:56.028" level="INFO">Clicking button 'id=oSubmit'.</msg>
+<status status="PASS" endtime="20151226 23:30:56.116" starttime="20151226 23:30:56.028"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+</arguments>
+<status status="PASS" endtime="20151226 23:30:56.138" starttime="20151226 23:30:56.116"></status>
+</kw>
+<kw name="Get Table Row Count" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+</arguments>
+<assign>
+<var>${row_count}</var>
+</assign>
+<msg timestamp="20151226 23:30:57.252" level="INFO">${row_count} = 19</msg>
+<status status="PASS" endtime="20151226 23:30:57.252" starttime="20151226 23:30:56.138"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>共有行数：${row_count}</arg>
+</arguments>
+<msg timestamp="20151226 23:30:57.253" level="INFO">共有行数：19</msg>
+<status status="PASS" endtime="20151226 23:30:57.253" starttime="20151226 23:30:57.252"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ 10 ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Get User Search Results" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20151226 23:31:02.105" level="INFO">${row} = {'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091001', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u8c03\u67e5', 'realName': u'\u540e\u53f0\u6d4b\u8bd501', 'mobile': u'131...</msg>
+<status status="PASS" endtime="20151226 23:31:02.105" starttime="20151226 23:30:57.254"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>第${i}行：${row}</arg>
+</arguments>
+<msg timestamp="20151226 23:31:02.106" level="INFO">第0行：{'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091001', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u8c03\u67e5', 'realName': u'\u540e\u53f0\u6d4b\u8bd501', 'mobile': u'13146865531', 'nickName': u'\u540e\u53f0\u4e0a\u7ebf\u524d\u68c0\u67e5\u52ff\u52a801', 'userId': u'100034833', 'operator': u''}</msg>
+<status status="PASS" endtime="20151226 23:31:02.106" starttime="20151226 23:31:02.105"></status>
+</kw>
+<kw name="Compare User Search Result" library="VerifyLibrary">
+<arguments>
+<arg>${row}</arg>
+<arg>${i}</arg>
+<arg>后台</arg>
+</arguments>
+<msg timestamp="20151226 23:31:02.107" level="INFO">\xe5\x90\x8e\xe5\x8f\xb0</msg>
+<msg timestamp="20151226 23:31:02.122" level="INFO">Start to fetch from DB</msg>
+<msg timestamp="20151226 23:31:02.123" level="INFO">Start to fetch from UI</msg>
+<msg timestamp="20151226 23:31:02.123" level="INFO">Start to compare them</msg>
+<msg timestamp="20151226 23:31:02.123" level="INFO">[2015-12-26 23:31:02] [search_user] 执行sql：
+select
+    user.user_id,
+    user.nick_name,
+    user_info.real_name,
+    user.mobile,
+    user_info.id_no,
+    user.channel,
+    verify_user_status.verify_user_status
+from
+    user
+        inner join
+    user_info ON user.user_id = user_info.user_id
+        inner join
+    verify_user_status ON user.user_id = verify_user_status.user_id
+where user.nick_name like '后台%' order by user.register_time desc , user_id asc;</msg>
+<status status="PASS" endtime="20151226 23:31:02.124" starttime="20151226 23:31:02.106"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:31:02.124" starttime="20151226 23:30:57.254"></status>
+</kw>
+<kw type="foritem" name="${i} = 1">
+<kw name="Get User Search Results" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20151226 23:31:06.895" level="INFO">${row} = {'userType': u'BD\u6e20\u9053\u7528\u6237', 'idNo': u'130521199307091003', 'operateTime': u'2016-01-01 14:44', 'verifyUserStatus': u'\u7b49\u5f85\u4e00\u5ba1', 'realName': u'\u540e\u53f0\u6d4b\u8bd503...</msg>
+<status status="PASS" endtime="20151226 23:31:06.895" starttime="20151226 23:31:02.124"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>第${i}行：${row}</arg>
+</arguments>
+<msg timestamp="20151226 23:31:06.896" level="INFO">第1行：{'userType': u'BD\u6e20\u9053\u7528\u6237', 'idNo': u'130521199307091003', 'operateTime': u'2016-01-01 14:44', 'verifyUserStatus': u'\u7b49\u5f85\u4e00\u5ba1', 'realName': u'\u540e\u53f0\u6d4b\u8bd503', 'mobile': u'13146865533', 'nickName': u'\u540e\u53f0\u4e0a\u7ebf\u524d\u68c0\u67e5\u52ff\u52a803', 'userId': u'100034835', 'operator': u''}</msg>
+<status status="PASS" endtime="20151226 23:31:06.896" starttime="20151226 23:31:06.895"></status>
+</kw>
+<kw name="Compare User Search Result" library="VerifyLibrary">
+<arguments>
+<arg>${row}</arg>
+<arg>${i}</arg>
+<arg>后台</arg>
+</arguments>
+<msg timestamp="20151226 23:31:06.897" level="INFO">\xe5\x90\x8e\xe5\x8f\xb0</msg>
+<msg timestamp="20151226 23:31:06.899" level="INFO">Start to fetch from DB</msg>
+<msg timestamp="20151226 23:31:06.900" level="INFO">Start to fetch from UI</msg>
+<msg timestamp="20151226 23:31:06.900" level="INFO">Start to compare them</msg>
+<msg timestamp="20151226 23:31:06.900" level="INFO">[2015-12-26 23:31:06] [search_user] 执行sql：
+select
+    user.user_id,
+    user.nick_name,
+    user_info.real_name,
+    user.mobile,
+    user_info.id_no,
+    user.channel,
+    verify_user_status.verify_user_status
+from
+    user
+        inner join
+    user_info ON user.user_id = user_info.user_id
+        inner join
+    verify_user_status ON user.user_id = verify_user_status.user_id
+where user.nick_name like '后台%' order by user.register_time desc , user_id asc;</msg>
+<status status="PASS" endtime="20151226 23:31:06.900" starttime="20151226 23:31:06.896"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:31:06.901" starttime="20151226 23:31:02.124"></status>
+</kw>
+<kw type="foritem" name="${i} = 2">
+<kw name="Get User Search Results" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20151226 23:31:10.392" level="INFO">${row} = {'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091004', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u8c03\u67e5', 'realName': u'\u540e\u53f0\u6d4b\u8bd504', 'mobile': u'131...</msg>
+<status status="PASS" endtime="20151226 23:31:10.392" starttime="20151226 23:31:06.901"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>第${i}行：${row}</arg>
+</arguments>
+<msg timestamp="20151226 23:31:10.393" level="INFO">第2行：{'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091004', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u8c03\u67e5', 'realName': u'\u540e\u53f0\u6d4b\u8bd504', 'mobile': u'13146865534', 'nickName': u'\u540e\u53f0\u4e0a\u7ebf\u524d\u68c0\u67e5\u52ff\u52a804', 'userId': u'100034836', 'operator': u''}</msg>
+<status status="PASS" endtime="20151226 23:31:10.393" starttime="20151226 23:31:10.392"></status>
+</kw>
+<kw name="Compare User Search Result" library="VerifyLibrary">
+<arguments>
+<arg>${row}</arg>
+<arg>${i}</arg>
+<arg>后台</arg>
+</arguments>
+<msg timestamp="20151226 23:31:10.394" level="INFO">\xe5\x90\x8e\xe5\x8f\xb0</msg>
+<msg timestamp="20151226 23:31:10.396" level="INFO">Start to fetch from DB</msg>
+<msg timestamp="20151226 23:31:10.396" level="INFO">Start to fetch from UI</msg>
+<msg timestamp="20151226 23:31:10.396" level="INFO">Start to compare them</msg>
+<msg timestamp="20151226 23:31:10.397" level="INFO">[2015-12-26 23:31:10] [search_user] 执行sql：
+select
+    user.user_id,
+    user.nick_name,
+    user_info.real_name,
+    user.mobile,
+    user_info.id_no,
+    user.channel,
+    verify_user_status.verify_user_status
+from
+    user
+        inner join
+    user_info ON user.user_id = user_info.user_id
+        inner join
+    verify_user_status ON user.user_id = verify_user_status.user_id
+where user.nick_name like '后台%' order by user.register_time desc , user_id asc;</msg>
+<status status="PASS" endtime="20151226 23:31:10.397" starttime="20151226 23:31:10.393"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:31:10.397" starttime="20151226 23:31:06.901"></status>
+</kw>
+<kw type="foritem" name="${i} = 3">
+<kw name="Get User Search Results" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20151226 23:31:13.161" level="INFO">${row} = {'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091005', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u8c03\u67e5', 'realName': u'\u540e\u53f0\u6d4b\u8bd505', 'mobile': u'131...</msg>
+<status status="PASS" endtime="20151226 23:31:13.161" starttime="20151226 23:31:10.398"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>第${i}行：${row}</arg>
+</arguments>
+<msg timestamp="20151226 23:31:13.162" level="INFO">第3行：{'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091005', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u8c03\u67e5', 'realName': u'\u540e\u53f0\u6d4b\u8bd505', 'mobile': u'13146865535', 'nickName': u'\u540e\u53f0\u4e0a\u7ebf\u524d\u68c0\u67e5\u52ff\u52a805', 'userId': u'100034837', 'operator': u''}</msg>
+<status status="PASS" endtime="20151226 23:31:13.162" starttime="20151226 23:31:13.162"></status>
+</kw>
+<kw name="Compare User Search Result" library="VerifyLibrary">
+<arguments>
+<arg>${row}</arg>
+<arg>${i}</arg>
+<arg>后台</arg>
+</arguments>
+<msg timestamp="20151226 23:31:13.163" level="INFO">\xe5\x90\x8e\xe5\x8f\xb0</msg>
+<msg timestamp="20151226 23:31:13.165" level="INFO">Start to fetch from DB</msg>
+<msg timestamp="20151226 23:31:13.165" level="INFO">Start to fetch from UI</msg>
+<msg timestamp="20151226 23:31:13.166" level="INFO">Start to compare them</msg>
+<msg timestamp="20151226 23:31:13.166" level="INFO">[2015-12-26 23:31:13] [search_user] 执行sql：
+select
+    user.user_id,
+    user.nick_name,
+    user_info.real_name,
+    user.mobile,
+    user_info.id_no,
+    user.channel,
+    verify_user_status.verify_user_status
+from
+    user
+        inner join
+    user_info ON user.user_id = user_info.user_id
+        inner join
+    verify_user_status ON user.user_id = verify_user_status.user_id
+where user.nick_name like '后台%' order by user.register_time desc , user_id asc;</msg>
+<status status="PASS" endtime="20151226 23:31:13.166" starttime="20151226 23:31:13.163"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:31:13.166" starttime="20151226 23:31:10.397"></status>
+</kw>
+<kw type="foritem" name="${i} = 4">
+<kw name="Get User Search Results" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20151226 23:31:15.737" level="INFO">${row} = {'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091006', 'operateTime': u'2016-01-01 14:44', 'verifyUserStatus': u'\u7b49\u5f85\u4e8c\u5ba1', 'realName': u'\u540e\u53f0\u6d4b\u8bd506',...</msg>
+<status status="PASS" endtime="20151226 23:31:15.737" starttime="20151226 23:31:13.168"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>第${i}行：${row}</arg>
+</arguments>
+<msg timestamp="20151226 23:31:15.738" level="INFO">第4行：{'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091006', 'operateTime': u'2016-01-01 14:44', 'verifyUserStatus': u'\u7b49\u5f85\u4e8c\u5ba1', 'realName': u'\u540e\u53f0\u6d4b\u8bd506', 'mobile': u'13146865536', 'nickName': u'\u540e\u53f0\u4e0a\u7ebf\u524d\u68c0\u67e5\u52ff\u52a806', 'userId': u'100034838', 'operator': u''}</msg>
+<status status="PASS" endtime="20151226 23:31:15.738" starttime="20151226 23:31:15.738"></status>
+</kw>
+<kw name="Compare User Search Result" library="VerifyLibrary">
+<arguments>
+<arg>${row}</arg>
+<arg>${i}</arg>
+<arg>后台</arg>
+</arguments>
+<msg timestamp="20151226 23:31:15.739" level="INFO">\xe5\x90\x8e\xe5\x8f\xb0</msg>
+<msg timestamp="20151226 23:31:15.741" level="INFO">Start to fetch from DB</msg>
+<msg timestamp="20151226 23:31:15.742" level="INFO">Start to fetch from UI</msg>
+<msg timestamp="20151226 23:31:15.742" level="INFO">Start to compare them</msg>
+<msg timestamp="20151226 23:31:15.742" level="INFO">[2015-12-26 23:31:15] [search_user] 执行sql：
+select
+    user.user_id,
+    user.nick_name,
+    user_info.real_name,
+    user.mobile,
+    user_info.id_no,
+    user.channel,
+    verify_user_status.verify_user_status
+from
+    user
+        inner join
+    user_info ON user.user_id = user_info.user_id
+        inner join
+    verify_user_status ON user.user_id = verify_user_status.user_id
+where user.nick_name like '后台%' order by user.register_time desc , user_id asc;</msg>
+<status status="PASS" endtime="20151226 23:31:15.743" starttime="20151226 23:31:15.739"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:31:15.743" starttime="20151226 23:31:13.167"></status>
+</kw>
+<kw type="foritem" name="${i} = 5">
+<kw name="Get User Search Results" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20151226 23:31:18.001" level="INFO">${row} = {'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091007', 'operateTime': u'2016-01-01 14:44', 'verifyUserStatus': u'\u9000\u4ef6', 'realName': u'\u540e\u53f0\u6d4b\u8bd507', 'mobile': u...</msg>
+<status status="PASS" endtime="20151226 23:31:18.001" starttime="20151226 23:31:15.744"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>第${i}行：${row}</arg>
+</arguments>
+<msg timestamp="20151226 23:31:18.002" level="INFO">第5行：{'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091007', 'operateTime': u'2016-01-01 14:44', 'verifyUserStatus': u'\u9000\u4ef6', 'realName': u'\u540e\u53f0\u6d4b\u8bd507', 'mobile': u'13146865537', 'nickName': u'\u540e\u53f0\u4e0a\u7ebf\u524d\u68c0\u67e5\u52ff\u52a807', 'userId': u'100034839', 'operator': u''}</msg>
+<status status="PASS" endtime="20151226 23:31:18.003" starttime="20151226 23:31:18.002"></status>
+</kw>
+<kw name="Compare User Search Result" library="VerifyLibrary">
+<arguments>
+<arg>${row}</arg>
+<arg>${i}</arg>
+<arg>后台</arg>
+</arguments>
+<msg timestamp="20151226 23:31:18.003" level="INFO">\xe5\x90\x8e\xe5\x8f\xb0</msg>
+<msg timestamp="20151226 23:31:18.005" level="INFO">Start to fetch from DB</msg>
+<msg timestamp="20151226 23:31:18.006" level="INFO">Start to fetch from UI</msg>
+<msg timestamp="20151226 23:31:18.006" level="INFO">Start to compare them</msg>
+<msg timestamp="20151226 23:31:18.007" level="INFO">[2015-12-26 23:31:18] [search_user] 执行sql：
+select
+    user.user_id,
+    user.nick_name,
+    user_info.real_name,
+    user.mobile,
+    user_info.id_no,
+    user.channel,
+    verify_user_status.verify_user_status
+from
+    user
+        inner join
+    user_info ON user.user_id = user_info.user_id
+        inner join
+    verify_user_status ON user.user_id = verify_user_status.user_id
+where user.nick_name like '后台%' order by user.register_time desc , user_id asc;</msg>
+<status status="PASS" endtime="20151226 23:31:18.007" starttime="20151226 23:31:18.003"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:31:18.007" starttime="20151226 23:31:15.743"></status>
+</kw>
+<kw type="foritem" name="${i} = 6">
+<kw name="Get User Search Results" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20151226 23:31:20.072" level="INFO">${row} = {'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091008', 'operateTime': u'2016-01-01 14:44', 'verifyUserStatus': u'\u9000\u4ef6', 'realName': u'\u540e\u53f0\u6d4b\u8bd508', 'mobile': u...</msg>
+<status status="PASS" endtime="20151226 23:31:20.072" starttime="20151226 23:31:18.008"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>第${i}行：${row}</arg>
+</arguments>
+<msg timestamp="20151226 23:31:20.073" level="INFO">第6行：{'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091008', 'operateTime': u'2016-01-01 14:44', 'verifyUserStatus': u'\u9000\u4ef6', 'realName': u'\u540e\u53f0\u6d4b\u8bd508', 'mobile': u'13146865538', 'nickName': u'\u540e\u53f0\u4e0a\u7ebf\u524d\u68c0\u67e5\u52ff\u52a808', 'userId': u'100034840', 'operator': u''}</msg>
+<status status="PASS" endtime="20151226 23:31:20.073" starttime="20151226 23:31:20.072"></status>
+</kw>
+<kw name="Compare User Search Result" library="VerifyLibrary">
+<arguments>
+<arg>${row}</arg>
+<arg>${i}</arg>
+<arg>后台</arg>
+</arguments>
+<msg timestamp="20151226 23:31:20.074" level="INFO">\xe5\x90\x8e\xe5\x8f\xb0</msg>
+<msg timestamp="20151226 23:31:20.076" level="INFO">Start to fetch from DB</msg>
+<msg timestamp="20151226 23:31:20.076" level="INFO">Start to fetch from UI</msg>
+<msg timestamp="20151226 23:31:20.077" level="INFO">Start to compare them</msg>
+<msg timestamp="20151226 23:31:20.077" level="INFO">[2015-12-26 23:31:20] [search_user] 执行sql：
+select
+    user.user_id,
+    user.nick_name,
+    user_info.real_name,
+    user.mobile,
+    user_info.id_no,
+    user.channel,
+    verify_user_status.verify_user_status
+from
+    user
+        inner join
+    user_info ON user.user_id = user_info.user_id
+        inner join
+    verify_user_status ON user.user_id = verify_user_status.user_id
+where user.nick_name like '后台%' order by user.register_time desc , user_id asc;</msg>
+<status status="PASS" endtime="20151226 23:31:20.077" starttime="20151226 23:31:20.073"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:31:20.077" starttime="20151226 23:31:18.008"></status>
+</kw>
+<kw type="foritem" name="${i} = 7">
+<kw name="Get User Search Results" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20151226 23:31:22.103" level="INFO">${row} = {'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091009', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u8c03\u67e5', 'realName': u'\u540e\u53f0\u6d4b\u8bd509', 'mobile': u'131...</msg>
+<status status="PASS" endtime="20151226 23:31:22.103" starttime="20151226 23:31:20.078"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>第${i}行：${row}</arg>
+</arguments>
+<msg timestamp="20151226 23:31:22.104" level="INFO">第7行：{'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091009', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u8c03\u67e5', 'realName': u'\u540e\u53f0\u6d4b\u8bd509', 'mobile': u'13146865539', 'nickName': u'\u540e\u53f0\u4e0a\u7ebf\u524d\u68c0\u67e5\u52ff\u52a809', 'userId': u'100034841', 'operator': u''}</msg>
+<status status="PASS" endtime="20151226 23:31:22.104" starttime="20151226 23:31:22.103"></status>
+</kw>
+<kw name="Compare User Search Result" library="VerifyLibrary">
+<arguments>
+<arg>${row}</arg>
+<arg>${i}</arg>
+<arg>后台</arg>
+</arguments>
+<msg timestamp="20151226 23:31:22.105" level="INFO">\xe5\x90\x8e\xe5\x8f\xb0</msg>
+<msg timestamp="20151226 23:31:22.107" level="INFO">Start to fetch from DB</msg>
+<msg timestamp="20151226 23:31:22.107" level="INFO">Start to fetch from UI</msg>
+<msg timestamp="20151226 23:31:22.107" level="INFO">Start to compare them</msg>
+<msg timestamp="20151226 23:31:22.108" level="INFO">[2015-12-26 23:31:22] [search_user] 执行sql：
+select
+    user.user_id,
+    user.nick_name,
+    user_info.real_name,
+    user.mobile,
+    user_info.id_no,
+    user.channel,
+    verify_user_status.verify_user_status
+from
+    user
+        inner join
+    user_info ON user.user_id = user_info.user_id
+        inner join
+    verify_user_status ON user.user_id = verify_user_status.user_id
+where user.nick_name like '后台%' order by user.register_time desc , user_id asc;</msg>
+<status status="PASS" endtime="20151226 23:31:22.108" starttime="20151226 23:31:22.104"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:31:22.108" starttime="20151226 23:31:20.078"></status>
+</kw>
+<kw type="foritem" name="${i} = 8">
+<kw name="Get User Search Results" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20151226 23:31:24.260" level="INFO">${row} = {'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091010', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u8c03\u67e5', 'realName': u'\u540e\u53f0\u6d4b\u8bd5010', 'mobile': u'13...</msg>
+<status status="PASS" endtime="20151226 23:31:24.260" starttime="20151226 23:31:22.108"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>第${i}行：${row}</arg>
+</arguments>
+<msg timestamp="20151226 23:31:24.261" level="INFO">第8行：{'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091010', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u8c03\u67e5', 'realName': u'\u540e\u53f0\u6d4b\u8bd5010', 'mobile': u'13146865520', 'nickName': u'\u540e\u53f0\u4e0a\u7ebf\u524d\u68c0\u67e5\u52ff\u52a8010', 'userId': u'100034842', 'operator': u''}</msg>
+<status status="PASS" endtime="20151226 23:31:24.261" starttime="20151226 23:31:24.260"></status>
+</kw>
+<kw name="Compare User Search Result" library="VerifyLibrary">
+<arguments>
+<arg>${row}</arg>
+<arg>${i}</arg>
+<arg>后台</arg>
+</arguments>
+<msg timestamp="20151226 23:31:24.262" level="INFO">\xe5\x90\x8e\xe5\x8f\xb0</msg>
+<msg timestamp="20151226 23:31:24.263" level="INFO">Start to fetch from DB</msg>
+<msg timestamp="20151226 23:31:24.264" level="INFO">Start to fetch from UI</msg>
+<msg timestamp="20151226 23:31:24.264" level="INFO">Start to compare them</msg>
+<msg timestamp="20151226 23:31:24.264" level="INFO">[2015-12-26 23:31:24] [search_user] 执行sql：
+select
+    user.user_id,
+    user.nick_name,
+    user_info.real_name,
+    user.mobile,
+    user_info.id_no,
+    user.channel,
+    verify_user_status.verify_user_status
+from
+    user
+        inner join
+    user_info ON user.user_id = user_info.user_id
+        inner join
+    verify_user_status ON user.user_id = verify_user_status.user_id
+where user.nick_name like '后台%' order by user.register_time desc , user_id asc;</msg>
+<status status="PASS" endtime="20151226 23:31:24.265" starttime="20151226 23:31:24.261"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:31:24.265" starttime="20151226 23:31:22.108"></status>
+</kw>
+<kw type="foritem" name="${i} = 9">
+<kw name="Get User Search Results" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20151226 23:31:26.370" level="INFO">${row} = {'userType': u'BD\u6e20\u9053\u7528\u6237', 'idNo': u'130521199307090000', 'operateTime': u'2015-12-01 20:40', 'verifyUserStatus': u'\u5ba1\u6838\u901a\u8fc7', 'realName': u'\u540e\u53f0\u6d4b\u8bd50'...</msg>
+<status status="PASS" endtime="20151226 23:31:26.370" starttime="20151226 23:31:24.265"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>第${i}行：${row}</arg>
+</arguments>
+<msg timestamp="20151226 23:31:26.371" level="INFO">第9行：{'userType': u'BD\u6e20\u9053\u7528\u6237', 'idNo': u'130521199307090000', 'operateTime': u'2015-12-01 20:40', 'verifyUserStatus': u'\u5ba1\u6838\u901a\u8fc7', 'realName': u'\u540e\u53f0\u6d4b\u8bd50', 'mobile': u'13146865540', 'nickName': u'\u540e\u53f0\u4e0a\u7ebf\u524d\u68c0\u67e5\u52ff\u52a80', 'userId': u'100034820', 'operator': u'lihao01'}</msg>
+<status status="PASS" endtime="20151226 23:31:26.371" starttime="20151226 23:31:26.370"></status>
+</kw>
+<kw name="Compare User Search Result" library="VerifyLibrary">
+<arguments>
+<arg>${row}</arg>
+<arg>${i}</arg>
+<arg>后台</arg>
+</arguments>
+<msg timestamp="20151226 23:31:26.372" level="INFO">\xe5\x90\x8e\xe5\x8f\xb0</msg>
+<msg timestamp="20151226 23:31:26.374" level="INFO">Start to fetch from DB</msg>
+<msg timestamp="20151226 23:31:26.375" level="INFO">Start to fetch from UI</msg>
+<msg timestamp="20151226 23:31:26.375" level="INFO">Start to compare them</msg>
+<msg timestamp="20151226 23:31:26.376" level="INFO">[2015-12-26 23:31:26] [search_user] 执行sql：
+select
+    user.user_id,
+    user.nick_name,
+    user_info.real_name,
+    user.mobile,
+    user_info.id_no,
+    user.channel,
+    verify_user_status.verify_user_status
+from
+    user
+        inner join
+    user_info ON user.user_id = user_info.user_id
+        inner join
+    verify_user_status ON user.user_id = verify_user_status.user_id
+where user.nick_name like '后台%' order by user.register_time desc , user_id asc;</msg>
+<status status="PASS" endtime="20151226 23:31:26.376" starttime="20151226 23:31:26.372"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:31:26.376" starttime="20151226 23:31:24.265"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:31:26.376" starttime="20151226 23:30:57.253"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="CustomSeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20151226 23:31:26.432" starttime="20151226 23:31:26.377"></status>
+</kw>
+<status status="PASS" endtime="20151226 23:31:26.432" critical="yes" starttime="20151226 23:30:30.948"></status>
+</test>
+<status status="PASS" endtime="20151226 23:31:26.433" starttime="20151226 23:30:30.829"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="User Search Tests" pass="1">User Search Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

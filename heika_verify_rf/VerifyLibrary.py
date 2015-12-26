@@ -46,9 +46,13 @@ class VerifyLibrary(object):
         usr_DB.id_no = user_verify_status_index[4]
         usr_DB.channel = unicode(Channel.get_value(user_verify_status_index[5]), 'utf-8')
         usr_DB.verify_user_status = unicode(VerifyUserStatus.get_value(user_verify_status_index[6]), 'utf-8')
-        (operator, operate_time) = get_latest_verify_user_status_log(usr_DB.user_id)
-        usr_DB.operator = operator
-        usr_DB.operate_time = unicode(operate_time.strftime('%Y-%m-%d %H:%M'), 'utf-8')
+        if usr_DB.verify_user_status == u'等待提交' or usr_DB.verify_user_status == u'等待调查':
+            usr_DB.operator = ''
+            usr_DB.operate_time = ''
+        else:
+            (operator, operate_time) = get_latest_verify_user_status_log(usr_DB.user_id)
+            usr_DB.operator = operator
+            usr_DB.operate_time = unicode(operate_time.strftime('%Y-%m-%d %H:%M'), 'utf-8')
 
         self.built_in.log('Start to fetch from UI')
         usr_UI = user_search_result.UserSearchResult()
