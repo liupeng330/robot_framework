@@ -22,9 +22,11 @@ class VerifyLibrary(object):
         response = self.request_utils.update_verify_user(real_name, verify_user_id, amount_limit, dept_id, role_id)
         return response.json()
 
-    def compare_user_search_result(self, ui_row, ui_row_index, key, search_type='昵称', verify_user_status=None):
+    def compare_user_search_result(self, ui_row, ui_row_index, key, search_type, verify_user_status):
         ui_row_index = int(ui_row_index)
         key = key.encode('utf-8')
+        search_type = search_type.encode('utf-8')
+        verify_user_status = verify_user_status.encode('utf-8')
 
         # get user search result from DB
         if verify_user_status is None:
@@ -71,6 +73,15 @@ class VerifyLibrary(object):
             return
         else:
             raise AssertionError('User search result from DB and UI are different for row index %s !!' % ui_row_index)
+
+    def update_verify_user_status(self, user_id, verify_user_status):
+        if verify_user_status == VerifyUserStatus.INQUIREING:
+            init_user(user_id)
+            return
+        if verify_user_status == VerifyUserStatus.UNCOMMIT:
+
+
+
 
 if __name__ == "__main__":
     verify_library = VerifyLibrary('http://172.16.2.38:15081', 'admin@renrendai.com')

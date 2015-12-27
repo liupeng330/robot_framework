@@ -31,6 +31,8 @@ ${TREE TITLE ONLY NODE}     调额管理
 
 ${USER SEARCH IFRAME}   //iframe[contains(@src,'userSearch')]
 ${USER SEARCH TABLE}    xpath=//*[@id="tabs"]/div[2]/div/div/div/div/div[2]/div[2]/div[2]/table
+${USER SEARCH TYPE}     xpath=//*[@id="waitSearch"]/div/div[1]/span/input[1]
+${USER SEARCH STATUS TYPE}  xpath=//*[@id="waitSearch"]/div/div[2]/span/input[1]
 
 *** Keywords ***
 Open Browser To Login Page
@@ -87,3 +89,73 @@ TreeNode Not Visble
 TreeTitle Not Visble
     [Arguments]    ${treetitle}
     Wait Until Element Is Not Visible   xpath=//*[@id="navTree"]//span[text()="${treetitle}"]
+
+User Search Select By NickName
+    Click Button    ${USER SEARCH TYPE}
+    Wait Until Page Contains Element    id=_easyui_combobox_i1_0
+    click element    id=_easyui_combobox_i1_0
+
+User Search Select By Mobile
+    Click Button    ${USER SEARCH TYPE}
+    Wait Until Page Contains Element    id=_easyui_combobox_i1_1
+    click element    id=_easyui_combobox_i1_1
+
+User Search Select By IdNo
+    Click Button    ${USER SEARCH TYPE}
+    Wait Until Page Contains Element    id=_easyui_combobox_i1_2
+    click element    id=_easyui_combobox_i1_2
+
+User Search Select By RealName
+    Click Button    ${USER SEARCH TYPE}
+    Wait Until Page Contains Element    id=_easyui_combobox_i1_3
+    click element    id=_easyui_combobox_i1_3
+
+User Search Select By All Status
+    Click Button    ${USER SEARCH STATUS TYPE}
+    Wait Until Page Contains Element    id=_easyui_combobox_i2_0
+    click element    id=_easyui_combobox_i2_0
+
+User Search Select By UNCOMMIT Status
+    Click Button    ${USER SEARCH STATUS TYPE}
+    Wait Until Page Contains Element    id=_easyui_combobox_i2_1
+    click element    id=_easyui_combobox_i2_1
+
+User Search Select By INQUREING Status
+    Click Button    ${USER SEARCH STATUS TYPE}
+    Wait Until Page Contains Element    id=_easyui_combobox_i2_2
+    click element    id=_easyui_combobox_i2_2
+
+User Search Select By INQUIRE_SUCCESS Status
+    Click Button    ${USER SEARCH STATUS TYPE}
+    Wait Until Page Contains Element    id=_easyui_combobox_i2_4
+    click element    id=_easyui_combobox_i2_4
+
+User Search Select By VERIFY_FAIL Status
+    Click Button    ${USER SEARCH STATUS TYPE}
+    Wait Until Page Contains Element    id=_easyui_combobox_i2_3
+    click element    id=_easyui_combobox_i2_3
+
+User Search Select By FIRST_VERIFY_SUCCESS Status
+    Click Button    ${USER SEARCH STATUS TYPE}
+    Wait Until Page Contains Element    id=_easyui_combobox_i2_6
+    click element    id=_easyui_combobox_i2_6
+
+User Search Select By FIRST_SEND_BACK Status
+    Click Button    ${USER SEARCH STATUS TYPE}
+    Wait Until Page Contains Element    id=_easyui_combobox_i2_5
+    click element    id=_easyui_combobox_i2_5
+
+User Search Select By SECOND_SEND_BACK Status
+    Click Button    ${USER SEARCH STATUS TYPE}
+    Wait Until Page Contains Element    id=_easyui_combobox_i2_7
+    click element    id=_easyui_combobox_i2_7
+
+User Search Select By VERIFY_REJECT Status
+    Click Button    ${USER SEARCH STATUS TYPE}
+    Wait Until Page Contains Element    id=_easyui_combobox_i2_8
+    click element    id=_easyui_combobox_i2_8
+
+User Search Select By VERIFY_SUCCESS Status
+    Click Button    ${USER SEARCH STATUS TYPE}
+    Wait Until Page Contains Element    id=_easyui_combobox_i2_9
+    click element    id=_easyui_combobox_i2_9
