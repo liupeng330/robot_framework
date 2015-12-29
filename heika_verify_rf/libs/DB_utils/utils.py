@@ -137,9 +137,26 @@ def delete_verify_process_task_by_executor_id(verify_user_id):
     commit(delete_sql)
 
 
-def init_user(user_id):
+def update_user_to_uncommit_status(user_id):
+    update_verify_user_status_to_uncommit(user_id)
+    delete_user_info_result(user_id)
+    cleanup_verify_log(user_id)
+
+
+def update_user_to_inquireing_status(user_id):
     update_verify_user_status_to_inquireing(user_id)
-    update_user_info_result_to_pending(user_id)
+    delete_user_info_result(user_id)
+    populate_user_info_result(user_id, 'PENDING')
+    cleanup_verify_log(user_id)
+
+
+def update_user_to_inquire_success_status(user_id):
+    update_verify_user_status_to_inquire_success(user_id, 1, 'inv note', 12)
+    delete_user_info_result(user_id)
+    populate_user_info_result(user_id, 'VALID', 1)
+
+
+def cleanup_verify_log(user_id):
     delete_user_status_log(user_id)
     delete_strategy_output(user_id)
     delete_verify_user_info_refine(user_id)
@@ -168,14 +185,103 @@ def update_verify_user_status_to_inquireing(user_id):
                         "in_youxin_back_list=NULL," \
                         "first_cash_draw_ratio=NULL," \
                         "cash_draw_ratio=NULL," \
-                        "version='0' " \
+                        "version='0'," \
+                        "audit_user_status='INQUIREING'," \
                         "WHERE user_id = %s" % user_id
     commit(update_status_sql)
 
 
+def update_verify_user_status_to_uncommit(user_id):
+    helper.log('将verify_user_status表的数据置为未提交')
+    update_status_sql = "UPDATE verify_user_status SET " \
+                        "verify_user_status='UNCOMMIT'," \
+                        "reject_operation=NULL," \
+                        "investigate_time=NULL," \
+                        "first_verify_time=NULL," \
+                        "second_verify_time=NULL," \
+                        "investigate_user_id=NULL," \
+                        "first_verify_user_id=NULL," \
+                        "second_verify_user_id=NULL," \
+                        "investigate_note=NULL," \
+                        "first_verify_note=NULL," \
+                        "second_verify_note=NULL," \
+                        "first_verify_amount=NULL," \
+                        "first_verify_card_product_id=NULL," \
+                        "second_verify_amount=NULL," \
+                        "second_verify_card_product_id=NULL," \
+                        "online_time=NULL," \
+                        "reject_reason_list=NULL," \
+                        "in_youxin_back_list=NULL," \
+                        "first_cash_draw_ratio=NULL," \
+                        "cash_draw_ratio=NULL," \
+                        "version='0'," \
+                        "audit_user_status='UNCOMMIT'," \
+                        "WHERE user_id = %s" % user_id
+    commit(update_status_sql)
+
+
+def update_verify_user_status_to_inquire_success(user_id, investigate_user_id, investigate_note, online_time):
+    helper.log('将verify_user_status表的数据置为待一审，即调查通过状态')
+    update_status_sql = "UPDATE `verify_user_status` SET " \
+                        "`verify_user_status` = 'INQUIRE_SUCCESS'," \
+                        "`audit_user_status` = 'INQUIRE_SUCCESS', " \
+                        "`create_time` = %s, " \
+                        "`update_time` = %s, " \
+                        "`commit_time` = %s, " \
+                        "`reject_operation` = NULL, " \
+                        "`reject_reason_list` = NULL, " \
+                        "`investigate_time` = %s, " \
+                        "`first_verify_time` = NULL, " \
+                        "`second_verify_time` = NULL, " \
+                        "`investigate_user_id` = %s, " \
+                        "`first_verify_user_id` = NULL, " \
+                        "`second_verify_user_id` = NULL, " \
+                        "`investigate_note` = %s, " \
+                        "`first_verify_note` = NULL, " \
+                        "`second_verify_note` = NULL, " \
+                        "`first_verify_amount` = NULL, " \
+                        "`second_verify_amount` = NULL, " \
+                        "`first_verify_card_product_id` = NULL, " \
+                        "`second_verify_card_product_id` = NULL, " \
+                        "`in_youxin_back_list` = 'UNCHECK', " \
+                        "`version` = 0, " \
+                        "`online_time` = %s, " \
+                        "`first_cash_draw_ratio` = NULL, " \
+                        "`cash_draw_ratio` = NULL, " \
+                        "`second_cash_ratio` = NULL, " \
+                        "`third_user_id` = NULL, " \
+                        "`third_verify_date` = NULL, " \
+                        "`third_verify_note` = NULL, " \
+                        "`third_verify_card_product_id` = NULL, " \
+                        "`third_verify_amount` = NULL "
+    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    cursor.execute(update_status_sql, (now, now, now, now, investigate_user_id, investigate_note, online_time))
+    conn.commit()
+
+
+def populate_user_info_result(user_id, result, verify_user_id=None):
+    helper.log('初始化verify_user_info_result表\n')
+    result_keys = ['ADDRESS', 'CHILD_STATUS', 'COMPANY', 'CREDIT_CARD_NUMBER', 'CREDIT_REPORT', 'GRADUATE_YEAR',
+                   'GRADUATION', 'HASCAR', 'HASHOUSE', 'MARRIAGE_STATUS', 'MONTHLY_SALARY', 'PHONE', 'REAL_NAME',
+                   'UNIVERSITY', 'URGENT_MOBILE', 'URGENT_NAME', 'URGENT_RELATION', 'WORK_PHONE', 'WORK_POSITION']
+    insert_sql = '''INSERT INTO `verify_user_info_result`
+           (`user_id`, `key_`, `value_`, `verify_user_id`, `create_time`, `update_time`, `version`)
+            VALUES (%s, %s, %s, %s, %s, %s, %s)'''
+    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    for key in result_keys:
+        cursor.execute(insert_sql, (user_id, key, result, verify_user_id, now, now, 0))
+        conn.commit()
+
+
+def delete_user_info_result(user_id):
+    helper.log('将verify_user_info_result表清空\n')
+    delete_sql = "DELETE FROM `verify_user_info_result` where `user_id` = %s" % user_id
+    commit(delete_sql)
+
+
 def update_user_info_result_to_pending(user_id):
     helper.log('将verify_user_info_result表置为PENDING\n')
-    update_user_info_result = "UPDATE `verify_user_info_result` SET `value_` = 'PENDING' WHERE `user_id` = %s" % user_id
+    update_user_info_result = "UPDATE `verify_user_info_result` SET `value_` = 'PENDING', `verify_user_id` = NULL WHERE `user_id` = %s" % user_id
     commit(update_user_info_result)
 
 
@@ -313,7 +419,7 @@ def get_job_interval_time_by_job_class_name(name):
     return total
 
 
-def search_user(type, key,  *verify_status):
+def search_user(type, key, *verify_status):
     sql = '''
 select
     user.user_id,
@@ -357,7 +463,8 @@ def get_real_name_in_verify_user(verify_user_id):
 
 
 def get_latest_verify_user_status_log(user_id):
-    cursor.execute('select verify_user_id, create_time from verify_user_status_log where user_id = %s order by create_time desc limit 0,1' % user_id)
+    cursor.execute(
+        'select verify_user_id, create_time from verify_user_status_log where user_id = %s order by create_time desc limit 0,1' % user_id)
     ret = cursor.fetchone()
     if ret is not None:
         if ret[0] is not None:

@@ -30,7 +30,7 @@ if __name__ == "__main__":
             request_util = RequestUtil('http://172.16.2.111:7020/heika-verify/dubbo/test/')
 
             libs.helper.log('将user_id为%s的用户置为待调查状态' % user_id)
-            init_user(user_id)
+            update_user_to_inquireing_status(user_id)
 
             libs.helper.log('删除审核状态表原有数据')
             delete_verify_user_status_by_user_id(user_id)
@@ -128,4 +128,9 @@ if __name__ == "__main__":
             delete_all_system_coupon_batch()
         else:
             delete_coupon_batch_by_name(batch_name)
+
+    if sys.argv[1] == 'test':
+        # delete_user_info_result(1)
+        # populate_user_info_result(1, 'PENDING')
+        update_verify_user_status_to_inquire_success(100034833, 1, 'investigate note', 12)
 

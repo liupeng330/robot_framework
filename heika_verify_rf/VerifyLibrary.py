@@ -75,12 +75,15 @@ class VerifyLibrary(object):
             raise AssertionError('User search result from DB and UI are different for row index %s !!' % ui_row_index)
 
     def update_verify_user_status(self, user_id, verify_user_status):
-        if verify_user_status == VerifyUserStatus.INQUIREING:
-            init_user(user_id)
-            return
         if verify_user_status == VerifyUserStatus.UNCOMMIT:
-
-
+            update_user_to_uncommit_status(user_id)
+            return
+        if verify_user_status == VerifyUserStatus.INQUIREING:
+            update_user_to_inquireing_status(user_id)
+            return
+        if verify_user_status == VerifyUserStatus.INQUIRE_SUCCESS:
+            update_user_to_inquire_success_status(user_id, 1, 'investigate note', 12)
+            return
 
 
 if __name__ == "__main__":
