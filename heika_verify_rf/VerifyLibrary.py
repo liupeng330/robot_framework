@@ -49,12 +49,18 @@ class VerifyLibrary(object):
         usr_DB.channel = unicode(Channel.get_value(user_verify_status_index[5]), 'utf-8')
         usr_DB.verify_user_status = unicode(VerifyUserStatus.get_value(user_verify_status_index[6]), 'utf-8')
         if usr_DB.verify_user_status == u'等待提交' or usr_DB.verify_user_status == u'等待调查':
+            self.built_in.log('Verify user status is uncommit or inquireing')
             usr_DB.operator = ''
             usr_DB.operate_time = ''
         else:
-            (operator, operate_time) = get_latest_verify_user_status_log(usr_DB.user_id)
-            usr_DB.operator = operator
-            usr_DB.operate_time = unicode(operate_time.strftime('%Y-%m-%d %H:%M'), 'utf-8')
+            self.built_in.log('Verify user status is NOT uncommit or inquireing')
+            operator_operate_time = get_latest_verify_user_status_log(usr_DB.user_id)
+            if operator_operate_time is not None and len(operator_operate_time) == 2:
+                usr_DB.operator = operator_operate_time[0]
+                usr_DB.operate_time = unicode(operator_operate_time[1].strftime('%Y-%m-%d %H:%M'), 'utf-8')
+            else:
+                usr_DB.operator = ''
+                usr_DB.operate_time = ''
 
         self.built_in.log('Start to fetch from UI')
         usr_UI = user_search_result.UserSearchResult()
@@ -75,6 +81,8 @@ class VerifyLibrary(object):
             raise AssertionError('User search result from DB and UI are different for row index %s !!' % ui_row_index)
 
     def update_verify_user_status(self, user_id, verify_user_status):
+        user_id = int(user_id)
+        verify_user_status = VerifyUserStatus.get_enum(verify_user_status.encode('utf-8'))
         if verify_user_status == VerifyUserStatus.UNCOMMIT:
             update_user_to_uncommit_status(user_id)
             return
@@ -82,7 +90,7 @@ class VerifyLibrary(object):
             update_user_to_inquireing_status(user_id)
             return
         if verify_user_status == VerifyUserStatus.INQUIRE_SUCCESS:
-            update_user_to_inquire_success_status(user_id, 1, 'investigate note', 12)
+            update_user_to_inquire_success_status(user_id)
             return
 
 

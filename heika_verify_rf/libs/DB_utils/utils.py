@@ -186,7 +186,7 @@ def update_verify_user_status_to_inquireing(user_id):
                         "first_cash_draw_ratio=NULL," \
                         "cash_draw_ratio=NULL," \
                         "version='0'," \
-                        "audit_user_status='INQUIREING'," \
+                        "audit_user_status='INQUIREING' " \
                         "WHERE user_id = %s" % user_id
     commit(update_status_sql)
 
@@ -215,7 +215,7 @@ def update_verify_user_status_to_uncommit(user_id):
                         "first_cash_draw_ratio=NULL," \
                         "cash_draw_ratio=NULL," \
                         "version='0'," \
-                        "audit_user_status='UNCOMMIT'," \
+                        "audit_user_status='UNCOMMIT' " \
                         "WHERE user_id = %s" % user_id
     commit(update_status_sql)
 
@@ -253,9 +253,10 @@ def update_verify_user_status_to_inquire_success(user_id, investigate_user_id, i
                         "`third_verify_date` = NULL, " \
                         "`third_verify_note` = NULL, " \
                         "`third_verify_card_product_id` = NULL, " \
-                        "`third_verify_amount` = NULL "
+                        "`third_verify_amount` = NULL " \
+                        "WHERE user_id = %s"
     now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    cursor.execute(update_status_sql, (now, now, now, now, investigate_user_id, investigate_note, online_time))
+    cursor.execute(update_status_sql, (now, now, now, now, investigate_user_id, investigate_note, online_time, user_id))
     conn.commit()
 
 
@@ -463,8 +464,8 @@ def get_real_name_in_verify_user(verify_user_id):
 
 
 def get_latest_verify_user_status_log(user_id):
-    cursor.execute(
-        'select verify_user_id, create_time from verify_user_status_log where user_id = %s order by create_time desc limit 0,1' % user_id)
+    sql ='select verify_user_id, create_time from verify_user_status_log where user_id = %s order by create_time desc limit 0,1' % user_id
+    cursor.execute(sql)
     ret = cursor.fetchone()
     if ret is not None:
         if ret[0] is not None:

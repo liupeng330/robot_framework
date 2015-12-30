@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20151227 22:51:34.691" generator="Robot 2.9.2 (Python 2.7.6 on linux2)">
-<suite source="/home/peng/git_test_codes/robot_framework/heika_verify_rf/verify_system_tests/robot_test.robot" id="s1" name="Robot Test">
-<test id="s1-t1" name="Search user test">
+<robot generated="20151230 15:29:58.195" generator="Robot 2.9.2 (Python 2.7.6 on linux2)">
+<suite source="/home/peng/git_test_codes/robot_framework/heika_verify_rf/verify_system_tests/user_search_tests.robot" id="s1" name="User Search Tests">
+<test id="s1-t1" name="Test Search By Nick Name And Uncommit">
 <kw type="setup" name="Open Browser To Login Page" library="resource">
 <kw name="Open Browser" library="CustomSeleniumLibrary">
 <doc>Opens a new browser instance to given URL.</doc>
@@ -9,19 +9,19 @@
 <arg>${LOGIN URL}</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20151227 22:51:35.011" level="INFO">Opening browser 'Chrome' to base url 'http://172.16.2.38:15081/login/index.html'</msg>
-<status status="PASS" endtime="20151227 22:51:39.990" starttime="20151227 22:51:35.010"></status>
+<msg timestamp="20151230 15:29:58.323" level="INFO">Opening browser 'Chrome' to base url 'http://172.16.2.38:15081/login/index.html'</msg>
+<status status="PASS" endtime="20151230 15:30:00.709" starttime="20151230 15:29:58.323"></status>
 </kw>
 <kw name="Maximize Browser Window" library="CustomSeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" endtime="20151227 22:51:40.151" starttime="20151227 22:51:39.990"></status>
+<status status="PASS" endtime="20151230 15:30:00.861" starttime="20151230 15:30:00.710"></status>
 </kw>
 <kw name="Set Selenium Speed" library="CustomSeleniumLibrary">
 <doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
 <arguments>
 <arg>${DELAY}</arg>
 </arguments>
-<status status="PASS" endtime="20151227 22:51:40.153" starttime="20151227 22:51:40.152"></status>
+<status status="PASS" endtime="20151230 15:30:00.862" starttime="20151230 15:30:00.861"></status>
 </kw>
 <kw name="Login Page Should Be Open" library="resource">
 <kw name="Title Should Be" library="CustomSeleniumLibrary">
@@ -29,13 +29,20 @@
 <arguments>
 <arg>登录</arg>
 </arguments>
-<msg timestamp="20151227 22:51:40.159" level="INFO">Page title is '登录'.</msg>
-<status status="PASS" endtime="20151227 22:51:40.160" starttime="20151227 22:51:40.155"></status>
+<msg timestamp="20151230 15:30:00.866" level="INFO">Page title is '登录'.</msg>
+<status status="PASS" endtime="20151230 15:30:00.866" starttime="20151230 15:30:00.863"></status>
 </kw>
-<status status="PASS" endtime="20151227 22:51:40.160" starttime="20151227 22:51:40.154"></status>
+<status status="PASS" endtime="20151230 15:30:00.867" starttime="20151230 15:30:00.862"></status>
 </kw>
-<status status="PASS" endtime="20151227 22:51:40.161" starttime="20151227 22:51:35.010"></status>
+<status status="PASS" endtime="20151230 15:30:00.867" starttime="20151230 15:29:58.322"></status>
 </kw>
+<kw name="Search user test">
+<arguments>
+<arg>昵称</arg>
+<arg>等待提交</arg>
+<arg>auto_01</arg>
+<arg>100034832</arg>
+</arguments>
 <kw name="Login With Valid Account" library="resource">
 <arguments>
 <arg>${ADMIN USER}</arg>
@@ -51,10 +58,10 @@
 <arg>username</arg>
 <arg>${username}</arg>
 </arguments>
-<msg timestamp="20151227 22:51:40.163" level="INFO">Typing text 'admin@renrendai.com' into text field 'username'</msg>
-<status status="PASS" endtime="20151227 22:51:40.232" starttime="20151227 22:51:40.162"></status>
+<msg timestamp="20151230 15:30:00.870" level="INFO">Typing text 'admin@renrendai.com' into text field 'username'</msg>
+<status status="PASS" endtime="20151230 15:30:00.935" starttime="20151230 15:30:00.870"></status>
 </kw>
-<status status="PASS" endtime="20151227 22:51:40.232" starttime="20151227 22:51:40.162"></status>
+<status status="PASS" endtime="20151230 15:30:00.935" starttime="20151230 15:30:00.869"></status>
 </kw>
 <kw name="Input Password" library="resource">
 <arguments>
@@ -66,10 +73,10 @@
 <arg>password</arg>
 <arg>${password}</arg>
 </arguments>
-<msg timestamp="20151227 22:51:40.234" level="INFO">Typing text 'L123456' into text field 'password'</msg>
-<status status="PASS" endtime="20151227 22:51:40.305" starttime="20151227 22:51:40.233"></status>
+<msg timestamp="20151230 15:30:00.937" level="INFO">Typing text 'L123456' into text field 'password'</msg>
+<status status="PASS" endtime="20151230 15:30:01.004" starttime="20151230 15:30:00.937"></status>
 </kw>
-<status status="PASS" endtime="20151227 22:51:40.305" starttime="20151227 22:51:40.233"></status>
+<status status="PASS" endtime="20151230 15:30:01.004" starttime="20151230 15:30:00.936"></status>
 </kw>
 <kw name="Submit Credentials" library="resource">
 <kw name="Click Button" library="CustomSeleniumLibrary">
@@ -77,10 +84,10 @@
 <arguments>
 <arg>loginCheck</arg>
 </arguments>
-<msg timestamp="20151227 22:51:40.306" level="INFO">Clicking button 'loginCheck'.</msg>
-<status status="PASS" endtime="20151227 22:51:50.421" starttime="20151227 22:51:40.306"></status>
+<msg timestamp="20151230 15:30:01.006" level="INFO">Clicking button 'loginCheck'.</msg>
+<status status="PASS" endtime="20151230 15:30:11.066" starttime="20151230 15:30:01.005"></status>
 </kw>
-<status status="PASS" endtime="20151227 22:51:50.422" starttime="20151227 22:51:40.305"></status>
+<status status="PASS" endtime="20151230 15:30:11.066" starttime="20151230 15:30:01.005"></status>
 </kw>
 <kw name="Wait Until Keyword Succeeds" library="BuiltIn">
 <doc>Runs the specified keyword and retries if it fails.</doc>
@@ -97,13 +104,13 @@
 </arguments>
 <kw name="Capture Page Screenshot" library="CustomSeleniumLibrary">
 <doc>Takes a screenshot of the current page and embeds it into the log.</doc>
-<msg timestamp="20151227 22:51:51.240" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" endtime="20151227 22:51:51.241" starttime="20151227 22:51:50.439"></status>
+<msg timestamp="20151230 15:30:11.871" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20151230 15:30:11.871" starttime="20151230 15:30:11.083"></status>
 </kw>
-<msg timestamp="20151227 22:51:51.241" level="FAIL">Location should have been 'http://172.16.2.38:15081/index.html' but was 'http://172.16.2.38:15081/login/index.html'</msg>
-<status status="FAIL" endtime="20151227 22:51:51.241" starttime="20151227 22:51:50.424"></status>
+<msg timestamp="20151230 15:30:11.872" level="FAIL">Location should have been 'http://172.16.2.38:15081/index.html' but was 'http://172.16.2.38:15081/login/index.html'</msg>
+<status status="FAIL" endtime="20151230 15:30:11.872" starttime="20151230 15:30:11.068"></status>
 </kw>
-<status status="FAIL" endtime="20151227 22:51:51.242" starttime="20151227 22:51:50.423"></status>
+<status status="FAIL" endtime="20151230 15:30:11.873" starttime="20151230 15:30:11.067"></status>
 </kw>
 <kw name="Welcome Page Should Be Open" library="resource">
 <kw name="Location Should Be" library="CustomSeleniumLibrary">
@@ -111,22 +118,22 @@
 <arguments>
 <arg>${WELCOME URL}</arg>
 </arguments>
-<msg timestamp="20151227 22:52:01.247" level="INFO">Current location is 'http://172.16.2.38:15081/index.html'.</msg>
-<status status="PASS" endtime="20151227 22:52:01.247" starttime="20151227 22:52:01.244"></status>
+<msg timestamp="20151230 15:30:21.878" level="INFO">Current location is 'http://172.16.2.38:15081/index.html'.</msg>
+<status status="PASS" endtime="20151230 15:30:21.878" starttime="20151230 15:30:21.875"></status>
 </kw>
 <kw name="Title Should Be" library="CustomSeleniumLibrary">
 <doc>Verifies that current page title equals `title`.</doc>
 <arguments>
 <arg>黑卡审核系统</arg>
 </arguments>
-<msg timestamp="20151227 22:52:01.251" level="INFO">Page title is '黑卡审核系统'.</msg>
-<status status="PASS" endtime="20151227 22:52:01.251" starttime="20151227 22:52:01.248"></status>
+<msg timestamp="20151230 15:30:21.882" level="INFO">Page title is '黑卡审核系统'.</msg>
+<status status="PASS" endtime="20151230 15:30:21.882" starttime="20151230 15:30:21.879"></status>
 </kw>
-<status status="PASS" endtime="20151227 22:52:01.252" starttime="20151227 22:52:01.243"></status>
+<status status="PASS" endtime="20151230 15:30:21.883" starttime="20151230 15:30:21.874"></status>
 </kw>
-<status status="PASS" endtime="20151227 22:52:01.252" starttime="20151227 22:51:50.422"></status>
+<status status="PASS" endtime="20151230 15:30:21.883" starttime="20151230 15:30:11.067"></status>
 </kw>
-<status status="PASS" endtime="20151227 22:52:01.252" starttime="20151227 22:51:40.161"></status>
+<status status="PASS" endtime="20151230 15:30:21.883" starttime="20151230 15:30:00.868"></status>
 </kw>
 <kw name="Click TreeNode" library="resource">
 <arguments>
@@ -137,10 +144,10 @@
 <arguments>
 <arg>xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="${treetitle}"]</arg>
 </arguments>
-<msg timestamp="20151227 22:52:01.254" level="INFO">Clicking element 'xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="用户查询"]'.</msg>
-<status status="PASS" endtime="20151227 22:52:01.292" starttime="20151227 22:52:01.253"></status>
+<msg timestamp="20151230 15:30:21.885" level="INFO">Clicking element 'xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="用户查询"]'.</msg>
+<status status="PASS" endtime="20151230 15:30:21.922" starttime="20151230 15:30:21.884"></status>
 </kw>
-<status status="PASS" endtime="20151227 22:52:01.293" starttime="20151227 22:52:01.253"></status>
+<status status="PASS" endtime="20151230 15:30:21.922" starttime="20151230 15:30:21.884"></status>
 </kw>
 <kw name="Page Title Visible" library="resource">
 <arguments>
@@ -151,93 +158,184 @@
 <arguments>
 <arg>xpath=//*[@id="main-center"]//span[@class="tabs-title tabs-closable" and text()="${pagetitle}"]</arg>
 </arguments>
-<status status="PASS" endtime="20151227 22:52:01.682" starttime="20151227 22:52:01.294"></status>
+<status status="PASS" endtime="20151230 15:30:22.326" starttime="20151230 15:30:21.923"></status>
 </kw>
-<status status="PASS" endtime="20151227 22:52:01.682" starttime="20151227 22:52:01.293"></status>
+<status status="PASS" endtime="20151230 15:30:22.327" starttime="20151230 15:30:21.923"></status>
 </kw>
 <kw name="Select Frame" library="CustomSeleniumLibrary">
 <doc>Sets frame identified by `locator` as current frame.</doc>
 <arguments>
 <arg>${USER SEARCH IFRAME}</arg>
 </arguments>
-<msg timestamp="20151227 22:52:01.683" level="INFO">Selecting frame '//iframe[contains(@src,'userSearch')]'.</msg>
-<status status="PASS" endtime="20151227 22:52:01.723" starttime="20151227 22:52:01.683"></status>
+<msg timestamp="20151230 15:30:22.329" level="INFO">Selecting frame '//iframe[contains(@src,'userSearch')]'.</msg>
+<status status="PASS" endtime="20151230 15:30:22.362" starttime="20151230 15:30:22.328"></status>
 </kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '昵称'</arg>
+<arg>User Search Select By NickName</arg>
+</arguments>
 <kw name="User Search Select By NickName" library="resource">
 <kw name="Click Button" library="CustomSeleniumLibrary">
 <doc>Clicks a button identified by `locator`.</doc>
 <arguments>
 <arg>${USER SEARCH TYPE}</arg>
 </arguments>
-<msg timestamp="20151227 22:52:01.725" level="INFO">Clicking button 'xpath=//*[@id="waitSearch"]/div/div[1]/span/input[1]'.</msg>
-<status status="PASS" endtime="20151227 22:52:01.821" starttime="20151227 22:52:01.724"></status>
+<msg timestamp="20151230 15:30:22.365" level="INFO">Clicking button 'xpath=//*[@id="waitSearch"]/div/div[1]/span/input[1]'.</msg>
+<status status="PASS" endtime="20151230 15:30:22.449" starttime="20151230 15:30:22.365"></status>
 </kw>
 <kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
 <doc>Waits until element specified with `locator` appears on current page.</doc>
 <arguments>
 <arg>id=_easyui_combobox_i1_0</arg>
 </arguments>
-<status status="PASS" endtime="20151227 22:52:01.841" starttime="20151227 22:52:01.821"></status>
+<status status="PASS" endtime="20151230 15:30:22.473" starttime="20151230 15:30:22.449"></status>
 </kw>
 <kw name="Click Element" library="CustomSeleniumLibrary">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>id=_easyui_combobox_i1_0</arg>
 </arguments>
-<msg timestamp="20151227 22:52:01.842" level="INFO">Clicking element 'id=_easyui_combobox_i1_0'.</msg>
-<status status="PASS" endtime="20151227 22:52:01.906" starttime="20151227 22:52:01.842"></status>
+<msg timestamp="20151230 15:30:22.475" level="INFO">Clicking element 'id=_easyui_combobox_i1_0'.</msg>
+<status status="PASS" endtime="20151230 15:30:22.532" starttime="20151230 15:30:22.474"></status>
 </kw>
-<status status="PASS" endtime="20151227 22:52:01.907" starttime="20151227 22:52:01.724"></status>
+<status status="PASS" endtime="20151230 15:30:22.533" starttime="20151230 15:30:22.364"></status>
 </kw>
-<kw name="User Search Select By INQUIRE_SUCCESS Status" library="resource">
+<status status="PASS" endtime="20151230 15:30:22.533" starttime="20151230 15:30:22.362"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '手机号'</arg>
+<arg>User Search Select By Mobile</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:30:22.535" starttime="20151230 15:30:22.533"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '身份证'</arg>
+<arg>User Search Select By IdNo</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:30:22.537" starttime="20151230 15:30:22.535"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '姓名'</arg>
+<arg>User Search Select By RealName</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:30:22.539" starttime="20151230 15:30:22.537"></status>
+</kw>
+<kw name="Update Verify User Status" library="VerifyLibrary">
+<arguments>
+<arg>${user id}</arg>
+<arg>${verify status}</arg>
+</arguments>
+<msg timestamp="20151230 15:30:22.561" level="INFO">[2015-12-30 15:30:22] [update_verify_user_status_to_uncommit] 将verify_user_status表的数据置为未提交
+[2015-12-30 15:30:22] [commit] 执行sql语句：
+UPDATE verify_user_status SET verify_user_status='UNCOMMIT',reject_operation=NULL,investigate_time=NULL,first_verify_time=NULL,second_verify_time=NULL,investigate_user_id=NULL,first_verify_user_id=NULL,second_verify_user_id=NULL,investigate_note=NULL,first_verify_note=NULL,second_verify_note=NULL,first_verify_amount=NULL,first_verify_card_product_id=NULL,second_verify_amount=NULL,second_verify_card_product_id=NULL,online_time=NULL,reject_reason_list=NULL,in_youxin_back_list=NULL,first_cash_draw_ratio=NULL,cash_draw_ratio=NULL,version='0',audit_user_status='UNCOMMIT' WHERE user_id = 100034832
+影响行数：1
+
+[2015-12-30 15:30:22] [delete_user_info_result] 将verify_user_info_result表清空
+
+[2015-12-30 15:30:22] [commit] 执行sql语句：
+DELETE FROM `verify_user_info_result` where `user_id` = 100034832
+影响行数：19
+
+[2015-12-30 15:30:22] [delete_user_status_log] 将verify_user_status_log表中的数据删除
+
+[2015-12-30 15:30:22] [commit] 执行sql语句：
+delete from `verify_user_status_log` where `user_id` = 100034832
+影响行数：0
+
+[2015-12-30 15:30:22] [delete_strategy_output] 将verify_strategy_output表中的数据删除
+
+[2015-12-30 15:30:22] [commit] 执行sql语句：
+delete from `verify_strategy_output` where `user_id` = 100034832
+影响行数：0
+
+[2015-12-30 15:30:22] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
+
+[2015-12-30 15:30:22] [commit] 执行sql语句：
+delete from `verify_user_info_refine` where `user_id` = 100034832
+影响行数：0</msg>
+<status status="PASS" endtime="20151230 15:30:22.562" starttime="20151230 15:30:22.539"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待提交'</arg>
+<arg>User Search Select By UNCOMMIT Status</arg>
+</arguments>
+<kw name="User Search Select By UNCOMMIT Status" library="resource">
 <kw name="Click Button" library="CustomSeleniumLibrary">
 <doc>Clicks a button identified by `locator`.</doc>
 <arguments>
 <arg>${USER SEARCH STATUS TYPE}</arg>
 </arguments>
-<msg timestamp="20151227 22:52:01.908" level="INFO">Clicking button 'xpath=//*[@id="waitSearch"]/div/div[2]/span/input[1]'.</msg>
-<status status="PASS" endtime="20151227 22:52:01.968" starttime="20151227 22:52:01.908"></status>
+<msg timestamp="20151230 15:30:22.565" level="INFO">Clicking button 'xpath=//*[@id="waitSearch"]/div/div[2]/span/input[1]'.</msg>
+<status status="PASS" endtime="20151230 15:30:22.620" starttime="20151230 15:30:22.564"></status>
 </kw>
 <kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
 <doc>Waits until element specified with `locator` appears on current page.</doc>
 <arguments>
-<arg>id=_easyui_combobox_i2_4</arg>
+<arg>id=_easyui_combobox_i2_1</arg>
 </arguments>
-<status status="PASS" endtime="20151227 22:52:01.991" starttime="20151227 22:52:01.969"></status>
+<status status="PASS" endtime="20151230 15:30:22.637" starttime="20151230 15:30:22.620"></status>
 </kw>
 <kw name="Click Element" library="CustomSeleniumLibrary">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
-<arg>id=_easyui_combobox_i2_4</arg>
+<arg>id=_easyui_combobox_i2_1</arg>
 </arguments>
-<msg timestamp="20151227 22:52:01.992" level="INFO">Clicking element 'id=_easyui_combobox_i2_4'.</msg>
-<status status="PASS" endtime="20151227 22:52:02.044" starttime="20151227 22:52:01.991"></status>
+<msg timestamp="20151230 15:30:22.638" level="INFO">Clicking element 'id=_easyui_combobox_i2_1'.</msg>
+<status status="PASS" endtime="20151230 15:30:22.687" starttime="20151230 15:30:22.637"></status>
 </kw>
-<status status="PASS" endtime="20151227 22:52:02.045" starttime="20151227 22:52:01.907"></status>
+<status status="PASS" endtime="20151230 15:30:22.688" starttime="20151230 15:30:22.564"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:22.688" starttime="20151230 15:30:22.562"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待调查'</arg>
+<arg>User Search Select By INQUREING Status</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:30:22.690" starttime="20151230 15:30:22.689"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待一审'</arg>
+<arg>User Search Select By INQUIRE_SUCCESS Status</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:30:22.692" starttime="20151230 15:30:22.691"></status>
 </kw>
 <kw name="Input Text" library="CustomSeleniumLibrary">
 <doc>Types the given `text` into text field identified by `locator`.</doc>
 <arguments>
 <arg>id=oText</arg>
-<arg>auto</arg>
+<arg>${key}</arg>
 </arguments>
-<msg timestamp="20151227 22:52:02.045" level="INFO">Typing text 'auto' into text field 'id=oText'</msg>
-<status status="PASS" endtime="20151227 22:52:02.109" starttime="20151227 22:52:02.045"></status>
+<msg timestamp="20151230 15:30:22.693" level="INFO">Typing text 'auto_01' into text field 'id=oText'</msg>
+<status status="PASS" endtime="20151230 15:30:22.752" starttime="20151230 15:30:22.693"></status>
 </kw>
 <kw name="Click Button" library="CustomSeleniumLibrary">
 <doc>Clicks a button identified by `locator`.</doc>
 <arguments>
 <arg>id=oSubmit</arg>
 </arguments>
-<msg timestamp="20151227 22:52:02.110" level="INFO">Clicking button 'id=oSubmit'.</msg>
-<status status="PASS" endtime="20151227 22:52:02.184" starttime="20151227 22:52:02.110"></status>
+<msg timestamp="20151230 15:30:22.753" level="INFO">Clicking button 'id=oSubmit'.</msg>
+<status status="PASS" endtime="20151230 15:30:22.823" starttime="20151230 15:30:22.752"></status>
 </kw>
 <kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
 <doc>Waits until element specified with `locator` appears on current page.</doc>
 <arguments>
 <arg>${USER SEARCH TABLE}</arg>
 </arguments>
-<status status="PASS" endtime="20151227 22:52:02.200" starttime="20151227 22:52:02.184"></status>
+<status status="PASS" endtime="20151230 15:30:22.837" starttime="20151230 15:30:22.823"></status>
 </kw>
 <kw name="Get Table Row Count" library="CustomSeleniumLibrary">
 <arguments>
@@ -246,16 +344,28 @@
 <assign>
 <var>${row_count}</var>
 </assign>
-<msg timestamp="20151227 22:52:02.286" level="INFO">${row_count} = 1</msg>
-<status status="PASS" endtime="20151227 22:52:02.286" starttime="20151227 22:52:02.201"></status>
+<msg timestamp="20151230 15:30:22.922" level="INFO">${row_count} = 1</msg>
+<status status="PASS" endtime="20151230 15:30:22.923" starttime="20151230 15:30:22.838"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>共有行数：${row_count}</arg>
 </arguments>
-<msg timestamp="20151227 22:52:02.287" level="INFO">共有行数：1</msg>
-<status status="PASS" endtime="20151227 22:52:02.287" starttime="20151227 22:52:02.286"></status>
+<msg timestamp="20151230 15:30:22.923" level="INFO">共有行数：1</msg>
+<status status="PASS" endtime="20151230 15:30:22.924" starttime="20151230 15:30:22.923"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${row_count}</arg>
+<arg>1</arg>
+<arg>应该只搜索到一条数据</arg>
+</arguments>
+<msg timestamp="20151230 15:30:22.925" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20151230 15:30:22.925" starttime="20151230 15:30:22.924"></status>
 </kw>
 <kw type="for" name="${i} IN RANGE [ ${row_count} ]">
 <kw type="foritem" name="${i} = 0">
@@ -267,29 +377,30 @@
 <assign>
 <var>${row}</var>
 </assign>
-<msg timestamp="20151227 22:52:02.575" level="INFO">${row} = {'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091000', 'operateTime': u'2015-12-08 15:45', 'verifyUserStatus': u'\u7b49\u5f85\u4e00\u5ba1', 'realName': u'\u65bd\u65ed\u5b81', 'mobile...</msg>
-<status status="PASS" endtime="20151227 22:52:02.575" starttime="20151227 22:52:02.288"></status>
+<msg timestamp="20151230 15:30:23.183" level="INFO">${row} = {'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091000', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u63d0\u4ea4', 'realName': u'\u65bd\u65ed\u5b81', 'mobile': u'13146865530...</msg>
+<status status="PASS" endtime="20151230 15:30:23.183" starttime="20151230 15:30:22.926"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>第${i}行：${row}</arg>
 </arguments>
-<msg timestamp="20151227 22:52:02.576" level="INFO">第0行：{'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091000', 'operateTime': u'2015-12-08 15:45', 'verifyUserStatus': u'\u7b49\u5f85\u4e00\u5ba1', 'realName': u'\u65bd\u65ed\u5b81', 'mobile': u'13146865530', 'nickName': u'auto_01', 'userId': u'100034832', 'operator': u'\u5218\u9e4f\u6d4b\u8bd5'}</msg>
-<status status="PASS" endtime="20151227 22:52:02.576" starttime="20151227 22:52:02.575"></status>
+<msg timestamp="20151230 15:30:23.184" level="INFO">第0行：{'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091000', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u63d0\u4ea4', 'realName': u'\u65bd\u65ed\u5b81', 'mobile': u'13146865530', 'nickName': u'auto_01', 'userId': u'100034832', 'operator': u''}</msg>
+<status status="PASS" endtime="20151230 15:30:23.185" starttime="20151230 15:30:23.184"></status>
 </kw>
 <kw name="Compare User Search Result" library="VerifyLibrary">
 <arguments>
 <arg>${row}</arg>
 <arg>${i}</arg>
-<arg>auto</arg>
-<arg>昵称</arg>
-<arg>等待一审</arg>
+<arg>${key}</arg>
+<arg>${search key}</arg>
+<arg>${verify status}</arg>
 </arguments>
-<msg timestamp="20151227 22:52:02.606" level="INFO">Start to fetch from DB</msg>
-<msg timestamp="20151227 22:52:02.607" level="INFO">Start to fetch from UI</msg>
-<msg timestamp="20151227 22:52:02.607" level="INFO">Start to compare them</msg>
-<msg timestamp="20151227 22:52:02.608" level="INFO">[2015-12-27 22:52:02] [search_user] 执行sql：
+<msg timestamp="20151230 15:30:23.187" level="INFO">Start to fetch from DB</msg>
+<msg timestamp="20151230 15:30:23.187" level="INFO">Verify user status is uncommit or inquireing</msg>
+<msg timestamp="20151230 15:30:23.187" level="INFO">Start to fetch from UI</msg>
+<msg timestamp="20151230 15:30:23.188" level="INFO">Start to compare them</msg>
+<msg timestamp="20151230 15:30:23.188" level="INFO">[2015-12-30 15:30:23] [search_user] 执行sql：
 select
     user.user_id,
     user.nick_name,
@@ -304,26 +415,2967 @@ from
     user_info ON user.user_id = user_info.user_id
         inner join
     verify_user_status ON user.user_id = verify_user_status.user_id
-where user.nick_name like 'auto%' and verify_user_status.verify_user_status in ('INQUIRE_SUCCESS') order by user.register_time desc , user_id asc;</msg>
-<status status="PASS" endtime="20151227 22:52:02.608" starttime="20151227 22:52:02.576"></status>
+where user.nick_name like 'auto_01%' and verify_user_status.verify_user_status in ('UNCOMMIT') order by user.register_time desc , user_id asc;</msg>
+<status status="PASS" endtime="20151230 15:30:23.188" starttime="20151230 15:30:23.185"></status>
 </kw>
-<status status="PASS" endtime="20151227 22:52:02.608" starttime="20151227 22:52:02.287"></status>
+<status status="PASS" endtime="20151230 15:30:23.188" starttime="20151230 15:30:22.925"></status>
 </kw>
-<status status="PASS" endtime="20151227 22:52:02.608" starttime="20151227 22:52:02.287"></status>
+<status status="PASS" endtime="20151230 15:30:23.189" starttime="20151230 15:30:22.925"></status>
 </kw>
-<status status="PASS" endtime="20151227 22:52:02.609" critical="yes" starttime="20151227 22:51:35.009"></status>
+<status status="PASS" endtime="20151230 15:30:23.189" starttime="20151230 15:30:00.867"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:23.189" critical="yes" starttime="20151230 15:29:58.322"></status>
 </test>
-<status status="PASS" endtime="20151227 22:52:02.609" starttime="20151227 22:51:34.691"></status>
+<test id="s1-t2" name="Test Search By Nick Name And Inquireing">
+<kw type="setup" name="Open Browser To Login Page" library="resource">
+<kw name="Open Browser" library="CustomSeleniumLibrary">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20151230 15:30:23.192" level="INFO">Opening browser 'Chrome' to base url 'http://172.16.2.38:15081/login/index.html'</msg>
+<status status="PASS" endtime="20151230 15:30:25.476" starttime="20151230 15:30:23.191"></status>
+</kw>
+<kw name="Maximize Browser Window" library="CustomSeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151230 15:30:25.625" starttime="20151230 15:30:25.477"></status>
+</kw>
+<kw name="Set Selenium Speed" library="CustomSeleniumLibrary">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:30:25.626" starttime="20151230 15:30:25.625"></status>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>登录</arg>
+</arguments>
+<msg timestamp="20151230 15:30:25.631" level="INFO">Page title is '登录'.</msg>
+<status status="PASS" endtime="20151230 15:30:25.631" starttime="20151230 15:30:25.627"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:25.632" starttime="20151230 15:30:25.626"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:25.632" starttime="20151230 15:30:23.190"></status>
+</kw>
+<kw name="Search user test">
+<arguments>
+<arg>昵称</arg>
+<arg>等待调查</arg>
+<arg>auto_01</arg>
+<arg>100034832</arg>
+</arguments>
+<kw name="Login With Valid Account" library="resource">
+<arguments>
+<arg>${ADMIN USER}</arg>
+<arg>${ADMIN PASSWORD}</arg>
+</arguments>
+<kw name="Input Username" library="resource">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20151230 15:30:25.635" level="INFO">Typing text 'admin@renrendai.com' into text field 'username'</msg>
+<status status="PASS" endtime="20151230 15:30:25.704" starttime="20151230 15:30:25.635"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:25.704" starttime="20151230 15:30:25.634"></status>
+</kw>
+<kw name="Input Password" library="resource">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20151230 15:30:25.705" level="INFO">Typing text 'L123456' into text field 'password'</msg>
+<status status="PASS" endtime="20151230 15:30:25.783" starttime="20151230 15:30:25.705"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:25.784" starttime="20151230 15:30:25.704"></status>
+</kw>
+<kw name="Submit Credentials" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>loginCheck</arg>
+</arguments>
+<msg timestamp="20151230 15:30:25.786" level="INFO">Clicking button 'loginCheck'.</msg>
+<status status="PASS" endtime="20151230 15:30:35.837" starttime="20151230 15:30:25.785"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:35.838" starttime="20151230 15:30:25.784"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>2 min</arg>
+<arg>10 sec</arg>
+<arg>Welcome Page Should Be Open</arg>
+</arguments>
+<kw name="Welcome Page Should Be Open" library="resource">
+<kw name="Location Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${WELCOME URL}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="CustomSeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20151230 15:30:36.684" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20151230 15:30:36.685" starttime="20151230 15:30:35.853"></status>
+</kw>
+<msg timestamp="20151230 15:30:36.685" level="FAIL">Location should have been 'http://172.16.2.38:15081/index.html' but was 'http://172.16.2.38:15081/login/index.html'</msg>
+<status status="FAIL" endtime="20151230 15:30:36.686" starttime="20151230 15:30:35.839"></status>
+</kw>
+<status status="FAIL" endtime="20151230 15:30:36.686" starttime="20151230 15:30:35.839"></status>
+</kw>
+<kw name="Welcome Page Should Be Open" library="resource">
+<kw name="Location Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${WELCOME URL}</arg>
+</arguments>
+<msg timestamp="20151230 15:30:46.692" level="INFO">Current location is 'http://172.16.2.38:15081/index.html'.</msg>
+<status status="PASS" endtime="20151230 15:30:46.692" starttime="20151230 15:30:46.688"></status>
+</kw>
+<kw name="Title Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>黑卡审核系统</arg>
+</arguments>
+<msg timestamp="20151230 15:30:46.695" level="INFO">Page title is '黑卡审核系统'.</msg>
+<status status="PASS" endtime="20151230 15:30:46.696" starttime="20151230 15:30:46.692"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:46.696" starttime="20151230 15:30:46.688"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:46.697" starttime="20151230 15:30:35.838"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:46.697" starttime="20151230 15:30:25.634"></status>
+</kw>
+<kw name="Click TreeNode" library="resource">
+<arguments>
+<arg>用户查询</arg>
+</arguments>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="${treetitle}"]</arg>
+</arguments>
+<msg timestamp="20151230 15:30:46.698" level="INFO">Clicking element 'xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="用户查询"]'.</msg>
+<status status="PASS" endtime="20151230 15:30:46.736" starttime="20151230 15:30:46.698"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:46.736" starttime="20151230 15:30:46.697"></status>
+</kw>
+<kw name="Page Title Visible" library="resource">
+<arguments>
+<arg>用户查询</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>xpath=//*[@id="main-center"]//span[@class="tabs-title tabs-closable" and text()="${pagetitle}"]</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:30:47.012" starttime="20151230 15:30:46.737"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:47.013" starttime="20151230 15:30:46.736"></status>
+</kw>
+<kw name="Select Frame" library="CustomSeleniumLibrary">
+<doc>Sets frame identified by `locator` as current frame.</doc>
+<arguments>
+<arg>${USER SEARCH IFRAME}</arg>
+</arguments>
+<msg timestamp="20151230 15:30:47.014" level="INFO">Selecting frame '//iframe[contains(@src,'userSearch')]'.</msg>
+<status status="PASS" endtime="20151230 15:30:47.145" starttime="20151230 15:30:47.013"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '昵称'</arg>
+<arg>User Search Select By NickName</arg>
+</arguments>
+<kw name="User Search Select By NickName" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${USER SEARCH TYPE}</arg>
+</arguments>
+<msg timestamp="20151230 15:30:47.149" level="INFO">Clicking button 'xpath=//*[@id="waitSearch"]/div/div[1]/span/input[1]'.</msg>
+<status status="PASS" endtime="20151230 15:30:47.248" starttime="20151230 15:30:47.148"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i1_0</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:30:47.274" starttime="20151230 15:30:47.248"></status>
+</kw>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i1_0</arg>
+</arguments>
+<msg timestamp="20151230 15:30:47.275" level="INFO">Clicking element 'id=_easyui_combobox_i1_0'.</msg>
+<status status="PASS" endtime="20151230 15:30:47.333" starttime="20151230 15:30:47.275"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:47.334" starttime="20151230 15:30:47.147"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:47.334" starttime="20151230 15:30:47.146"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '手机号'</arg>
+<arg>User Search Select By Mobile</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:30:47.336" starttime="20151230 15:30:47.334"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '身份证'</arg>
+<arg>User Search Select By IdNo</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:30:47.338" starttime="20151230 15:30:47.336"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '姓名'</arg>
+<arg>User Search Select By RealName</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:30:47.339" starttime="20151230 15:30:47.338"></status>
+</kw>
+<kw name="Update Verify User Status" library="VerifyLibrary">
+<arguments>
+<arg>${user id}</arg>
+<arg>${verify status}</arg>
+</arguments>
+<msg timestamp="20151230 15:30:47.356" level="INFO">[2015-12-30 15:30:47] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
+[2015-12-30 15:30:47] [commit] 执行sql语句：
+UPDATE verify_user_status SET verify_user_status='INQUIREING',reject_operation=NULL,investigate_time=NULL,first_verify_time=NULL,second_verify_time=NULL,investigate_user_id=NULL,first_verify_user_id=NULL,second_verify_user_id=NULL,investigate_note=NULL,first_verify_note=NULL,second_verify_note=NULL,first_verify_amount=NULL,first_verify_card_product_id=NULL,second_verify_amount=NULL,second_verify_card_product_id=NULL,online_time=NULL,reject_reason_list=NULL,in_youxin_back_list=NULL,first_cash_draw_ratio=NULL,cash_draw_ratio=NULL,version='0',audit_user_status='INQUIREING' WHERE user_id = 100034832
+影响行数：1
+
+[2015-12-30 15:30:47] [delete_user_info_result] 将verify_user_info_result表清空
+
+[2015-12-30 15:30:47] [commit] 执行sql语句：
+DELETE FROM `verify_user_info_result` where `user_id` = 100034832
+影响行数：0
+
+[2015-12-30 15:30:47] [populate_user_info_result] 初始化verify_user_info_result表
+
+[2015-12-30 15:30:47] [delete_user_status_log] 将verify_user_status_log表中的数据删除
+
+[2015-12-30 15:30:47] [commit] 执行sql语句：
+delete from `verify_user_status_log` where `user_id` = 100034832
+影响行数：0
+
+[2015-12-30 15:30:47] [delete_strategy_output] 将verify_strategy_output表中的数据删除
+
+[2015-12-30 15:30:47] [commit] 执行sql语句：
+delete from `verify_strategy_output` where `user_id` = 100034832
+影响行数：0
+
+[2015-12-30 15:30:47] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
+
+[2015-12-30 15:30:47] [commit] 执行sql语句：
+delete from `verify_user_info_refine` where `user_id` = 100034832
+影响行数：0</msg>
+<status status="PASS" endtime="20151230 15:30:47.356" starttime="20151230 15:30:47.340"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待提交'</arg>
+<arg>User Search Select By UNCOMMIT Status</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:30:47.358" starttime="20151230 15:30:47.357"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待调查'</arg>
+<arg>User Search Select By INQUREING Status</arg>
+</arguments>
+<kw name="User Search Select By INQUREING Status" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${USER SEARCH STATUS TYPE}</arg>
+</arguments>
+<msg timestamp="20151230 15:30:47.361" level="INFO">Clicking button 'xpath=//*[@id="waitSearch"]/div/div[2]/span/input[1]'.</msg>
+<status status="PASS" endtime="20151230 15:30:47.416" starttime="20151230 15:30:47.361"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i2_2</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:30:47.433" starttime="20151230 15:30:47.417"></status>
+</kw>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i2_2</arg>
+</arguments>
+<msg timestamp="20151230 15:30:47.434" level="INFO">Clicking element 'id=_easyui_combobox_i2_2'.</msg>
+<status status="PASS" endtime="20151230 15:30:47.484" starttime="20151230 15:30:47.434"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:47.485" starttime="20151230 15:30:47.360"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:47.485" starttime="20151230 15:30:47.359"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待一审'</arg>
+<arg>User Search Select By INQUIRE_SUCCESS Status</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:30:47.487" starttime="20151230 15:30:47.485"></status>
+</kw>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=oText</arg>
+<arg>${key}</arg>
+</arguments>
+<msg timestamp="20151230 15:30:47.488" level="INFO">Typing text 'auto_01' into text field 'id=oText'</msg>
+<status status="PASS" endtime="20151230 15:30:47.547" starttime="20151230 15:30:47.487"></status>
+</kw>
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>id=oSubmit</arg>
+</arguments>
+<msg timestamp="20151230 15:30:47.548" level="INFO">Clicking button 'id=oSubmit'.</msg>
+<status status="PASS" endtime="20151230 15:30:47.620" starttime="20151230 15:30:47.547"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:30:47.634" starttime="20151230 15:30:47.620"></status>
+</kw>
+<kw name="Get Table Row Count" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+</arguments>
+<assign>
+<var>${row_count}</var>
+</assign>
+<msg timestamp="20151230 15:30:47.718" level="INFO">${row_count} = 1</msg>
+<status status="PASS" endtime="20151230 15:30:47.718" starttime="20151230 15:30:47.635"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>共有行数：${row_count}</arg>
+</arguments>
+<msg timestamp="20151230 15:30:47.720" level="INFO">共有行数：1</msg>
+<status status="PASS" endtime="20151230 15:30:47.720" starttime="20151230 15:30:47.719"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${row_count}</arg>
+<arg>1</arg>
+<arg>应该只搜索到一条数据</arg>
+</arguments>
+<msg timestamp="20151230 15:30:47.721" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20151230 15:30:47.721" starttime="20151230 15:30:47.720"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ ${row_count} ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Get User Search Results" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20151230 15:30:47.994" level="INFO">${row} = {'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091000', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u8c03\u67e5', 'realName': u'\u65bd\u65ed\u5b81', 'mobile': u'13146865530...</msg>
+<status status="PASS" endtime="20151230 15:30:47.994" starttime="20151230 15:30:47.722"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>第${i}行：${row}</arg>
+</arguments>
+<msg timestamp="20151230 15:30:47.995" level="INFO">第0行：{'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091000', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u8c03\u67e5', 'realName': u'\u65bd\u65ed\u5b81', 'mobile': u'13146865530', 'nickName': u'auto_01', 'userId': u'100034832', 'operator': u''}</msg>
+<status status="PASS" endtime="20151230 15:30:47.995" starttime="20151230 15:30:47.995"></status>
+</kw>
+<kw name="Compare User Search Result" library="VerifyLibrary">
+<arguments>
+<arg>${row}</arg>
+<arg>${i}</arg>
+<arg>${key}</arg>
+<arg>${search key}</arg>
+<arg>${verify status}</arg>
+</arguments>
+<msg timestamp="20151230 15:30:47.998" level="INFO">Start to fetch from DB</msg>
+<msg timestamp="20151230 15:30:47.998" level="INFO">Verify user status is uncommit or inquireing</msg>
+<msg timestamp="20151230 15:30:47.998" level="INFO">Start to fetch from UI</msg>
+<msg timestamp="20151230 15:30:47.998" level="INFO">Start to compare them</msg>
+<msg timestamp="20151230 15:30:47.998" level="INFO">[2015-12-30 15:30:47] [search_user] 执行sql：
+select
+    user.user_id,
+    user.nick_name,
+    user_info.real_name,
+    user.mobile,
+    user_info.id_no,
+    user.channel,
+    verify_user_status.verify_user_status
+from
+    user
+        inner join
+    user_info ON user.user_id = user_info.user_id
+        inner join
+    verify_user_status ON user.user_id = verify_user_status.user_id
+where user.nick_name like 'auto_01%' and verify_user_status.verify_user_status in ('INQUIREING') order by user.register_time desc , user_id asc;</msg>
+<status status="PASS" endtime="20151230 15:30:47.999" starttime="20151230 15:30:47.996"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:47.999" starttime="20151230 15:30:47.722"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:47.999" starttime="20151230 15:30:47.722"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:47.999" starttime="20151230 15:30:25.633"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:48.000" critical="yes" starttime="20151230 15:30:23.190"></status>
+</test>
+<test id="s1-t3" name="Test Search By Nick Name And Inquire Success">
+<kw type="setup" name="Open Browser To Login Page" library="resource">
+<kw name="Open Browser" library="CustomSeleniumLibrary">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20151230 15:30:48.002" level="INFO">Opening browser 'Chrome' to base url 'http://172.16.2.38:15081/login/index.html'</msg>
+<status status="PASS" endtime="20151230 15:30:51.738" starttime="20151230 15:30:48.001"></status>
+</kw>
+<kw name="Maximize Browser Window" library="CustomSeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151230 15:30:51.884" starttime="20151230 15:30:51.739"></status>
+</kw>
+<kw name="Set Selenium Speed" library="CustomSeleniumLibrary">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:30:51.885" starttime="20151230 15:30:51.884"></status>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>登录</arg>
+</arguments>
+<msg timestamp="20151230 15:30:51.890" level="INFO">Page title is '登录'.</msg>
+<status status="PASS" endtime="20151230 15:30:51.890" starttime="20151230 15:30:51.886"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:51.891" starttime="20151230 15:30:51.886"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:51.891" starttime="20151230 15:30:48.001"></status>
+</kw>
+<kw name="Search user test">
+<arguments>
+<arg>昵称</arg>
+<arg>等待一审</arg>
+<arg>auto_01</arg>
+<arg>100034832</arg>
+</arguments>
+<kw name="Login With Valid Account" library="resource">
+<arguments>
+<arg>${ADMIN USER}</arg>
+<arg>${ADMIN PASSWORD}</arg>
+</arguments>
+<kw name="Input Username" library="resource">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20151230 15:30:51.894" level="INFO">Typing text 'admin@renrendai.com' into text field 'username'</msg>
+<status status="PASS" endtime="20151230 15:30:51.979" starttime="20151230 15:30:51.894"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:51.980" starttime="20151230 15:30:51.893"></status>
+</kw>
+<kw name="Input Password" library="resource">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20151230 15:30:51.982" level="INFO">Typing text 'L123456' into text field 'password'</msg>
+<status status="PASS" endtime="20151230 15:30:52.059" starttime="20151230 15:30:51.981"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:30:52.059" starttime="20151230 15:30:51.980"></status>
+</kw>
+<kw name="Submit Credentials" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>loginCheck</arg>
+</arguments>
+<msg timestamp="20151230 15:30:52.061" level="INFO">Clicking button 'loginCheck'.</msg>
+<status status="PASS" endtime="20151230 15:31:02.107" starttime="20151230 15:30:52.060"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:02.107" starttime="20151230 15:30:52.060"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>2 min</arg>
+<arg>10 sec</arg>
+<arg>Welcome Page Should Be Open</arg>
+</arguments>
+<kw name="Welcome Page Should Be Open" library="resource">
+<kw name="Location Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${WELCOME URL}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="CustomSeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20151230 15:31:02.925" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20151230 15:31:02.925" starttime="20151230 15:31:02.124"></status>
+</kw>
+<msg timestamp="20151230 15:31:02.926" level="FAIL">Location should have been 'http://172.16.2.38:15081/index.html' but was 'http://172.16.2.38:15081/login/index.html'</msg>
+<status status="FAIL" endtime="20151230 15:31:02.926" starttime="20151230 15:31:02.109"></status>
+</kw>
+<status status="FAIL" endtime="20151230 15:31:02.926" starttime="20151230 15:31:02.108"></status>
+</kw>
+<kw name="Welcome Page Should Be Open" library="resource">
+<kw name="Location Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${WELCOME URL}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:12.932" level="INFO">Current location is 'http://172.16.2.38:15081/index.html'.</msg>
+<status status="PASS" endtime="20151230 15:31:12.933" starttime="20151230 15:31:12.928"></status>
+</kw>
+<kw name="Title Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>黑卡审核系统</arg>
+</arguments>
+<msg timestamp="20151230 15:31:12.936" level="INFO">Page title is '黑卡审核系统'.</msg>
+<status status="PASS" endtime="20151230 15:31:12.936" starttime="20151230 15:31:12.933"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:12.937" starttime="20151230 15:31:12.927"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:12.937" starttime="20151230 15:31:02.108"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:12.938" starttime="20151230 15:30:51.892"></status>
+</kw>
+<kw name="Click TreeNode" library="resource">
+<arguments>
+<arg>用户查询</arg>
+</arguments>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="${treetitle}"]</arg>
+</arguments>
+<msg timestamp="20151230 15:31:12.940" level="INFO">Clicking element 'xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="用户查询"]'.</msg>
+<status status="PASS" endtime="20151230 15:31:12.980" starttime="20151230 15:31:12.939"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:12.981" starttime="20151230 15:31:12.938"></status>
+</kw>
+<kw name="Page Title Visible" library="resource">
+<arguments>
+<arg>用户查询</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>xpath=//*[@id="main-center"]//span[@class="tabs-title tabs-closable" and text()="${pagetitle}"]</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:13.257" starttime="20151230 15:31:12.982"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:13.258" starttime="20151230 15:31:12.981"></status>
+</kw>
+<kw name="Select Frame" library="CustomSeleniumLibrary">
+<doc>Sets frame identified by `locator` as current frame.</doc>
+<arguments>
+<arg>${USER SEARCH IFRAME}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:13.259" level="INFO">Selecting frame '//iframe[contains(@src,'userSearch')]'.</msg>
+<status status="PASS" endtime="20151230 15:31:13.416" starttime="20151230 15:31:13.258"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '昵称'</arg>
+<arg>User Search Select By NickName</arg>
+</arguments>
+<kw name="User Search Select By NickName" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${USER SEARCH TYPE}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:13.419" level="INFO">Clicking button 'xpath=//*[@id="waitSearch"]/div/div[1]/span/input[1]'.</msg>
+<status status="PASS" endtime="20151230 15:31:13.487" starttime="20151230 15:31:13.419"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i1_0</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:13.511" starttime="20151230 15:31:13.488"></status>
+</kw>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i1_0</arg>
+</arguments>
+<msg timestamp="20151230 15:31:13.512" level="INFO">Clicking element 'id=_easyui_combobox_i1_0'.</msg>
+<status status="PASS" endtime="20151230 15:31:13.569" starttime="20151230 15:31:13.511"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:13.569" starttime="20151230 15:31:13.418"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:13.570" starttime="20151230 15:31:13.417"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '手机号'</arg>
+<arg>User Search Select By Mobile</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:13.572" starttime="20151230 15:31:13.570"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '身份证'</arg>
+<arg>User Search Select By IdNo</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:13.574" starttime="20151230 15:31:13.572"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '姓名'</arg>
+<arg>User Search Select By RealName</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:13.576" starttime="20151230 15:31:13.574"></status>
+</kw>
+<kw name="Update Verify User Status" library="VerifyLibrary">
+<arguments>
+<arg>${user id}</arg>
+<arg>${verify status}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:13.590" level="INFO">[2015-12-30 15:31:13] [update_verify_user_status_to_inquire_success] 将verify_user_status表的数据置为待一审，即调查通过状态
+[2015-12-30 15:31:13] [delete_user_info_result] 将verify_user_info_result表清空
+
+[2015-12-30 15:31:13] [commit] 执行sql语句：
+DELETE FROM `verify_user_info_result` where `user_id` = 100034832
+影响行数：19
+
+[2015-12-30 15:31:13] [populate_user_info_result] 初始化verify_user_info_result表</msg>
+<status status="PASS" endtime="20151230 15:31:13.591" starttime="20151230 15:31:13.576"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待提交'</arg>
+<arg>User Search Select By UNCOMMIT Status</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:13.593" starttime="20151230 15:31:13.591"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待调查'</arg>
+<arg>User Search Select By INQUREING Status</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:13.595" starttime="20151230 15:31:13.593"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待一审'</arg>
+<arg>User Search Select By INQUIRE_SUCCESS Status</arg>
+</arguments>
+<kw name="User Search Select By INQUIRE_SUCCESS Status" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${USER SEARCH STATUS TYPE}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:13.597" level="INFO">Clicking button 'xpath=//*[@id="waitSearch"]/div/div[2]/span/input[1]'.</msg>
+<status status="PASS" endtime="20151230 15:31:13.653" starttime="20151230 15:31:13.597"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i2_4</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:13.670" starttime="20151230 15:31:13.653"></status>
+</kw>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i2_4</arg>
+</arguments>
+<msg timestamp="20151230 15:31:13.670" level="INFO">Clicking element 'id=_easyui_combobox_i2_4'.</msg>
+<status status="PASS" endtime="20151230 15:31:13.720" starttime="20151230 15:31:13.670"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:13.721" starttime="20151230 15:31:13.596"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:13.721" starttime="20151230 15:31:13.595"></status>
+</kw>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=oText</arg>
+<arg>${key}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:13.722" level="INFO">Typing text 'auto_01' into text field 'id=oText'</msg>
+<status status="PASS" endtime="20151230 15:31:13.785" starttime="20151230 15:31:13.722"></status>
+</kw>
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>id=oSubmit</arg>
+</arguments>
+<msg timestamp="20151230 15:31:13.786" level="INFO">Clicking button 'id=oSubmit'.</msg>
+<status status="PASS" endtime="20151230 15:31:13.859" starttime="20151230 15:31:13.786"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:13.876" starttime="20151230 15:31:13.860"></status>
+</kw>
+<kw name="Get Table Row Count" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+</arguments>
+<assign>
+<var>${row_count}</var>
+</assign>
+<msg timestamp="20151230 15:31:13.954" level="INFO">${row_count} = 1</msg>
+<status status="PASS" endtime="20151230 15:31:13.954" starttime="20151230 15:31:13.876"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>共有行数：${row_count}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:13.955" level="INFO">共有行数：1</msg>
+<status status="PASS" endtime="20151230 15:31:13.955" starttime="20151230 15:31:13.954"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${row_count}</arg>
+<arg>1</arg>
+<arg>应该只搜索到一条数据</arg>
+</arguments>
+<msg timestamp="20151230 15:31:13.956" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20151230 15:31:13.956" starttime="20151230 15:31:13.956"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ ${row_count} ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Get User Search Results" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20151230 15:31:14.245" level="INFO">${row} = {'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091000', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u4e00\u5ba1', 'realName': u'\u65bd\u65ed\u5b81', 'mobile': u'13146865530...</msg>
+<status status="PASS" endtime="20151230 15:31:14.245" starttime="20151230 15:31:13.957"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>第${i}行：${row}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:14.246" level="INFO">第0行：{'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091000', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u4e00\u5ba1', 'realName': u'\u65bd\u65ed\u5b81', 'mobile': u'13146865530', 'nickName': u'auto_01', 'userId': u'100034832', 'operator': u''}</msg>
+<status status="PASS" endtime="20151230 15:31:14.246" starttime="20151230 15:31:14.246"></status>
+</kw>
+<kw name="Compare User Search Result" library="VerifyLibrary">
+<arguments>
+<arg>${row}</arg>
+<arg>${i}</arg>
+<arg>${key}</arg>
+<arg>${search key}</arg>
+<arg>${verify status}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:14.248" level="INFO">Start to fetch from DB</msg>
+<msg timestamp="20151230 15:31:14.249" level="INFO">Verify user status is NOT uncommit or inquireing</msg>
+<msg timestamp="20151230 15:31:14.249" level="INFO">Start to fetch from UI</msg>
+<msg timestamp="20151230 15:31:14.250" level="INFO">Start to compare them</msg>
+<msg timestamp="20151230 15:31:14.250" level="INFO">[2015-12-30 15:31:14] [search_user] 执行sql：
+select
+    user.user_id,
+    user.nick_name,
+    user_info.real_name,
+    user.mobile,
+    user_info.id_no,
+    user.channel,
+    verify_user_status.verify_user_status
+from
+    user
+        inner join
+    user_info ON user.user_id = user_info.user_id
+        inner join
+    verify_user_status ON user.user_id = verify_user_status.user_id
+where user.nick_name like 'auto_01%' and verify_user_status.verify_user_status in ('INQUIRE_SUCCESS') order by user.register_time desc , user_id asc;</msg>
+<status status="PASS" endtime="20151230 15:31:14.250" starttime="20151230 15:31:14.247"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:14.251" starttime="20151230 15:31:13.957"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:14.251" starttime="20151230 15:31:13.957"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:14.252" starttime="20151230 15:30:51.891"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:14.252" critical="yes" starttime="20151230 15:30:48.000"></status>
+</test>
+<test id="s1-t4" name="Test Search By Mobile And Uncommit">
+<kw type="setup" name="Open Browser To Login Page" library="resource">
+<kw name="Open Browser" library="CustomSeleniumLibrary">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:14.255" level="INFO">Opening browser 'Chrome' to base url 'http://172.16.2.38:15081/login/index.html'</msg>
+<status status="PASS" endtime="20151230 15:31:17.876" starttime="20151230 15:31:14.254"></status>
+</kw>
+<kw name="Maximize Browser Window" library="CustomSeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151230 15:31:18.024" starttime="20151230 15:31:17.876"></status>
+</kw>
+<kw name="Set Selenium Speed" library="CustomSeleniumLibrary">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:18.025" starttime="20151230 15:31:18.024"></status>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>登录</arg>
+</arguments>
+<msg timestamp="20151230 15:31:18.029" level="INFO">Page title is '登录'.</msg>
+<status status="PASS" endtime="20151230 15:31:18.030" starttime="20151230 15:31:18.026"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:18.030" starttime="20151230 15:31:18.025"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:18.030" starttime="20151230 15:31:14.253"></status>
+</kw>
+<kw name="Search user test">
+<arguments>
+<arg>手机号</arg>
+<arg>等待提交</arg>
+<arg>13146865530</arg>
+<arg>100034832</arg>
+</arguments>
+<kw name="Login With Valid Account" library="resource">
+<arguments>
+<arg>${ADMIN USER}</arg>
+<arg>${ADMIN PASSWORD}</arg>
+</arguments>
+<kw name="Input Username" library="resource">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:18.033" level="INFO">Typing text 'admin@renrendai.com' into text field 'username'</msg>
+<status status="PASS" endtime="20151230 15:31:18.101" starttime="20151230 15:31:18.033"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:18.101" starttime="20151230 15:31:18.032"></status>
+</kw>
+<kw name="Input Password" library="resource">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:18.103" level="INFO">Typing text 'L123456' into text field 'password'</msg>
+<status status="PASS" endtime="20151230 15:31:18.181" starttime="20151230 15:31:18.102"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:18.182" starttime="20151230 15:31:18.102"></status>
+</kw>
+<kw name="Submit Credentials" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>loginCheck</arg>
+</arguments>
+<msg timestamp="20151230 15:31:18.184" level="INFO">Clicking button 'loginCheck'.</msg>
+<status status="PASS" endtime="20151230 15:31:28.238" starttime="20151230 15:31:18.183"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:28.239" starttime="20151230 15:31:18.182"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>2 min</arg>
+<arg>10 sec</arg>
+<arg>Welcome Page Should Be Open</arg>
+</arguments>
+<kw name="Welcome Page Should Be Open" library="resource">
+<kw name="Location Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${WELCOME URL}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="CustomSeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20151230 15:31:29.091" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20151230 15:31:29.091" starttime="20151230 15:31:28.255"></status>
+</kw>
+<msg timestamp="20151230 15:31:29.091" level="FAIL">Location should have been 'http://172.16.2.38:15081/index.html' but was 'http://172.16.2.38:15081/login/index.html'</msg>
+<status status="FAIL" endtime="20151230 15:31:29.092" starttime="20151230 15:31:28.240"></status>
+</kw>
+<status status="FAIL" endtime="20151230 15:31:29.092" starttime="20151230 15:31:28.240"></status>
+</kw>
+<kw name="Welcome Page Should Be Open" library="resource">
+<kw name="Location Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${WELCOME URL}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:39.097" level="INFO">Current location is 'http://172.16.2.38:15081/index.html'.</msg>
+<status status="PASS" endtime="20151230 15:31:39.098" starttime="20151230 15:31:39.094"></status>
+</kw>
+<kw name="Title Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>黑卡审核系统</arg>
+</arguments>
+<msg timestamp="20151230 15:31:39.101" level="INFO">Page title is '黑卡审核系统'.</msg>
+<status status="PASS" endtime="20151230 15:31:39.101" starttime="20151230 15:31:39.098"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:39.102" starttime="20151230 15:31:39.093"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:39.102" starttime="20151230 15:31:28.239"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:39.102" starttime="20151230 15:31:18.031"></status>
+</kw>
+<kw name="Click TreeNode" library="resource">
+<arguments>
+<arg>用户查询</arg>
+</arguments>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="${treetitle}"]</arg>
+</arguments>
+<msg timestamp="20151230 15:31:39.104" level="INFO">Clicking element 'xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="用户查询"]'.</msg>
+<status status="PASS" endtime="20151230 15:31:39.143" starttime="20151230 15:31:39.103"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:39.143" starttime="20151230 15:31:39.103"></status>
+</kw>
+<kw name="Page Title Visible" library="resource">
+<arguments>
+<arg>用户查询</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>xpath=//*[@id="main-center"]//span[@class="tabs-title tabs-closable" and text()="${pagetitle}"]</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:39.431" starttime="20151230 15:31:39.144"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:39.432" starttime="20151230 15:31:39.143"></status>
+</kw>
+<kw name="Select Frame" library="CustomSeleniumLibrary">
+<doc>Sets frame identified by `locator` as current frame.</doc>
+<arguments>
+<arg>${USER SEARCH IFRAME}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:39.434" level="INFO">Selecting frame '//iframe[contains(@src,'userSearch')]'.</msg>
+<status status="PASS" endtime="20151230 15:31:39.561" starttime="20151230 15:31:39.433"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '昵称'</arg>
+<arg>User Search Select By NickName</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:39.564" starttime="20151230 15:31:39.562"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '手机号'</arg>
+<arg>User Search Select By Mobile</arg>
+</arguments>
+<kw name="User Search Select By Mobile" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${USER SEARCH TYPE}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:39.567" level="INFO">Clicking button 'xpath=//*[@id="waitSearch"]/div/div[1]/span/input[1]'.</msg>
+<status status="PASS" endtime="20151230 15:31:39.666" starttime="20151230 15:31:39.566"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i1_1</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:39.691" starttime="20151230 15:31:39.667"></status>
+</kw>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i1_1</arg>
+</arguments>
+<msg timestamp="20151230 15:31:39.693" level="INFO">Clicking element 'id=_easyui_combobox_i1_1'.</msg>
+<status status="PASS" endtime="20151230 15:31:39.748" starttime="20151230 15:31:39.692"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:39.749" starttime="20151230 15:31:39.566"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:39.750" starttime="20151230 15:31:39.564"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '身份证'</arg>
+<arg>User Search Select By IdNo</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:39.753" starttime="20151230 15:31:39.750"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '姓名'</arg>
+<arg>User Search Select By RealName</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:39.757" starttime="20151230 15:31:39.754"></status>
+</kw>
+<kw name="Update Verify User Status" library="VerifyLibrary">
+<arguments>
+<arg>${user id}</arg>
+<arg>${verify status}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:39.764" level="INFO">[2015-12-30 15:31:39] [update_verify_user_status_to_uncommit] 将verify_user_status表的数据置为未提交
+[2015-12-30 15:31:39] [commit] 执行sql语句：
+UPDATE verify_user_status SET verify_user_status='UNCOMMIT',reject_operation=NULL,investigate_time=NULL,first_verify_time=NULL,second_verify_time=NULL,investigate_user_id=NULL,first_verify_user_id=NULL,second_verify_user_id=NULL,investigate_note=NULL,first_verify_note=NULL,second_verify_note=NULL,first_verify_amount=NULL,first_verify_card_product_id=NULL,second_verify_amount=NULL,second_verify_card_product_id=NULL,online_time=NULL,reject_reason_list=NULL,in_youxin_back_list=NULL,first_cash_draw_ratio=NULL,cash_draw_ratio=NULL,version='0',audit_user_status='UNCOMMIT' WHERE user_id = 100034832
+影响行数：1
+
+[2015-12-30 15:31:39] [delete_user_info_result] 将verify_user_info_result表清空
+
+[2015-12-30 15:31:39] [commit] 执行sql语句：
+DELETE FROM `verify_user_info_result` where `user_id` = 100034832
+影响行数：19
+
+[2015-12-30 15:31:39] [delete_user_status_log] 将verify_user_status_log表中的数据删除
+
+[2015-12-30 15:31:39] [commit] 执行sql语句：
+delete from `verify_user_status_log` where `user_id` = 100034832
+影响行数：0
+
+[2015-12-30 15:31:39] [delete_strategy_output] 将verify_strategy_output表中的数据删除
+
+[2015-12-30 15:31:39] [commit] 执行sql语句：
+delete from `verify_strategy_output` where `user_id` = 100034832
+影响行数：0
+
+[2015-12-30 15:31:39] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
+
+[2015-12-30 15:31:39] [commit] 执行sql语句：
+delete from `verify_user_info_refine` where `user_id` = 100034832
+影响行数：0</msg>
+<status status="PASS" endtime="20151230 15:31:39.764" starttime="20151230 15:31:39.757"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待提交'</arg>
+<arg>User Search Select By UNCOMMIT Status</arg>
+</arguments>
+<kw name="User Search Select By UNCOMMIT Status" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${USER SEARCH STATUS TYPE}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:39.768" level="INFO">Clicking button 'xpath=//*[@id="waitSearch"]/div/div[2]/span/input[1]'.</msg>
+<status status="PASS" endtime="20151230 15:31:39.822" starttime="20151230 15:31:39.767"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i2_1</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:39.840" starttime="20151230 15:31:39.823"></status>
+</kw>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i2_1</arg>
+</arguments>
+<msg timestamp="20151230 15:31:39.841" level="INFO">Clicking element 'id=_easyui_combobox_i2_1'.</msg>
+<status status="PASS" endtime="20151230 15:31:39.892" starttime="20151230 15:31:39.840"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:39.893" starttime="20151230 15:31:39.766"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:39.893" starttime="20151230 15:31:39.765"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待调查'</arg>
+<arg>User Search Select By INQUREING Status</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:39.896" starttime="20151230 15:31:39.894"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待一审'</arg>
+<arg>User Search Select By INQUIRE_SUCCESS Status</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:39.899" starttime="20151230 15:31:39.897"></status>
+</kw>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=oText</arg>
+<arg>${key}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:39.900" level="INFO">Typing text '13146865530' into text field 'id=oText'</msg>
+<status status="PASS" endtime="20151230 15:31:39.963" starttime="20151230 15:31:39.900"></status>
+</kw>
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>id=oSubmit</arg>
+</arguments>
+<msg timestamp="20151230 15:31:39.964" level="INFO">Clicking button 'id=oSubmit'.</msg>
+<status status="PASS" endtime="20151230 15:31:40.040" starttime="20151230 15:31:39.964"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:40.055" starttime="20151230 15:31:40.041"></status>
+</kw>
+<kw name="Get Table Row Count" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+</arguments>
+<assign>
+<var>${row_count}</var>
+</assign>
+<msg timestamp="20151230 15:31:40.135" level="INFO">${row_count} = 1</msg>
+<status status="PASS" endtime="20151230 15:31:40.135" starttime="20151230 15:31:40.055"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>共有行数：${row_count}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:40.136" level="INFO">共有行数：1</msg>
+<status status="PASS" endtime="20151230 15:31:40.136" starttime="20151230 15:31:40.135"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${row_count}</arg>
+<arg>1</arg>
+<arg>应该只搜索到一条数据</arg>
+</arguments>
+<msg timestamp="20151230 15:31:40.137" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20151230 15:31:40.137" starttime="20151230 15:31:40.136"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ ${row_count} ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Get User Search Results" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20151230 15:31:40.407" level="INFO">${row} = {'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091000', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u63d0\u4ea4', 'realName': u'\u65bd\u65ed\u5b81', 'mobile': u'13146865530...</msg>
+<status status="PASS" endtime="20151230 15:31:40.407" starttime="20151230 15:31:40.138"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>第${i}行：${row}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:40.408" level="INFO">第0行：{'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091000', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u63d0\u4ea4', 'realName': u'\u65bd\u65ed\u5b81', 'mobile': u'13146865530', 'nickName': u'auto_01', 'userId': u'100034832', 'operator': u''}</msg>
+<status status="PASS" endtime="20151230 15:31:40.408" starttime="20151230 15:31:40.408"></status>
+</kw>
+<kw name="Compare User Search Result" library="VerifyLibrary">
+<arguments>
+<arg>${row}</arg>
+<arg>${i}</arg>
+<arg>${key}</arg>
+<arg>${search key}</arg>
+<arg>${verify status}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:40.411" level="INFO">Start to fetch from DB</msg>
+<msg timestamp="20151230 15:31:40.411" level="INFO">Verify user status is uncommit or inquireing</msg>
+<msg timestamp="20151230 15:31:40.412" level="INFO">Start to fetch from UI</msg>
+<msg timestamp="20151230 15:31:40.412" level="INFO">Start to compare them</msg>
+<msg timestamp="20151230 15:31:40.412" level="INFO">[2015-12-30 15:31:40] [search_user] 执行sql：
+select
+    user.user_id,
+    user.nick_name,
+    user_info.real_name,
+    user.mobile,
+    user_info.id_no,
+    user.channel,
+    verify_user_status.verify_user_status
+from
+    user
+        inner join
+    user_info ON user.user_id = user_info.user_id
+        inner join
+    verify_user_status ON user.user_id = verify_user_status.user_id
+where user.mobile like '13146865530%' and verify_user_status.verify_user_status in ('UNCOMMIT') order by user.register_time desc , user_id asc;</msg>
+<status status="PASS" endtime="20151230 15:31:40.412" starttime="20151230 15:31:40.409"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:40.413" starttime="20151230 15:31:40.138"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:40.413" starttime="20151230 15:31:40.137"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:40.413" starttime="20151230 15:31:18.031"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:40.413" critical="yes" starttime="20151230 15:31:14.253"></status>
+</test>
+<test id="s1-t5" name="Test Search By Mobile And Inquireing">
+<kw type="setup" name="Open Browser To Login Page" library="resource">
+<kw name="Open Browser" library="CustomSeleniumLibrary">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:40.416" level="INFO">Opening browser 'Chrome' to base url 'http://172.16.2.38:15081/login/index.html'</msg>
+<status status="PASS" endtime="20151230 15:31:45.664" starttime="20151230 15:31:40.415"></status>
+</kw>
+<kw name="Maximize Browser Window" library="CustomSeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151230 15:31:45.820" starttime="20151230 15:31:45.664"></status>
+</kw>
+<kw name="Set Selenium Speed" library="CustomSeleniumLibrary">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:31:45.821" starttime="20151230 15:31:45.820"></status>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>登录</arg>
+</arguments>
+<msg timestamp="20151230 15:31:45.825" level="INFO">Page title is '登录'.</msg>
+<status status="PASS" endtime="20151230 15:31:45.825" starttime="20151230 15:31:45.822"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:45.826" starttime="20151230 15:31:45.821"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:45.826" starttime="20151230 15:31:40.415"></status>
+</kw>
+<kw name="Search user test">
+<arguments>
+<arg>手机号</arg>
+<arg>等待调查</arg>
+<arg>13146865530</arg>
+<arg>100034832</arg>
+</arguments>
+<kw name="Login With Valid Account" library="resource">
+<arguments>
+<arg>${ADMIN USER}</arg>
+<arg>${ADMIN PASSWORD}</arg>
+</arguments>
+<kw name="Input Username" library="resource">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:45.829" level="INFO">Typing text 'admin@renrendai.com' into text field 'username'</msg>
+<status status="PASS" endtime="20151230 15:31:45.895" starttime="20151230 15:31:45.829"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:45.896" starttime="20151230 15:31:45.828"></status>
+</kw>
+<kw name="Input Password" library="resource">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20151230 15:31:45.897" level="INFO">Typing text 'L123456' into text field 'password'</msg>
+<status status="PASS" endtime="20151230 15:31:45.970" starttime="20151230 15:31:45.897"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:45.970" starttime="20151230 15:31:45.896"></status>
+</kw>
+<kw name="Submit Credentials" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>loginCheck</arg>
+</arguments>
+<msg timestamp="20151230 15:31:45.972" level="INFO">Clicking button 'loginCheck'.</msg>
+<status status="PASS" endtime="20151230 15:31:56.018" starttime="20151230 15:31:45.971"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:31:56.019" starttime="20151230 15:31:45.971"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>2 min</arg>
+<arg>10 sec</arg>
+<arg>Welcome Page Should Be Open</arg>
+</arguments>
+<kw name="Welcome Page Should Be Open" library="resource">
+<kw name="Location Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${WELCOME URL}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="CustomSeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20151230 15:31:56.859" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20151230 15:31:56.860" starttime="20151230 15:31:56.036"></status>
+</kw>
+<msg timestamp="20151230 15:31:56.860" level="FAIL">Location should have been 'http://172.16.2.38:15081/index.html' but was 'http://172.16.2.38:15081/login/index.html'</msg>
+<status status="FAIL" endtime="20151230 15:31:56.860" starttime="20151230 15:31:56.021"></status>
+</kw>
+<status status="FAIL" endtime="20151230 15:31:56.861" starttime="20151230 15:31:56.020"></status>
+</kw>
+<kw name="Welcome Page Should Be Open" library="resource">
+<kw name="Location Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${WELCOME URL}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:06.866" level="INFO">Current location is 'http://172.16.2.38:15081/index.html'.</msg>
+<status status="PASS" endtime="20151230 15:32:06.866" starttime="20151230 15:32:06.862"></status>
+</kw>
+<kw name="Title Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>黑卡审核系统</arg>
+</arguments>
+<msg timestamp="20151230 15:32:06.869" level="INFO">Page title is '黑卡审核系统'.</msg>
+<status status="PASS" endtime="20151230 15:32:06.870" starttime="20151230 15:32:06.866"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:06.870" starttime="20151230 15:32:06.861"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:06.870" starttime="20151230 15:31:56.020"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:06.871" starttime="20151230 15:31:45.827"></status>
+</kw>
+<kw name="Click TreeNode" library="resource">
+<arguments>
+<arg>用户查询</arg>
+</arguments>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="${treetitle}"]</arg>
+</arguments>
+<msg timestamp="20151230 15:32:06.872" level="INFO">Clicking element 'xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="用户查询"]'.</msg>
+<status status="PASS" endtime="20151230 15:32:06.912" starttime="20151230 15:32:06.872"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:06.913" starttime="20151230 15:32:06.871"></status>
+</kw>
+<kw name="Page Title Visible" library="resource">
+<arguments>
+<arg>用户查询</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>xpath=//*[@id="main-center"]//span[@class="tabs-title tabs-closable" and text()="${pagetitle}"]</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:07.190" starttime="20151230 15:32:06.914"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:07.191" starttime="20151230 15:32:06.913"></status>
+</kw>
+<kw name="Select Frame" library="CustomSeleniumLibrary">
+<doc>Sets frame identified by `locator` as current frame.</doc>
+<arguments>
+<arg>${USER SEARCH IFRAME}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:07.192" level="INFO">Selecting frame '//iframe[contains(@src,'userSearch')]'.</msg>
+<status status="PASS" endtime="20151230 15:32:07.345" starttime="20151230 15:32:07.191"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '昵称'</arg>
+<arg>User Search Select By NickName</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:07.347" starttime="20151230 15:32:07.346"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '手机号'</arg>
+<arg>User Search Select By Mobile</arg>
+</arguments>
+<kw name="User Search Select By Mobile" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${USER SEARCH TYPE}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:07.351" level="INFO">Clicking button 'xpath=//*[@id="waitSearch"]/div/div[1]/span/input[1]'.</msg>
+<status status="PASS" endtime="20151230 15:32:07.426" starttime="20151230 15:32:07.350"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i1_1</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:07.451" starttime="20151230 15:32:07.427"></status>
+</kw>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i1_1</arg>
+</arguments>
+<msg timestamp="20151230 15:32:07.452" level="INFO">Clicking element 'id=_easyui_combobox_i1_1'.</msg>
+<status status="PASS" endtime="20151230 15:32:07.512" starttime="20151230 15:32:07.451"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:07.513" starttime="20151230 15:32:07.349"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:07.513" starttime="20151230 15:32:07.348"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '身份证'</arg>
+<arg>User Search Select By IdNo</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:07.515" starttime="20151230 15:32:07.513"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '姓名'</arg>
+<arg>User Search Select By RealName</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:07.517" starttime="20151230 15:32:07.515"></status>
+</kw>
+<kw name="Update Verify User Status" library="VerifyLibrary">
+<arguments>
+<arg>${user id}</arg>
+<arg>${verify status}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:07.534" level="INFO">[2015-12-30 15:32:07] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
+[2015-12-30 15:32:07] [commit] 执行sql语句：
+UPDATE verify_user_status SET verify_user_status='INQUIREING',reject_operation=NULL,investigate_time=NULL,first_verify_time=NULL,second_verify_time=NULL,investigate_user_id=NULL,first_verify_user_id=NULL,second_verify_user_id=NULL,investigate_note=NULL,first_verify_note=NULL,second_verify_note=NULL,first_verify_amount=NULL,first_verify_card_product_id=NULL,second_verify_amount=NULL,second_verify_card_product_id=NULL,online_time=NULL,reject_reason_list=NULL,in_youxin_back_list=NULL,first_cash_draw_ratio=NULL,cash_draw_ratio=NULL,version='0',audit_user_status='INQUIREING' WHERE user_id = 100034832
+影响行数：1
+
+[2015-12-30 15:32:07] [delete_user_info_result] 将verify_user_info_result表清空
+
+[2015-12-30 15:32:07] [commit] 执行sql语句：
+DELETE FROM `verify_user_info_result` where `user_id` = 100034832
+影响行数：0
+
+[2015-12-30 15:32:07] [populate_user_info_result] 初始化verify_user_info_result表
+
+[2015-12-30 15:32:07] [delete_user_status_log] 将verify_user_status_log表中的数据删除
+
+[2015-12-30 15:32:07] [commit] 执行sql语句：
+delete from `verify_user_status_log` where `user_id` = 100034832
+影响行数：0
+
+[2015-12-30 15:32:07] [delete_strategy_output] 将verify_strategy_output表中的数据删除
+
+[2015-12-30 15:32:07] [commit] 执行sql语句：
+delete from `verify_strategy_output` where `user_id` = 100034832
+影响行数：0
+
+[2015-12-30 15:32:07] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
+
+[2015-12-30 15:32:07] [commit] 执行sql语句：
+delete from `verify_user_info_refine` where `user_id` = 100034832
+影响行数：0</msg>
+<status status="PASS" endtime="20151230 15:32:07.534" starttime="20151230 15:32:07.517"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待提交'</arg>
+<arg>User Search Select By UNCOMMIT Status</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:07.536" starttime="20151230 15:32:07.535"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待调查'</arg>
+<arg>User Search Select By INQUREING Status</arg>
+</arguments>
+<kw name="User Search Select By INQUREING Status" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${USER SEARCH STATUS TYPE}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:07.539" level="INFO">Clicking button 'xpath=//*[@id="waitSearch"]/div/div[2]/span/input[1]'.</msg>
+<status status="PASS" endtime="20151230 15:32:07.593" starttime="20151230 15:32:07.539"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i2_2</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:07.616" starttime="20151230 15:32:07.594"></status>
+</kw>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i2_2</arg>
+</arguments>
+<msg timestamp="20151230 15:32:07.617" level="INFO">Clicking element 'id=_easyui_combobox_i2_2'.</msg>
+<status status="PASS" endtime="20151230 15:32:07.666" starttime="20151230 15:32:07.616"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:07.667" starttime="20151230 15:32:07.538"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:07.667" starttime="20151230 15:32:07.537"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待一审'</arg>
+<arg>User Search Select By INQUIRE_SUCCESS Status</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:07.669" starttime="20151230 15:32:07.668"></status>
+</kw>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=oText</arg>
+<arg>${key}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:07.670" level="INFO">Typing text '13146865530' into text field 'id=oText'</msg>
+<status status="PASS" endtime="20151230 15:32:07.730" starttime="20151230 15:32:07.670"></status>
+</kw>
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>id=oSubmit</arg>
+</arguments>
+<msg timestamp="20151230 15:32:07.731" level="INFO">Clicking button 'id=oSubmit'.</msg>
+<status status="PASS" endtime="20151230 15:32:07.806" starttime="20151230 15:32:07.730"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:07.821" starttime="20151230 15:32:07.806"></status>
+</kw>
+<kw name="Get Table Row Count" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+</arguments>
+<assign>
+<var>${row_count}</var>
+</assign>
+<msg timestamp="20151230 15:32:07.906" level="INFO">${row_count} = 1</msg>
+<status status="PASS" endtime="20151230 15:32:07.906" starttime="20151230 15:32:07.821"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>共有行数：${row_count}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:07.907" level="INFO">共有行数：1</msg>
+<status status="PASS" endtime="20151230 15:32:07.907" starttime="20151230 15:32:07.906"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${row_count}</arg>
+<arg>1</arg>
+<arg>应该只搜索到一条数据</arg>
+</arguments>
+<msg timestamp="20151230 15:32:07.908" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20151230 15:32:07.908" starttime="20151230 15:32:07.908"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ ${row_count} ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Get User Search Results" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20151230 15:32:08.175" level="INFO">${row} = {'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091000', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u8c03\u67e5', 'realName': u'\u65bd\u65ed\u5b81', 'mobile': u'13146865530...</msg>
+<status status="PASS" endtime="20151230 15:32:08.175" starttime="20151230 15:32:07.909"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>第${i}行：${row}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:08.176" level="INFO">第0行：{'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091000', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u8c03\u67e5', 'realName': u'\u65bd\u65ed\u5b81', 'mobile': u'13146865530', 'nickName': u'auto_01', 'userId': u'100034832', 'operator': u''}</msg>
+<status status="PASS" endtime="20151230 15:32:08.177" starttime="20151230 15:32:08.176"></status>
+</kw>
+<kw name="Compare User Search Result" library="VerifyLibrary">
+<arguments>
+<arg>${row}</arg>
+<arg>${i}</arg>
+<arg>${key}</arg>
+<arg>${search key}</arg>
+<arg>${verify status}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:08.179" level="INFO">Start to fetch from DB</msg>
+<msg timestamp="20151230 15:32:08.179" level="INFO">Verify user status is uncommit or inquireing</msg>
+<msg timestamp="20151230 15:32:08.179" level="INFO">Start to fetch from UI</msg>
+<msg timestamp="20151230 15:32:08.179" level="INFO">Start to compare them</msg>
+<msg timestamp="20151230 15:32:08.180" level="INFO">[2015-12-30 15:32:08] [search_user] 执行sql：
+select
+    user.user_id,
+    user.nick_name,
+    user_info.real_name,
+    user.mobile,
+    user_info.id_no,
+    user.channel,
+    verify_user_status.verify_user_status
+from
+    user
+        inner join
+    user_info ON user.user_id = user_info.user_id
+        inner join
+    verify_user_status ON user.user_id = verify_user_status.user_id
+where user.mobile like '13146865530%' and verify_user_status.verify_user_status in ('INQUIREING') order by user.register_time desc , user_id asc;</msg>
+<status status="PASS" endtime="20151230 15:32:08.180" starttime="20151230 15:32:08.177"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:08.180" starttime="20151230 15:32:07.909"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:08.180" starttime="20151230 15:32:07.909"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:08.181" starttime="20151230 15:31:45.827"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:08.181" critical="yes" starttime="20151230 15:31:40.414"></status>
+</test>
+<test id="s1-t6" name="Test Search By Mobile And Inquire Success">
+<kw type="setup" name="Open Browser To Login Page" library="resource">
+<kw name="Open Browser" library="CustomSeleniumLibrary">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:08.183" level="INFO">Opening browser 'Chrome' to base url 'http://172.16.2.38:15081/login/index.html'</msg>
+<status status="PASS" endtime="20151230 15:32:11.176" starttime="20151230 15:32:08.183"></status>
+</kw>
+<kw name="Maximize Browser Window" library="CustomSeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151230 15:32:11.318" starttime="20151230 15:32:11.177"></status>
+</kw>
+<kw name="Set Selenium Speed" library="CustomSeleniumLibrary">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:11.319" starttime="20151230 15:32:11.319"></status>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>登录</arg>
+</arguments>
+<msg timestamp="20151230 15:32:11.323" level="INFO">Page title is '登录'.</msg>
+<status status="PASS" endtime="20151230 15:32:11.324" starttime="20151230 15:32:11.320"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:11.324" starttime="20151230 15:32:11.320"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:11.325" starttime="20151230 15:32:08.182"></status>
+</kw>
+<kw name="Search user test">
+<arguments>
+<arg>手机号</arg>
+<arg>等待一审</arg>
+<arg>13146865530</arg>
+<arg>100034832</arg>
+</arguments>
+<kw name="Login With Valid Account" library="resource">
+<arguments>
+<arg>${ADMIN USER}</arg>
+<arg>${ADMIN PASSWORD}</arg>
+</arguments>
+<kw name="Input Username" library="resource">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:11.328" level="INFO">Typing text 'admin@renrendai.com' into text field 'username'</msg>
+<status status="PASS" endtime="20151230 15:32:11.397" starttime="20151230 15:32:11.327"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:11.397" starttime="20151230 15:32:11.327"></status>
+</kw>
+<kw name="Input Password" library="resource">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:11.399" level="INFO">Typing text 'L123456' into text field 'password'</msg>
+<status status="PASS" endtime="20151230 15:32:11.479" starttime="20151230 15:32:11.398"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:11.480" starttime="20151230 15:32:11.398"></status>
+</kw>
+<kw name="Submit Credentials" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>loginCheck</arg>
+</arguments>
+<msg timestamp="20151230 15:32:11.482" level="INFO">Clicking button 'loginCheck'.</msg>
+<status status="PASS" endtime="20151230 15:32:21.535" starttime="20151230 15:32:11.481"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:21.535" starttime="20151230 15:32:11.480"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>2 min</arg>
+<arg>10 sec</arg>
+<arg>Welcome Page Should Be Open</arg>
+</arguments>
+<kw name="Welcome Page Should Be Open" library="resource">
+<kw name="Location Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${WELCOME URL}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="CustomSeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20151230 15:32:22.368" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20151230 15:32:22.369" starttime="20151230 15:32:21.551"></status>
+</kw>
+<msg timestamp="20151230 15:32:22.370" level="FAIL">Location should have been 'http://172.16.2.38:15081/index.html' but was 'http://172.16.2.38:15081/login/index.html'</msg>
+<status status="FAIL" endtime="20151230 15:32:22.370" starttime="20151230 15:32:21.537"></status>
+</kw>
+<status status="FAIL" endtime="20151230 15:32:22.370" starttime="20151230 15:32:21.536"></status>
+</kw>
+<kw name="Welcome Page Should Be Open" library="resource">
+<kw name="Location Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${WELCOME URL}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:32.376" level="INFO">Current location is 'http://172.16.2.38:15081/index.html'.</msg>
+<status status="PASS" endtime="20151230 15:32:32.376" starttime="20151230 15:32:32.372"></status>
+</kw>
+<kw name="Title Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>黑卡审核系统</arg>
+</arguments>
+<msg timestamp="20151230 15:32:32.380" level="INFO">Page title is '黑卡审核系统'.</msg>
+<status status="PASS" endtime="20151230 15:32:32.380" starttime="20151230 15:32:32.377"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:32.380" starttime="20151230 15:32:32.371"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:32.381" starttime="20151230 15:32:21.536"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:32.381" starttime="20151230 15:32:11.326"></status>
+</kw>
+<kw name="Click TreeNode" library="resource">
+<arguments>
+<arg>用户查询</arg>
+</arguments>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="${treetitle}"]</arg>
+</arguments>
+<msg timestamp="20151230 15:32:32.383" level="INFO">Clicking element 'xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="用户查询"]'.</msg>
+<status status="PASS" endtime="20151230 15:32:32.420" starttime="20151230 15:32:32.382"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:32.421" starttime="20151230 15:32:32.381"></status>
+</kw>
+<kw name="Page Title Visible" library="resource">
+<arguments>
+<arg>用户查询</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>xpath=//*[@id="main-center"]//span[@class="tabs-title tabs-closable" and text()="${pagetitle}"]</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:32.822" starttime="20151230 15:32:32.422"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:32.823" starttime="20151230 15:32:32.421"></status>
+</kw>
+<kw name="Select Frame" library="CustomSeleniumLibrary">
+<doc>Sets frame identified by `locator` as current frame.</doc>
+<arguments>
+<arg>${USER SEARCH IFRAME}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:32.824" level="INFO">Selecting frame '//iframe[contains(@src,'userSearch')]'.</msg>
+<status status="PASS" endtime="20151230 15:32:32.868" starttime="20151230 15:32:32.823"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '昵称'</arg>
+<arg>User Search Select By NickName</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:32.870" starttime="20151230 15:32:32.868"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '手机号'</arg>
+<arg>User Search Select By Mobile</arg>
+</arguments>
+<kw name="User Search Select By Mobile" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${USER SEARCH TYPE}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:32.873" level="INFO">Clicking button 'xpath=//*[@id="waitSearch"]/div/div[1]/span/input[1]'.</msg>
+<status status="PASS" endtime="20151230 15:32:32.957" starttime="20151230 15:32:32.873"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i1_1</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:32.977" starttime="20151230 15:32:32.958"></status>
+</kw>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i1_1</arg>
+</arguments>
+<msg timestamp="20151230 15:32:32.978" level="INFO">Clicking element 'id=_easyui_combobox_i1_1'.</msg>
+<status status="PASS" endtime="20151230 15:32:33.034" starttime="20151230 15:32:32.978"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:33.035" starttime="20151230 15:32:32.872"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:33.035" starttime="20151230 15:32:32.870"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '身份证'</arg>
+<arg>User Search Select By IdNo</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:33.037" starttime="20151230 15:32:33.035"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '姓名'</arg>
+<arg>User Search Select By RealName</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:33.039" starttime="20151230 15:32:33.037"></status>
+</kw>
+<kw name="Update Verify User Status" library="VerifyLibrary">
+<arguments>
+<arg>${user id}</arg>
+<arg>${verify status}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:33.054" level="INFO">[2015-12-30 15:32:33] [update_verify_user_status_to_inquire_success] 将verify_user_status表的数据置为待一审，即调查通过状态
+[2015-12-30 15:32:33] [delete_user_info_result] 将verify_user_info_result表清空
+
+[2015-12-30 15:32:33] [commit] 执行sql语句：
+DELETE FROM `verify_user_info_result` where `user_id` = 100034832
+影响行数：19
+
+[2015-12-30 15:32:33] [populate_user_info_result] 初始化verify_user_info_result表</msg>
+<status status="PASS" endtime="20151230 15:32:33.055" starttime="20151230 15:32:33.039"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待提交'</arg>
+<arg>User Search Select By UNCOMMIT Status</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:33.057" starttime="20151230 15:32:33.055"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待调查'</arg>
+<arg>User Search Select By INQUREING Status</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:33.058" starttime="20151230 15:32:33.057"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待一审'</arg>
+<arg>User Search Select By INQUIRE_SUCCESS Status</arg>
+</arguments>
+<kw name="User Search Select By INQUIRE_SUCCESS Status" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${USER SEARCH STATUS TYPE}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:33.061" level="INFO">Clicking button 'xpath=//*[@id="waitSearch"]/div/div[2]/span/input[1]'.</msg>
+<status status="PASS" endtime="20151230 15:32:33.116" starttime="20151230 15:32:33.061"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i2_4</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:33.133" starttime="20151230 15:32:33.116"></status>
+</kw>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i2_4</arg>
+</arguments>
+<msg timestamp="20151230 15:32:33.133" level="INFO">Clicking element 'id=_easyui_combobox_i2_4'.</msg>
+<status status="PASS" endtime="20151230 15:32:33.186" starttime="20151230 15:32:33.133"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:33.186" starttime="20151230 15:32:33.060"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:33.187" starttime="20151230 15:32:33.059"></status>
+</kw>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=oText</arg>
+<arg>${key}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:33.187" level="INFO">Typing text '13146865530' into text field 'id=oText'</msg>
+<status status="PASS" endtime="20151230 15:32:33.248" starttime="20151230 15:32:33.187"></status>
+</kw>
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>id=oSubmit</arg>
+</arguments>
+<msg timestamp="20151230 15:32:33.249" level="INFO">Clicking button 'id=oSubmit'.</msg>
+<status status="PASS" endtime="20151230 15:32:33.322" starttime="20151230 15:32:33.249"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:33.337" starttime="20151230 15:32:33.323"></status>
+</kw>
+<kw name="Get Table Row Count" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+</arguments>
+<assign>
+<var>${row_count}</var>
+</assign>
+<msg timestamp="20151230 15:32:33.420" level="INFO">${row_count} = 1</msg>
+<status status="PASS" endtime="20151230 15:32:33.420" starttime="20151230 15:32:33.337"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>共有行数：${row_count}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:33.421" level="INFO">共有行数：1</msg>
+<status status="PASS" endtime="20151230 15:32:33.422" starttime="20151230 15:32:33.421"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${row_count}</arg>
+<arg>1</arg>
+<arg>应该只搜索到一条数据</arg>
+</arguments>
+<msg timestamp="20151230 15:32:33.422" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20151230 15:32:33.423" starttime="20151230 15:32:33.422"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ ${row_count} ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Get User Search Results" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20151230 15:32:33.699" level="INFO">${row} = {'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091000', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u4e00\u5ba1', 'realName': u'\u65bd\u65ed\u5b81', 'mobile': u'13146865530...</msg>
+<status status="PASS" endtime="20151230 15:32:33.699" starttime="20151230 15:32:33.423"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>第${i}行：${row}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:33.700" level="INFO">第0行：{'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091000', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u4e00\u5ba1', 'realName': u'\u65bd\u65ed\u5b81', 'mobile': u'13146865530', 'nickName': u'auto_01', 'userId': u'100034832', 'operator': u''}</msg>
+<status status="PASS" endtime="20151230 15:32:33.700" starttime="20151230 15:32:33.699"></status>
+</kw>
+<kw name="Compare User Search Result" library="VerifyLibrary">
+<arguments>
+<arg>${row}</arg>
+<arg>${i}</arg>
+<arg>${key}</arg>
+<arg>${search key}</arg>
+<arg>${verify status}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:33.703" level="INFO">Start to fetch from DB</msg>
+<msg timestamp="20151230 15:32:33.703" level="INFO">Verify user status is NOT uncommit or inquireing</msg>
+<msg timestamp="20151230 15:32:33.704" level="INFO">Start to fetch from UI</msg>
+<msg timestamp="20151230 15:32:33.704" level="INFO">Start to compare them</msg>
+<msg timestamp="20151230 15:32:33.704" level="INFO">[2015-12-30 15:32:33] [search_user] 执行sql：
+select
+    user.user_id,
+    user.nick_name,
+    user_info.real_name,
+    user.mobile,
+    user_info.id_no,
+    user.channel,
+    verify_user_status.verify_user_status
+from
+    user
+        inner join
+    user_info ON user.user_id = user_info.user_id
+        inner join
+    verify_user_status ON user.user_id = verify_user_status.user_id
+where user.mobile like '13146865530%' and verify_user_status.verify_user_status in ('INQUIRE_SUCCESS') order by user.register_time desc , user_id asc;</msg>
+<status status="PASS" endtime="20151230 15:32:33.704" starttime="20151230 15:32:33.701"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:33.705" starttime="20151230 15:32:33.423"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:33.705" starttime="20151230 15:32:33.423"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:33.705" starttime="20151230 15:32:11.325"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:33.706" critical="yes" starttime="20151230 15:32:08.181"></status>
+</test>
+<test id="s1-t7" name="Test Search By IdNo">
+<kw type="setup" name="Open Browser To Login Page" library="resource">
+<kw name="Open Browser" library="CustomSeleniumLibrary">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:33.708" level="INFO">Opening browser 'Chrome' to base url 'http://172.16.2.38:15081/login/index.html'</msg>
+<status status="PASS" endtime="20151230 15:32:36.781" starttime="20151230 15:32:33.707"></status>
+</kw>
+<kw name="Maximize Browser Window" library="CustomSeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151230 15:32:36.926" starttime="20151230 15:32:36.782"></status>
+</kw>
+<kw name="Set Selenium Speed" library="CustomSeleniumLibrary">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:36.927" starttime="20151230 15:32:36.926"></status>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>登录</arg>
+</arguments>
+<msg timestamp="20151230 15:32:36.931" level="INFO">Page title is '登录'.</msg>
+<status status="PASS" endtime="20151230 15:32:36.932" starttime="20151230 15:32:36.928"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:36.932" starttime="20151230 15:32:36.927"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:36.932" starttime="20151230 15:32:33.707"></status>
+</kw>
+<kw name="Search user test">
+<arguments>
+<arg>身份证</arg>
+<arg>等待提交</arg>
+<arg>130521199307091000</arg>
+<arg>100034832</arg>
+</arguments>
+<kw name="Login With Valid Account" library="resource">
+<arguments>
+<arg>${ADMIN USER}</arg>
+<arg>${ADMIN PASSWORD}</arg>
+</arguments>
+<kw name="Input Username" library="resource">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:36.936" level="INFO">Typing text 'admin@renrendai.com' into text field 'username'</msg>
+<status status="PASS" endtime="20151230 15:32:37.004" starttime="20151230 15:32:36.935"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:37.005" starttime="20151230 15:32:36.934"></status>
+</kw>
+<kw name="Input Password" library="resource">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:37.006" level="INFO">Typing text 'L123456' into text field 'password'</msg>
+<status status="PASS" endtime="20151230 15:32:37.075" starttime="20151230 15:32:37.006"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:37.076" starttime="20151230 15:32:37.005"></status>
+</kw>
+<kw name="Submit Credentials" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>loginCheck</arg>
+</arguments>
+<msg timestamp="20151230 15:32:37.077" level="INFO">Clicking button 'loginCheck'.</msg>
+<status status="PASS" endtime="20151230 15:32:47.136" starttime="20151230 15:32:37.077"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:47.136" starttime="20151230 15:32:37.076"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>2 min</arg>
+<arg>10 sec</arg>
+<arg>Welcome Page Should Be Open</arg>
+</arguments>
+<kw name="Welcome Page Should Be Open" library="resource">
+<kw name="Location Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${WELCOME URL}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="CustomSeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20151230 15:32:47.933" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20151230 15:32:47.934" starttime="20151230 15:32:47.153"></status>
+</kw>
+<msg timestamp="20151230 15:32:47.934" level="FAIL">Location should have been 'http://172.16.2.38:15081/index.html' but was 'http://172.16.2.38:15081/login/index.html'</msg>
+<status status="FAIL" endtime="20151230 15:32:47.963" starttime="20151230 15:32:47.138"></status>
+</kw>
+<status status="FAIL" endtime="20151230 15:32:47.963" starttime="20151230 15:32:47.137"></status>
+</kw>
+<kw name="Welcome Page Should Be Open" library="resource">
+<kw name="Location Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${WELCOME URL}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:57.969" level="INFO">Current location is 'http://172.16.2.38:15081/index.html'.</msg>
+<status status="PASS" endtime="20151230 15:32:57.969" starttime="20151230 15:32:57.965"></status>
+</kw>
+<kw name="Title Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>黑卡审核系统</arg>
+</arguments>
+<msg timestamp="20151230 15:32:57.973" level="INFO">Page title is '黑卡审核系统'.</msg>
+<status status="PASS" endtime="20151230 15:32:57.973" starttime="20151230 15:32:57.969"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:57.974" starttime="20151230 15:32:57.964"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:57.974" starttime="20151230 15:32:47.137"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:57.974" starttime="20151230 15:32:36.934"></status>
+</kw>
+<kw name="Click TreeNode" library="resource">
+<arguments>
+<arg>用户查询</arg>
+</arguments>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="${treetitle}"]</arg>
+</arguments>
+<msg timestamp="20151230 15:32:57.976" level="INFO">Clicking element 'xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="用户查询"]'.</msg>
+<status status="PASS" endtime="20151230 15:32:58.016" starttime="20151230 15:32:57.976"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:58.016" starttime="20151230 15:32:57.975"></status>
+</kw>
+<kw name="Page Title Visible" library="resource">
+<arguments>
+<arg>用户查询</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>xpath=//*[@id="main-center"]//span[@class="tabs-title tabs-closable" and text()="${pagetitle}"]</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:58.288" starttime="20151230 15:32:58.017"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:58.288" starttime="20151230 15:32:58.017"></status>
+</kw>
+<kw name="Select Frame" library="CustomSeleniumLibrary">
+<doc>Sets frame identified by `locator` as current frame.</doc>
+<arguments>
+<arg>${USER SEARCH IFRAME}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:58.289" level="INFO">Selecting frame '//iframe[contains(@src,'userSearch')]'.</msg>
+<status status="PASS" endtime="20151230 15:32:58.422" starttime="20151230 15:32:58.289"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '昵称'</arg>
+<arg>User Search Select By NickName</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:58.424" starttime="20151230 15:32:58.423"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '手机号'</arg>
+<arg>User Search Select By Mobile</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:58.426" starttime="20151230 15:32:58.425"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '身份证'</arg>
+<arg>User Search Select By IdNo</arg>
+</arguments>
+<kw name="User Search Select By IdNo" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${USER SEARCH TYPE}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:58.429" level="INFO">Clicking button 'xpath=//*[@id="waitSearch"]/div/div[1]/span/input[1]'.</msg>
+<status status="PASS" endtime="20151230 15:32:58.512" starttime="20151230 15:32:58.429"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i1_2</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:58.535" starttime="20151230 15:32:58.512"></status>
+</kw>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i1_2</arg>
+</arguments>
+<msg timestamp="20151230 15:32:58.536" level="INFO">Clicking element 'id=_easyui_combobox_i1_2'.</msg>
+<status status="PASS" endtime="20151230 15:32:58.600" starttime="20151230 15:32:58.535"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:58.601" starttime="20151230 15:32:58.428"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:58.601" starttime="20151230 15:32:58.427"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '姓名'</arg>
+<arg>User Search Select By RealName</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:58.603" starttime="20151230 15:32:58.601"></status>
+</kw>
+<kw name="Update Verify User Status" library="VerifyLibrary">
+<arguments>
+<arg>${user id}</arg>
+<arg>${verify status}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:58.608" level="INFO">[2015-12-30 15:32:58] [update_verify_user_status_to_uncommit] 将verify_user_status表的数据置为未提交
+[2015-12-30 15:32:58] [commit] 执行sql语句：
+UPDATE verify_user_status SET verify_user_status='UNCOMMIT',reject_operation=NULL,investigate_time=NULL,first_verify_time=NULL,second_verify_time=NULL,investigate_user_id=NULL,first_verify_user_id=NULL,second_verify_user_id=NULL,investigate_note=NULL,first_verify_note=NULL,second_verify_note=NULL,first_verify_amount=NULL,first_verify_card_product_id=NULL,second_verify_amount=NULL,second_verify_card_product_id=NULL,online_time=NULL,reject_reason_list=NULL,in_youxin_back_list=NULL,first_cash_draw_ratio=NULL,cash_draw_ratio=NULL,version='0',audit_user_status='UNCOMMIT' WHERE user_id = 100034832
+影响行数：1
+
+[2015-12-30 15:32:58] [delete_user_info_result] 将verify_user_info_result表清空
+
+[2015-12-30 15:32:58] [commit] 执行sql语句：
+DELETE FROM `verify_user_info_result` where `user_id` = 100034832
+影响行数：19
+
+[2015-12-30 15:32:58] [delete_user_status_log] 将verify_user_status_log表中的数据删除
+
+[2015-12-30 15:32:58] [commit] 执行sql语句：
+delete from `verify_user_status_log` where `user_id` = 100034832
+影响行数：0
+
+[2015-12-30 15:32:58] [delete_strategy_output] 将verify_strategy_output表中的数据删除
+
+[2015-12-30 15:32:58] [commit] 执行sql语句：
+delete from `verify_strategy_output` where `user_id` = 100034832
+影响行数：0
+
+[2015-12-30 15:32:58] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
+
+[2015-12-30 15:32:58] [commit] 执行sql语句：
+delete from `verify_user_info_refine` where `user_id` = 100034832
+影响行数：0</msg>
+<status status="PASS" endtime="20151230 15:32:58.609" starttime="20151230 15:32:58.603"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待提交'</arg>
+<arg>User Search Select By UNCOMMIT Status</arg>
+</arguments>
+<kw name="User Search Select By UNCOMMIT Status" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${USER SEARCH STATUS TYPE}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:58.613" level="INFO">Clicking button 'xpath=//*[@id="waitSearch"]/div/div[2]/span/input[1]'.</msg>
+<status status="PASS" endtime="20151230 15:32:58.668" starttime="20151230 15:32:58.612"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i2_1</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:58.685" starttime="20151230 15:32:58.668"></status>
+</kw>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i2_1</arg>
+</arguments>
+<msg timestamp="20151230 15:32:58.686" level="INFO">Clicking element 'id=_easyui_combobox_i2_1'.</msg>
+<status status="PASS" endtime="20151230 15:32:58.752" starttime="20151230 15:32:58.685"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:58.753" starttime="20151230 15:32:58.611"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:58.753" starttime="20151230 15:32:58.609"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待调查'</arg>
+<arg>User Search Select By INQUREING Status</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:58.756" starttime="20151230 15:32:58.754"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待一审'</arg>
+<arg>User Search Select By INQUIRE_SUCCESS Status</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:58.759" starttime="20151230 15:32:58.757"></status>
+</kw>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=oText</arg>
+<arg>${key}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:58.761" level="INFO">Typing text '130521199307091000' into text field 'id=oText'</msg>
+<status status="PASS" endtime="20151230 15:32:58.821" starttime="20151230 15:32:58.760"></status>
+</kw>
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>id=oSubmit</arg>
+</arguments>
+<msg timestamp="20151230 15:32:58.822" level="INFO">Clicking button 'id=oSubmit'.</msg>
+<status status="PASS" endtime="20151230 15:32:58.895" starttime="20151230 15:32:58.821"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:32:58.914" starttime="20151230 15:32:58.896"></status>
+</kw>
+<kw name="Get Table Row Count" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+</arguments>
+<assign>
+<var>${row_count}</var>
+</assign>
+<msg timestamp="20151230 15:32:59.004" level="INFO">${row_count} = 1</msg>
+<status status="PASS" endtime="20151230 15:32:59.004" starttime="20151230 15:32:58.915"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>共有行数：${row_count}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:59.005" level="INFO">共有行数：1</msg>
+<status status="PASS" endtime="20151230 15:32:59.006" starttime="20151230 15:32:59.005"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${row_count}</arg>
+<arg>1</arg>
+<arg>应该只搜索到一条数据</arg>
+</arguments>
+<msg timestamp="20151230 15:32:59.006" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20151230 15:32:59.007" starttime="20151230 15:32:59.006"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ ${row_count} ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Get User Search Results" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20151230 15:32:59.261" level="INFO">${row} = {'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091000', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u63d0\u4ea4', 'realName': u'\u65bd\u65ed\u5b81', 'mobile': u'13146865530...</msg>
+<status status="PASS" endtime="20151230 15:32:59.262" starttime="20151230 15:32:59.007"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>第${i}行：${row}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:59.263" level="INFO">第0行：{'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091000', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u63d0\u4ea4', 'realName': u'\u65bd\u65ed\u5b81', 'mobile': u'13146865530', 'nickName': u'auto_01', 'userId': u'100034832', 'operator': u''}</msg>
+<status status="PASS" endtime="20151230 15:32:59.263" starttime="20151230 15:32:59.262"></status>
+</kw>
+<kw name="Compare User Search Result" library="VerifyLibrary">
+<arguments>
+<arg>${row}</arg>
+<arg>${i}</arg>
+<arg>${key}</arg>
+<arg>${search key}</arg>
+<arg>${verify status}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:59.265" level="INFO">Start to fetch from DB</msg>
+<msg timestamp="20151230 15:32:59.266" level="INFO">Verify user status is uncommit or inquireing</msg>
+<msg timestamp="20151230 15:32:59.266" level="INFO">Start to fetch from UI</msg>
+<msg timestamp="20151230 15:32:59.266" level="INFO">Start to compare them</msg>
+<msg timestamp="20151230 15:32:59.266" level="INFO">[2015-12-30 15:32:59] [search_user] 执行sql：
+select
+    user.user_id,
+    user.nick_name,
+    user_info.real_name,
+    user.mobile,
+    user_info.id_no,
+    user.channel,
+    verify_user_status.verify_user_status
+from
+    user
+        inner join
+    user_info ON user.user_id = user_info.user_id
+        inner join
+    verify_user_status ON user.user_id = verify_user_status.user_id
+where user_info.id_no like '130521199307091000%' and verify_user_status.verify_user_status in ('UNCOMMIT') order by user.register_time desc , user_id asc;</msg>
+<status status="PASS" endtime="20151230 15:32:59.266" starttime="20151230 15:32:59.263"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:59.267" starttime="20151230 15:32:59.007"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:59.267" starttime="20151230 15:32:59.007"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:59.267" starttime="20151230 15:32:36.933"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:32:59.267" critical="yes" starttime="20151230 15:32:33.706"></status>
+</test>
+<test id="s1-t8" name="Test Search By Real Name">
+<kw type="setup" name="Open Browser To Login Page" library="resource">
+<kw name="Open Browser" library="CustomSeleniumLibrary">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20151230 15:32:59.270" level="INFO">Opening browser 'Chrome' to base url 'http://172.16.2.38:15081/login/index.html'</msg>
+<status status="PASS" endtime="20151230 15:33:02.493" starttime="20151230 15:32:59.269"></status>
+</kw>
+<kw name="Maximize Browser Window" library="CustomSeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151230 15:33:02.636" starttime="20151230 15:33:02.494"></status>
+</kw>
+<kw name="Set Selenium Speed" library="CustomSeleniumLibrary">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:33:02.637" starttime="20151230 15:33:02.636"></status>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>登录</arg>
+</arguments>
+<msg timestamp="20151230 15:33:02.641" level="INFO">Page title is '登录'.</msg>
+<status status="PASS" endtime="20151230 15:33:02.642" starttime="20151230 15:33:02.638"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:33:02.642" starttime="20151230 15:33:02.638"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:33:02.643" starttime="20151230 15:32:59.269"></status>
+</kw>
+<kw name="Search user test">
+<arguments>
+<arg>姓名</arg>
+<arg>等待提交</arg>
+<arg>施旭宁</arg>
+<arg>100034832</arg>
+</arguments>
+<kw name="Login With Valid Account" library="resource">
+<arguments>
+<arg>${ADMIN USER}</arg>
+<arg>${ADMIN PASSWORD}</arg>
+</arguments>
+<kw name="Input Username" library="resource">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20151230 15:33:02.646" level="INFO">Typing text 'admin@renrendai.com' into text field 'username'</msg>
+<status status="PASS" endtime="20151230 15:33:02.712" starttime="20151230 15:33:02.645"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:33:02.713" starttime="20151230 15:33:02.645"></status>
+</kw>
+<kw name="Input Password" library="resource">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20151230 15:33:02.714" level="INFO">Typing text 'L123456' into text field 'password'</msg>
+<status status="PASS" endtime="20151230 15:33:02.789" starttime="20151230 15:33:02.714"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:33:02.789" starttime="20151230 15:33:02.713"></status>
+</kw>
+<kw name="Submit Credentials" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>loginCheck</arg>
+</arguments>
+<msg timestamp="20151230 15:33:02.791" level="INFO">Clicking button 'loginCheck'.</msg>
+<status status="PASS" endtime="20151230 15:33:12.836" starttime="20151230 15:33:02.790"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:33:12.837" starttime="20151230 15:33:02.790"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>2 min</arg>
+<arg>10 sec</arg>
+<arg>Welcome Page Should Be Open</arg>
+</arguments>
+<kw name="Welcome Page Should Be Open" library="resource">
+<kw name="Location Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${WELCOME URL}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="CustomSeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20151230 15:33:13.648" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20151230 15:33:13.648" starttime="20151230 15:33:12.853"></status>
+</kw>
+<msg timestamp="20151230 15:33:13.649" level="FAIL">Location should have been 'http://172.16.2.38:15081/index.html' but was 'http://172.16.2.38:15081/login/index.html'</msg>
+<status status="FAIL" endtime="20151230 15:33:13.649" starttime="20151230 15:33:12.839"></status>
+</kw>
+<status status="FAIL" endtime="20151230 15:33:13.650" starttime="20151230 15:33:12.838"></status>
+</kw>
+<kw name="Welcome Page Should Be Open" library="resource">
+<kw name="Location Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${WELCOME URL}</arg>
+</arguments>
+<msg timestamp="20151230 15:33:23.655" level="INFO">Current location is 'http://172.16.2.38:15081/index.html'.</msg>
+<status status="PASS" endtime="20151230 15:33:23.655" starttime="20151230 15:33:23.651"></status>
+</kw>
+<kw name="Title Should Be" library="CustomSeleniumLibrary">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>黑卡审核系统</arg>
+</arguments>
+<msg timestamp="20151230 15:33:23.658" level="INFO">Page title is '黑卡审核系统'.</msg>
+<status status="PASS" endtime="20151230 15:33:23.659" starttime="20151230 15:33:23.655"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:33:23.659" starttime="20151230 15:33:23.651"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:33:23.660" starttime="20151230 15:33:12.837"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:33:23.660" starttime="20151230 15:33:02.644"></status>
+</kw>
+<kw name="Click TreeNode" library="resource">
+<arguments>
+<arg>用户查询</arg>
+</arguments>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="${treetitle}"]</arg>
+</arguments>
+<msg timestamp="20151230 15:33:23.661" level="INFO">Clicking element 'xpath=//*[@class="tree-node"]/span[@class='tree-icon tree-file icon-round']/following-sibling::span[text()="用户查询"]'.</msg>
+<status status="PASS" endtime="20151230 15:33:23.700" starttime="20151230 15:33:23.661"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:33:23.701" starttime="20151230 15:33:23.660"></status>
+</kw>
+<kw name="Page Title Visible" library="resource">
+<arguments>
+<arg>用户查询</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>xpath=//*[@id="main-center"]//span[@class="tabs-title tabs-closable" and text()="${pagetitle}"]</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:33:23.997" starttime="20151230 15:33:23.702"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:33:23.997" starttime="20151230 15:33:23.701"></status>
+</kw>
+<kw name="Select Frame" library="CustomSeleniumLibrary">
+<doc>Sets frame identified by `locator` as current frame.</doc>
+<arguments>
+<arg>${USER SEARCH IFRAME}</arg>
+</arguments>
+<msg timestamp="20151230 15:33:23.998" level="INFO">Selecting frame '//iframe[contains(@src,'userSearch')]'.</msg>
+<status status="PASS" endtime="20151230 15:33:24.140" starttime="20151230 15:33:23.998"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '昵称'</arg>
+<arg>User Search Select By NickName</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:33:24.142" starttime="20151230 15:33:24.141"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '手机号'</arg>
+<arg>User Search Select By Mobile</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:33:24.145" starttime="20151230 15:33:24.143"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '身份证'</arg>
+<arg>User Search Select By IdNo</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:33:24.147" starttime="20151230 15:33:24.146"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${search key}' == '姓名'</arg>
+<arg>User Search Select By RealName</arg>
+</arguments>
+<kw name="User Search Select By RealName" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${USER SEARCH TYPE}</arg>
+</arguments>
+<msg timestamp="20151230 15:33:24.151" level="INFO">Clicking button 'xpath=//*[@id="waitSearch"]/div/div[1]/span/input[1]'.</msg>
+<status status="PASS" endtime="20151230 15:33:24.226" starttime="20151230 15:33:24.150"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i1_3</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:33:24.254" starttime="20151230 15:33:24.227"></status>
+</kw>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i1_3</arg>
+</arguments>
+<msg timestamp="20151230 15:33:24.255" level="INFO">Clicking element 'id=_easyui_combobox_i1_3'.</msg>
+<status status="PASS" endtime="20151230 15:33:24.314" starttime="20151230 15:33:24.254"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:33:24.315" starttime="20151230 15:33:24.150"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:33:24.315" starttime="20151230 15:33:24.148"></status>
+</kw>
+<kw name="Update Verify User Status" library="VerifyLibrary">
+<arguments>
+<arg>${user id}</arg>
+<arg>${verify status}</arg>
+</arguments>
+<msg timestamp="20151230 15:33:24.322" level="INFO">[2015-12-30 15:33:24] [update_verify_user_status_to_uncommit] 将verify_user_status表的数据置为未提交
+[2015-12-30 15:33:24] [commit] 执行sql语句：
+UPDATE verify_user_status SET verify_user_status='UNCOMMIT',reject_operation=NULL,investigate_time=NULL,first_verify_time=NULL,second_verify_time=NULL,investigate_user_id=NULL,first_verify_user_id=NULL,second_verify_user_id=NULL,investigate_note=NULL,first_verify_note=NULL,second_verify_note=NULL,first_verify_amount=NULL,first_verify_card_product_id=NULL,second_verify_amount=NULL,second_verify_card_product_id=NULL,online_time=NULL,reject_reason_list=NULL,in_youxin_back_list=NULL,first_cash_draw_ratio=NULL,cash_draw_ratio=NULL,version='0',audit_user_status='UNCOMMIT' WHERE user_id = 100034832
+影响行数：0
+
+[2015-12-30 15:33:24] [delete_user_info_result] 将verify_user_info_result表清空
+
+[2015-12-30 15:33:24] [commit] 执行sql语句：
+DELETE FROM `verify_user_info_result` where `user_id` = 100034832
+影响行数：0
+
+[2015-12-30 15:33:24] [delete_user_status_log] 将verify_user_status_log表中的数据删除
+
+[2015-12-30 15:33:24] [commit] 执行sql语句：
+delete from `verify_user_status_log` where `user_id` = 100034832
+影响行数：0
+
+[2015-12-30 15:33:24] [delete_strategy_output] 将verify_strategy_output表中的数据删除
+
+[2015-12-30 15:33:24] [commit] 执行sql语句：
+delete from `verify_strategy_output` where `user_id` = 100034832
+影响行数：0
+
+[2015-12-30 15:33:24] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
+
+[2015-12-30 15:33:24] [commit] 执行sql语句：
+delete from `verify_user_info_refine` where `user_id` = 100034832
+影响行数：0</msg>
+<status status="PASS" endtime="20151230 15:33:24.322" starttime="20151230 15:33:24.316"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待提交'</arg>
+<arg>User Search Select By UNCOMMIT Status</arg>
+</arguments>
+<kw name="User Search Select By UNCOMMIT Status" library="resource">
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${USER SEARCH STATUS TYPE}</arg>
+</arguments>
+<msg timestamp="20151230 15:33:24.327" level="INFO">Clicking button 'xpath=//*[@id="waitSearch"]/div/div[2]/span/input[1]'.</msg>
+<status status="PASS" endtime="20151230 15:33:24.382" starttime="20151230 15:33:24.326"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i2_1</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:33:24.400" starttime="20151230 15:33:24.383"></status>
+</kw>
+<kw name="Click Element" library="CustomSeleniumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=_easyui_combobox_i2_1</arg>
+</arguments>
+<msg timestamp="20151230 15:33:24.401" level="INFO">Clicking element 'id=_easyui_combobox_i2_1'.</msg>
+<status status="PASS" endtime="20151230 15:33:24.451" starttime="20151230 15:33:24.400"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:33:24.451" starttime="20151230 15:33:24.325"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:33:24.452" starttime="20151230 15:33:24.323"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待调查'</arg>
+<arg>User Search Select By INQUREING Status</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:33:24.454" starttime="20151230 15:33:24.452"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${verify status}' == '等待一审'</arg>
+<arg>User Search Select By INQUIRE_SUCCESS Status</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:33:24.456" starttime="20151230 15:33:24.454"></status>
+</kw>
+<kw name="Input Text" library="CustomSeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=oText</arg>
+<arg>${key}</arg>
+</arguments>
+<msg timestamp="20151230 15:33:24.456" level="INFO">Typing text '施旭宁' into text field 'id=oText'</msg>
+<status status="PASS" endtime="20151230 15:33:24.512" starttime="20151230 15:33:24.456"></status>
+</kw>
+<kw name="Click Button" library="CustomSeleniumLibrary">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>id=oSubmit</arg>
+</arguments>
+<msg timestamp="20151230 15:33:24.513" level="INFO">Clicking button 'id=oSubmit'.</msg>
+<status status="PASS" endtime="20151230 15:33:24.587" starttime="20151230 15:33:24.513"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="CustomSeleniumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+</arguments>
+<status status="PASS" endtime="20151230 15:33:24.602" starttime="20151230 15:33:24.587"></status>
+</kw>
+<kw name="Get Table Row Count" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+</arguments>
+<assign>
+<var>${row_count}</var>
+</assign>
+<msg timestamp="20151230 15:33:24.687" level="INFO">${row_count} = 1</msg>
+<status status="PASS" endtime="20151230 15:33:24.687" starttime="20151230 15:33:24.602"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>共有行数：${row_count}</arg>
+</arguments>
+<msg timestamp="20151230 15:33:24.689" level="INFO">共有行数：1</msg>
+<status status="PASS" endtime="20151230 15:33:24.689" starttime="20151230 15:33:24.688"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${row_count}</arg>
+<arg>1</arg>
+<arg>应该只搜索到一条数据</arg>
+</arguments>
+<msg timestamp="20151230 15:33:24.690" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20151230 15:33:24.690" starttime="20151230 15:33:24.689"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ ${row_count} ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Get User Search Results" library="CustomSeleniumLibrary">
+<arguments>
+<arg>${USER SEARCH TABLE}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${row}</var>
+</assign>
+<msg timestamp="20151230 15:33:24.971" level="INFO">${row} = {'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091000', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u63d0\u4ea4', 'realName': u'\u65bd\u65ed\u5b81', 'mobile': u'13146865530...</msg>
+<status status="PASS" endtime="20151230 15:33:24.971" starttime="20151230 15:33:24.691"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>第${i}行：${row}</arg>
+</arguments>
+<msg timestamp="20151230 15:33:24.972" level="INFO">第0行：{'userType': u'\u666e\u901a\u7528\u6237', 'idNo': u'130521199307091000', 'operateTime': u'', 'verifyUserStatus': u'\u7b49\u5f85\u63d0\u4ea4', 'realName': u'\u65bd\u65ed\u5b81', 'mobile': u'13146865530', 'nickName': u'auto_01', 'userId': u'100034832', 'operator': u''}</msg>
+<status status="PASS" endtime="20151230 15:33:24.972" starttime="20151230 15:33:24.972"></status>
+</kw>
+<kw name="Compare User Search Result" library="VerifyLibrary">
+<arguments>
+<arg>${row}</arg>
+<arg>${i}</arg>
+<arg>${key}</arg>
+<arg>${search key}</arg>
+<arg>${verify status}</arg>
+</arguments>
+<msg timestamp="20151230 15:33:24.975" level="INFO">Start to fetch from DB</msg>
+<msg timestamp="20151230 15:33:24.975" level="INFO">Verify user status is uncommit or inquireing</msg>
+<msg timestamp="20151230 15:33:24.975" level="INFO">Start to fetch from UI</msg>
+<msg timestamp="20151230 15:33:24.976" level="INFO">Start to compare them</msg>
+<msg timestamp="20151230 15:33:24.976" level="INFO">[2015-12-30 15:33:24] [search_user] 执行sql：
+select
+    user.user_id,
+    user.nick_name,
+    user_info.real_name,
+    user.mobile,
+    user_info.id_no,
+    user.channel,
+    verify_user_status.verify_user_status
+from
+    user
+        inner join
+    user_info ON user.user_id = user_info.user_id
+        inner join
+    verify_user_status ON user.user_id = verify_user_status.user_id
+where user_info.real_name like '施旭宁%' and verify_user_status.verify_user_status in ('UNCOMMIT') order by user.register_time desc , user_id asc;</msg>
+<status status="PASS" endtime="20151230 15:33:24.976" starttime="20151230 15:33:24.973"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:33:24.976" starttime="20151230 15:33:24.690"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:33:24.977" starttime="20151230 15:33:24.690"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:33:24.977" starttime="20151230 15:33:02.643"></status>
+</kw>
+<status status="PASS" endtime="20151230 15:33:24.977" critical="yes" starttime="20151230 15:32:59.268"></status>
+</test>
+<status status="PASS" endtime="20151230 15:33:24.978" starttime="20151230 15:29:58.196"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="0" pass="1">Critical Tests</stat>
-<stat fail="0" pass="1">All Tests</stat>
+<stat fail="0" pass="8">Critical Tests</stat>
+<stat fail="0" pass="8">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="Robot Test" pass="1">Robot Test</stat>
+<stat fail="0" id="s1" name="User Search Tests" pass="8">User Search Tests</stat>
 </suite>
 </statistics>
 <errors>

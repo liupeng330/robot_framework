@@ -12,7 +12,8 @@ Search user test
     Page Title Visible   用户查询
     Select Frame   ${USER SEARCH IFRAME}
     User Search Select By NickName
-    User Search Select By INQUIRE_SUCCESS Status
+    Update Verify User Status   100034832       等待提交
+    User Search Select By UNCOMMIT Status
     Input Text     id=oText    auto
     Click Button   id=oSubmit
 
@@ -24,4 +25,4 @@ Search user test
     : FOR    ${i}   IN RANGE    ${row_count}
     \   ${row} =       Get User Search Results     ${USER SEARCH TABLE}    ${i}
     \   Log     第${i}行：${row}
-    \   Compare User Search Result      ${row}      ${i}       auto       昵称      等待一审
+    \   Compare User Search Result      ${row}      ${i}       auto       昵称      等待提交

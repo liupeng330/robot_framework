@@ -132,5 +132,8 @@ if __name__ == "__main__":
     if sys.argv[1] == 'test':
         # delete_user_info_result(1)
         # populate_user_info_result(1, 'PENDING')
-        update_verify_user_status_to_inquire_success(100034833, 1, 'investigate note', 12)
+        # update_verify_user_status_to_inquire_success(100034833, 1, 'investigate note', 12)
+        ret = get_latest_verify_user_status_log(100034832)
+        if ret is not None:
+            print ret[0], ret[1]
 
