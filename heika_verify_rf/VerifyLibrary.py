@@ -107,6 +107,10 @@ class VerifyLibrary(object):
         if verify_user_status == VerifyUserStatus.SECOND_SEND_BACK:
             update_user_to_second_verify_sendback(user_id)
             return
+        if verify_user_status == VerifyUserStatus.VERIFY_REJECT:
+            update_user_to_second_verify_reject(user_id)
+            return
+        raise AssertionError('No code can handle verify user status!!')
 
 if __name__ == "__main__":
     verify_library = VerifyLibrary('http://172.16.2.38:15081', 'admin@renrendai.com')
