@@ -98,10 +98,15 @@ class VerifyLibrary(object):
         if verify_user_status == VerifyUserStatus.FIRST_VERIFY_SUCCESS:
             update_user_to_first_verify_success_status(user_id)
             return
+        if verify_user_status == VerifyUserStatus.FIRST_SEND_BACK:
+            update_user_to_first_verify_sendback_status(user_id)
+            return
         if verify_user_status == VerifyUserStatus.VERIFY_SUCCESS:
             update_user_to_second_verify_success_status(user_id)
             return
-
+        if verify_user_status == VerifyUserStatus.SECOND_SEND_BACK:
+            update_user_to_second_verify_sendback(user_id)
+            return
 
 if __name__ == "__main__":
     verify_library = VerifyLibrary('http://172.16.2.38:15081', 'admin@renrendai.com')
