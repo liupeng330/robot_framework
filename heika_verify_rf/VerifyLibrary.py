@@ -92,6 +92,15 @@ class VerifyLibrary(object):
         if verify_user_status == VerifyUserStatus.INQUIRE_SUCCESS:
             update_user_to_inquire_success_status(user_id)
             return
+        if verify_user_status == VerifyUserStatus.VERIFY_FAIL:
+            update_user_to_verify_fail_status(user_id)
+            return
+        if verify_user_status == VerifyUserStatus.FIRST_VERIFY_SUCCESS:
+            update_user_to_first_verify_success_status(user_id)
+            return
+        if verify_user_status == VerifyUserStatus.VERIFY_SUCCESS:
+            update_user_to_second_verify_success_status(user_id)
+            return
 
 
 if __name__ == "__main__":

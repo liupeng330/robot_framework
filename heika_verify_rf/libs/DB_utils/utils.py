@@ -136,22 +136,43 @@ def delete_verify_process_task_by_executor_id(verify_user_id):
     delete_sql = "DELETE from verify_process_task where executor = %s" % verify_user_id
     commit(delete_sql)
 
-
+#等待提交
 def update_user_to_uncommit_status(user_id):
     update_verify_user_status_to_uncommit(user_id)
     delete_user_info_result(user_id)
     cleanup_verify_log(user_id)
 
-
+#提交完成，等待调查
 def update_user_to_inquireing_status(user_id):
     update_verify_user_status_to_inquireing(user_id)
     delete_user_info_result(user_id)
     populate_user_info_result(user_id, 'PENDING')
     cleanup_verify_log(user_id)
 
-
+#调查通过，等待一审
 def update_user_to_inquire_success_status(user_id):
     update_verify_user_status_to_inquire_success(user_id, 1, 'inv note', 12)
+    delete_user_info_result(user_id)
+    populate_user_info_result(user_id, 'VALID', 1)
+
+#调查不通过，补件
+def update_user_to_verify_fail_status(user_id):
+    update_verify_user_status_to_verify_fail(user_id, 1, 'inv note', 12)
+    delete_user_info_result(user_id)
+    #将所有调查结果置为调查不符
+    populate_user_info_result(user_id, 'NOTMATCH', 1)
+
+#一审通过，等待二审
+def update_user_to_first_verify_success_status(user_id):
+    update_verify_user_status_to_first_verify_success(user_id, 1, 'inv note', 12, 1, 'first verify note', 10000, 1, 30.00)
+    delete_user_info_result(user_id)
+    populate_user_info_result(user_id, 'VALID', 1)
+
+
+#审核通过
+def update_user_to_second_verify_success_status(user_id):
+    update_verify_user_status_to_second_verify_success(user_id, 1, 'inv note', 12, 1, 'first verify note', 10000, 1, 30.00,
+                                                       1, 'second verify note', 20000, 1, 50.00)
     delete_user_info_result(user_id)
     populate_user_info_result(user_id, 'VALID', 1)
 
@@ -257,6 +278,137 @@ def update_verify_user_status_to_inquire_success(user_id, investigate_user_id, i
                         "WHERE user_id = %s"
     now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     cursor.execute(update_status_sql, (now, now, now, now, investigate_user_id, investigate_note, online_time, user_id))
+    conn.commit()
+
+
+def update_verify_user_status_to_verify_fail(user_id, investigate_user_id, investigate_note, online_time):
+    helper.log('将verify_user_status表的数据置为补件')
+    update_status_sql = "UPDATE `verify_user_status` SET " \
+                        "`verify_user_status` = 'VERIFY_FAIL'," \
+                        "`audit_user_status` = 'VERIFY_FAIL', " \
+                        "`create_time` = %s, " \
+                        "`update_time` = %s, " \
+                        "`commit_time` = %s, " \
+                        "`reject_operation` = NULL, " \
+                        "`reject_reason_list` = NULL, " \
+                        "`investigate_time` = %s, " \
+                        "`first_verify_time` = NULL, " \
+                        "`second_verify_time` = NULL, " \
+                        "`investigate_user_id` = %s, " \
+                        "`first_verify_user_id` = NULL, " \
+                        "`second_verify_user_id` = NULL, " \
+                        "`investigate_note` = %s, " \
+                        "`first_verify_note` = NULL, " \
+                        "`second_verify_note` = NULL, " \
+                        "`first_verify_amount` = NULL, " \
+                        "`second_verify_amount` = NULL, " \
+                        "`first_verify_card_product_id` = NULL, " \
+                        "`second_verify_card_product_id` = NULL, " \
+                        "`in_youxin_back_list` = 'UNCHECK', " \
+                        "`version` = 0, " \
+                        "`online_time` = %s, " \
+                        "`first_cash_draw_ratio` = NULL, " \
+                        "`cash_draw_ratio` = NULL, " \
+                        "`second_cash_ratio` = NULL, " \
+                        "`third_user_id` = NULL, " \
+                        "`third_verify_date` = NULL, " \
+                        "`third_verify_note` = NULL, " \
+                        "`third_verify_card_product_id` = NULL, " \
+                        "`third_verify_amount` = NULL " \
+                        "WHERE user_id = %s"
+    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    cursor.execute(update_status_sql, (now, now, now, now, investigate_user_id, investigate_note, online_time, user_id))
+    conn.commit()
+
+
+def update_verify_user_status_to_first_verify_success(user_id, investigate_user_id, investigate_note, online_time,
+                                                      first_verify_user_id, first_verify_note, first_verify_amount,
+                                                      first_verify_card_product_id, first_cash_draw_ratio):
+    helper.log('将verify_user_status表的数据置为待二审，即一审通过状态')
+    update_status_sql = "UPDATE `verify_user_status` SET " \
+                        "`verify_user_status` = 'FIRST_VERIFY_SUCCESS'," \
+                        "`audit_user_status` = 'FIRST_VERIFY_SUCCESS', " \
+                        "`create_time` = %s, " \
+                        "`update_time` = %s, " \
+                        "`commit_time` = %s, " \
+                        "`reject_operation` = NULL, " \
+                        "`reject_reason_list` = NULL, " \
+                        "`investigate_time` = %s, " \
+                        "`first_verify_time` = %s, " \
+                        "`second_verify_time` = NULL, " \
+                        "`investigate_user_id` = %s, " \
+                        "`first_verify_user_id` = %s, " \
+                        "`second_verify_user_id` = NULL, " \
+                        "`investigate_note` = %s, " \
+                        "`first_verify_note` = %s, " \
+                        "`second_verify_note` = NULL, " \
+                        "`first_verify_amount` = %s, " \
+                        "`second_verify_amount` = NULL, " \
+                        "`first_verify_card_product_id` = %s, " \
+                        "`second_verify_card_product_id` = NULL, " \
+                        "`in_youxin_back_list` = 'UNCHECK', " \
+                        "`version` = 0, " \
+                        "`online_time` = %s, " \
+                        "`first_cash_draw_ratio` = %s, " \
+                        "`cash_draw_ratio` = NULL, " \
+                        "`second_cash_ratio` = NULL, " \
+                        "`third_user_id` = NULL, " \
+                        "`third_verify_date` = NULL, " \
+                        "`third_verify_note` = NULL, " \
+                        "`third_verify_card_product_id` = NULL, " \
+                        "`third_verify_amount` = NULL " \
+                        "WHERE user_id = %s"
+    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    cursor.execute(update_status_sql, (now, now, now, now, now, investigate_user_id, first_verify_user_id,
+                                       investigate_note, first_verify_note, first_verify_amount, first_verify_card_product_id,
+                                       online_time, first_cash_draw_ratio, user_id))
+    conn.commit()
+
+
+def update_verify_user_status_to_second_verify_success(user_id, investigate_user_id, investigate_note, online_time,
+                                                      first_verify_user_id, first_verify_note, first_verify_amount,
+                                                      first_verify_card_product_id, first_cash_draw_ratio,
+                                                      second_verify_user_id, second_verify_note, second_verify_amount,
+                                                       second_verify_card_product_id, second_cash_draw_ratio):
+    helper.log('将verify_user_status表的数据置为审核通过状态')
+    update_status_sql = "UPDATE `verify_user_status` SET " \
+                        "`verify_user_status` = 'VERIFY_SUCCESS'," \
+                        "`audit_user_status` = 'VERIFY_SUCCESS', " \
+                        "`create_time` = %s, " \
+                        "`update_time` = %s, " \
+                        "`commit_time` = %s, " \
+                        "`reject_operation` = NULL, " \
+                        "`reject_reason_list` = NULL, " \
+                        "`investigate_time` = %s, " \
+                        "`first_verify_time` = %s, " \
+                        "`second_verify_time` = %s, " \
+                        "`investigate_user_id` = %s, " \
+                        "`first_verify_user_id` = %s, " \
+                        "`second_verify_user_id` = %s, " \
+                        "`investigate_note` = %s, " \
+                        "`first_verify_note` = %s, " \
+                        "`second_verify_note` = %s, " \
+                        "`first_verify_amount` = %s, " \
+                        "`second_verify_amount` = %s, " \
+                        "`first_verify_card_product_id` = %s, " \
+                        "`second_verify_card_product_id` = %s, " \
+                        "`in_youxin_back_list` = 'UNCHECK', " \
+                        "`version` = 0, " \
+                        "`online_time` = %s, " \
+                        "`first_cash_draw_ratio` = %s, " \
+                        "`cash_draw_ratio` = NULL, " \
+                        "`second_cash_ratio` = %s, " \
+                        "`third_user_id` = NULL, " \
+                        "`third_verify_date` = NULL, " \
+                        "`third_verify_note` = NULL, " \
+                        "`third_verify_card_product_id` = NULL, " \
+                        "`third_verify_amount` = NULL " \
+                        "WHERE user_id = %s"
+    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    cursor.execute(update_status_sql, (now, now, now, now, now, now, investigate_user_id, first_verify_user_id, second_verify_user_id,
+                                       investigate_note, first_verify_note, second_verify_note, first_verify_amount,
+                                       second_verify_amount, first_verify_card_product_id, second_verify_card_product_id,
+                                       online_time, first_cash_draw_ratio, second_cash_draw_ratio, user_id))
     conn.commit()
 
 
