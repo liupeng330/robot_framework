@@ -11,6 +11,7 @@ ${VALID USER}       auto_permission_tes@rernedai.com
 ${VALID PASSWORD}   L123456
 ${LOGIN URL}        http://${SERVER}/login/index.html
 ${WELCOME URL}      http://${SERVER}/index.html
+${DUBBO WEB API URL}    http://172.16.2.37/dubbo-web-api/
 
 &{ROLE NAME AND ROLE ID}     调查人员=12     审核人员=13     审核经理=14     管理员=15
 &{DEPARTMENT NAME AND ID}    组织=26

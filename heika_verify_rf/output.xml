@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20160104 17:49:52.839" generator="Robot 2.9.2 (Python 2.7.6 on linux2)">
+<suite source="/home/peng/git_test_codes/robot_framework/heika_verify_rf/verify_system_tests/coupon_tests.robot" id="s1" name="Coupon Tests">
+<test id="s1-t1" name="Test create fixed time coupon batch">
+<kw type="setup" name="My Setup" library="VerifyCoupon">
+<msg timestamp="20160104 17:49:52.982" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<status status="PASS" endtime="20160104 17:49:53.057" starttime="20160104 17:49:52.974"></status>
+</kw>
+<kw name="Create Fixed Time Coupon Batch" library="VerifyCoupon">
+<msg timestamp="20160104 17:49:53.059" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:49:53.086" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:49:53.093" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:49:53.099" level="INFO">[2016-01-04 17:49:53] [_test_create_coupon_batch] Get batch from request</msg>
+<status status="PASS" endtime="20160104 17:49:53.100" starttime="20160104 17:49:53.058"></status>
+</kw>
+<kw type="teardown" name="My Cleanup" library="VerifyCoupon">
+<status status="PASS" endtime="20160104 17:49:53.104" starttime="20160104 17:49:53.100"></status>
+</kw>
+<status status="PASS" endtime="20160104 17:49:53.105" critical="yes" starttime="20160104 17:49:52.973"></status>
+</test>
+<test id="s1-t2" name="Test create fixed length coupon batch">
+<kw type="setup" name="My Setup" library="VerifyCoupon">
+<msg timestamp="20160104 17:49:53.107" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<status status="PASS" endtime="20160104 17:49:53.179" starttime="20160104 17:49:53.106"></status>
+</kw>
+<kw name="Create Fixed Length Coupon Batch" library="VerifyCoupon">
+<msg timestamp="20160104 17:49:53.181" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:49:53.193" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:49:53.199" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:49:53.205" level="INFO">[2016-01-04 17:49:53] [_test_create_coupon_batch] Get batch from request</msg>
+<status status="PASS" endtime="20160104 17:49:53.206" starttime="20160104 17:49:53.180"></status>
+</kw>
+<kw type="teardown" name="My Cleanup" library="VerifyCoupon">
+<status status="PASS" endtime="20160104 17:49:53.211" starttime="20160104 17:49:53.206"></status>
+</kw>
+<status status="PASS" endtime="20160104 17:49:53.211" critical="yes" starttime="20160104 17:49:53.105"></status>
+</test>
+<test id="s1-t3" name="Test system fixed time coupon grant">
+<kw type="setup" name="My Setup" library="VerifyCoupon">
+<msg timestamp="20160104 17:49:53.214" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<status status="PASS" endtime="20160104 17:49:53.287" starttime="20160104 17:49:53.212"></status>
+</kw>
+<kw name="System Fixed Time Coupon Grant" library="VerifyCoupon">
+<msg timestamp="20160104 17:49:53.288" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:00.310" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:00.323" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:00.331" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<status status="PASS" endtime="20160104 17:50:00.338" starttime="20160104 17:49:53.287"></status>
+</kw>
+<kw type="teardown" name="My Cleanup" library="VerifyCoupon">
+<status status="PASS" endtime="20160104 17:50:00.343" starttime="20160104 17:50:00.339"></status>
+</kw>
+<status status="PASS" endtime="20160104 17:50:00.344" critical="yes" starttime="20160104 17:49:53.212"></status>
+</test>
+<test id="s1-t4" name="Test system fixed length coupon grant">
+<kw type="setup" name="My Setup" library="VerifyCoupon">
+<msg timestamp="20160104 17:50:00.346" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<status status="PASS" endtime="20160104 17:50:00.422" starttime="20160104 17:50:00.345"></status>
+</kw>
+<kw name="System Fixed Length Coupon Grant" library="VerifyCoupon">
+<msg timestamp="20160104 17:50:00.423" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:07.442" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:07.455" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:07.464" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<status status="PASS" endtime="20160104 17:50:07.472" starttime="20160104 17:50:00.422"></status>
+</kw>
+<kw type="teardown" name="My Cleanup" library="VerifyCoupon">
+<status status="PASS" endtime="20160104 17:50:07.477" starttime="20160104 17:50:07.472"></status>
+</kw>
+<status status="PASS" endtime="20160104 17:50:07.477" critical="yes" starttime="20160104 17:50:00.344"></status>
+</test>
+<test id="s1-t5" name="Test disable and in time range system fixed length coupon grant">
+<kw type="setup" name="My Setup" library="VerifyCoupon">
+<msg timestamp="20160104 17:50:07.480" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<status status="PASS" endtime="20160104 17:50:07.554" starttime="20160104 17:50:07.479"></status>
+</kw>
+<kw name="Disable And In Time Range System Fixed Length Coupon Grant" library="VerifyCoupon">
+<msg timestamp="20160104 17:50:07.556" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:17.577" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:17.593" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:24.607" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:24.619" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:24.627" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<status status="PASS" endtime="20160104 17:50:24.634" starttime="20160104 17:50:07.555"></status>
+</kw>
+<kw type="teardown" name="My Cleanup" library="VerifyCoupon">
+<status status="PASS" endtime="20160104 17:50:24.639" starttime="20160104 17:50:24.635"></status>
+</kw>
+<status status="PASS" endtime="20160104 17:50:24.639" critical="yes" starttime="20160104 17:50:07.478"></status>
+</test>
+<test id="s1-t6" name="Test disable and not in time range system fixed length coupon grant">
+<kw type="setup" name="My Setup" library="VerifyCoupon">
+<msg timestamp="20160104 17:50:24.642" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<status status="PASS" endtime="20160104 17:50:24.718" starttime="20160104 17:50:24.641"></status>
+</kw>
+<kw name="Disable And Not In Time Range System Fixed Length Coupon Grant" library="VerifyCoupon">
+<msg timestamp="20160104 17:50:24.719" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:34.741" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:34.757" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:41.771" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:41.783" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:41.790" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<status status="PASS" endtime="20160104 17:50:41.796" starttime="20160104 17:50:24.718"></status>
+</kw>
+<kw type="teardown" name="My Cleanup" library="VerifyCoupon">
+<status status="PASS" endtime="20160104 17:50:41.802" starttime="20160104 17:50:41.797"></status>
+</kw>
+<status status="PASS" endtime="20160104 17:50:41.802" critical="yes" starttime="20160104 17:50:24.640"></status>
+</test>
+<test id="s1-t7" name="Test disable and in time range system fixed time coupon grant">
+<kw type="setup" name="My Setup" library="VerifyCoupon">
+<msg timestamp="20160104 17:50:41.804" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<status status="PASS" endtime="20160104 17:50:41.879" starttime="20160104 17:50:41.803"></status>
+</kw>
+<kw name="Disable And In Time Range System Fixed Time Coupon Grant" library="VerifyCoupon">
+<msg timestamp="20160104 17:50:41.880" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:51.897" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:51.913" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:58.923" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:58.936" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:50:58.943" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<status status="PASS" endtime="20160104 17:50:58.951" starttime="20160104 17:50:41.879"></status>
+</kw>
+<kw type="teardown" name="My Cleanup" library="VerifyCoupon">
+<status status="PASS" endtime="20160104 17:50:58.956" starttime="20160104 17:50:58.951"></status>
+</kw>
+<status status="PASS" endtime="20160104 17:50:58.956" critical="yes" starttime="20160104 17:50:41.803"></status>
+</test>
+<test id="s1-t8" name="Test disable and not in time range system fixed time coupon grant">
+<kw type="setup" name="My Setup" library="VerifyCoupon">
+<msg timestamp="20160104 17:50:58.958" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<status status="PASS" endtime="20160104 17:50:59.037" starttime="20160104 17:50:58.957"></status>
+</kw>
+<kw name="Disable And Not In Time Range System Fixed Time Coupon Grant" library="VerifyCoupon">
+<msg timestamp="20160104 17:50:59.039" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:51:09.061" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:51:09.075" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:51:16.091" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:51:16.103" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160104 17:51:16.111" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<status status="PASS" endtime="20160104 17:51:16.117" starttime="20160104 17:50:59.037"></status>
+</kw>
+<kw type="teardown" name="My Cleanup" library="VerifyCoupon">
+<status status="PASS" endtime="20160104 17:51:16.121" starttime="20160104 17:51:16.118"></status>
+</kw>
+<status status="PASS" endtime="20160104 17:51:16.122" critical="yes" starttime="20160104 17:50:58.957"></status>
+</test>
+<status status="PASS" endtime="20160104 17:51:16.123" starttime="20160104 17:49:52.840"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="8">Critical Tests</stat>
+<stat fail="0" pass="8">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Coupon Tests" pass="8">Coupon Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -4,6 +4,7 @@ import sys
 import libs.helper
 from libs.DB_utils.utils import *
 from libs.request_utils.utils import *
+from libs.request_utils.flow_task_manage import *
 from datetime import datetime
 
 
@@ -26,8 +27,8 @@ if __name__ == "__main__":
 
     if sys.argv[1] == 'init':
         for user_id in sys.argv[2:]:
-            # request_util = RequestUtil('http://172.16.2.38:17788/dubbo/test/')
-            request_util = RequestUtil('http://172.16.2.111:7020/heika-verify/dubbo/test/')
+            request_util = RequestUtil('http://172.16.2.37/dubbo-web-api/')
+            # request_util = RequestUtil('http://172.16.2.111:7020/heika-verify/dubbo/test/')
 
             libs.helper.log('将user_id为%s的用户置为待调查状态' % user_id)
             update_user_to_inquireing_status(user_id)
@@ -133,7 +134,11 @@ if __name__ == "__main__":
         # delete_user_info_result(1)
         # populate_user_info_result(1, 'PENDING')
         # update_verify_user_status_to_inquire_success(100034833, 1, 'investigate note', 12)
-        ret = get_latest_verify_user_status_log(100034832)
-        if ret is not None:
-            print ret[0], ret[1]
-
+        # ret = get_latest_verify_user_status_log(100034832)
+        # if ret is not None:
+        #     print ret[0], ret[1]
+        flow_task_request = FlowTaskManage('http://172.16.2.38:15081/', username='liupeng@renrendai.com')
+        flow_task_request.login()
+        # response = flow_task_request.flow_setup('PEOPLE', 3, 69, 73)
+        response = flow_task_request.get_pending_tasks()
+        print response

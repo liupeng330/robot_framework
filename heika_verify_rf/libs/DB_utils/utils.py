@@ -67,6 +67,14 @@ def get_verify_user_name_by_email(email):
     return None
 
 
+def get_verify_user_email_by_real_name(real_name):
+    cursor.execute("select email from verify_user where real_name = '%s' " % real_name)
+    ret = cursor.fetchone()
+    if ret is not None:
+        return ret[0]
+    return None
+
+
 def get_dept_id_by_dept_name(dept_name):
     cursor.execute("select id from verify_departments where department_name = '%s' " % dept_name)
     ret = cursor.fetchone()
