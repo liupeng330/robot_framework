@@ -6,6 +6,7 @@ from libs.request_utils import flow_task_manage
 from libs.global_enum import *
 from libs.model import user_search_result
 from robot.libraries.BuiltIn import BuiltIn
+import time
 
 
 class VerifyLibrary(object):
@@ -130,6 +131,7 @@ class VerifyLibrary(object):
             delete_verify_user_status_by_user_id(user_id)
             self.dubbo_web_request_utils.init_user_from_mobile(user_id)
             self.dubbo_web_request_utils.commit_user_from_mobile(user_id)
+            time.sleep(1)
 
     # 按人员, 首次调查
     def flow_setup_by_people_for_inquireing(self, *verify_user_names):
@@ -142,6 +144,10 @@ class VerifyLibrary(object):
     # 按人员, 待二审
     def flow_setup_by_people_for_first_verify_success(self, *verify_user_names):
         self._flow_setup_by_people(AuditUserStatusEnum.FIRST_VERIFY_SUCCESS, *verify_user_names)
+
+    # 按人员, 上签
+    def flow_setup_by_people_for_second_verify_success(self, *verify_user_names):
+        self._flow_setup_by_people(AuditUserStatusEnum.SECOND_VERIFY_SUCCESS, *verify_user_names)
 
     def _flow_setup_by_people(self, audit_user_status, *verify_user_names):
         user_name_encoded = [i.encode('utf-8') for i in verify_user_names]
@@ -183,23 +189,63 @@ class VerifyLibrary(object):
         flow_task_request_for_current_user.login()
 
         if task_type == 'pending':
-            tasks = flow_task_request_for_current_user.get_pending_tasks()
+            tasks = flow_task_request_for_current_user.get_pending_tasks()[0]
         elif task_type == 'done':
-            tasks = flow_task_request_for_current_user.get_done_tasks()
+            tasks = flow_task_request_for_current_user.get_done_tasks()[0]
         elif task_type == 'involved':
-            tasks = flow_task_request_for_current_user.get_involved_tasks()
+            tasks = flow_task_request_for_current_user.get_involved_tasks()[0]
         else:
             raise AssertionError('There is no this kind of type %s' % task_type)
 
         self.built_in.log('{0} task for user {1}: {2}'.format(task_type, email, tasks))
+        self.built_in.log('Start to verify returned tasks')
         for task in tasks:
             if task['nickName'] == expected_task_with_nick_name and task['taskName'] == expected_task_name:
                 return
-        raise AssertionError('Fail to find nick name {0} with status {1} in {2} task!!'.format(
-            expected_task_with_nick_name, expected_task_name, task_type))
+        raise AssertionError('Fail to find nick name in task!!')
+
+    # 获取待办任务数
+    def get_pending_task_count(self, verify_user_name):
+        return self._get_task_count('pending', verify_user_name)
+
+    # 获取办结任务数
+    def get_done_task_count(self, verify_user_name):
+        return self._get_task_count('done', verify_user_name)
+
+    # 获取我参与的进件任务数
+    def get_involved_task_count(self, verify_user_name):
+        return self._get_task_count('involved', verify_user_name)
+
+    def _get_task_count(self, task_type, verify_user_name):
+        verify_user_name = verify_user_name.encode('utf-8')
+        email = get_verify_user_email_by_real_name(verify_user_name)
+        self.built_in.log('Using user name {0} to log in'.format(email))
+        flow_task_request_for_current_user = flow_task_manage.FlowTaskManage(self.base_URL, email)
+        flow_task_request_for_current_user.login()
+
+        if task_type == 'pending':
+            return flow_task_request_for_current_user.get_pending_tasks()[1]
+        elif task_type == 'done':
+            return flow_task_request_for_current_user.get_done_tasks()[1]
+        elif task_type == 'involved':
+            return flow_task_request_for_current_user.get_involved_tasks()[1]
+        else:
+            raise AssertionError('There is no this kind of type %s' % task_type)
 
     # 将任务提交到一审，即调查通过
     def commit_to_first_verify(self, verify_user_real_name,  *task_nick_names):
+        self._commit_to_next_verify_status(AuditUserStatusEnum.INQUIRE_SUCCESS, verify_user_real_name, 0, *task_nick_names)
+
+    # 将任务提交到二审，即一审通过
+    def commit_to_second_verify(self, verify_user_real_name,  *task_nick_names):
+        self._commit_to_next_verify_status(AuditUserStatusEnum.FIRST_VERIFY_SUCCESS, verify_user_real_name, 0, *task_nick_names)
+
+    # 将任务提交二审通过，具体是通过审核，还是上签，由二审金额决定
+    def commit_to_pass_second_verify(self, verify_user_real_name, amount,  *task_nick_names):
+        amount = int(amount)
+        self._commit_to_next_verify_status(AuditUserStatusEnum.SECOND_VERIFY_SUCCESS, verify_user_real_name, amount, *task_nick_names)
+
+    def _commit_to_next_verify_status(self, audit_user_status, verify_user_real_name, second_verify_amount=1000,  *task_nick_names):
         self.built_in.log('Encoding for task nick name ' + str(task_nick_names))
         task_nick_names_encode = [i.encode('utf-8') for i in task_nick_names]
 
@@ -214,9 +260,16 @@ class VerifyLibrary(object):
         current_user_request.login()
 
         for user_id in user_ids:
-            self.built_in.log('Using user_id = %s to commit to first verify' % user_id)
-            inv_rets = current_user_request.get_all_valid_investigate_result()
-            response = current_user_request.commit_to_first_verify(user_id, 12, '调查备注', **inv_rets)
+            self.built_in.log('Using user_id = {0} to commit to {1}'.format(user_id, audit_user_status))
+            if audit_user_status == AuditUserStatusEnum.INQUIRE_SUCCESS:
+                inv_rets = current_user_request.get_all_valid_investigate_result()
+                response = current_user_request.commit_to_first_verify(user_id, 12, '调查备注', **inv_rets)
+            elif audit_user_status == AuditUserStatusEnum.FIRST_VERIFY_SUCCESS:
+                response = current_user_request.commit_to_second_verify(user_id, 1000, 1, 12, '一审备注')
+            elif audit_user_status == AuditUserStatusEnum.SECOND_VERIFY_SUCCESS:
+                response = current_user_request.commit_to_pass_second_verify(user_id, second_verify_amount, 1, 12, '二审备注')
+            else:
+                raise AssertionError('Can not handle this kind of status!!')
             self.built_in.log('Response = {0}'.format(response.json()))
 
 

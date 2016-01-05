@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20160105 15:23:32.742" generator="Robot 2.9.2 (Python 2.7.6 on linux2)">
+<robot generated="20160105 18:55:43.357" generator="Robot 2.9.2 (Python 2.7.6 on linux2)">
 <suite source="/home/peng/git_test_codes/robot_framework/heika_verify_rf/verify_system_tests/flow_task_tests.robot" id="s1" name="Flow Task Tests">
 <test id="s1-t1" name="Test Flow Task By People For Inquireing">
 <kw type="setup" name="Cleanup Task By Executor Names" library="VerifyLibrary">
@@ -8,32 +8,32 @@
 <arg>刘鹏测试2</arg>
 <arg>刘鹏测试3</arg>
 </arguments>
-<msg timestamp="20160105 15:23:32.886" level="INFO">[2016-01-05 15:23:32] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
-[2016-01-05 15:23:32] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
-[2016-01-05 15:23:32] [commit] 执行sql语句：
+<msg timestamp="20160105 18:55:43.522" level="INFO">[2016-01-05 18:55:43] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
+[2016-01-05 18:55:43] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
+[2016-01-05 18:55:43] [commit] 执行sql语句：
 DELETE from verify_process_task where executor = 69
-影响行数：0
+影响行数：5
 
-[2016-01-05 15:23:32] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
-[2016-01-05 15:23:32] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
-[2016-01-05 15:23:32] [commit] 执行sql语句：
+[2016-01-05 18:55:43] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
+[2016-01-05 18:55:43] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
+[2016-01-05 18:55:43] [commit] 执行sql语句：
 DELETE from verify_process_task where executor = 73
-影响行数：0
+影响行数：3
 
-[2016-01-05 15:23:32] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id
-[2016-01-05 15:23:32] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
-[2016-01-05 15:23:32] [commit] 执行sql语句：
+[2016-01-05 18:55:43] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id
+[2016-01-05 18:55:43] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
+[2016-01-05 18:55:43] [commit] 执行sql语句：
 DELETE from verify_process_task where executor = 74
-影响行数：0</msg>
-<status status="PASS" endtime="20160105 15:23:32.886" starttime="20160105 15:23:32.867"></status>
+影响行数：4</msg>
+<status status="PASS" endtime="20160105 18:55:43.523" starttime="20160105 18:55:43.496"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>设置首次调查的人员</arg>
 </arguments>
-<msg timestamp="20160105 15:23:32.887" level="INFO">设置首次调查的人员</msg>
-<status status="PASS" endtime="20160105 15:23:32.888" starttime="20160105 15:23:32.887"></status>
+<msg timestamp="20160105 18:55:43.524" level="INFO">设置首次调查的人员</msg>
+<status status="PASS" endtime="20160105 18:55:43.524" starttime="20160105 18:55:43.523"></status>
 </kw>
 <kw name="Flow Setup By People For Inquireing" library="VerifyLibrary">
 <arguments>
@@ -41,22 +41,22 @@ DELETE from verify_process_task where executor = 74
 <arg>刘鹏测试2</arg>
 <arg>刘鹏测试3</arg>
 </arguments>
-<msg timestamp="20160105 15:23:32.890" level="INFO">Values for flow setup: [69, 73, 74]</msg>
-<msg timestamp="20160105 15:23:32.897" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:32.927" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:32.936" level="INFO">Response for flow setup: {u'status': 0, u'message': u'', u'data': {}}</msg>
-<msg timestamp="20160105 15:23:32.937" level="INFO">[2016-01-05 15:23:32] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
-[2016-01-05 15:23:32] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
-[2016-01-05 15:23:32] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id</msg>
-<status status="PASS" endtime="20160105 15:23:32.937" starttime="20160105 15:23:32.888"></status>
+<msg timestamp="20160105 18:55:43.530" level="INFO">Values for flow setup: [69, 73, 74]</msg>
+<msg timestamp="20160105 18:55:43.540" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:43.626" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:43.635" level="INFO">Response for flow setup: {u'status': 0, u'message': u'', u'data': {}}</msg>
+<msg timestamp="20160105 18:55:43.636" level="INFO">[2016-01-05 18:55:43] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
+[2016-01-05 18:55:43] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
+[2016-01-05 18:55:43] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id</msg>
+<status status="PASS" endtime="20160105 18:55:43.636" starttime="20160105 18:55:43.525"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>产生新的进件</arg>
 </arguments>
-<msg timestamp="20160105 15:23:32.938" level="INFO">产生新的进件</msg>
-<status status="PASS" endtime="20160105 15:23:32.938" starttime="20160105 15:23:32.938"></status>
+<msg timestamp="20160105 18:55:43.637" level="INFO">产生新的进件</msg>
+<status status="PASS" endtime="20160105 18:55:43.637" starttime="20160105 18:55:43.636"></status>
 </kw>
 <kw name="Populate Task By Nick Names" library="VerifyLibrary">
 <arguments>
@@ -64,128 +64,128 @@ DELETE from verify_process_task where executor = 74
 <arg>auto_02</arg>
 <arg>auto_03</arg>
 </arguments>
-<msg timestamp="20160105 15:23:32.958" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
-<msg timestamp="20160105 15:23:32.968" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
-<msg timestamp="20160105 15:23:32.995" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
-<msg timestamp="20160105 15:23:33.006" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
-<msg timestamp="20160105 15:23:33.032" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
-<msg timestamp="20160105 15:23:33.041" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
-<msg timestamp="20160105 15:23:33.048" level="INFO">[2016-01-05 15:23:32] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
-[2016-01-05 15:23:32] [commit] 执行sql语句：
+<msg timestamp="20160105 18:55:43.655" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:55:43.662" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:55:44.686" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:55:44.693" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:55:45.718" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:55:45.723" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:55:46.728" level="INFO">[2016-01-05 18:55:43] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
+[2016-01-05 18:55:43] [commit] 执行sql语句：
 UPDATE verify_user_status SET verify_user_status='INQUIREING',reject_operation=NULL,investigate_time=NULL,first_verify_time=NULL,second_verify_time=NULL,investigate_user_id=NULL,first_verify_user_id=NULL,second_verify_user_id=NULL,investigate_note=NULL,first_verify_note=NULL,second_verify_note=NULL,first_verify_amount=NULL,first_verify_card_product_id=NULL,second_verify_amount=NULL,second_verify_card_product_id=NULL,online_time=NULL,reject_reason_list=NULL,in_youxin_back_list=NULL,first_cash_draw_ratio=NULL,cash_draw_ratio=NULL,version='0',audit_user_status='INQUIREING' WHERE user_id = 100034832
 影响行数：1
 
-[2016-01-05 15:23:32] [delete_user_info_result] 将verify_user_info_result表清空
+[2016-01-05 18:55:43] [delete_user_info_result] 将verify_user_info_result表清空
 
-[2016-01-05 15:23:32] [commit] 执行sql语句：
+[2016-01-05 18:55:43] [commit] 执行sql语句：
 DELETE FROM `verify_user_info_result` where `user_id` = 100034832
 影响行数：19
 
-[2016-01-05 15:23:32] [populate_user_info_result] 初始化verify_user_info_result表
+[2016-01-05 18:55:43] [populate_user_info_result] 初始化verify_user_info_result表
 
-[2016-01-05 15:23:32] [delete_user_status_log] 将verify_user_status_log表中的数据删除
+[2016-01-05 18:55:43] [delete_user_status_log] 将verify_user_status_log表中的数据删除
 
-[2016-01-05 15:23:32] [commit] 执行sql语句：
+[2016-01-05 18:55:43] [commit] 执行sql语句：
 delete from `verify_user_status_log` where `user_id` = 100034832
-影响行数：2
+影响行数：5
 
-[2016-01-05 15:23:32] [delete_strategy_output] 将verify_strategy_output表中的数据删除
+[2016-01-05 18:55:43] [delete_strategy_output] 将verify_strategy_output表中的数据删除
 
-[2016-01-05 15:23:32] [commit] 执行sql语句：
+[2016-01-05 18:55:43] [commit] 执行sql语句：
 delete from `verify_strategy_output` where `user_id` = 100034832
-影响行数：0
+影响行数：1
 
-[2016-01-05 15:23:32] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
+[2016-01-05 18:55:43] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
 
-[2016-01-05 15:23:32] [commit] 执行sql语句：
+[2016-01-05 18:55:43] [commit] 执行sql语句：
 delete from `verify_user_info_refine` where `user_id` = 100034832
 影响行数：0
 
-[2016-01-05 15:23:32] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
-[2016-01-05 15:23:32] [commit] 执行sql语句：
+[2016-01-05 18:55:43] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
+[2016-01-05 18:55:43] [commit] 执行sql语句：
 DELETE from verify_user_status where user_id = 100034832
 影响行数：1
 
-[2016-01-05 15:23:32] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
-[2016-01-05 15:23:32] [commit] 执行sql语句：
+[2016-01-05 18:55:44] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
+[2016-01-05 18:55:44] [commit] 执行sql语句：
 UPDATE verify_user_status SET verify_user_status='INQUIREING',reject_operation=NULL,investigate_time=NULL,first_verify_time=NULL,second_verify_time=NULL,investigate_user_id=NULL,first_verify_user_id=NULL,second_verify_user_id=NULL,investigate_note=NULL,first_verify_note=NULL,second_verify_note=NULL,first_verify_amount=NULL,first_verify_card_product_id=NULL,second_verify_amount=NULL,second_verify_card_product_id=NULL,online_time=NULL,reject_reason_list=NULL,in_youxin_back_list=NULL,first_cash_draw_ratio=NULL,cash_draw_ratio=NULL,version='0',audit_user_status='INQUIREING' WHERE user_id = 100034833
 影响行数：1
 
-[2016-01-05 15:23:32] [delete_user_info_result] 将verify_user_info_result表清空
+[2016-01-05 18:55:44] [delete_user_info_result] 将verify_user_info_result表清空
 
-[2016-01-05 15:23:32] [commit] 执行sql语句：
+[2016-01-05 18:55:44] [commit] 执行sql语句：
 DELETE FROM `verify_user_info_result` where `user_id` = 100034833
 影响行数：19
 
-[2016-01-05 15:23:32] [populate_user_info_result] 初始化verify_user_info_result表
+[2016-01-05 18:55:44] [populate_user_info_result] 初始化verify_user_info_result表
 
-[2016-01-05 15:23:32] [delete_user_status_log] 将verify_user_status_log表中的数据删除
+[2016-01-05 18:55:44] [delete_user_status_log] 将verify_user_status_log表中的数据删除
 
-[2016-01-05 15:23:32] [commit] 执行sql语句：
+[2016-01-05 18:55:44] [commit] 执行sql语句：
 delete from `verify_user_status_log` where `user_id` = 100034833
-影响行数：2
+影响行数：5
 
-[2016-01-05 15:23:32] [delete_strategy_output] 将verify_strategy_output表中的数据删除
+[2016-01-05 18:55:44] [delete_strategy_output] 将verify_strategy_output表中的数据删除
 
-[2016-01-05 15:23:32] [commit] 执行sql语句：
+[2016-01-05 18:55:44] [commit] 执行sql语句：
 delete from `verify_strategy_output` where `user_id` = 100034833
-影响行数：0
+影响行数：1
 
-[2016-01-05 15:23:32] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
+[2016-01-05 18:55:44] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
 
-[2016-01-05 15:23:32] [commit] 执行sql语句：
+[2016-01-05 18:55:44] [commit] 执行sql语句：
 delete from `verify_user_info_refine` where `user_id` = 100034833
 影响行数：0
 
-[2016-01-05 15:23:32] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
-[2016-01-05 15:23:32] [commit] 执行sql语句：
+[2016-01-05 18:55:44] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
+[2016-01-05 18:55:44] [commit] 执行sql语句：
 DELETE from verify_user_status where user_id = 100034833
 影响行数：1
 
-[2016-01-05 15:23:33] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:45] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
+[2016-01-05 18:55:45] [commit] 执行sql语句：
 UPDATE verify_user_status SET verify_user_status='INQUIREING',reject_operation=NULL,investigate_time=NULL,first_verify_time=NULL,second_verify_time=NULL,investigate_user_id=NULL,first_verify_user_id=NULL,second_verify_user_id=NULL,investigate_note=NULL,first_verify_note=NULL,second_verify_note=NULL,first_verify_amount=NULL,first_verify_card_product_id=NULL,second_verify_amount=NULL,second_verify_card_product_id=NULL,online_time=NULL,reject_reason_list=NULL,in_youxin_back_list=NULL,first_cash_draw_ratio=NULL,cash_draw_ratio=NULL,version='0',audit_user_status='INQUIREING' WHERE user_id = 100034834
 影响行数：1
 
-[2016-01-05 15:23:33] [delete_user_info_result] 将verify_user_info_result表清空
+[2016-01-05 18:55:45] [delete_user_info_result] 将verify_user_info_result表清空
 
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:45] [commit] 执行sql语句：
 DELETE FROM `verify_user_info_result` where `user_id` = 100034834
 影响行数：19
 
-[2016-01-05 15:23:33] [populate_user_info_result] 初始化verify_user_info_result表
+[2016-01-05 18:55:45] [populate_user_info_result] 初始化verify_user_info_result表
 
-[2016-01-05 15:23:33] [delete_user_status_log] 将verify_user_status_log表中的数据删除
+[2016-01-05 18:55:45] [delete_user_status_log] 将verify_user_status_log表中的数据删除
 
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:45] [commit] 执行sql语句：
 delete from `verify_user_status_log` where `user_id` = 100034834
-影响行数：2
+影响行数：5
 
-[2016-01-05 15:23:33] [delete_strategy_output] 将verify_strategy_output表中的数据删除
+[2016-01-05 18:55:45] [delete_strategy_output] 将verify_strategy_output表中的数据删除
 
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:45] [commit] 执行sql语句：
 delete from `verify_strategy_output` where `user_id` = 100034834
-影响行数：0
+影响行数：1
 
-[2016-01-05 15:23:33] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
+[2016-01-05 18:55:45] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
 
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:45] [commit] 执行sql语句：
 delete from `verify_user_info_refine` where `user_id` = 100034834
 影响行数：0
 
-[2016-01-05 15:23:33] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:45] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
+[2016-01-05 18:55:45] [commit] 执行sql语句：
 DELETE from verify_user_status where user_id = 100034834
 影响行数：1</msg>
-<status status="PASS" endtime="20160105 15:23:33.049" starttime="20160105 15:23:32.939"></status>
+<status status="PASS" endtime="20160105 18:55:46.729" starttime="20160105 18:55:43.637"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>验证分配到首次调查的进件</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.050" level="INFO">验证分配到首次调查的进件</msg>
-<status status="PASS" endtime="20160105 15:23:33.050" starttime="20160105 15:23:33.049"></status>
+<msg timestamp="20160105 18:55:46.730" level="INFO">验证分配到首次调查的进件</msg>
+<status status="PASS" endtime="20160105 18:55:46.730" starttime="20160105 18:55:46.729"></status>
 </kw>
 <kw name="Verify Pending Job" library="VerifyLibrary">
 <arguments>
@@ -193,11 +193,12 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>auto_01</arg>
 <arg>首次调查</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.052" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:33.053" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.088" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.096" level="INFO">pending task for user liupeng@renrendai.com: [{u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451978604000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIREING', u'taskId': 883, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_01'}]</msg>
-<status status="PASS" endtime="20160105 15:23:33.096" starttime="20160105 15:23:33.050"></status>
+<msg timestamp="20160105 18:55:46.731" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:46.732" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:46.892" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:46.899" level="INFO">pending task for user liupeng@renrendai.com: [{u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991335000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIREING', u'taskId': 1714, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_01'}]</msg>
+<msg timestamp="20160105 18:55:46.900" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:55:46.900" starttime="20160105 18:55:46.730"></status>
 </kw>
 <kw name="Verify Pending Job" library="VerifyLibrary">
 <arguments>
@@ -205,11 +206,12 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>auto_02</arg>
 <arg>首次调查</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.098" level="INFO">Using user name liupeng2@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:33.099" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.127" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.134" level="INFO">pending task for user liupeng2@renrendai.com: [{u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451978604000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIREING', u'taskId': 884, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_02'}]</msg>
-<status status="PASS" endtime="20160105 15:23:33.135" starttime="20160105 15:23:33.097"></status>
+<msg timestamp="20160105 18:55:46.901" level="INFO">Using user name liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:46.902" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:47.019" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:47.027" level="INFO">pending task for user liupeng2@renrendai.com: [{u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451991336000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIREING', u'taskId': 1715, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_02'}]</msg>
+<msg timestamp="20160105 18:55:47.027" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:55:47.027" starttime="20160105 18:55:46.900"></status>
 </kw>
 <kw name="Verify Pending Job" library="VerifyLibrary">
 <arguments>
@@ -217,13 +219,14 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>auto_03</arg>
 <arg>首次调查</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.136" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:33.137" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.161" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.172" level="INFO">pending task for user liupeng3@renrendai.com: [{u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451978604000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIREING', u'taskId': 885, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_03'}]</msg>
-<status status="PASS" endtime="20160105 15:23:33.172" starttime="20160105 15:23:33.135"></status>
+<msg timestamp="20160105 18:55:47.029" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:47.030" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:47.151" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:47.158" level="INFO">pending task for user liupeng3@renrendai.com: [{u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451991337000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIREING', u'taskId': 1716, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_03'}]</msg>
+<msg timestamp="20160105 18:55:47.159" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:55:47.159" starttime="20160105 18:55:47.028"></status>
 </kw>
-<status status="PASS" endtime="20160105 15:23:33.173" critical="yes" starttime="20160105 15:23:32.867"></status>
+<status status="PASS" endtime="20160105 18:55:47.160" critical="yes" starttime="20160105 18:55:43.496"></status>
 </test>
 <test id="s1-t2" name="Test Flow Task By People For First Verify">
 <kw type="setup" name="Cleanup Task By Executor Names" library="VerifyLibrary">
@@ -232,32 +235,32 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>刘鹏测试2</arg>
 <arg>刘鹏测试3</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.179" level="INFO">[2016-01-05 15:23:33] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
-[2016-01-05 15:23:33] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+<msg timestamp="20160105 18:55:47.166" level="INFO">[2016-01-05 18:55:47] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
+[2016-01-05 18:55:47] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
+[2016-01-05 18:55:47] [commit] 执行sql语句：
 DELETE from verify_process_task where executor = 69
 影响行数：1
 
-[2016-01-05 15:23:33] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
-[2016-01-05 15:23:33] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:47] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
+[2016-01-05 18:55:47] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
+[2016-01-05 18:55:47] [commit] 执行sql语句：
 DELETE from verify_process_task where executor = 73
 影响行数：1
 
-[2016-01-05 15:23:33] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id
-[2016-01-05 15:23:33] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:47] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id
+[2016-01-05 18:55:47] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
+[2016-01-05 18:55:47] [commit] 执行sql语句：
 DELETE from verify_process_task where executor = 74
 影响行数：1</msg>
-<status status="PASS" endtime="20160105 15:23:33.179" starttime="20160105 15:23:33.174"></status>
+<status status="PASS" endtime="20160105 18:55:47.166" starttime="20160105 18:55:47.161"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>设置首次调查的人员</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.180" level="INFO">设置首次调查的人员</msg>
-<status status="PASS" endtime="20160105 15:23:33.181" starttime="20160105 15:23:33.180"></status>
+<msg timestamp="20160105 18:55:47.167" level="INFO">设置首次调查的人员</msg>
+<status status="PASS" endtime="20160105 18:55:47.167" starttime="20160105 18:55:47.166"></status>
 </kw>
 <kw name="Flow Setup By People For Inquireing" library="VerifyLibrary">
 <arguments>
@@ -265,22 +268,22 @@ DELETE from verify_process_task where executor = 74
 <arg>刘鹏测试2</arg>
 <arg>刘鹏测试3</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.184" level="INFO">Values for flow setup: [69, 73, 74]</msg>
-<msg timestamp="20160105 15:23:33.185" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.212" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.221" level="INFO">Response for flow setup: {u'status': 0, u'message': u'', u'data': {}}</msg>
-<msg timestamp="20160105 15:23:33.221" level="INFO">[2016-01-05 15:23:33] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
-[2016-01-05 15:23:33] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
-[2016-01-05 15:23:33] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id</msg>
-<status status="PASS" endtime="20160105 15:23:33.222" starttime="20160105 15:23:33.181"></status>
+<msg timestamp="20160105 18:55:47.170" level="INFO">Values for flow setup: [69, 73, 74]</msg>
+<msg timestamp="20160105 18:55:47.171" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:47.255" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:47.267" level="INFO">Response for flow setup: {u'status': 0, u'message': u'', u'data': {}}</msg>
+<msg timestamp="20160105 18:55:47.267" level="INFO">[2016-01-05 18:55:47] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
+[2016-01-05 18:55:47] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
+[2016-01-05 18:55:47] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id</msg>
+<status status="PASS" endtime="20160105 18:55:47.267" starttime="20160105 18:55:47.168"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>设置一审的人员</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.222" level="INFO">设置一审的人员</msg>
-<status status="PASS" endtime="20160105 15:23:33.223" starttime="20160105 15:23:33.222"></status>
+<msg timestamp="20160105 18:55:47.268" level="INFO">设置一审的人员</msg>
+<status status="PASS" endtime="20160105 18:55:47.269" starttime="20160105 18:55:47.268"></status>
 </kw>
 <kw name="Flow Setup By People For Inquire Success" library="VerifyLibrary">
 <arguments>
@@ -288,22 +291,22 @@ DELETE from verify_process_task where executor = 74
 <arg>刘鹏测试2</arg>
 <arg>刘鹏测试3</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.225" level="INFO">Values for flow setup: [69, 73, 74]</msg>
-<msg timestamp="20160105 15:23:33.226" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.254" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.263" level="INFO">Response for flow setup: {u'status': 0, u'message': u'', u'data': {}}</msg>
-<msg timestamp="20160105 15:23:33.263" level="INFO">[2016-01-05 15:23:33] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
-[2016-01-05 15:23:33] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
-[2016-01-05 15:23:33] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id</msg>
-<status status="PASS" endtime="20160105 15:23:33.263" starttime="20160105 15:23:33.223"></status>
+<msg timestamp="20160105 18:55:47.271" level="INFO">Values for flow setup: [69, 73, 74]</msg>
+<msg timestamp="20160105 18:55:47.272" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:47.357" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:47.365" level="INFO">Response for flow setup: {u'status': 0, u'message': u'', u'data': {}}</msg>
+<msg timestamp="20160105 18:55:47.366" level="INFO">[2016-01-05 18:55:47] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
+[2016-01-05 18:55:47] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
+[2016-01-05 18:55:47] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id</msg>
+<status status="PASS" endtime="20160105 18:55:47.366" starttime="20160105 18:55:47.269"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>分配首次调查的进件</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.264" level="INFO">分配首次调查的进件</msg>
-<status status="PASS" endtime="20160105 15:23:33.264" starttime="20160105 15:23:33.264"></status>
+<msg timestamp="20160105 18:55:47.367" level="INFO">分配首次调查的进件</msg>
+<status status="PASS" endtime="20160105 18:55:47.367" starttime="20160105 18:55:47.366"></status>
 </kw>
 <kw name="Populate Task By Nick Names" library="VerifyLibrary">
 <arguments>
@@ -311,151 +314,159 @@ DELETE from verify_process_task where executor = 74
 <arg>auto_02</arg>
 <arg>auto_03</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.283" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
-<msg timestamp="20160105 15:23:33.292" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
-<msg timestamp="20160105 15:23:33.319" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
-<msg timestamp="20160105 15:23:33.327" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
-<msg timestamp="20160105 15:23:33.351" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
-<msg timestamp="20160105 15:23:33.360" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
-<msg timestamp="20160105 15:23:33.367" level="INFO">[2016-01-05 15:23:33] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+<msg timestamp="20160105 18:55:47.387" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:55:47.393" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:55:48.418" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:55:48.423" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:55:49.446" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:55:49.451" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:55:50.456" level="INFO">[2016-01-05 18:55:47] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
+[2016-01-05 18:55:47] [commit] 执行sql语句：
 UPDATE verify_user_status SET verify_user_status='INQUIREING',reject_operation=NULL,investigate_time=NULL,first_verify_time=NULL,second_verify_time=NULL,investigate_user_id=NULL,first_verify_user_id=NULL,second_verify_user_id=NULL,investigate_note=NULL,first_verify_note=NULL,second_verify_note=NULL,first_verify_amount=NULL,first_verify_card_product_id=NULL,second_verify_amount=NULL,second_verify_card_product_id=NULL,online_time=NULL,reject_reason_list=NULL,in_youxin_back_list=NULL,first_cash_draw_ratio=NULL,cash_draw_ratio=NULL,version='0',audit_user_status='INQUIREING' WHERE user_id = 100034832
 影响行数：1
 
-[2016-01-05 15:23:33] [delete_user_info_result] 将verify_user_info_result表清空
+[2016-01-05 18:55:47] [delete_user_info_result] 将verify_user_info_result表清空
 
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:47] [commit] 执行sql语句：
 DELETE FROM `verify_user_info_result` where `user_id` = 100034832
 影响行数：19
 
-[2016-01-05 15:23:33] [populate_user_info_result] 初始化verify_user_info_result表
+[2016-01-05 18:55:47] [populate_user_info_result] 初始化verify_user_info_result表
 
-[2016-01-05 15:23:33] [delete_user_status_log] 将verify_user_status_log表中的数据删除
+[2016-01-05 18:55:47] [delete_user_status_log] 将verify_user_status_log表中的数据删除
 
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:47] [commit] 执行sql语句：
 delete from `verify_user_status_log` where `user_id` = 100034832
 影响行数：2
 
-[2016-01-05 15:23:33] [delete_strategy_output] 将verify_strategy_output表中的数据删除
+[2016-01-05 18:55:47] [delete_strategy_output] 将verify_strategy_output表中的数据删除
 
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:47] [commit] 执行sql语句：
 delete from `verify_strategy_output` where `user_id` = 100034832
 影响行数：0
 
-[2016-01-05 15:23:33] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
+[2016-01-05 18:55:47] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
 
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:47] [commit] 执行sql语句：
 delete from `verify_user_info_refine` where `user_id` = 100034832
 影响行数：0
 
-[2016-01-05 15:23:33] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:47] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
+[2016-01-05 18:55:47] [commit] 执行sql语句：
 DELETE from verify_user_status where user_id = 100034832
 影响行数：1
 
-[2016-01-05 15:23:33] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:48] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
+[2016-01-05 18:55:48] [commit] 执行sql语句：
 UPDATE verify_user_status SET verify_user_status='INQUIREING',reject_operation=NULL,investigate_time=NULL,first_verify_time=NULL,second_verify_time=NULL,investigate_user_id=NULL,first_verify_user_id=NULL,second_verify_user_id=NULL,investigate_note=NULL,first_verify_note=NULL,second_verify_note=NULL,first_verify_amount=NULL,first_verify_card_product_id=NULL,second_verify_amount=NULL,second_verify_card_product_id=NULL,online_time=NULL,reject_reason_list=NULL,in_youxin_back_list=NULL,first_cash_draw_ratio=NULL,cash_draw_ratio=NULL,version='0',audit_user_status='INQUIREING' WHERE user_id = 100034833
 影响行数：1
 
-[2016-01-05 15:23:33] [delete_user_info_result] 将verify_user_info_result表清空
+[2016-01-05 18:55:48] [delete_user_info_result] 将verify_user_info_result表清空
 
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:48] [commit] 执行sql语句：
 DELETE FROM `verify_user_info_result` where `user_id` = 100034833
 影响行数：19
 
-[2016-01-05 15:23:33] [populate_user_info_result] 初始化verify_user_info_result表
+[2016-01-05 18:55:48] [populate_user_info_result] 初始化verify_user_info_result表
 
-[2016-01-05 15:23:33] [delete_user_status_log] 将verify_user_status_log表中的数据删除
+[2016-01-05 18:55:48] [delete_user_status_log] 将verify_user_status_log表中的数据删除
 
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:48] [commit] 执行sql语句：
 delete from `verify_user_status_log` where `user_id` = 100034833
 影响行数：2
 
-[2016-01-05 15:23:33] [delete_strategy_output] 将verify_strategy_output表中的数据删除
+[2016-01-05 18:55:48] [delete_strategy_output] 将verify_strategy_output表中的数据删除
 
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:48] [commit] 执行sql语句：
 delete from `verify_strategy_output` where `user_id` = 100034833
 影响行数：0
 
-[2016-01-05 15:23:33] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
+[2016-01-05 18:55:48] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
 
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:48] [commit] 执行sql语句：
 delete from `verify_user_info_refine` where `user_id` = 100034833
 影响行数：0
 
-[2016-01-05 15:23:33] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:48] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
+[2016-01-05 18:55:48] [commit] 执行sql语句：
 DELETE from verify_user_status where user_id = 100034833
 影响行数：1
 
-[2016-01-05 15:23:33] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:49] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
+[2016-01-05 18:55:49] [commit] 执行sql语句：
 UPDATE verify_user_status SET verify_user_status='INQUIREING',reject_operation=NULL,investigate_time=NULL,first_verify_time=NULL,second_verify_time=NULL,investigate_user_id=NULL,first_verify_user_id=NULL,second_verify_user_id=NULL,investigate_note=NULL,first_verify_note=NULL,second_verify_note=NULL,first_verify_amount=NULL,first_verify_card_product_id=NULL,second_verify_amount=NULL,second_verify_card_product_id=NULL,online_time=NULL,reject_reason_list=NULL,in_youxin_back_list=NULL,first_cash_draw_ratio=NULL,cash_draw_ratio=NULL,version='0',audit_user_status='INQUIREING' WHERE user_id = 100034834
 影响行数：1
 
-[2016-01-05 15:23:33] [delete_user_info_result] 将verify_user_info_result表清空
+[2016-01-05 18:55:49] [delete_user_info_result] 将verify_user_info_result表清空
 
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:49] [commit] 执行sql语句：
 DELETE FROM `verify_user_info_result` where `user_id` = 100034834
 影响行数：19
 
-[2016-01-05 15:23:33] [populate_user_info_result] 初始化verify_user_info_result表
+[2016-01-05 18:55:49] [populate_user_info_result] 初始化verify_user_info_result表
 
-[2016-01-05 15:23:33] [delete_user_status_log] 将verify_user_status_log表中的数据删除
+[2016-01-05 18:55:49] [delete_user_status_log] 将verify_user_status_log表中的数据删除
 
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:49] [commit] 执行sql语句：
 delete from `verify_user_status_log` where `user_id` = 100034834
 影响行数：2
 
-[2016-01-05 15:23:33] [delete_strategy_output] 将verify_strategy_output表中的数据删除
+[2016-01-05 18:55:49] [delete_strategy_output] 将verify_strategy_output表中的数据删除
 
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:49] [commit] 执行sql语句：
 delete from `verify_strategy_output` where `user_id` = 100034834
 影响行数：0
 
-[2016-01-05 15:23:33] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
+[2016-01-05 18:55:49] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
 
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:49] [commit] 执行sql语句：
 delete from `verify_user_info_refine` where `user_id` = 100034834
 影响行数：0
 
-[2016-01-05 15:23:33] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
-[2016-01-05 15:23:33] [commit] 执行sql语句：
+[2016-01-05 18:55:49] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
+[2016-01-05 18:55:49] [commit] 执行sql语句：
 DELETE from verify_user_status where user_id = 100034834
 影响行数：1</msg>
-<status status="PASS" endtime="20160105 15:23:33.367" starttime="20160105 15:23:33.265"></status>
+<status status="PASS" endtime="20160105 18:55:50.457" starttime="20160105 18:55:47.368"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>将auto_01调查通过</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.368" level="INFO">将auto_01调查通过</msg>
-<status status="PASS" endtime="20160105 15:23:33.369" starttime="20160105 15:23:33.368"></status>
+<msg timestamp="20160105 18:55:50.458" level="INFO">将auto_01调查通过</msg>
+<status status="PASS" endtime="20160105 18:55:50.458" starttime="20160105 18:55:50.458"></status>
 </kw>
 <kw name="Commit To First Verify" library="VerifyLibrary">
 <arguments>
 <arg>刘鹏测试</arg>
 <arg>auto_01</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.369" level="INFO">Encoding for task nick name (u'auto_01',)</msg>
-<msg timestamp="20160105 15:23:33.370" level="INFO">Getting user id by nick name</msg>
-<msg timestamp="20160105 15:23:33.370" level="INFO">Getting verify user email by real name</msg>
-<msg timestamp="20160105 15:23:33.371" level="INFO">Using verify user liupeng@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:33.372" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.406" level="INFO">Using user_id = 100034832 to commit to first verify</msg>
-<msg timestamp="20160105 15:23:33.407" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.473" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
-<status status="PASS" endtime="20160105 15:23:33.473" starttime="20160105 15:23:33.369"></status>
+<msg timestamp="20160105 18:55:50.459" level="INFO">Encoding for task nick name (u'auto_01',)</msg>
+<msg timestamp="20160105 18:55:50.459" level="INFO">Getting user id by nick name</msg>
+<msg timestamp="20160105 18:55:50.460" level="INFO">Getting verify user email by real name</msg>
+<msg timestamp="20160105 18:55:50.461" level="INFO">Using verify user liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:50.462" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:50.618" level="INFO">Using user_id = 100034832 to commit to AuditUserStatusEnum.INQUIRE_SUCCESS</msg>
+<msg timestamp="20160105 18:55:50.619" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:50.664" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
+<status status="PASS" endtime="20160105 18:55:50.665" starttime="20160105 18:55:50.458"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20160105 18:55:51.666" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20160105 18:55:51.667" starttime="20160105 18:55:50.665"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>验证auto_01分配到了一审，其他进件依然在首次调查节点</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.474" level="INFO">验证auto_01分配到了一审，其他进件依然在首次调查节点</msg>
-<status status="PASS" endtime="20160105 15:23:33.475" starttime="20160105 15:23:33.474"></status>
+<msg timestamp="20160105 18:55:51.668" level="INFO">验证auto_01分配到了一审，其他进件依然在首次调查节点</msg>
+<status status="PASS" endtime="20160105 18:55:51.668" starttime="20160105 18:55:51.667"></status>
 </kw>
 <kw name="Verify Pending Job" library="VerifyLibrary">
 <arguments>
@@ -463,11 +474,12 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>auto_01</arg>
 <arg>待一审</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.476" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:33.477" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.513" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.520" level="INFO">pending task for user liupeng@renrendai.com: [{u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451978605000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 889, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_01'}]</msg>
-<status status="PASS" endtime="20160105 15:23:33.521" starttime="20160105 15:23:33.475"></status>
+<msg timestamp="20160105 18:55:51.669" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:51.670" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:51.831" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:51.838" level="INFO">pending task for user liupeng@renrendai.com: [{u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991342000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1720, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_01'}]</msg>
+<msg timestamp="20160105 18:55:51.839" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:55:51.839" starttime="20160105 18:55:51.668"></status>
 </kw>
 <kw name="Verify Done Job" library="VerifyLibrary">
 <arguments>
@@ -475,11 +487,12 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>auto_01</arg>
 <arg>首次调查</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.522" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:33.523" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.563" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.571" level="INFO">done task for user liupeng@renrendai.com: [{u'taskEndTime': 1451978605000, u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451978605000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIREING', u'taskId': 886, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_01'}]</msg>
-<status status="PASS" endtime="20160105 15:23:33.572" starttime="20160105 15:23:33.521"></status>
+<msg timestamp="20160105 18:55:51.841" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:51.842" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:51.996" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:52.003" level="INFO">done task for user liupeng@renrendai.com: [{u'taskEndTime': 1451991342000, u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991339000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIREING', u'taskId': 1717, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_01'}]</msg>
+<msg timestamp="20160105 18:55:52.003" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:55:52.004" starttime="20160105 18:55:51.840"></status>
 </kw>
 <kw name="Verify Involved Job" library="VerifyLibrary">
 <arguments>
@@ -487,11 +500,12 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>auto_01</arg>
 <arg>首次调查</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.573" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:33.574" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.610" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.618" level="INFO">involved task for user liupeng@renrendai.com: [{u'taskEndTime': 1451978605000, u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451978605000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIREING', u'taskId': 886, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_01'}]</msg>
-<status status="PASS" endtime="20160105 15:23:33.619" starttime="20160105 15:23:33.572"></status>
+<msg timestamp="20160105 18:55:52.005" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:52.006" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:52.159" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:52.167" level="INFO">involved task for user liupeng@renrendai.com: [{u'taskEndTime': 1451991342000, u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991339000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIREING', u'taskId': 1717, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_01'}]</msg>
+<msg timestamp="20160105 18:55:52.167" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:55:52.167" starttime="20160105 18:55:52.004"></status>
 </kw>
 <kw name="Verify Pending Job" library="VerifyLibrary">
 <arguments>
@@ -499,11 +513,12 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>auto_02</arg>
 <arg>首次调查</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.620" level="INFO">Using user name liupeng2@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:33.621" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.650" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.657" level="INFO">pending task for user liupeng2@renrendai.com: [{u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451978605000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIREING', u'taskId': 887, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_02'}]</msg>
-<status status="PASS" endtime="20160105 15:23:33.657" starttime="20160105 15:23:33.619"></status>
+<msg timestamp="20160105 18:55:52.169" level="INFO">Using user name liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:52.170" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:52.286" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:52.293" level="INFO">pending task for user liupeng2@renrendai.com: [{u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451991340000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIREING', u'taskId': 1718, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_02'}]</msg>
+<msg timestamp="20160105 18:55:52.294" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:55:52.294" starttime="20160105 18:55:52.168"></status>
 </kw>
 <kw name="Verify Pending Job" library="VerifyLibrary">
 <arguments>
@@ -511,42 +526,51 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>auto_03</arg>
 <arg>首次调查</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.659" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:33.660" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.684" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.691" level="INFO">pending task for user liupeng3@renrendai.com: [{u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451978605000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIREING', u'taskId': 888, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_03'}]</msg>
-<status status="PASS" endtime="20160105 15:23:33.692" starttime="20160105 15:23:33.658"></status>
+<msg timestamp="20160105 18:55:52.296" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:52.297" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:52.415" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:52.422" level="INFO">pending task for user liupeng3@renrendai.com: [{u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451991341000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIREING', u'taskId': 1719, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_03'}]</msg>
+<msg timestamp="20160105 18:55:52.423" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:55:52.423" starttime="20160105 18:55:52.295"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>将auto_02调查通过</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.693" level="INFO">将auto_02调查通过</msg>
-<status status="PASS" endtime="20160105 15:23:33.693" starttime="20160105 15:23:33.692"></status>
+<msg timestamp="20160105 18:55:52.424" level="INFO">将auto_02调查通过</msg>
+<status status="PASS" endtime="20160105 18:55:52.424" starttime="20160105 18:55:52.423"></status>
 </kw>
 <kw name="Commit To First Verify" library="VerifyLibrary">
 <arguments>
 <arg>刘鹏测试2</arg>
 <arg>auto_02</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.694" level="INFO">Encoding for task nick name (u'auto_02',)</msg>
-<msg timestamp="20160105 15:23:33.694" level="INFO">Getting user id by nick name</msg>
-<msg timestamp="20160105 15:23:33.695" level="INFO">Getting verify user email by real name</msg>
-<msg timestamp="20160105 15:23:33.696" level="INFO">Using verify user liupeng2@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:33.697" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.726" level="INFO">Using user_id = 100034833 to commit to first verify</msg>
-<msg timestamp="20160105 15:23:33.727" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.781" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
-<status status="PASS" endtime="20160105 15:23:33.782" starttime="20160105 15:23:33.694"></status>
+<msg timestamp="20160105 18:55:52.425" level="INFO">Encoding for task nick name (u'auto_02',)</msg>
+<msg timestamp="20160105 18:55:52.425" level="INFO">Getting user id by nick name</msg>
+<msg timestamp="20160105 18:55:52.426" level="INFO">Getting verify user email by real name</msg>
+<msg timestamp="20160105 18:55:52.427" level="INFO">Using verify user liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:52.428" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:52.552" level="INFO">Using user_id = 100034833 to commit to AuditUserStatusEnum.INQUIRE_SUCCESS</msg>
+<msg timestamp="20160105 18:55:52.553" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:52.589" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
+<status status="PASS" endtime="20160105 18:55:52.590" starttime="20160105 18:55:52.424"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20160105 18:55:53.591" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20160105 18:55:53.592" starttime="20160105 18:55:52.590"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>验证auto_02分配到了一审，其他进件依然在首次调查节点</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.783" level="INFO">验证auto_02分配到了一审，其他进件依然在首次调查节点</msg>
-<status status="PASS" endtime="20160105 15:23:33.783" starttime="20160105 15:23:33.782"></status>
+<msg timestamp="20160105 18:55:53.593" level="INFO">验证auto_02分配到了一审，其他进件依然在首次调查节点</msg>
+<status status="PASS" endtime="20160105 18:55:53.593" starttime="20160105 18:55:53.592"></status>
 </kw>
 <kw name="Verify Pending Job" library="VerifyLibrary">
 <arguments>
@@ -554,11 +578,12 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>auto_02</arg>
 <arg>待一审</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.785" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:33.786" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.823" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.832" level="INFO">pending task for user liupeng@renrendai.com: [{u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451978605000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 889, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_01'}, {u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451978605000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 890, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_02'}]</msg>
-<status status="PASS" endtime="20160105 15:23:33.833" starttime="20160105 15:23:33.784"></status>
+<msg timestamp="20160105 18:55:53.595" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:53.596" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:53.767" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:53.775" level="INFO">pending task for user liupeng@renrendai.com: [{u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451991344000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1721, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_02'}, {u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991342000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1720, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_01'}]</msg>
+<msg timestamp="20160105 18:55:53.775" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:55:53.775" starttime="20160105 18:55:53.593"></status>
 </kw>
 <kw name="Verify Done Job" library="VerifyLibrary">
 <arguments>
@@ -566,11 +591,12 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>auto_02</arg>
 <arg>首次调查</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.834" level="INFO">Using user name liupeng2@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:33.835" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.866" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.873" level="INFO">done task for user liupeng2@renrendai.com: [{u'taskEndTime': 1451978605000, u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451978605000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIREING', u'taskId': 887, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_02'}]</msg>
-<status status="PASS" endtime="20160105 15:23:33.874" starttime="20160105 15:23:33.833"></status>
+<msg timestamp="20160105 18:55:53.777" level="INFO">Using user name liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:53.778" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:53.907" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:53.914" level="INFO">done task for user liupeng2@renrendai.com: [{u'taskEndTime': 1451991344000, u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451991340000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIREING', u'taskId': 1718, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_02'}]</msg>
+<msg timestamp="20160105 18:55:53.914" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:55:53.915" starttime="20160105 18:55:53.776"></status>
 </kw>
 <kw name="Verify Involved Job" library="VerifyLibrary">
 <arguments>
@@ -578,11 +604,12 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>auto_02</arg>
 <arg>首次调查</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.876" level="INFO">Using user name liupeng2@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:33.877" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.908" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.917" level="INFO">involved task for user liupeng2@renrendai.com: [{u'taskEndTime': 1451978605000, u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451978605000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIREING', u'taskId': 887, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_02'}]</msg>
-<status status="PASS" endtime="20160105 15:23:33.918" starttime="20160105 15:23:33.874"></status>
+<msg timestamp="20160105 18:55:53.916" level="INFO">Using user name liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:53.917" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:54.050" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:54.058" level="INFO">involved task for user liupeng2@renrendai.com: [{u'taskEndTime': 1451991344000, u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451991340000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIREING', u'taskId': 1718, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_02'}]</msg>
+<msg timestamp="20160105 18:55:54.059" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:55:54.059" starttime="20160105 18:55:53.915"></status>
 </kw>
 <kw name="Verify Pending Job" library="VerifyLibrary">
 <arguments>
@@ -590,11 +617,12 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>auto_01</arg>
 <arg>待一审</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.919" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:33.920" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.957" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.966" level="INFO">pending task for user liupeng@renrendai.com: [{u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451978605000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 889, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_01'}, {u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451978605000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 890, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_02'}]</msg>
-<status status="PASS" endtime="20160105 15:23:33.966" starttime="20160105 15:23:33.918"></status>
+<msg timestamp="20160105 18:55:54.060" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:54.061" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:54.232" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:54.241" level="INFO">pending task for user liupeng@renrendai.com: [{u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451991344000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1721, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_02'}, {u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991342000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1720, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_01'}]</msg>
+<msg timestamp="20160105 18:55:54.241" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:55:54.241" starttime="20160105 18:55:54.059"></status>
 </kw>
 <kw name="Verify Pending Job" library="VerifyLibrary">
 <arguments>
@@ -602,42 +630,51 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>auto_03</arg>
 <arg>首次调查</arg>
 </arguments>
-<msg timestamp="20160105 15:23:33.968" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:33.969" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:33.994" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.001" level="INFO">pending task for user liupeng3@renrendai.com: [{u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451978605000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIREING', u'taskId': 888, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_03'}]</msg>
-<status status="PASS" endtime="20160105 15:23:34.001" starttime="20160105 15:23:33.967"></status>
+<msg timestamp="20160105 18:55:54.243" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:54.244" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:54.375" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:54.384" level="INFO">pending task for user liupeng3@renrendai.com: [{u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451991341000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIREING', u'taskId': 1719, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_03'}]</msg>
+<msg timestamp="20160105 18:55:54.385" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:55:54.385" starttime="20160105 18:55:54.242"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>将auto_03调查通过</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.002" level="INFO">将auto_03调查通过</msg>
-<status status="PASS" endtime="20160105 15:23:34.002" starttime="20160105 15:23:34.002"></status>
+<msg timestamp="20160105 18:55:54.386" level="INFO">将auto_03调查通过</msg>
+<status status="PASS" endtime="20160105 18:55:54.386" starttime="20160105 18:55:54.386"></status>
 </kw>
 <kw name="Commit To First Verify" library="VerifyLibrary">
 <arguments>
 <arg>刘鹏测试3</arg>
 <arg>auto_03</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.003" level="INFO">Encoding for task nick name (u'auto_03',)</msg>
-<msg timestamp="20160105 15:23:34.003" level="INFO">Getting user id by nick name</msg>
-<msg timestamp="20160105 15:23:34.004" level="INFO">Getting verify user email by real name</msg>
-<msg timestamp="20160105 15:23:34.005" level="INFO">Using verify user liupeng3@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:34.006" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.030" level="INFO">Using user_id = 100034834 to commit to first verify</msg>
-<msg timestamp="20160105 15:23:34.031" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.081" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
-<status status="PASS" endtime="20160105 15:23:34.081" starttime="20160105 15:23:34.003"></status>
+<msg timestamp="20160105 18:55:54.387" level="INFO">Encoding for task nick name (u'auto_03',)</msg>
+<msg timestamp="20160105 18:55:54.388" level="INFO">Getting user id by nick name</msg>
+<msg timestamp="20160105 18:55:54.388" level="INFO">Getting verify user email by real name</msg>
+<msg timestamp="20160105 18:55:54.389" level="INFO">Using verify user liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:54.390" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:54.516" level="INFO">Using user_id = 100034834 to commit to AuditUserStatusEnum.INQUIRE_SUCCESS</msg>
+<msg timestamp="20160105 18:55:54.517" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:54.554" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
+<status status="PASS" endtime="20160105 18:55:54.555" starttime="20160105 18:55:54.387"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20160105 18:55:55.556" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20160105 18:55:55.557" starttime="20160105 18:55:54.555"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>验证auto_03分配到了一审，没有进件在首次调查节点</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.082" level="INFO">验证auto_03分配到了一审，没有进件在首次调查节点</msg>
-<status status="PASS" endtime="20160105 15:23:34.083" starttime="20160105 15:23:34.082"></status>
+<msg timestamp="20160105 18:55:55.558" level="INFO">验证auto_03分配到了一审，没有进件在首次调查节点</msg>
+<status status="PASS" endtime="20160105 18:55:55.558" starttime="20160105 18:55:55.557"></status>
 </kw>
 <kw name="Verify Pending Job" library="VerifyLibrary">
 <arguments>
@@ -645,11 +682,12 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>auto_03</arg>
 <arg>待一审</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.084" level="INFO">Using user name liupeng2@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:34.085" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.118" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.126" level="INFO">pending task for user liupeng2@renrendai.com: [{u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451978605000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 891, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_03'}]</msg>
-<status status="PASS" endtime="20160105 15:23:34.126" starttime="20160105 15:23:34.083"></status>
+<msg timestamp="20160105 18:55:55.560" level="INFO">Using user name liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:55.561" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:55.691" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:55.699" level="INFO">pending task for user liupeng2@renrendai.com: [{u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451991346000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1722, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_03'}]</msg>
+<msg timestamp="20160105 18:55:55.699" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:55:55.699" starttime="20160105 18:55:55.559"></status>
 </kw>
 <kw name="Verify Done Job" library="VerifyLibrary">
 <arguments>
@@ -657,11 +695,12 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>auto_03</arg>
 <arg>首次调查</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.128" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:34.129" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.157" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.165" level="INFO">done task for user liupeng3@renrendai.com: [{u'taskEndTime': 1451978605000, u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451978605000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIREING', u'taskId': 888, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_03'}]</msg>
-<status status="PASS" endtime="20160105 15:23:34.166" starttime="20160105 15:23:34.127"></status>
+<msg timestamp="20160105 18:55:55.700" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:55.701" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:55.845" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:55.853" level="INFO">done task for user liupeng3@renrendai.com: [{u'taskEndTime': 1451991346000, u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451991341000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIREING', u'taskId': 1719, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_03'}]</msg>
+<msg timestamp="20160105 18:55:55.853" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:55:55.853" starttime="20160105 18:55:55.700"></status>
 </kw>
 <kw name="Verify Involved Job" library="VerifyLibrary">
 <arguments>
@@ -669,11 +708,12 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>auto_03</arg>
 <arg>首次调查</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.168" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:34.169" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.198" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.207" level="INFO">involved task for user liupeng3@renrendai.com: [{u'taskEndTime': 1451978605000, u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451978605000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIREING', u'taskId': 888, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_03'}]</msg>
-<status status="PASS" endtime="20160105 15:23:34.208" starttime="20160105 15:23:34.166"></status>
+<msg timestamp="20160105 18:55:55.855" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:55.856" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:55.990" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:55.998" level="INFO">involved task for user liupeng3@renrendai.com: [{u'taskEndTime': 1451991346000, u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451991341000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIREING', u'taskId': 1719, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_03'}]</msg>
+<msg timestamp="20160105 18:55:55.998" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:55:55.999" starttime="20160105 18:55:55.854"></status>
 </kw>
 <kw name="Verify Pending Job" library="VerifyLibrary">
 <arguments>
@@ -681,11 +721,12 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>auto_01</arg>
 <arg>待一审</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.209" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:34.210" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.251" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.261" level="INFO">pending task for user liupeng@renrendai.com: [{u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451978605000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 889, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_01'}, {u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451978605000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 890, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_02'}]</msg>
-<status status="PASS" endtime="20160105 15:23:34.261" starttime="20160105 15:23:34.208"></status>
+<msg timestamp="20160105 18:55:56.000" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:56.001" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:56.178" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:56.188" level="INFO">pending task for user liupeng@renrendai.com: [{u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451991344000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1721, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_02'}, {u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991342000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1720, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_01'}]</msg>
+<msg timestamp="20160105 18:55:56.188" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:55:56.188" starttime="20160105 18:55:55.999"></status>
 </kw>
 <kw name="Verify Pending Job" library="VerifyLibrary">
 <arguments>
@@ -693,13 +734,14 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>auto_02</arg>
 <arg>待一审</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.263" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:34.264" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.301" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.310" level="INFO">pending task for user liupeng@renrendai.com: [{u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451978605000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 889, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_01'}, {u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451978605000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 890, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_02'}]</msg>
-<status status="PASS" endtime="20160105 15:23:34.311" starttime="20160105 15:23:34.262"></status>
+<msg timestamp="20160105 18:55:56.190" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:56.191" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:56.413" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:56.423" level="INFO">pending task for user liupeng@renrendai.com: [{u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451991344000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1721, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_02'}, {u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991342000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1720, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_01'}]</msg>
+<msg timestamp="20160105 18:55:56.423" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:55:56.423" starttime="20160105 18:55:56.189"></status>
 </kw>
-<status status="PASS" endtime="20160105 15:23:34.311" critical="yes" starttime="20160105 15:23:33.173"></status>
+<status status="PASS" endtime="20160105 18:55:56.424" critical="yes" starttime="20160105 18:55:47.160"></status>
 </test>
 <test id="s1-t3" name="Test Flow Task By People For Second Verify">
 <kw type="setup" name="Cleanup Task By Executor Names" library="VerifyLibrary">
@@ -708,32 +750,32 @@ DELETE from verify_user_status where user_id = 100034834
 <arg>刘鹏测试2</arg>
 <arg>刘鹏测试3</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.317" level="INFO">[2016-01-05 15:23:34] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
-[2016-01-05 15:23:34] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+<msg timestamp="20160105 18:55:56.430" level="INFO">[2016-01-05 18:55:56] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
+[2016-01-05 18:55:56] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
+[2016-01-05 18:55:56] [commit] 执行sql语句：
 DELETE from verify_process_task where executor = 69
 影响行数：3
 
-[2016-01-05 15:23:34] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
-[2016-01-05 15:23:34] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:56] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
+[2016-01-05 18:55:56] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
+[2016-01-05 18:55:56] [commit] 执行sql语句：
 DELETE from verify_process_task where executor = 73
 影响行数：2
 
-[2016-01-05 15:23:34] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id
-[2016-01-05 15:23:34] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:56] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id
+[2016-01-05 18:55:56] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
+[2016-01-05 18:55:56] [commit] 执行sql语句：
 DELETE from verify_process_task where executor = 74
 影响行数：1</msg>
-<status status="PASS" endtime="20160105 15:23:34.317" starttime="20160105 15:23:34.312"></status>
+<status status="PASS" endtime="20160105 18:55:56.430" starttime="20160105 18:55:56.425"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>设置首次调查的人员</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.319" level="INFO">设置首次调查的人员</msg>
-<status status="PASS" endtime="20160105 15:23:34.319" starttime="20160105 15:23:34.318"></status>
+<msg timestamp="20160105 18:55:56.432" level="INFO">设置首次调查的人员</msg>
+<status status="PASS" endtime="20160105 18:55:56.432" starttime="20160105 18:55:56.431"></status>
 </kw>
 <kw name="Flow Setup By People For Inquireing" library="VerifyLibrary">
 <arguments>
@@ -741,22 +783,22 @@ DELETE from verify_process_task where executor = 74
 <arg>刘鹏测试2</arg>
 <arg>刘鹏测试3</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.321" level="INFO">Values for flow setup: [69, 73, 74]</msg>
-<msg timestamp="20160105 15:23:34.323" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.351" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.360" level="INFO">Response for flow setup: {u'status': 0, u'message': u'', u'data': {}}</msg>
-<msg timestamp="20160105 15:23:34.360" level="INFO">[2016-01-05 15:23:34] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
-[2016-01-05 15:23:34] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
-[2016-01-05 15:23:34] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id</msg>
-<status status="PASS" endtime="20160105 15:23:34.360" starttime="20160105 15:23:34.319"></status>
+<msg timestamp="20160105 18:55:56.434" level="INFO">Values for flow setup: [69, 73, 74]</msg>
+<msg timestamp="20160105 18:55:56.435" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:56.540" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:56.550" level="INFO">Response for flow setup: {u'status': 0, u'message': u'', u'data': {}}</msg>
+<msg timestamp="20160105 18:55:56.551" level="INFO">[2016-01-05 18:55:56] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
+[2016-01-05 18:55:56] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
+[2016-01-05 18:55:56] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id</msg>
+<status status="PASS" endtime="20160105 18:55:56.551" starttime="20160105 18:55:56.432"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>设置一审的人员</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.361" level="INFO">设置一审的人员</msg>
-<status status="PASS" endtime="20160105 15:23:34.362" starttime="20160105 15:23:34.361"></status>
+<msg timestamp="20160105 18:55:56.552" level="INFO">设置一审的人员</msg>
+<status status="PASS" endtime="20160105 18:55:56.552" starttime="20160105 18:55:56.551"></status>
 </kw>
 <kw name="Flow Setup By People For Inquire Success" library="VerifyLibrary">
 <arguments>
@@ -764,22 +806,43 @@ DELETE from verify_process_task where executor = 74
 <arg>刘鹏测试2</arg>
 <arg>刘鹏测试3</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.364" level="INFO">Values for flow setup: [69, 73, 74]</msg>
-<msg timestamp="20160105 15:23:34.365" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.393" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.402" level="INFO">Response for flow setup: {u'status': 0, u'message': u'', u'data': {}}</msg>
-<msg timestamp="20160105 15:23:34.402" level="INFO">[2016-01-05 15:23:34] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
-[2016-01-05 15:23:34] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
-[2016-01-05 15:23:34] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id</msg>
-<status status="PASS" endtime="20160105 15:23:34.402" starttime="20160105 15:23:34.362"></status>
+<msg timestamp="20160105 18:55:56.555" level="INFO">Values for flow setup: [69, 73, 74]</msg>
+<msg timestamp="20160105 18:55:56.556" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:56.657" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:56.666" level="INFO">Response for flow setup: {u'status': 0, u'message': u'', u'data': {}}</msg>
+<msg timestamp="20160105 18:55:56.666" level="INFO">[2016-01-05 18:55:56] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
+[2016-01-05 18:55:56] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
+[2016-01-05 18:55:56] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id</msg>
+<status status="PASS" endtime="20160105 18:55:56.666" starttime="20160105 18:55:56.553"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>设置二审的人员</arg>
+</arguments>
+<msg timestamp="20160105 18:55:56.667" level="INFO">设置二审的人员</msg>
+<status status="PASS" endtime="20160105 18:55:56.667" starttime="20160105 18:55:56.667"></status>
+</kw>
+<kw name="Flow Setup By People For First Verify Success" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试2</arg>
+<arg>刘鹏测试3</arg>
+</arguments>
+<msg timestamp="20160105 18:55:56.669" level="INFO">Values for flow setup: [73, 74]</msg>
+<msg timestamp="20160105 18:55:56.670" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:56.773" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:55:56.781" level="INFO">Response for flow setup: {u'status': 0, u'message': u'', u'data': {}}</msg>
+<msg timestamp="20160105 18:55:56.781" level="INFO">[2016-01-05 18:55:56] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
+[2016-01-05 18:55:56] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id</msg>
+<status status="PASS" endtime="20160105 18:55:56.781" starttime="20160105 18:55:56.668"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>分配首次调查的进件</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.403" level="INFO">分配首次调查的进件</msg>
-<status status="PASS" endtime="20160105 15:23:34.404" starttime="20160105 15:23:34.403"></status>
+<msg timestamp="20160105 18:55:56.782" level="INFO">分配首次调查的进件</msg>
+<status status="PASS" endtime="20160105 18:55:56.783" starttime="20160105 18:55:56.782"></status>
 </kw>
 <kw name="Populate Task By Nick Names" library="VerifyLibrary">
 <arguments>
@@ -787,203 +850,1375 @@ DELETE from verify_process_task where executor = 74
 <arg>auto_02</arg>
 <arg>auto_03</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.422" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
-<msg timestamp="20160105 15:23:34.431" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
-<msg timestamp="20160105 15:23:34.455" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
-<msg timestamp="20160105 15:23:34.464" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
-<msg timestamp="20160105 15:23:34.489" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
-<msg timestamp="20160105 15:23:34.497" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
-<msg timestamp="20160105 15:23:34.505" level="INFO">[2016-01-05 15:23:34] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+<msg timestamp="20160105 18:55:56.803" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:55:56.809" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:55:57.834" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:55:57.840" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:55:58.865" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:55:58.871" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:55:59.876" level="INFO">[2016-01-05 18:55:56] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
+[2016-01-05 18:55:56] [commit] 执行sql语句：
 UPDATE verify_user_status SET verify_user_status='INQUIREING',reject_operation=NULL,investigate_time=NULL,first_verify_time=NULL,second_verify_time=NULL,investigate_user_id=NULL,first_verify_user_id=NULL,second_verify_user_id=NULL,investigate_note=NULL,first_verify_note=NULL,second_verify_note=NULL,first_verify_amount=NULL,first_verify_card_product_id=NULL,second_verify_amount=NULL,second_verify_card_product_id=NULL,online_time=NULL,reject_reason_list=NULL,in_youxin_back_list=NULL,first_cash_draw_ratio=NULL,cash_draw_ratio=NULL,version='0',audit_user_status='INQUIREING' WHERE user_id = 100034832
 影响行数：1
 
-[2016-01-05 15:23:34] [delete_user_info_result] 将verify_user_info_result表清空
+[2016-01-05 18:55:56] [delete_user_info_result] 将verify_user_info_result表清空
 
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:56] [commit] 执行sql语句：
 DELETE FROM `verify_user_info_result` where `user_id` = 100034832
 影响行数：19
 
-[2016-01-05 15:23:34] [populate_user_info_result] 初始化verify_user_info_result表
+[2016-01-05 18:55:56] [populate_user_info_result] 初始化verify_user_info_result表
 
-[2016-01-05 15:23:34] [delete_user_status_log] 将verify_user_status_log表中的数据删除
+[2016-01-05 18:55:56] [delete_user_status_log] 将verify_user_status_log表中的数据删除
 
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:56] [commit] 执行sql语句：
 delete from `verify_user_status_log` where `user_id` = 100034832
 影响行数：3
 
-[2016-01-05 15:23:34] [delete_strategy_output] 将verify_strategy_output表中的数据删除
+[2016-01-05 18:55:56] [delete_strategy_output] 将verify_strategy_output表中的数据删除
 
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:56] [commit] 执行sql语句：
 delete from `verify_strategy_output` where `user_id` = 100034832
 影响行数：1
 
-[2016-01-05 15:23:34] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
+[2016-01-05 18:55:56] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
 
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:56] [commit] 执行sql语句：
 delete from `verify_user_info_refine` where `user_id` = 100034832
 影响行数：0
 
-[2016-01-05 15:23:34] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:56] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
+[2016-01-05 18:55:56] [commit] 执行sql语句：
 DELETE from verify_user_status where user_id = 100034832
 影响行数：1
 
-[2016-01-05 15:23:34] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:57] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
+[2016-01-05 18:55:57] [commit] 执行sql语句：
 UPDATE verify_user_status SET verify_user_status='INQUIREING',reject_operation=NULL,investigate_time=NULL,first_verify_time=NULL,second_verify_time=NULL,investigate_user_id=NULL,first_verify_user_id=NULL,second_verify_user_id=NULL,investigate_note=NULL,first_verify_note=NULL,second_verify_note=NULL,first_verify_amount=NULL,first_verify_card_product_id=NULL,second_verify_amount=NULL,second_verify_card_product_id=NULL,online_time=NULL,reject_reason_list=NULL,in_youxin_back_list=NULL,first_cash_draw_ratio=NULL,cash_draw_ratio=NULL,version='0',audit_user_status='INQUIREING' WHERE user_id = 100034833
 影响行数：1
 
-[2016-01-05 15:23:34] [delete_user_info_result] 将verify_user_info_result表清空
+[2016-01-05 18:55:57] [delete_user_info_result] 将verify_user_info_result表清空
 
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:57] [commit] 执行sql语句：
 DELETE FROM `verify_user_info_result` where `user_id` = 100034833
 影响行数：19
 
-[2016-01-05 15:23:34] [populate_user_info_result] 初始化verify_user_info_result表
+[2016-01-05 18:55:57] [populate_user_info_result] 初始化verify_user_info_result表
 
-[2016-01-05 15:23:34] [delete_user_status_log] 将verify_user_status_log表中的数据删除
+[2016-01-05 18:55:57] [delete_user_status_log] 将verify_user_status_log表中的数据删除
 
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:57] [commit] 执行sql语句：
 delete from `verify_user_status_log` where `user_id` = 100034833
 影响行数：3
 
-[2016-01-05 15:23:34] [delete_strategy_output] 将verify_strategy_output表中的数据删除
+[2016-01-05 18:55:57] [delete_strategy_output] 将verify_strategy_output表中的数据删除
 
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:57] [commit] 执行sql语句：
 delete from `verify_strategy_output` where `user_id` = 100034833
 影响行数：1
 
-[2016-01-05 15:23:34] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
+[2016-01-05 18:55:57] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
 
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:57] [commit] 执行sql语句：
 delete from `verify_user_info_refine` where `user_id` = 100034833
 影响行数：0
 
-[2016-01-05 15:23:34] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:57] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
+[2016-01-05 18:55:57] [commit] 执行sql语句：
 DELETE from verify_user_status where user_id = 100034833
 影响行数：1
 
-[2016-01-05 15:23:34] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:58] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
+[2016-01-05 18:55:58] [commit] 执行sql语句：
 UPDATE verify_user_status SET verify_user_status='INQUIREING',reject_operation=NULL,investigate_time=NULL,first_verify_time=NULL,second_verify_time=NULL,investigate_user_id=NULL,first_verify_user_id=NULL,second_verify_user_id=NULL,investigate_note=NULL,first_verify_note=NULL,second_verify_note=NULL,first_verify_amount=NULL,first_verify_card_product_id=NULL,second_verify_amount=NULL,second_verify_card_product_id=NULL,online_time=NULL,reject_reason_list=NULL,in_youxin_back_list=NULL,first_cash_draw_ratio=NULL,cash_draw_ratio=NULL,version='0',audit_user_status='INQUIREING' WHERE user_id = 100034834
 影响行数：1
 
-[2016-01-05 15:23:34] [delete_user_info_result] 将verify_user_info_result表清空
+[2016-01-05 18:55:58] [delete_user_info_result] 将verify_user_info_result表清空
 
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:58] [commit] 执行sql语句：
 DELETE FROM `verify_user_info_result` where `user_id` = 100034834
 影响行数：19
 
-[2016-01-05 15:23:34] [populate_user_info_result] 初始化verify_user_info_result表
+[2016-01-05 18:55:58] [populate_user_info_result] 初始化verify_user_info_result表
 
-[2016-01-05 15:23:34] [delete_user_status_log] 将verify_user_status_log表中的数据删除
+[2016-01-05 18:55:58] [delete_user_status_log] 将verify_user_status_log表中的数据删除
 
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:58] [commit] 执行sql语句：
 delete from `verify_user_status_log` where `user_id` = 100034834
 影响行数：3
 
-[2016-01-05 15:23:34] [delete_strategy_output] 将verify_strategy_output表中的数据删除
+[2016-01-05 18:55:58] [delete_strategy_output] 将verify_strategy_output表中的数据删除
 
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:58] [commit] 执行sql语句：
 delete from `verify_strategy_output` where `user_id` = 100034834
 影响行数：1
 
-[2016-01-05 15:23:34] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
+[2016-01-05 18:55:58] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
 
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:58] [commit] 执行sql语句：
 delete from `verify_user_info_refine` where `user_id` = 100034834
 影响行数：0
 
-[2016-01-05 15:23:34] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
-[2016-01-05 15:23:34] [commit] 执行sql语句：
+[2016-01-05 18:55:58] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
+[2016-01-05 18:55:58] [commit] 执行sql语句：
 DELETE from verify_user_status where user_id = 100034834
 影响行数：1</msg>
-<status status="PASS" endtime="20160105 15:23:34.506" starttime="20160105 15:23:34.404"></status>
+<status status="PASS" endtime="20160105 18:55:59.877" starttime="20160105 18:55:56.783"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>将auto_01调查通过</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.507" level="INFO">将auto_01调查通过</msg>
-<status status="PASS" endtime="20160105 15:23:34.507" starttime="20160105 15:23:34.506"></status>
+<msg timestamp="20160105 18:55:59.878" level="INFO">将auto_01调查通过</msg>
+<status status="PASS" endtime="20160105 18:55:59.878" starttime="20160105 18:55:59.877"></status>
 </kw>
 <kw name="Commit To First Verify" library="VerifyLibrary">
 <arguments>
 <arg>刘鹏测试</arg>
 <arg>auto_01</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.508" level="INFO">Encoding for task nick name (u'auto_01',)</msg>
-<msg timestamp="20160105 15:23:34.508" level="INFO">Getting user id by nick name</msg>
-<msg timestamp="20160105 15:23:34.509" level="INFO">Getting verify user email by real name</msg>
-<msg timestamp="20160105 15:23:34.509" level="INFO">Using verify user liupeng@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:34.510" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.549" level="INFO">Using user_id = 100034832 to commit to first verify</msg>
-<msg timestamp="20160105 15:23:34.550" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.610" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
-<status status="PASS" endtime="20160105 15:23:34.611" starttime="20160105 15:23:34.507"></status>
+<msg timestamp="20160105 18:55:59.879" level="INFO">Encoding for task nick name (u'auto_01',)</msg>
+<msg timestamp="20160105 18:55:59.879" level="INFO">Getting user id by nick name</msg>
+<msg timestamp="20160105 18:55:59.880" level="INFO">Getting verify user email by real name</msg>
+<msg timestamp="20160105 18:55:59.881" level="INFO">Using verify user liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:55:59.882" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:00.042" level="INFO">Using user_id = 100034832 to commit to AuditUserStatusEnum.INQUIRE_SUCCESS</msg>
+<msg timestamp="20160105 18:56:00.043" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:00.078" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
+<status status="PASS" endtime="20160105 18:56:00.078" starttime="20160105 18:55:59.879"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20160105 18:56:01.080" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20160105 18:56:01.080" starttime="20160105 18:56:00.079"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>将auto_02调查通过</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.612" level="INFO">将auto_02调查通过</msg>
-<status status="PASS" endtime="20160105 15:23:34.612" starttime="20160105 15:23:34.611"></status>
+<msg timestamp="20160105 18:56:01.081" level="INFO">将auto_02调查通过</msg>
+<status status="PASS" endtime="20160105 18:56:01.082" starttime="20160105 18:56:01.081"></status>
 </kw>
 <kw name="Commit To First Verify" library="VerifyLibrary">
 <arguments>
 <arg>刘鹏测试2</arg>
 <arg>auto_02</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.613" level="INFO">Encoding for task nick name (u'auto_02',)</msg>
-<msg timestamp="20160105 15:23:34.613" level="INFO">Getting user id by nick name</msg>
-<msg timestamp="20160105 15:23:34.614" level="INFO">Getting verify user email by real name</msg>
-<msg timestamp="20160105 15:23:34.615" level="INFO">Using verify user liupeng2@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:34.616" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.649" level="INFO">Using user_id = 100034833 to commit to first verify</msg>
-<msg timestamp="20160105 15:23:34.650" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.705" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
-<status status="PASS" endtime="20160105 15:23:34.706" starttime="20160105 15:23:34.612"></status>
+<msg timestamp="20160105 18:56:01.082" level="INFO">Encoding for task nick name (u'auto_02',)</msg>
+<msg timestamp="20160105 18:56:01.082" level="INFO">Getting user id by nick name</msg>
+<msg timestamp="20160105 18:56:01.083" level="INFO">Getting verify user email by real name</msg>
+<msg timestamp="20160105 18:56:01.084" level="INFO">Using verify user liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:01.086" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:01.207" level="INFO">Using user_id = 100034833 to commit to AuditUserStatusEnum.INQUIRE_SUCCESS</msg>
+<msg timestamp="20160105 18:56:01.208" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:01.240" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
+<status status="PASS" endtime="20160105 18:56:01.241" starttime="20160105 18:56:01.082"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20160105 18:56:02.242" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20160105 18:56:02.243" starttime="20160105 18:56:01.241"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>将auto_03调查通过</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.707" level="INFO">将auto_03调查通过</msg>
-<status status="PASS" endtime="20160105 15:23:34.707" starttime="20160105 15:23:34.706"></status>
+<msg timestamp="20160105 18:56:02.244" level="INFO">将auto_03调查通过</msg>
+<status status="PASS" endtime="20160105 18:56:02.244" starttime="20160105 18:56:02.243"></status>
 </kw>
 <kw name="Commit To First Verify" library="VerifyLibrary">
 <arguments>
 <arg>刘鹏测试3</arg>
 <arg>auto_03</arg>
 </arguments>
-<msg timestamp="20160105 15:23:34.708" level="INFO">Encoding for task nick name (u'auto_03',)</msg>
-<msg timestamp="20160105 15:23:34.708" level="INFO">Getting user id by nick name</msg>
-<msg timestamp="20160105 15:23:34.709" level="INFO">Getting verify user email by real name</msg>
-<msg timestamp="20160105 15:23:34.709" level="INFO">Using verify user liupeng3@renrendai.com to log in</msg>
-<msg timestamp="20160105 15:23:34.710" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.741" level="INFO">Using user_id = 100034834 to commit to first verify</msg>
-<msg timestamp="20160105 15:23:34.742" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
-<msg timestamp="20160105 15:23:34.792" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
-<status status="PASS" endtime="20160105 15:23:34.793" starttime="20160105 15:23:34.707"></status>
+<msg timestamp="20160105 18:56:02.244" level="INFO">Encoding for task nick name (u'auto_03',)</msg>
+<msg timestamp="20160105 18:56:02.245" level="INFO">Getting user id by nick name</msg>
+<msg timestamp="20160105 18:56:02.246" level="INFO">Getting verify user email by real name</msg>
+<msg timestamp="20160105 18:56:02.246" level="INFO">Using verify user liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:02.247" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:02.371" level="INFO">Using user_id = 100034834 to commit to AuditUserStatusEnum.INQUIRE_SUCCESS</msg>
+<msg timestamp="20160105 18:56:02.372" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:02.405" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
+<status status="PASS" endtime="20160105 18:56:02.405" starttime="20160105 18:56:02.244"></status>
 </kw>
-<status status="PASS" endtime="20160105 15:23:34.793" critical="yes" starttime="20160105 15:23:34.311"></status>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20160105 18:56:03.407" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20160105 18:56:03.407" starttime="20160105 18:56:02.406"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>将auto_01通过一审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:03.408" level="INFO">将auto_01通过一审</msg>
+<status status="PASS" endtime="20160105 18:56:03.408" starttime="20160105 18:56:03.408"></status>
+</kw>
+<kw name="Commit To Second Verify" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+<arg>auto_01</arg>
+</arguments>
+<msg timestamp="20160105 18:56:03.409" level="INFO">Encoding for task nick name (u'auto_01',)</msg>
+<msg timestamp="20160105 18:56:03.410" level="INFO">Getting user id by nick name</msg>
+<msg timestamp="20160105 18:56:03.410" level="INFO">Getting verify user email by real name</msg>
+<msg timestamp="20160105 18:56:03.411" level="INFO">Using verify user liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:03.412" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:03.570" level="INFO">Using user_id = 100034832 to commit to AuditUserStatusEnum.FIRST_VERIFY_SUCCESS</msg>
+<msg timestamp="20160105 18:56:03.571" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:03.590" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
+<status status="PASS" endtime="20160105 18:56:03.591" starttime="20160105 18:56:03.409"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20160105 18:56:04.592" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20160105 18:56:04.592" starttime="20160105 18:56:03.591"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>验证将auto_01分给了刘鹏测试3</arg>
+</arguments>
+<msg timestamp="20160105 18:56:04.593" level="INFO">验证将auto_01分给了刘鹏测试3</msg>
+<status status="PASS" endtime="20160105 18:56:04.594" starttime="20160105 18:56:04.593"></status>
+</kw>
+<kw name="Verify Pending Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试3</arg>
+<arg>auto_01</arg>
+<arg>二审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:04.595" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:04.596" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:04.723" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:04.730" level="INFO">pending task for user liupeng3@renrendai.com: [{u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991355000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'FIRST_VERIFY_SUCCESS', u'taskId': 1729, u'taskName': u'\u4e8c\u5ba1', u'nickName': u'auto_01'}]</msg>
+<msg timestamp="20160105 18:56:04.730" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:04.731" starttime="20160105 18:56:04.594"></status>
+</kw>
+<kw name="Verify Done Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+<arg>auto_01</arg>
+<arg>首次调查</arg>
+</arguments>
+<msg timestamp="20160105 18:56:04.732" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:04.734" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:04.890" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:04.897" level="INFO">done task for user liupeng@renrendai.com: [{u'taskEndTime': 1451991355000, u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991351000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1726, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_01'}, {u'taskEndTime': 1451991351000, u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991348000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIREING', u'taskId': 1723, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_01'}]</msg>
+<msg timestamp="20160105 18:56:04.898" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:04.898" starttime="20160105 18:56:04.731"></status>
+</kw>
+<kw name="Verify Done Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+<arg>auto_01</arg>
+<arg>待一审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:04.900" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:04.901" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:05.058" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:05.066" level="INFO">done task for user liupeng@renrendai.com: [{u'taskEndTime': 1451991355000, u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991351000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1726, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_01'}, {u'taskEndTime': 1451991351000, u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991348000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIREING', u'taskId': 1723, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_01'}]</msg>
+<msg timestamp="20160105 18:56:05.066" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:05.066" starttime="20160105 18:56:04.898"></status>
+</kw>
+<kw name="Verify Involved Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+<arg>auto_01</arg>
+<arg>待一审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:05.068" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:05.069" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:05.228" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:05.236" level="INFO">involved task for user liupeng@renrendai.com: [{u'taskEndTime': 1451991355000, u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991351000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1726, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_01'}]</msg>
+<msg timestamp="20160105 18:56:05.236" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:05.237" starttime="20160105 18:56:05.067"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>将auto_02通过一审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:05.238" level="INFO">将auto_02通过一审</msg>
+<status status="PASS" endtime="20160105 18:56:05.238" starttime="20160105 18:56:05.237"></status>
+</kw>
+<kw name="Commit To Second Verify" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+<arg>auto_02</arg>
+</arguments>
+<msg timestamp="20160105 18:56:05.238" level="INFO">Encoding for task nick name (u'auto_02',)</msg>
+<msg timestamp="20160105 18:56:05.239" level="INFO">Getting user id by nick name</msg>
+<msg timestamp="20160105 18:56:05.239" level="INFO">Getting verify user email by real name</msg>
+<msg timestamp="20160105 18:56:05.240" level="INFO">Using verify user liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:05.241" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:05.398" level="INFO">Using user_id = 100034833 to commit to AuditUserStatusEnum.FIRST_VERIFY_SUCCESS</msg>
+<msg timestamp="20160105 18:56:05.399" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:05.417" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
+<status status="PASS" endtime="20160105 18:56:05.418" starttime="20160105 18:56:05.238"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20160105 18:56:06.419" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20160105 18:56:06.420" starttime="20160105 18:56:05.418"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>验证将auto_02分给了刘鹏测试2</arg>
+</arguments>
+<msg timestamp="20160105 18:56:06.421" level="INFO">验证将auto_02分给了刘鹏测试2</msg>
+<status status="PASS" endtime="20160105 18:56:06.421" starttime="20160105 18:56:06.420"></status>
+</kw>
+<kw name="Verify Pending Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试2</arg>
+<arg>auto_02</arg>
+<arg>二审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:06.423" level="INFO">Using user name liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:06.424" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:06.547" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:06.555" level="INFO">pending task for user liupeng2@renrendai.com: [{u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451991357000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'FIRST_VERIFY_SUCCESS', u'taskId': 1730, u'taskName': u'\u4e8c\u5ba1', u'nickName': u'auto_02'}, {u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451991354000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1728, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_03'}]</msg>
+<msg timestamp="20160105 18:56:06.555" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:06.555" starttime="20160105 18:56:06.422"></status>
+</kw>
+<kw name="Verify Done Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+<arg>auto_02</arg>
+<arg>待一审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:06.557" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:06.558" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:06.724" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:06.732" level="INFO">done task for user liupeng@renrendai.com: [{u'taskEndTime': 1451991357000, u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451991352000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1727, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_02'}, {u'taskEndTime': 1451991355000, u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991351000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1726, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_01'}, {u'taskEndTime': 1451991351000, u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991348000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIREING', u'taskId': 1723, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_01'}]</msg>
+<msg timestamp="20160105 18:56:06.733" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:06.733" starttime="20160105 18:56:06.556"></status>
+</kw>
+<kw name="Verify Involved Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+<arg>auto_02</arg>
+<arg>待一审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:06.735" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:06.736" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:06.895" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:06.903" level="INFO">involved task for user liupeng@renrendai.com: [{u'taskEndTime': 1451991357000, u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451991352000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1727, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_02'}, {u'taskEndTime': 1451991355000, u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991351000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1726, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_01'}]</msg>
+<msg timestamp="20160105 18:56:06.903" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:06.904" starttime="20160105 18:56:06.733"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>将auto_03通过一审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:06.905" level="INFO">将auto_03通过一审</msg>
+<status status="PASS" endtime="20160105 18:56:06.905" starttime="20160105 18:56:06.904"></status>
+</kw>
+<kw name="Commit To Second Verify" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试2</arg>
+<arg>auto_03</arg>
+</arguments>
+<msg timestamp="20160105 18:56:06.906" level="INFO">Encoding for task nick name (u'auto_03',)</msg>
+<msg timestamp="20160105 18:56:06.906" level="INFO">Getting user id by nick name</msg>
+<msg timestamp="20160105 18:56:06.907" level="INFO">Getting verify user email by real name</msg>
+<msg timestamp="20160105 18:56:06.907" level="INFO">Using verify user liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:06.908" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:07.031" level="INFO">Using user_id = 100034834 to commit to AuditUserStatusEnum.FIRST_VERIFY_SUCCESS</msg>
+<msg timestamp="20160105 18:56:07.032" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:07.050" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
+<status status="PASS" endtime="20160105 18:56:07.050" starttime="20160105 18:56:06.905"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20160105 18:56:08.051" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20160105 18:56:08.052" starttime="20160105 18:56:07.051"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>验证将auto_03分给了刘鹏测试3</arg>
+</arguments>
+<msg timestamp="20160105 18:56:08.053" level="INFO">验证将auto_03分给了刘鹏测试3</msg>
+<status status="PASS" endtime="20160105 18:56:08.053" starttime="20160105 18:56:08.052"></status>
+</kw>
+<kw name="Verify Pending Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试3</arg>
+<arg>auto_03</arg>
+<arg>二审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:08.055" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:08.056" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:08.179" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:08.187" level="INFO">pending task for user liupeng3@renrendai.com: [{u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451991358000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'FIRST_VERIFY_SUCCESS', u'taskId': 1731, u'taskName': u'\u4e8c\u5ba1', u'nickName': u'auto_03'}, {u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991355000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'FIRST_VERIFY_SUCCESS', u'taskId': 1729, u'taskName': u'\u4e8c\u5ba1', u'nickName': u'auto_01'}]</msg>
+<msg timestamp="20160105 18:56:08.187" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:08.187" starttime="20160105 18:56:08.054"></status>
+</kw>
+<kw name="Verify Done Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试2</arg>
+<arg>auto_03</arg>
+<arg>待一审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:08.189" level="INFO">Using user name liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:08.190" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:08.312" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:08.320" level="INFO">done task for user liupeng2@renrendai.com: [{u'taskEndTime': 1451991358000, u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451991354000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1728, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_03'}, {u'taskEndTime': 1451991352000, u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451991349000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIREING', u'taskId': 1724, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_02'}]</msg>
+<msg timestamp="20160105 18:56:08.320" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:08.321" starttime="20160105 18:56:08.188"></status>
+</kw>
+<kw name="Verify Involved Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试2</arg>
+<arg>auto_03</arg>
+<arg>待一审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:08.322" level="INFO">Using user name liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:08.324" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:08.443" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:08.452" level="INFO">involved task for user liupeng2@renrendai.com: [{u'taskEndTime': 1451991358000, u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451991354000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1728, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_03'}, {u'taskEndTime': 1451991352000, u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451991349000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIREING', u'taskId': 1724, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_02'}]</msg>
+<msg timestamp="20160105 18:56:08.452" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:08.452" starttime="20160105 18:56:08.321"></status>
+</kw>
+<status status="PASS" endtime="20160105 18:56:08.453" critical="yes" starttime="20160105 18:55:56.424"></status>
 </test>
-<status status="PASS" endtime="20160105 15:23:34.794" starttime="20160105 15:23:32.743"></status>
+<test id="s1-t4" name="Test Flow Task By People For Third Verify">
+<kw type="setup" name="Cleanup Task By Executor Names" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+<arg>刘鹏测试2</arg>
+<arg>刘鹏测试3</arg>
+</arguments>
+<msg timestamp="20160105 18:56:08.459" level="INFO">[2016-01-05 18:56:08] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
+[2016-01-05 18:56:08] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
+[2016-01-05 18:56:08] [commit] 执行sql语句：
+DELETE from verify_process_task where executor = 69
+影响行数：3
+
+[2016-01-05 18:56:08] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
+[2016-01-05 18:56:08] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
+[2016-01-05 18:56:08] [commit] 执行sql语句：
+DELETE from verify_process_task where executor = 73
+影响行数：3
+
+[2016-01-05 18:56:08] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id
+[2016-01-05 18:56:08] [delete_verify_process_task_by_executor_id] 按照executor删除verify_process_task表中的记录
+[2016-01-05 18:56:08] [commit] 执行sql语句：
+DELETE from verify_process_task where executor = 74
+影响行数：3</msg>
+<status status="PASS" endtime="20160105 18:56:08.459" starttime="20160105 18:56:08.454"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>设置首次调查的人员</arg>
+</arguments>
+<msg timestamp="20160105 18:56:08.460" level="INFO">设置首次调查的人员</msg>
+<status status="PASS" endtime="20160105 18:56:08.460" starttime="20160105 18:56:08.460"></status>
+</kw>
+<kw name="Flow Setup By People For Inquireing" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+<arg>刘鹏测试2</arg>
+<arg>刘鹏测试3</arg>
+</arguments>
+<msg timestamp="20160105 18:56:08.462" level="INFO">Values for flow setup: [69, 73, 74]</msg>
+<msg timestamp="20160105 18:56:08.463" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:08.549" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:08.557" level="INFO">Response for flow setup: {u'status': 0, u'message': u'', u'data': {}}</msg>
+<msg timestamp="20160105 18:56:08.557" level="INFO">[2016-01-05 18:56:08] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
+[2016-01-05 18:56:08] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
+[2016-01-05 18:56:08] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id</msg>
+<status status="PASS" endtime="20160105 18:56:08.558" starttime="20160105 18:56:08.461"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>设置一审的人员</arg>
+</arguments>
+<msg timestamp="20160105 18:56:08.558" level="INFO">设置一审的人员</msg>
+<status status="PASS" endtime="20160105 18:56:08.559" starttime="20160105 18:56:08.558"></status>
+</kw>
+<kw name="Flow Setup By People For Inquire Success" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+<arg>刘鹏测试2</arg>
+<arg>刘鹏测试3</arg>
+</arguments>
+<msg timestamp="20160105 18:56:08.561" level="INFO">Values for flow setup: [69, 73, 74]</msg>
+<msg timestamp="20160105 18:56:08.562" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:08.711" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:08.721" level="INFO">Response for flow setup: {u'status': 0, u'message': u'', u'data': {}}</msg>
+<msg timestamp="20160105 18:56:08.721" level="INFO">[2016-01-05 18:56:08] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
+[2016-01-05 18:56:08] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
+[2016-01-05 18:56:08] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id</msg>
+<status status="PASS" endtime="20160105 18:56:08.721" starttime="20160105 18:56:08.559"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>设置二审的人员</arg>
+</arguments>
+<msg timestamp="20160105 18:56:08.722" level="INFO">设置二审的人员</msg>
+<status status="PASS" endtime="20160105 18:56:08.722" starttime="20160105 18:56:08.722"></status>
+</kw>
+<kw name="Flow Setup By People For First Verify Success" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试2</arg>
+<arg>刘鹏测试3</arg>
+</arguments>
+<msg timestamp="20160105 18:56:08.724" level="INFO">Values for flow setup: [73, 74]</msg>
+<msg timestamp="20160105 18:56:08.725" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:08.812" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:08.820" level="INFO">Response for flow setup: {u'status': 0, u'message': u'', u'data': {}}</msg>
+<msg timestamp="20160105 18:56:08.820" level="INFO">[2016-01-05 18:56:08] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试2的verify_user表的主键id
+[2016-01-05 18:56:08] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id</msg>
+<status status="PASS" endtime="20160105 18:56:08.820" starttime="20160105 18:56:08.723"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>设置上签的人员</arg>
+</arguments>
+<msg timestamp="20160105 18:56:08.821" level="INFO">设置上签的人员</msg>
+<status status="PASS" endtime="20160105 18:56:08.821" starttime="20160105 18:56:08.821"></status>
+</kw>
+<kw name="Flow Setup By People For Second Verify Success" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+<arg>刘鹏测试3</arg>
+</arguments>
+<msg timestamp="20160105 18:56:08.823" level="INFO">Values for flow setup: [69, 74]</msg>
+<msg timestamp="20160105 18:56:08.824" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:08.910" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:08.918" level="INFO">Response for flow setup: {u'status': 0, u'message': u'', u'data': {}}</msg>
+<msg timestamp="20160105 18:56:08.918" level="INFO">[2016-01-05 18:56:08] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试的verify_user表的主键id
+[2016-01-05 18:56:08] [get_verify_user_id_by_real_name] 获取real_name为刘鹏测试3的verify_user表的主键id</msg>
+<status status="PASS" endtime="20160105 18:56:08.919" starttime="20160105 18:56:08.822"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>分配首次调查的进件</arg>
+</arguments>
+<msg timestamp="20160105 18:56:08.920" level="INFO">分配首次调查的进件</msg>
+<status status="PASS" endtime="20160105 18:56:08.920" starttime="20160105 18:56:08.919"></status>
+</kw>
+<kw name="Populate Task By Nick Names" library="VerifyLibrary">
+<arguments>
+<arg>auto_01</arg>
+<arg>auto_02</arg>
+<arg>auto_03</arg>
+</arguments>
+<msg timestamp="20160105 18:56:08.939" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:56:08.945" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:56:09.968" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:56:09.974" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:56:10.996" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:56:11.002" level="INFO">Starting new HTTP connection (1): 172.16.2.37</msg>
+<msg timestamp="20160105 18:56:12.008" level="INFO">[2016-01-05 18:56:08] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
+[2016-01-05 18:56:08] [commit] 执行sql语句：
+UPDATE verify_user_status SET verify_user_status='INQUIREING',reject_operation=NULL,investigate_time=NULL,first_verify_time=NULL,second_verify_time=NULL,investigate_user_id=NULL,first_verify_user_id=NULL,second_verify_user_id=NULL,investigate_note=NULL,first_verify_note=NULL,second_verify_note=NULL,first_verify_amount=NULL,first_verify_card_product_id=NULL,second_verify_amount=NULL,second_verify_card_product_id=NULL,online_time=NULL,reject_reason_list=NULL,in_youxin_back_list=NULL,first_cash_draw_ratio=NULL,cash_draw_ratio=NULL,version='0',audit_user_status='INQUIREING' WHERE user_id = 100034832
+影响行数：1
+
+[2016-01-05 18:56:08] [delete_user_info_result] 将verify_user_info_result表清空
+
+[2016-01-05 18:56:08] [commit] 执行sql语句：
+DELETE FROM `verify_user_info_result` where `user_id` = 100034832
+影响行数：19
+
+[2016-01-05 18:56:08] [populate_user_info_result] 初始化verify_user_info_result表
+
+[2016-01-05 18:56:08] [delete_user_status_log] 将verify_user_status_log表中的数据删除
+
+[2016-01-05 18:56:08] [commit] 执行sql语句：
+delete from `verify_user_status_log` where `user_id` = 100034832
+影响行数：4
+
+[2016-01-05 18:56:08] [delete_strategy_output] 将verify_strategy_output表中的数据删除
+
+[2016-01-05 18:56:08] [commit] 执行sql语句：
+delete from `verify_strategy_output` where `user_id` = 100034832
+影响行数：1
+
+[2016-01-05 18:56:08] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
+
+[2016-01-05 18:56:08] [commit] 执行sql语句：
+delete from `verify_user_info_refine` where `user_id` = 100034832
+影响行数：0
+
+[2016-01-05 18:56:08] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
+[2016-01-05 18:56:08] [commit] 执行sql语句：
+DELETE from verify_user_status where user_id = 100034832
+影响行数：1
+
+[2016-01-05 18:56:09] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
+[2016-01-05 18:56:09] [commit] 执行sql语句：
+UPDATE verify_user_status SET verify_user_status='INQUIREING',reject_operation=NULL,investigate_time=NULL,first_verify_time=NULL,second_verify_time=NULL,investigate_user_id=NULL,first_verify_user_id=NULL,second_verify_user_id=NULL,investigate_note=NULL,first_verify_note=NULL,second_verify_note=NULL,first_verify_amount=NULL,first_verify_card_product_id=NULL,second_verify_amount=NULL,second_verify_card_product_id=NULL,online_time=NULL,reject_reason_list=NULL,in_youxin_back_list=NULL,first_cash_draw_ratio=NULL,cash_draw_ratio=NULL,version='0',audit_user_status='INQUIREING' WHERE user_id = 100034833
+影响行数：1
+
+[2016-01-05 18:56:09] [delete_user_info_result] 将verify_user_info_result表清空
+
+[2016-01-05 18:56:09] [commit] 执行sql语句：
+DELETE FROM `verify_user_info_result` where `user_id` = 100034833
+影响行数：19
+
+[2016-01-05 18:56:09] [populate_user_info_result] 初始化verify_user_info_result表
+
+[2016-01-05 18:56:09] [delete_user_status_log] 将verify_user_status_log表中的数据删除
+
+[2016-01-05 18:56:09] [commit] 执行sql语句：
+delete from `verify_user_status_log` where `user_id` = 100034833
+影响行数：4
+
+[2016-01-05 18:56:09] [delete_strategy_output] 将verify_strategy_output表中的数据删除
+
+[2016-01-05 18:56:09] [commit] 执行sql语句：
+delete from `verify_strategy_output` where `user_id` = 100034833
+影响行数：1
+
+[2016-01-05 18:56:09] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
+
+[2016-01-05 18:56:09] [commit] 执行sql语句：
+delete from `verify_user_info_refine` where `user_id` = 100034833
+影响行数：0
+
+[2016-01-05 18:56:09] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
+[2016-01-05 18:56:09] [commit] 执行sql语句：
+DELETE from verify_user_status where user_id = 100034833
+影响行数：1
+
+[2016-01-05 18:56:10] [update_verify_user_status_to_inquireing] 将verify_user_status表的数据置为待调查
+[2016-01-05 18:56:10] [commit] 执行sql语句：
+UPDATE verify_user_status SET verify_user_status='INQUIREING',reject_operation=NULL,investigate_time=NULL,first_verify_time=NULL,second_verify_time=NULL,investigate_user_id=NULL,first_verify_user_id=NULL,second_verify_user_id=NULL,investigate_note=NULL,first_verify_note=NULL,second_verify_note=NULL,first_verify_amount=NULL,first_verify_card_product_id=NULL,second_verify_amount=NULL,second_verify_card_product_id=NULL,online_time=NULL,reject_reason_list=NULL,in_youxin_back_list=NULL,first_cash_draw_ratio=NULL,cash_draw_ratio=NULL,version='0',audit_user_status='INQUIREING' WHERE user_id = 100034834
+影响行数：1
+
+[2016-01-05 18:56:10] [delete_user_info_result] 将verify_user_info_result表清空
+
+[2016-01-05 18:56:10] [commit] 执行sql语句：
+DELETE FROM `verify_user_info_result` where `user_id` = 100034834
+影响行数：19
+
+[2016-01-05 18:56:10] [populate_user_info_result] 初始化verify_user_info_result表
+
+[2016-01-05 18:56:10] [delete_user_status_log] 将verify_user_status_log表中的数据删除
+
+[2016-01-05 18:56:10] [commit] 执行sql语句：
+delete from `verify_user_status_log` where `user_id` = 100034834
+影响行数：4
+
+[2016-01-05 18:56:10] [delete_strategy_output] 将verify_strategy_output表中的数据删除
+
+[2016-01-05 18:56:10] [commit] 执行sql语句：
+delete from `verify_strategy_output` where `user_id` = 100034834
+影响行数：1
+
+[2016-01-05 18:56:10] [delete_verify_user_info_refine] 将verify_user_info_refine表中的数据删除
+
+[2016-01-05 18:56:10] [commit] 执行sql语句：
+delete from `verify_user_info_refine` where `user_id` = 100034834
+影响行数：0
+
+[2016-01-05 18:56:10] [delete_verify_user_status_by_user_id] 删除verify_user_status表中的数据
+[2016-01-05 18:56:10] [commit] 执行sql语句：
+DELETE from verify_user_status where user_id = 100034834
+影响行数：1</msg>
+<status status="PASS" endtime="20160105 18:56:12.008" starttime="20160105 18:56:08.920"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>将auto_01调查通过</arg>
+</arguments>
+<msg timestamp="20160105 18:56:12.009" level="INFO">将auto_01调查通过</msg>
+<status status="PASS" endtime="20160105 18:56:12.010" starttime="20160105 18:56:12.009"></status>
+</kw>
+<kw name="Commit To First Verify" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+<arg>auto_01</arg>
+</arguments>
+<msg timestamp="20160105 18:56:12.010" level="INFO">Encoding for task nick name (u'auto_01',)</msg>
+<msg timestamp="20160105 18:56:12.010" level="INFO">Getting user id by nick name</msg>
+<msg timestamp="20160105 18:56:12.011" level="INFO">Getting verify user email by real name</msg>
+<msg timestamp="20160105 18:56:12.012" level="INFO">Using verify user liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:12.013" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:12.209" level="INFO">Using user_id = 100034832 to commit to AuditUserStatusEnum.INQUIRE_SUCCESS</msg>
+<msg timestamp="20160105 18:56:12.210" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:12.245" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
+<status status="PASS" endtime="20160105 18:56:12.245" starttime="20160105 18:56:12.010"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20160105 18:56:13.247" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20160105 18:56:13.247" starttime="20160105 18:56:12.246"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>将auto_02调查通过</arg>
+</arguments>
+<msg timestamp="20160105 18:56:13.248" level="INFO">将auto_02调查通过</msg>
+<status status="PASS" endtime="20160105 18:56:13.249" starttime="20160105 18:56:13.248"></status>
+</kw>
+<kw name="Commit To First Verify" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试2</arg>
+<arg>auto_02</arg>
+</arguments>
+<msg timestamp="20160105 18:56:13.250" level="INFO">Encoding for task nick name (u'auto_02',)</msg>
+<msg timestamp="20160105 18:56:13.250" level="INFO">Getting user id by nick name</msg>
+<msg timestamp="20160105 18:56:13.251" level="INFO">Getting verify user email by real name</msg>
+<msg timestamp="20160105 18:56:13.252" level="INFO">Using verify user liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:13.253" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:13.376" level="INFO">Using user_id = 100034833 to commit to AuditUserStatusEnum.INQUIRE_SUCCESS</msg>
+<msg timestamp="20160105 18:56:13.377" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:13.409" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
+<status status="PASS" endtime="20160105 18:56:13.410" starttime="20160105 18:56:13.249"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20160105 18:56:14.411" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20160105 18:56:14.412" starttime="20160105 18:56:13.410"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>将auto_03调查通过</arg>
+</arguments>
+<msg timestamp="20160105 18:56:14.413" level="INFO">将auto_03调查通过</msg>
+<status status="PASS" endtime="20160105 18:56:14.413" starttime="20160105 18:56:14.412"></status>
+</kw>
+<kw name="Commit To First Verify" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试3</arg>
+<arg>auto_03</arg>
+</arguments>
+<msg timestamp="20160105 18:56:14.414" level="INFO">Encoding for task nick name (u'auto_03',)</msg>
+<msg timestamp="20160105 18:56:14.414" level="INFO">Getting user id by nick name</msg>
+<msg timestamp="20160105 18:56:14.415" level="INFO">Getting verify user email by real name</msg>
+<msg timestamp="20160105 18:56:14.416" level="INFO">Using verify user liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:14.417" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:14.544" level="INFO">Using user_id = 100034834 to commit to AuditUserStatusEnum.INQUIRE_SUCCESS</msg>
+<msg timestamp="20160105 18:56:14.545" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:14.581" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
+<status status="PASS" endtime="20160105 18:56:14.581" starttime="20160105 18:56:14.414"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20160105 18:56:15.583" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20160105 18:56:15.583" starttime="20160105 18:56:14.582"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>将auto_01通过一审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:15.584" level="INFO">将auto_01通过一审</msg>
+<status status="PASS" endtime="20160105 18:56:15.584" starttime="20160105 18:56:15.584"></status>
+</kw>
+<kw name="Commit To Second Verify" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+<arg>auto_01</arg>
+</arguments>
+<msg timestamp="20160105 18:56:15.585" level="INFO">Encoding for task nick name (u'auto_01',)</msg>
+<msg timestamp="20160105 18:56:15.585" level="INFO">Getting user id by nick name</msg>
+<msg timestamp="20160105 18:56:15.586" level="INFO">Getting verify user email by real name</msg>
+<msg timestamp="20160105 18:56:15.587" level="INFO">Using verify user liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:15.588" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:15.748" level="INFO">Using user_id = 100034832 to commit to AuditUserStatusEnum.FIRST_VERIFY_SUCCESS</msg>
+<msg timestamp="20160105 18:56:15.749" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:15.768" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
+<status status="PASS" endtime="20160105 18:56:15.769" starttime="20160105 18:56:15.585"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20160105 18:56:16.770" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20160105 18:56:16.770" starttime="20160105 18:56:15.769"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>将auto_02通过一审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:16.772" level="INFO">将auto_02通过一审</msg>
+<status status="PASS" endtime="20160105 18:56:16.772" starttime="20160105 18:56:16.771"></status>
+</kw>
+<kw name="Commit To Second Verify" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+<arg>auto_02</arg>
+</arguments>
+<msg timestamp="20160105 18:56:16.773" level="INFO">Encoding for task nick name (u'auto_02',)</msg>
+<msg timestamp="20160105 18:56:16.773" level="INFO">Getting user id by nick name</msg>
+<msg timestamp="20160105 18:56:16.774" level="INFO">Getting verify user email by real name</msg>
+<msg timestamp="20160105 18:56:16.775" level="INFO">Using verify user liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:16.776" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:16.939" level="INFO">Using user_id = 100034833 to commit to AuditUserStatusEnum.FIRST_VERIFY_SUCCESS</msg>
+<msg timestamp="20160105 18:56:16.940" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:16.960" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
+<status status="PASS" endtime="20160105 18:56:16.961" starttime="20160105 18:56:16.772"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20160105 18:56:17.962" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20160105 18:56:17.963" starttime="20160105 18:56:16.961"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>将auto_03通过一审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:17.964" level="INFO">将auto_03通过一审</msg>
+<status status="PASS" endtime="20160105 18:56:17.964" starttime="20160105 18:56:17.963"></status>
+</kw>
+<kw name="Commit To Second Verify" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试2</arg>
+<arg>auto_03</arg>
+</arguments>
+<msg timestamp="20160105 18:56:17.965" level="INFO">Encoding for task nick name (u'auto_03',)</msg>
+<msg timestamp="20160105 18:56:17.965" level="INFO">Getting user id by nick name</msg>
+<msg timestamp="20160105 18:56:17.966" level="INFO">Getting verify user email by real name</msg>
+<msg timestamp="20160105 18:56:17.967" level="INFO">Using verify user liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:17.968" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:18.092" level="INFO">Using user_id = 100034834 to commit to AuditUserStatusEnum.FIRST_VERIFY_SUCCESS</msg>
+<msg timestamp="20160105 18:56:18.093" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:18.111" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
+<status status="PASS" endtime="20160105 18:56:18.112" starttime="20160105 18:56:17.964"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20160105 18:56:19.113" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20160105 18:56:19.114" starttime="20160105 18:56:18.112"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>将auto_01通过二审，进入上签</arg>
+</arguments>
+<msg timestamp="20160105 18:56:19.115" level="INFO">将auto_01通过二审，进入上签</msg>
+<status status="PASS" endtime="20160105 18:56:19.115" starttime="20160105 18:56:19.114"></status>
+</kw>
+<kw name="Commit To Pass Second Verify" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试3</arg>
+<arg>5001</arg>
+<arg>auto_01</arg>
+</arguments>
+<msg timestamp="20160105 18:56:19.116" level="INFO">Encoding for task nick name (u'auto_01',)</msg>
+<msg timestamp="20160105 18:56:19.116" level="INFO">Getting user id by nick name</msg>
+<msg timestamp="20160105 18:56:19.117" level="INFO">Getting verify user email by real name</msg>
+<msg timestamp="20160105 18:56:19.118" level="INFO">Using verify user liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:19.119" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:19.243" level="INFO">Using user_id = 100034832 to commit to AuditUserStatusEnum.SECOND_VERIFY_SUCCESS</msg>
+<msg timestamp="20160105 18:56:19.244" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:19.263" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
+<status status="PASS" endtime="20160105 18:56:19.263" starttime="20160105 18:56:19.116"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20160105 18:56:20.265" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20160105 18:56:20.265" starttime="20160105 18:56:19.264"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>验证auto_01分给了刘鹏测试</arg>
+</arguments>
+<msg timestamp="20160105 18:56:20.266" level="INFO">验证auto_01分给了刘鹏测试</msg>
+<status status="PASS" endtime="20160105 18:56:20.267" starttime="20160105 18:56:20.266"></status>
+</kw>
+<kw name="Verify Pending Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+<arg>auto_01</arg>
+<arg>上签</arg>
+</arguments>
+<msg timestamp="20160105 18:56:20.268" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:20.269" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:20.436" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:20.443" level="INFO">pending task for user liupeng@renrendai.com: [{u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991370000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'SECOND_VERIFY_SUCCESS', u'taskId': 1741, u'taskName': u'\u4e0a\u7b7e', u'nickName': u'auto_01'}]</msg>
+<msg timestamp="20160105 18:56:20.443" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:20.444" starttime="20160105 18:56:20.267"></status>
+</kw>
+<kw name="Verify Done Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试3</arg>
+<arg>auto_01</arg>
+<arg>二审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:20.445" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:20.446" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:20.568" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:20.576" level="INFO">done task for user liupeng3@renrendai.com: [{u'taskEndTime': 1451991370000, u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991367000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'FIRST_VERIFY_SUCCESS', u'taskId': 1738, u'taskName': u'\u4e8c\u5ba1', u'nickName': u'auto_01'}, {u'taskEndTime': 1451991366000, u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451991362000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIREING', u'taskId': 1734, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_03'}]</msg>
+<msg timestamp="20160105 18:56:20.576" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:20.576" starttime="20160105 18:56:20.444"></status>
+</kw>
+<kw name="Verify Involved Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试3</arg>
+<arg>auto_01</arg>
+<arg>二审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:20.578" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:20.579" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:20.702" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:20.711" level="INFO">involved task for user liupeng3@renrendai.com: [{u'taskEndTime': 1451991370000, u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991367000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'FIRST_VERIFY_SUCCESS', u'taskId': 1738, u'taskName': u'\u4e8c\u5ba1', u'nickName': u'auto_01'}, {u'taskEndTime': 1451991366000, u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451991362000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIREING', u'taskId': 1734, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_03'}]</msg>
+<msg timestamp="20160105 18:56:20.711" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:20.712" starttime="20160105 18:56:20.577"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>将auto_02通过二审，进入上签</arg>
+</arguments>
+<msg timestamp="20160105 18:56:20.713" level="INFO">将auto_02通过二审，进入上签</msg>
+<status status="PASS" endtime="20160105 18:56:20.713" starttime="20160105 18:56:20.712"></status>
+</kw>
+<kw name="Commit To Pass Second Verify" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试2</arg>
+<arg>5001</arg>
+<arg>auto_02</arg>
+</arguments>
+<msg timestamp="20160105 18:56:20.714" level="INFO">Encoding for task nick name (u'auto_02',)</msg>
+<msg timestamp="20160105 18:56:20.714" level="INFO">Getting user id by nick name</msg>
+<msg timestamp="20160105 18:56:20.715" level="INFO">Getting verify user email by real name</msg>
+<msg timestamp="20160105 18:56:20.715" level="INFO">Using verify user liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:20.716" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:20.837" level="INFO">Using user_id = 100034833 to commit to AuditUserStatusEnum.SECOND_VERIFY_SUCCESS</msg>
+<msg timestamp="20160105 18:56:20.838" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:20.858" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
+<status status="PASS" endtime="20160105 18:56:20.858" starttime="20160105 18:56:20.713"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20160105 18:56:21.860" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20160105 18:56:21.860" starttime="20160105 18:56:20.858"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>验证auto_01分给了刘鹏测试</arg>
+</arguments>
+<msg timestamp="20160105 18:56:21.861" level="INFO">验证auto_01分给了刘鹏测试</msg>
+<status status="PASS" endtime="20160105 18:56:21.861" starttime="20160105 18:56:21.861"></status>
+</kw>
+<kw name="Verify Pending Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+<arg>auto_02</arg>
+<arg>上签</arg>
+</arguments>
+<msg timestamp="20160105 18:56:21.863" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:21.864" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:22.028" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:22.036" level="INFO">pending task for user liupeng@renrendai.com: [{u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451991372000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'SECOND_VERIFY_SUCCESS', u'taskId': 1742, u'taskName': u'\u4e0a\u7b7e', u'nickName': u'auto_02'}, {u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991370000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'SECOND_VERIFY_SUCCESS', u'taskId': 1741, u'taskName': u'\u4e0a\u7b7e', u'nickName': u'auto_01'}]</msg>
+<msg timestamp="20160105 18:56:22.036" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:22.037" starttime="20160105 18:56:21.861"></status>
+</kw>
+<kw name="Verify Done Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试2</arg>
+<arg>auto_02</arg>
+<arg>二审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:22.038" level="INFO">Using user name liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:22.039" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:22.160" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:22.168" level="INFO">done task for user liupeng2@renrendai.com: [{u'taskEndTime': 1451991372000, u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451991368000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'FIRST_VERIFY_SUCCESS', u'taskId': 1739, u'taskName': u'\u4e8c\u5ba1', u'nickName': u'auto_02'}, {u'taskEndTime': 1451991369000, u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451991366000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1737, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_03'}, {u'taskEndTime': 1451991365000, u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451991361000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'INQUIREING', u'taskId': 1733, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_02'}]</msg>
+<msg timestamp="20160105 18:56:22.169" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:22.169" starttime="20160105 18:56:22.037"></status>
+</kw>
+<kw name="Verify Involved Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试2</arg>
+<arg>auto_02</arg>
+<arg>二审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:22.170" level="INFO">Using user name liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:22.171" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:22.293" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:22.302" level="INFO">involved task for user liupeng2@renrendai.com: [{u'taskEndTime': 1451991372000, u'realName': u'auto_02', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865531', u'taskCreatedTime': 1451991368000, u'userId': 100034833, u'idCardNum': u'130521199307091001', u'taskNameEnum': u'FIRST_VERIFY_SUCCESS', u'taskId': 1739, u'taskName': u'\u4e8c\u5ba1', u'nickName': u'auto_02'}, {u'taskEndTime': 1451991369000, u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451991366000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIRE_SUCCESS', u'taskId': 1737, u'taskName': u'\u5f85\u4e00\u5ba1', u'nickName': u'auto_03'}]</msg>
+<msg timestamp="20160105 18:56:22.302" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:22.303" starttime="20160105 18:56:22.169"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>将auto_03通过二审，进入上签</arg>
+</arguments>
+<msg timestamp="20160105 18:56:22.303" level="INFO">将auto_03通过二审，进入上签</msg>
+<status status="PASS" endtime="20160105 18:56:22.304" starttime="20160105 18:56:22.303"></status>
+</kw>
+<kw name="Commit To Pass Second Verify" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试3</arg>
+<arg>5001</arg>
+<arg>auto_03</arg>
+</arguments>
+<msg timestamp="20160105 18:56:22.304" level="INFO">Encoding for task nick name (u'auto_03',)</msg>
+<msg timestamp="20160105 18:56:22.304" level="INFO">Getting user id by nick name</msg>
+<msg timestamp="20160105 18:56:22.305" level="INFO">Getting verify user email by real name</msg>
+<msg timestamp="20160105 18:56:22.306" level="INFO">Using verify user liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:22.307" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:22.429" level="INFO">Using user_id = 100034834 to commit to AuditUserStatusEnum.SECOND_VERIFY_SUCCESS</msg>
+<msg timestamp="20160105 18:56:22.430" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:22.449" level="INFO">Response = {u'status': 0, u'message': u'', u'data': {}}</msg>
+<status status="PASS" endtime="20160105 18:56:22.449" starttime="20160105 18:56:22.304"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20160105 18:56:23.451" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20160105 18:56:23.451" starttime="20160105 18:56:22.450"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>验证auto_03分给了刘鹏测试3</arg>
+</arguments>
+<msg timestamp="20160105 18:56:23.452" level="INFO">验证auto_03分给了刘鹏测试3</msg>
+<status status="PASS" endtime="20160105 18:56:23.453" starttime="20160105 18:56:23.452"></status>
+</kw>
+<kw name="Verify Pending Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试3</arg>
+<arg>auto_03</arg>
+<arg>上签</arg>
+</arguments>
+<msg timestamp="20160105 18:56:23.454" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:23.455" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:23.582" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:23.590" level="INFO">pending task for user liupeng3@renrendai.com: [{u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451991374000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'SECOND_VERIFY_SUCCESS', u'taskId': 1743, u'taskName': u'\u4e0a\u7b7e', u'nickName': u'auto_03'}]</msg>
+<msg timestamp="20160105 18:56:23.590" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:23.590" starttime="20160105 18:56:23.453"></status>
+</kw>
+<kw name="Verify Done Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试3</arg>
+<arg>auto_03</arg>
+<arg>二审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:23.592" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:23.593" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:23.720" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:23.728" level="INFO">done task for user liupeng3@renrendai.com: [{u'taskEndTime': 1451991374000, u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451991369000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'FIRST_VERIFY_SUCCESS', u'taskId': 1740, u'taskName': u'\u4e8c\u5ba1', u'nickName': u'auto_03'}, {u'taskEndTime': 1451991370000, u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991367000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'FIRST_VERIFY_SUCCESS', u'taskId': 1738, u'taskName': u'\u4e8c\u5ba1', u'nickName': u'auto_01'}, {u'taskEndTime': 1451991366000, u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451991362000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'INQUIREING', u'taskId': 1734, u'taskName': u'\u9996\u6b21\u8c03\u67e5', u'nickName': u'auto_03'}]</msg>
+<msg timestamp="20160105 18:56:23.728" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:23.729" starttime="20160105 18:56:23.591"></status>
+</kw>
+<kw name="Verify Involved Job" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试3</arg>
+<arg>auto_03</arg>
+<arg>二审</arg>
+</arguments>
+<msg timestamp="20160105 18:56:23.730" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:23.731" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:23.858" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:23.867" level="INFO">involved task for user liupeng3@renrendai.com: [{u'taskEndTime': 1451991374000, u'realName': u'\u540e\u53f0\u6d4b\u8bd502', u'userType': u'BD\u6e20\u9053\u7528\u6237', u'mobile': u'13146865532', u'taskCreatedTime': 1451991369000, u'userId': 100034834, u'idCardNum': u'130521199307091002', u'taskNameEnum': u'FIRST_VERIFY_SUCCESS', u'taskId': 1740, u'taskName': u'\u4e8c\u5ba1', u'nickName': u'auto_03'}, {u'taskEndTime': 1451991370000, u'realName': u'\u65bd\u65ed\u5b81', u'userType': u'\u666e\u901a\u7528\u6237', u'mobile': u'13146865530', u'taskCreatedTime': 1451991367000, u'userId': 100034832, u'idCardNum': u'130521199307091000', u'taskNameEnum': u'FIRST_VERIFY_SUCCESS', u'taskId': 1738, u'taskName': u'\u4e8c\u5ba1', u'nickName': u'auto_01'}]</msg>
+<msg timestamp="20160105 18:56:23.867" level="INFO">Start to verify returned tasks</msg>
+<status status="PASS" endtime="20160105 18:56:23.868" starttime="20160105 18:56:23.729"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>开始验证任务数</arg>
+</arguments>
+<msg timestamp="20160105 18:56:23.868" level="INFO">开始验证任务数</msg>
+<status status="PASS" endtime="20160105 18:56:23.869" starttime="20160105 18:56:23.868"></status>
+</kw>
+<kw name="Get Pending Task Count" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+</arguments>
+<assign>
+<var>${task count}</var>
+</assign>
+<msg timestamp="20160105 18:56:23.870" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:23.871" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:24.034" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:24.042" level="INFO">${task count} = 2</msg>
+<status status="PASS" endtime="20160105 18:56:24.042" starttime="20160105 18:56:23.869"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${task count}</arg>
+<arg>2</arg>
+<arg>刘鹏测试应该有2个待办任务</arg>
+</arguments>
+<msg timestamp="20160105 18:56:24.043" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160105 18:56:24.043" starttime="20160105 18:56:24.043"></status>
+</kw>
+<kw name="Get Done Task Count" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+</arguments>
+<assign>
+<var>${task count}</var>
+</assign>
+<msg timestamp="20160105 18:56:24.045" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:24.046" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:24.210" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:24.219" level="INFO">${task count} = 3</msg>
+<status status="PASS" endtime="20160105 18:56:24.219" starttime="20160105 18:56:24.044"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${task count}</arg>
+<arg>3</arg>
+<arg>刘鹏测试应该有3个办结任务</arg>
+</arguments>
+<msg timestamp="20160105 18:56:24.220" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160105 18:56:24.220" starttime="20160105 18:56:24.219"></status>
+</kw>
+<kw name="Get Involved Task Count" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试</arg>
+</arguments>
+<assign>
+<var>${task count}</var>
+</assign>
+<msg timestamp="20160105 18:56:24.221" level="INFO">Using user name liupeng@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:24.222" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:24.389" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:24.399" level="INFO">${task count} = 2</msg>
+<status status="PASS" endtime="20160105 18:56:24.399" starttime="20160105 18:56:24.220"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${task count}</arg>
+<arg>2</arg>
+<arg>刘鹏测试应该有2个我参与的进件任务</arg>
+</arguments>
+<msg timestamp="20160105 18:56:24.400" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160105 18:56:24.400" starttime="20160105 18:56:24.399"></status>
+</kw>
+<kw name="Get Pending Task Count" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试2</arg>
+</arguments>
+<assign>
+<var>${task count}</var>
+</assign>
+<msg timestamp="20160105 18:56:24.402" level="INFO">Using user name liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:24.403" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:24.524" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:24.531" level="INFO">${task count} = 0</msg>
+<status status="PASS" endtime="20160105 18:56:24.531" starttime="20160105 18:56:24.401"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${task count}</arg>
+<arg>0</arg>
+<arg>刘鹏测试2应该没有待办任务</arg>
+</arguments>
+<msg timestamp="20160105 18:56:24.532" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160105 18:56:24.532" starttime="20160105 18:56:24.531"></status>
+</kw>
+<kw name="Get Done Task Count" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试2</arg>
+</arguments>
+<assign>
+<var>${task count}</var>
+</assign>
+<msg timestamp="20160105 18:56:24.533" level="INFO">Using user name liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:24.534" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:24.659" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:24.667" level="INFO">${task count} = 3</msg>
+<status status="PASS" endtime="20160105 18:56:24.667" starttime="20160105 18:56:24.532"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${task count}</arg>
+<arg>3</arg>
+<arg>刘鹏测试2应该有3个办结任务</arg>
+</arguments>
+<msg timestamp="20160105 18:56:24.669" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160105 18:56:24.669" starttime="20160105 18:56:24.668"></status>
+</kw>
+<kw name="Get Involved Task Count" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试2</arg>
+</arguments>
+<assign>
+<var>${task count}</var>
+</assign>
+<msg timestamp="20160105 18:56:24.671" level="INFO">Using user name liupeng2@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:24.672" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:24.794" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:24.804" level="INFO">${task count} = 2</msg>
+<status status="PASS" endtime="20160105 18:56:24.804" starttime="20160105 18:56:24.670"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${task count}</arg>
+<arg>2</arg>
+<arg>刘鹏测试2应该有2个我参与的进件任务</arg>
+</arguments>
+<msg timestamp="20160105 18:56:24.805" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160105 18:56:24.805" starttime="20160105 18:56:24.804"></status>
+</kw>
+<kw name="Get Pending Task Count" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试3</arg>
+</arguments>
+<assign>
+<var>${task count}</var>
+</assign>
+<msg timestamp="20160105 18:56:24.807" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:24.808" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:24.932" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:24.940" level="INFO">${task count} = 1</msg>
+<status status="PASS" endtime="20160105 18:56:24.940" starttime="20160105 18:56:24.806"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${task count}</arg>
+<arg>1</arg>
+<arg>刘鹏测试3应该有1个待办任务</arg>
+</arguments>
+<msg timestamp="20160105 18:56:24.942" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160105 18:56:24.942" starttime="20160105 18:56:24.941"></status>
+</kw>
+<kw name="Get Done Task Count" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试3</arg>
+</arguments>
+<assign>
+<var>${task count}</var>
+</assign>
+<msg timestamp="20160105 18:56:24.944" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:24.945" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:25.071" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:25.080" level="INFO">${task count} = 3</msg>
+<status status="PASS" endtime="20160105 18:56:25.080" starttime="20160105 18:56:24.943"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${task count}</arg>
+<arg>3</arg>
+<arg>刘鹏测试3应该有3个办结任务</arg>
+</arguments>
+<msg timestamp="20160105 18:56:25.081" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160105 18:56:25.081" starttime="20160105 18:56:25.080"></status>
+</kw>
+<kw name="Get Involved Task Count" library="VerifyLibrary">
+<arguments>
+<arg>刘鹏测试3</arg>
+</arguments>
+<assign>
+<var>${task count}</var>
+</assign>
+<msg timestamp="20160105 18:56:25.082" level="INFO">Using user name liupeng3@renrendai.com to log in</msg>
+<msg timestamp="20160105 18:56:25.083" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:25.209" level="INFO">Starting new HTTP connection (1): 172.16.2.38</msg>
+<msg timestamp="20160105 18:56:25.218" level="INFO">${task count} = 2</msg>
+<status status="PASS" endtime="20160105 18:56:25.218" starttime="20160105 18:56:25.081"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${task count}</arg>
+<arg>2</arg>
+<arg>刘鹏测试3应该有2个我参与的进件任务</arg>
+</arguments>
+<msg timestamp="20160105 18:56:25.219" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160105 18:56:25.220" starttime="20160105 18:56:25.219"></status>
+</kw>
+<status status="PASS" endtime="20160105 18:56:25.220" critical="yes" starttime="20160105 18:56:08.453"></status>
+</test>
+<status status="PASS" endtime="20160105 18:56:25.221" starttime="20160105 18:55:43.357"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="0" pass="3">Critical Tests</stat>
-<stat fail="0" pass="3">All Tests</stat>
+<stat fail="0" pass="4">Critical Tests</stat>
+<stat fail="0" pass="4">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="Flow Task Tests" pass="3">Flow Task Tests</stat>
+<stat fail="0" id="s1" name="Flow Task Tests" pass="4">Flow Task Tests</stat>
 </suite>
 </statistics>
 <errors>

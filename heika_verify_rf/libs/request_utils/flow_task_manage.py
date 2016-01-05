@@ -53,14 +53,17 @@ class FlowTaskManage(utils.RequestUtil):
     def get_pending_tasks(self):
         response = requests.post(self.base_URL + '/taskMgr/searchPendingTasks', headers=self.headers)
         response.raise_for_status()
-        return response.json()['data']['rows']
+        json = response.json()
+        return json['data']['rows'], json['data']['total']
 
     def get_done_tasks(self):
         response = requests.post(self.base_URL + '/taskMgr/searchDoneTasks', headers=self.headers)
         response.raise_for_status()
-        return response.json()['data']['rows']
+        json = response.json()
+        return json['data']['rows'], json['data']['total']
 
     def get_involved_tasks(self):
         response = requests.post(self.base_URL + '/taskMgr/involvedTask', headers=self.headers)
         response.raise_for_status()
-        return response.json()['data']['rows']
+        json = response.json()
+        return json['data']['rows'], json['data']['total']
