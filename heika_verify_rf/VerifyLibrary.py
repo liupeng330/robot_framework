@@ -133,29 +133,91 @@ class VerifyLibrary(object):
 
     # 按人员, 首次调查
     def flow_setup_by_people_for_inquireing(self, *verify_user_names):
+        self._flow_setup_by_people(AuditUserStatusEnum.INQUIREING, *verify_user_names)
+
+    # 按人员, 待一审
+    def flow_setup_by_people_for_inquire_success(self, *verify_user_names):
+        self._flow_setup_by_people(AuditUserStatusEnum.INQUIRE_SUCCESS, *verify_user_names)
+
+    # 按人员, 待二审
+    def flow_setup_by_people_for_first_verify_success(self, *verify_user_names):
+        self._flow_setup_by_people(AuditUserStatusEnum.FIRST_VERIFY_SUCCESS, *verify_user_names)
+
+    def _flow_setup_by_people(self, audit_user_status, *verify_user_names):
         user_name_encoded = [i.encode('utf-8') for i in verify_user_names]
         values_in_integer = [get_verify_user_id_by_real_name(i) for i in user_name_encoded]
         self.built_in.log('Values for flow setup: ' + str(values_in_integer))
         self.flow_task_request_utils.login()
-        respone = self.flow_task_request_utils.flow_setup_by_people_for_inquireing(*values_in_integer)
-        self.built_in.log('Response for flow setup: ' + str(respone))
+
+        if audit_user_status == AuditUserStatusEnum.INQUIREING:
+            response = self.flow_task_request_utils.flow_setup_by_people_for_inquireing(*values_in_integer)
+        elif audit_user_status == AuditUserStatusEnum.INQUIRE_SUCCESS:
+            response = self.flow_task_request_utils.flow_setup_by_people_for_inquire_success(*values_in_integer)
+        elif audit_user_status == AuditUserStatusEnum.FIRST_VERIFY_SUCCESS:
+            response = self.flow_task_request_utils.flow_setup_by_people_for_first_verify_sucess(*values_in_integer)
+        elif audit_user_status == AuditUserStatusEnum.SECOND_VERIFY_SUCCESS:
+            response = self.flow_task_request_utils.flow_setup_by_people_for_second_verify_sucess(*values_in_integer)
+        else:
+            raise AssertionError('Can not handle other audit user status!!')
+        self.built_in.log('Response for flow setup: ' + str(response))
 
     # 验证待办任务
     def verify_pending_job(self, verify_user_name, expected_task_with_nick_name, expected_task_name):
+        self._verify_task('pending', verify_user_name, expected_task_with_nick_name, expected_task_name)
+
+    # 验证办结任务
+    def verify_done_job(self, verify_user_name, expected_task_with_nick_name, expected_task_name):
+        self._verify_task('done', verify_user_name, expected_task_with_nick_name, expected_task_name)
+
+    # 验证我参与的进件的任务
+    def verify_involved_job(self, verify_user_name, expected_task_with_nick_name, expected_task_name):
+        self._verify_task('involved', verify_user_name, expected_task_with_nick_name, expected_task_name)
+
+    def _verify_task(self, task_type, verify_user_name, expected_task_with_nick_name, expected_task_name):
         verify_user_name = verify_user_name.encode('utf-8')
         expected_task_with_nick_name = expected_task_with_nick_name.encode('utf-8')
-        expected_task_enum = expected_task_name.encode('utf-8')
 
         email = get_verify_user_email_by_real_name(verify_user_name)
         self.built_in.log('Using user name {0} to log in'.format(email))
         flow_task_request_for_current_user = flow_task_manage.FlowTaskManage(self.base_URL, email)
         flow_task_request_for_current_user.login()
-        pending_tasks = flow_task_request_for_current_user.get_pending_tasks()
-        self.built_in.log('Pending task for user {0}: {1}'.format(email, pending_tasks))
-        for pending_task in pending_tasks:
-            if pending_task['nickName'] == expected_task_with_nick_name and pending_task['taskName'] == expected_task_name:
+
+        if task_type == 'pending':
+            tasks = flow_task_request_for_current_user.get_pending_tasks()
+        elif task_type == 'done':
+            tasks = flow_task_request_for_current_user.get_done_tasks()
+        elif task_type == 'involved':
+            tasks = flow_task_request_for_current_user.get_involved_tasks()
+        else:
+            raise AssertionError('There is no this kind of type %s' % task_type)
+
+        self.built_in.log('{0} task for user {1}: {2}'.format(task_type, email, tasks))
+        for task in tasks:
+            if task['nickName'] == expected_task_with_nick_name and task['taskName'] == expected_task_name:
                 return
-        raise AssertionError('Fail to find nick name {0} with status {1} in pending task!!'.format(expected_task_with_nick_name, expected_task_name))
+        raise AssertionError('Fail to find nick name {0} with status {1} in {2} task!!'.format(
+            expected_task_with_nick_name, expected_task_name, task_type))
+
+    # 将任务提交到一审，即调查通过
+    def commit_to_first_verify(self, verify_user_real_name,  *task_nick_names):
+        self.built_in.log('Encoding for task nick name ' + str(task_nick_names))
+        task_nick_names_encode = [i.encode('utf-8') for i in task_nick_names]
+
+        self.built_in.log('Getting user id by nick name')
+        user_ids = [get_user_id_by_nick_name(i) for i in task_nick_names_encode]
+
+        self.built_in.log('Getting verify user email by real name')
+        verify_user_email = get_verify_user_email_by_real_name(verify_user_real_name.encode('utf-8'))
+
+        self.built_in.log('Using verify user {0} to log in'.format(verify_user_email))
+        current_user_request = utils.RequestUtil(self.base_URL, verify_user_email)
+        current_user_request.login()
+
+        for user_id in user_ids:
+            self.built_in.log('Using user_id = %s to commit to first verify' % user_id)
+            inv_rets = current_user_request.get_all_valid_investigate_result()
+            response = current_user_request.commit_to_first_verify(user_id, 12, '调查备注', **inv_rets)
+            self.built_in.log('Response = {0}'.format(response.json()))
 
 
 if __name__ == "__main__":
