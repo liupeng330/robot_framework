@@ -58,6 +58,14 @@ class RequestUtil(object):
         response.raise_for_status()
         return response
 
+    def update_verify_user_to_mul_roles(self, name, user_id, amount_limit, dept_id, *role_ids):
+        post_date = [("userId", user_id),("name", name), ("amountLimit", amount_limit), ("deptId", dept_id)]
+        for role_id in role_ids:
+            post_date.append(("roleIds", role_id))
+        response = requests.post(self.base_URL + "/verifyUser/usr/update", data=post_date, headers=self.headers)
+        response.raise_for_status()
+        return response
+
     @staticmethod
     def get_all_valid_investigate_result():
         results = {'realNameInvResult': 'VALID', 'companyInvResult': 'VALID', 'workPositionInvResult': 'VALID',

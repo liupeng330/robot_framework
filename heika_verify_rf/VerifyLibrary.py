@@ -20,12 +20,20 @@ class VerifyLibrary(object):
         if dubbo_web_base_URL is not None:
             self.dubbo_web_request_utils = utils.RequestUtil(dubbo_web_base_URL)
 
-    def update_verify_user_role(self, email, dept_id, role_id, amount_limit=1000):
+    def update_verify_user_role(self, email, dept_id, role_id, amount_limit=5000):
         real_name = get_verify_user_name_by_email(email)
         verify_user_id = get_verify_user_id_by_email(email)
         self.request_utils.login()
         response = self.request_utils.update_verify_user(real_name, verify_user_id, amount_limit, dept_id, role_id)
         return response.json()
+
+    def update_verify_user_mul_roles(self, email, dept_id, amount_limit, *role_ids):
+        real_name = get_verify_user_name_by_email(email)
+        verify_user_id = get_verify_user_id_by_email(email)
+        self.request_utils.login()
+        response = self.request_utils.update_verify_user_to_mul_roles(real_name, verify_user_id, amount_limit, dept_id, *role_ids)
+        return response.json()
+
 
     def compare_user_search_result(self, ui_row, ui_row_index, key, search_type, verify_user_status):
         ui_row_index = int(ui_row_index)
@@ -163,6 +171,43 @@ class VerifyLibrary(object):
             response = self.flow_task_request_utils.flow_setup_by_people_for_first_verify_sucess(*values_in_integer)
         elif audit_user_status == AuditUserStatusEnum.SECOND_VERIFY_SUCCESS:
             response = self.flow_task_request_utils.flow_setup_by_people_for_second_verify_sucess(*values_in_integer)
+        else:
+            raise AssertionError('Can not handle other audit user status!!')
+        self.built_in.log('Response for flow setup: ' + str(response))
+
+    # 将指定的审核用户分配多个角色id
+    def assign_verify_user_to_mul_roles(self, verify_user_real_name, *role_ids):
+        email = get_verify_user_email_by_real_name(verify_user_real_name.encode('utf-8'))
+        self.update_verify_user_mul_roles(email, 1, 5000, *role_ids)
+
+    # 按角色, 首次调查
+    def flow_setup_by_role_for_inquireing(self, role_id):
+        self._flow_setup_by_role(AuditUserStatusEnum.INQUIREING, role_id)
+
+    # 按角色, 待一审
+    def flow_setup_by_role_for_inquire_success(self, role_id):
+        self._flow_setup_by_role(AuditUserStatusEnum.INQUIRE_SUCCESS, role_id)
+
+    # 按角色, 待二审
+    def flow_setup_by_role_for_first_verify_success(self, role_id):
+        self._flow_setup_by_role(AuditUserStatusEnum.FIRST_VERIFY_SUCCESS, role_id)
+
+    # 按角色, 上签
+    def flow_setup_by_role_for_second_verify_success(self, role_id):
+        self._flow_setup_by_role(AuditUserStatusEnum.SECOND_VERIFY_SUCCESS, role_id)
+
+    def _flow_setup_by_role(self, audit_user_status, role_id):
+        role_id = int(role_id)
+        self.flow_task_request_utils.login()
+        self.built_in.log('Start to set flow task by role')
+        if audit_user_status == AuditUserStatusEnum.INQUIREING:
+            response = self.flow_task_request_utils.flow_setup_by_role_for_inquireing(role_id)
+        elif audit_user_status == AuditUserStatusEnum.INQUIRE_SUCCESS:
+            response = self.flow_task_request_utils.flow_setup_by_role_for_inquire_success(role_id)
+        elif audit_user_status == AuditUserStatusEnum.FIRST_VERIFY_SUCCESS:
+            response = self.flow_task_request_utils.flow_setup_by_role_for_first_verify_sucess(role_id)
+        elif audit_user_status == AuditUserStatusEnum.SECOND_VERIFY_SUCCESS:
+            response = self.flow_task_request_utils.flow_setup_by_role_for_second_verify_sucess(role_id)
         else:
             raise AssertionError('Can not handle other audit user status!!')
         self.built_in.log('Response for flow setup: ' + str(response))

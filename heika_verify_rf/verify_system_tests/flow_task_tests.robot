@@ -8,7 +8,64 @@ Library      ../VerifyLibrary.py   http://${SERVER}    ${ADMIN USER}    ${DUBBO 
 Test Flow Task By People For Inquireing
     log     设置首次调查的人员
     flow setup by people for inquireing   刘鹏测试  刘鹏测试2   刘鹏测试3
+    Test Flow Task For Inquireing
 
+Test Flow Task By People For First Verify
+    log     设置首次调查的人员
+    flow setup by people for inquireing   刘鹏测试  刘鹏测试2   刘鹏测试3
+
+    log     设置一审的人员
+    flow setup by people for inquire success  刘鹏测试  刘鹏测试2   刘鹏测试3
+    test flow task for first verify
+
+Test Flow Task By People For Second Verify
+    log     设置首次调查的人员
+    flow setup by people for inquireing   刘鹏测试  刘鹏测试2   刘鹏测试3
+    log     设置一审的人员
+    flow setup by people for inquire success  刘鹏测试  刘鹏测试2   刘鹏测试3
+    log     设置二审的人员
+    flow setup by people for first verify success  刘鹏测试2   刘鹏测试3
+    test flow task for second verify
+
+Test Flow Task By People For Third Verify
+    log     设置首次调查的人员
+    flow setup by people for inquireing   刘鹏测试  刘鹏测试2   刘鹏测试3
+    log     设置一审的人员
+    flow setup by people for inquire success  刘鹏测试  刘鹏测试2   刘鹏测试3
+    log     设置二审的人员
+    flow setup by people for first verify success  刘鹏测试2   刘鹏测试3
+    log     设置上签的人员
+    flow setup by people for second verify success  刘鹏测试    刘鹏测试3
+    test flow task for third verify
+
+Test Flow Task By Role For Inquireing
+    Set flow setup by role
+    Test Flow Task For Inquireing
+
+Test Flow Task By Role For First Verify
+    Set flow setup by role
+    Test Flow Task For First Verify
+
+Test Flow Task By Role For Second Verify
+    Set flow setup by role
+    Test Flow Task For Second Verify
+
+Test Flow Task By Role For Third Verify
+    Set flow setup by role
+    Test Flow Task For Third Verify
+
+*** Keywords ***
+Set flow setup by role
+    log     设置首次调查的角色
+    assign verify user to mul roles  刘鹏测试   &{ROLE NAME AND ROLE ID}[调查人员]  &{ROLE NAME AND ROLE ID}[审核人员]  &{ROLE NAME AND ROLE ID}[管理员]
+    assign verify user to mul roles  刘鹏测试2   &{ROLE NAME AND ROLE ID}[调查人员]  &{ROLE NAME AND ROLE ID}[审核人员]  &{ROLE NAME AND ROLE ID}[审核经理]
+    assign verify user to mul roles  刘鹏测试3   &{ROLE NAME AND ROLE ID}[调查人员]  &{ROLE NAME AND ROLE ID}[审核人员]  &{ROLE NAME AND ROLE ID}[审核经理]  &{ROLE NAME AND ROLE ID}[管理员]
+    flow setup by role for inquireing  &{ROLE NAME AND ROLE ID}[调查人员]
+    flow setup by role for inquire success  &{ROLE NAME AND ROLE ID}[审核人员]
+    flow setup by role for first verify success  &{ROLE NAME AND ROLE ID}[审核经理]
+    flow setup by role for second verify success  &{ROLE NAME AND ROLE ID}[管理员]
+
+Test Flow Task For Inquireing
     log     产生新的进件
     populate task by nick names  auto_01    auto_02    auto_03
 
@@ -17,13 +74,8 @@ Test Flow Task By People For Inquireing
     verify pending job  刘鹏测试2    auto_02     首次调查
     verify pending job  刘鹏测试3    auto_03     首次调查
 
-Test Flow Task By People For First Verify
-    log     设置首次调查的人员
-    flow setup by people for inquireing   刘鹏测试  刘鹏测试2   刘鹏测试3
 
-    log     设置一审的人员
-    flow setup by people for inquire success  刘鹏测试  刘鹏测试2   刘鹏测试3
-
+Test Flow Task For First Verify
     log     分配首次调查的进件
     populate task by nick names  auto_01    auto_02    auto_03
 
@@ -57,13 +109,7 @@ Test Flow Task By People For First Verify
     verify pending job  刘鹏测试    auto_01     待一审
     verify pending job  刘鹏测试    auto_02     待一审
 
-Test Flow Task By People For Second Verify
-    log     设置首次调查的人员
-    flow setup by people for inquireing   刘鹏测试  刘鹏测试2   刘鹏测试3
-    log     设置一审的人员
-    flow setup by people for inquire success  刘鹏测试  刘鹏测试2   刘鹏测试3
-    log     设置二审的人员
-    flow setup by people for first verify success  刘鹏测试2   刘鹏测试3
+Test Flow Task For Second Verify
     log     分配首次调查的进件
     populate task by nick names  auto_01    auto_02    auto_03
     log     将auto_01调查通过
@@ -101,15 +147,7 @@ Test Flow Task By People For Second Verify
     verify done job  刘鹏测试2   auto_03     待一审
     verify involved job  刘鹏测试2   auto_03     待一审
 
-Test Flow Task By People For Third Verify
-    log     设置首次调查的人员
-    flow setup by people for inquireing   刘鹏测试  刘鹏测试2   刘鹏测试3
-    log     设置一审的人员
-    flow setup by people for inquire success  刘鹏测试  刘鹏测试2   刘鹏测试3
-    log     设置二审的人员
-    flow setup by people for first verify success  刘鹏测试2   刘鹏测试3
-    log     设置上签的人员
-    flow setup by people for second verify success  刘鹏测试    刘鹏测试3
+Test Flow Task For Third Verify
     log     分配首次调查的进件
     populate task by nick names  auto_01    auto_02    auto_03
     log     将auto_01调查通过
