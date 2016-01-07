@@ -290,6 +290,11 @@ class VerifyLibrary(object):
         amount = int(amount)
         self._commit_to_next_verify_status(AuditUserStatusEnum.SECOND_VERIFY_SUCCESS, verify_user_real_name, amount, *task_nick_names)
 
+    # 将任务提交三审通过
+    def commit_to_pass_third_verify(self, verify_user_real_name, amount,  *task_nick_names):
+        amount = int(amount)
+        self._commit_to_next_verify_status(AuditUserStatusEnum.VERIFY_SUCCESS, verify_user_real_name, amount, *task_nick_names)
+
     def _commit_to_next_verify_status(self, audit_user_status, verify_user_real_name, second_verify_amount=1000,  *task_nick_names):
         self.built_in.log('Encoding for task nick name ' + str(task_nick_names))
         task_nick_names_encode = [i.encode('utf-8') for i in task_nick_names]
@@ -313,9 +318,58 @@ class VerifyLibrary(object):
                 response = current_user_request.commit_to_second_verify(user_id, 1000, 1, 12, '一审备注')
             elif audit_user_status == AuditUserStatusEnum.SECOND_VERIFY_SUCCESS:
                 response = current_user_request.commit_to_pass_second_verify(user_id, second_verify_amount, 1, 12, '二审备注')
+            elif audit_user_status == AuditUserStatusEnum.VERIFY_SUCCESS:
+                response = current_user_request.commit_to_pass_signed_approval(user_id, second_verify_amount, 1, 12, '最终审核通过')
             else:
                 raise AssertionError('Can not handle this kind of status!!')
             self.built_in.log('Response = {0}'.format(response.json()))
+
+    # 比较审核流水中个人信息部分
+    def compare_user_info_for_verify_log(self, nick_name):
+        nick_name = nick_name.encode('utf-8')
+        user_id = get_user_id_by_nick_name(nick_name)
+        self.request_utils.login()
+        result_from_api = self.request_utils.get_user_verify_logs(user_id)
+        user_info_from_api = result_from_api.json()['data']['userInfo']
+        user_info_from_db = get_user_info_for_verify_log(nick_name)
+        self.built_in.should_be_equal_as_strings(user_info_from_api['nickName'], user_info_from_db[0], 'Compare nick name for user info in verify log')
+        self.built_in.should_be_equal_as_strings(user_info_from_api['realName'], user_info_from_db[1], 'Compare real name for user info in verify log')
+        self.built_in.should_be_equal_as_strings(user_info_from_api['mobile'], user_info_from_db[2], 'Compare mobile for user info in verify log')
+        self.built_in.should_be_equal_as_strings(user_info_from_api['idNo'], user_info_from_db[3], 'Compare idNo for user info in verify log')
+        self.built_in.should_be_equal_as_strings(user_info_from_api['userType'], unicode(Channel.get_value(user_info_from_db[4]), 'utf-8'), 'Compare channel for user info in verify log')
+        self.built_in.should_be_equal_as_strings(user_info_from_api['verifyUserStatus'], unicode(VerifyUserStatus.get_value(user_info_from_db[5]), 'utf-8'), 'Compare verify user status for user info in verify log')
+
+    # 比较审核流水中每个审核阶段的结果
+    def compare_verify_log(self, nick_name, index, operation, operation_result, verify_user=None, note=None, amount=None, level=None, cash_draw_ratio=None):
+        nick_name = nick_name.encode('utf-8')
+        index = int(index)
+
+        user_id = get_user_id_by_nick_name(nick_name)
+        self.request_utils.login()
+        result_from_api = self.request_utils.get_user_verify_logs(user_id)
+        verify_logs_from_api = result_from_api.json()['data']['userVerifyLog']
+
+        self.built_in.should_be_equal_as_strings(verify_logs_from_api[index]['operation'], operation, 'Compare operation for verify log')
+        self.built_in.should_be_equal_as_strings(verify_logs_from_api[index]['operationResult'], operation_result, 'Compare operationResult for verify log')
+
+        if verify_user is not None:
+            self.built_in.should_be_equal_as_strings(verify_logs_from_api[index]['verifyUser'], verify_user, 'Compare verify user for verify log')
+        if note is not None:
+            self.built_in.should_be_equal_as_strings(verify_logs_from_api[index]['note'], note, 'Compare note for verify log')
+        if amount is not None:
+            self.built_in.should_be_equal_as_strings(verify_logs_from_api[index]['amount'], amount, 'Compare amount for verify log')
+        if level is not None:
+            self.built_in.should_be_equal_as_strings(verify_logs_from_api[index]['level'], level, 'Compare level for verify log')
+        if cash_draw_ratio is not None:
+            self.built_in.should_be_equal_as_strings(verify_logs_from_api[index]['cashDrawRatio'], cash_draw_ratio, 'Compare cashDrawRatio for verify log')
+
+    # 获取审核流水中条目数
+    def get_verify_log_count(self, nick_name):
+        nick_name = nick_name.encode('utf-8')
+        user_id = get_user_id_by_nick_name(nick_name)
+        self.request_utils.login()
+        result_from_api = self.request_utils.get_user_verify_logs(user_id)
+        return len(result_from_api.json()['data']['userVerifyLog'])
 
 
 if __name__ == "__main__":

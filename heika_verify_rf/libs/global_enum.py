@@ -53,6 +53,13 @@ class Channel(Enum):
                 return j.value
         return None
 
+    @staticmethod
+    def get_enum(value):
+        for i, j in VerifyUserStatus.__members__.items():
+            if j.value == value:
+                return j
+        return None
+
 
 class AuditUserStatusEnum(Enum):
     UNCOMMIT = "等待提交"

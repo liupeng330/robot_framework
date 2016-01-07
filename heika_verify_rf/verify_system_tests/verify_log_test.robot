@@ -1,0 +1,57 @@
+*** Settings ***
+Test Setup     cleanup task by executor names   刘鹏测试   刘鹏测试2   刘鹏测试3
+Resource    ../resources/resource.robot
+Library     String
+Library      ../VerifyLibrary.py   http://${SERVER}    ${ADMIN USER}    ${DUBBO WEB API URL}
+
+*** Test Cases ***
+Test Verify Log With All Pass Flow
+    Flow Task Setup By People    刘鹏测试
+    log     将auto_01初始化，并注册
+    populate task by nick names  auto_01
+
+    log     比较审核流水中的用户信息部分，API返回与数据库中的记录是否一致
+    compare user info for verify log  auto_01
+
+    log     验证审核流水中的每个条目
+    compare verify log  auto_01     0   用户注册    等待提交
+    compare verify log  auto_01     1   提交审核    首次调查
+    ${verify log count} =   get verify log count  auto_01
+    should be equal as integers  2      ${verify log count}     应该有2条审核流水
+
+    log    提交到一审
+    commit to first verify      刘鹏测试    auto_01
+    compare verify log  auto_01  2   调查    待一审   刘鹏测试   调查备注
+    ${verify log count} =   get verify log count  auto_01
+    should be equal as integers  3      ${verify log count}     应该有3条审核流水
+
+    log    提交到二审
+    commit to second verify       刘鹏测试    auto_01
+    compare verify log  auto_01  3   一审     二审   刘鹏测试   一审备注    1000.0    黑卡五星    12.0
+    ${verify log count} =   get verify log count  auto_01
+    should be equal as integers  4      ${verify log count}     应该有4条审核流水
+
+    log    提交到上签
+    commit to pass second verify  刘鹏测试    5001    auto_01
+    compare verify log  auto_01  4   二审     上签   刘鹏测试   二审备注    5001.0    黑卡五星    12.0
+    ${verify log count} =   get verify log count  auto_01
+    should be equal as integers  5      ${verify log count}     应该有5条审核流水
+
+    log    提交到最终审核通过
+    commit to pass third verify  刘鹏测试    10000    auto_01
+    compare verify log  auto_01  5   上签     审核通过   刘鹏测试   最终审核通过    10000.0    黑卡五星    12.0
+    ${verify log count} =   get verify log count  auto_01
+    should be equal as integers  6      ${verify log count}     应该有6条审核流水
+
+
+*** Keywords ***
+Flow Task Setup By People
+    [Arguments]    ${verify user name}
+    log     设置首次调查的人员
+    flow setup by people for inquireing   ${verify user name}
+    log     设置一审的人员
+    flow setup by people for inquire success  ${verify user name}
+    log     设置二审的人员
+    flow setup by people for first verify success  ${verify user name}
+    log     设置上签的人员
+    flow setup by people for second verify success  ${verify user name}

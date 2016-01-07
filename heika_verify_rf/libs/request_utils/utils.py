@@ -52,6 +52,12 @@ class RequestUtil(object):
         response.raise_for_status()
         return response
 
+    def commit_to_pass_signed_approval(self, user_id, amount, card_product_id, cash_ratio, note):
+        post_data = {"userId": user_id, "signedApprovalAmount": amount, "signedApprovalCardProductId":card_product_id, "thirdCashRatio":cash_ratio, "signedApprovalNote":note}
+        response = requests.post(self.base_URL + "/taskMgrVerify/commitToPassSignedApproval", data=post_data, headers=self.headers)
+        response.raise_for_status()
+        return response
+
     def update_verify_user(self, name, user_id, amount_limit, dept_id, role_id):
         post_date = {"userId": user_id, "name": name, "amountLimit": amount_limit, "deptId": dept_id, "roleIds": role_id}
         response = requests.post(self.base_URL + "/verifyUser/usr/update", data=post_date, headers=self.headers)
@@ -63,6 +69,12 @@ class RequestUtil(object):
         for role_id in role_ids:
             post_date.append(("roleIds", role_id))
         response = requests.post(self.base_URL + "/verifyUser/usr/update", data=post_date, headers=self.headers)
+        response.raise_for_status()
+        return response
+
+    def get_user_verify_logs(self, user_id):
+        post_data = {"userId": user_id}
+        response = requests.post(self.base_URL + "/user/getUserVerifyLog", data=post_data, headers=self.headers)
         response.raise_for_status()
         return response
 

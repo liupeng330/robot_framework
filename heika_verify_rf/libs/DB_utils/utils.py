@@ -782,3 +782,12 @@ def get_latest_verify_user_status_log(user_id):
         else:
             return '', ret[1]
     return None
+
+
+def get_user_info_for_verify_log(nick_name):
+    sql = "select nick_name, real_name, mobile, id_no, channel, vus.verify_user_status from user " \
+          "inner join user_info on user.user_id = user_info.user_id " \
+          "inner join verify_user_status as vus on user.user_id = vus.user_id " \
+          "where nick_name = '%s'" % nick_name
+    cursor.execute(sql)
+    return cursor.fetchone()
