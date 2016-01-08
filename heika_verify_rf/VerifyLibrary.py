@@ -34,7 +34,6 @@ class VerifyLibrary(object):
         response = self.request_utils.update_verify_user_to_mul_roles(real_name, verify_user_id, amount_limit, dept_id, *role_ids)
         return response.json()
 
-
     def compare_user_search_result(self, ui_row, ui_row_index, key, search_type, verify_user_status):
         ui_row_index = int(ui_row_index)
         key = key.encode('utf-8')
@@ -138,6 +137,13 @@ class VerifyLibrary(object):
             update_user_to_inquireing_status(user_id)
             delete_verify_user_status_by_user_id(user_id)
             self.dubbo_web_request_utils.init_user_from_mobile(user_id)
+            self.dubbo_web_request_utils.commit_user_from_mobile(user_id)
+            time.sleep(1)
+
+    def commit_user_by_nick_names(self, *nick_names):
+        for nick_name in nick_names:
+            nick_name = nick_name.encode('utf-8')
+            user_id = get_user_id_by_nick_name(nick_name)
             self.dubbo_web_request_utils.commit_user_from_mobile(user_id)
             time.sleep(1)
 
@@ -281,19 +287,35 @@ class VerifyLibrary(object):
     def commit_to_first_verify(self, verify_user_real_name,  *task_nick_names):
         self._commit_to_next_verify_status(AuditUserStatusEnum.INQUIRE_SUCCESS, verify_user_real_name, 0, *task_nick_names)
 
+    # 调查补件
+    def commit_to_verify_fail(self, verify_user_real_name,  *task_nick_names):
+        self._commit_to_next_verify_status(AuditUserStatusEnum.VERIFY_FAIL, verify_user_real_name, 0, *task_nick_names)
+
     # 将任务提交到二审，即一审通过
     def commit_to_second_verify(self, verify_user_real_name,  *task_nick_names):
         self._commit_to_next_verify_status(AuditUserStatusEnum.FIRST_VERIFY_SUCCESS, verify_user_real_name, 0, *task_nick_names)
+
+    # 提交到一审退回
+    def commit_to_first_verify_back(self, verify_user_real_name,  *task_nick_names):
+        self._commit_to_next_verify_status(AuditUserStatusEnum.FIRST_SEND_BACK, verify_user_real_name, 0, *task_nick_names)
 
     # 将任务提交二审通过，具体是通过审核，还是上签，由二审金额决定
     def commit_to_pass_second_verify(self, verify_user_real_name, amount,  *task_nick_names):
         amount = int(amount)
         self._commit_to_next_verify_status(AuditUserStatusEnum.SECOND_VERIFY_SUCCESS, verify_user_real_name, amount, *task_nick_names)
 
+    # 提交到二审退回
+    def commit_to_second_verify_back(self, verify_user_real_name,  *task_nick_names):
+        self._commit_to_next_verify_status(AuditUserStatusEnum.SECOND_SEND_BACK, verify_user_real_name, 0, *task_nick_names)
+
     # 将任务提交三审通过
     def commit_to_pass_third_verify(self, verify_user_real_name, amount,  *task_nick_names):
         amount = int(amount)
         self._commit_to_next_verify_status(AuditUserStatusEnum.VERIFY_SUCCESS, verify_user_real_name, amount, *task_nick_names)
+
+    # 上签退件
+    def commit_to_refuse(self, verify_user_real_name, *task_nick_names):
+        self._commit_to_next_verify_status(AuditUserStatusEnum.VERIFY_REJECT, verify_user_real_name, 0, *task_nick_names)
 
     def _commit_to_next_verify_status(self, audit_user_status, verify_user_real_name, second_verify_amount=1000,  *task_nick_names):
         self.built_in.log('Encoding for task nick name ' + str(task_nick_names))
@@ -314,12 +336,21 @@ class VerifyLibrary(object):
             if audit_user_status == AuditUserStatusEnum.INQUIRE_SUCCESS:
                 inv_rets = current_user_request.get_all_valid_investigate_result()
                 response = current_user_request.commit_to_first_verify(user_id, 12, '调查备注', **inv_rets)
+            elif audit_user_status == AuditUserStatusEnum.VERIFY_FAIL:
+                inv_rets = current_user_request.get_all_notmatch_investigate_result()
+                response = current_user_request.commit_to_verify_fail(user_id, 12, '补件调查', **inv_rets)
             elif audit_user_status == AuditUserStatusEnum.FIRST_VERIFY_SUCCESS:
                 response = current_user_request.commit_to_second_verify(user_id, 1000, 1, 12, '一审备注')
+            elif audit_user_status == AuditUserStatusEnum.FIRST_SEND_BACK:
+                response = current_user_request.commit_to_first_verify_sendback(user_id, '一审退回')
             elif audit_user_status == AuditUserStatusEnum.SECOND_VERIFY_SUCCESS:
                 response = current_user_request.commit_to_pass_second_verify(user_id, second_verify_amount, 1, 12, '二审备注')
+            elif audit_user_status == AuditUserStatusEnum.SECOND_SEND_BACK:
+                response = current_user_request.commit_to_second_verify_sendback(user_id, '二审退回')
             elif audit_user_status == AuditUserStatusEnum.VERIFY_SUCCESS:
                 response = current_user_request.commit_to_pass_signed_approval(user_id, second_verify_amount, 1, 12, '最终审核通过')
+            elif audit_user_status == AuditUserStatusEnum.VERIFY_REJECT:
+                response = current_user_request.commit_to_refuse(user_id, 'A01', '退件')
             else:
                 raise AssertionError('Can not handle this kind of status!!')
             self.built_in.log('Response = {0}'.format(response.json()))
@@ -370,6 +401,17 @@ class VerifyLibrary(object):
         self.request_utils.login()
         result_from_api = self.request_utils.get_user_verify_logs(user_id)
         return len(result_from_api.json()['data']['userVerifyLog'])
+
+    # 更新用户类型为个人
+    def update_user_channel_type_to_personal_register(self, nick_name):
+        user_id = get_user_id_by_nick_name(nick_name.encode('utf-8'))
+        update_user_channel_by_user_id(user_id, Channel.PERSONAL_REGISTER)
+
+    # 更新用户类型为BD导入
+    def update_user_channel_type_to_db_import(self, nick_name):
+        user_id = get_user_id_by_nick_name(nick_name.encode('utf-8'))
+        update_user_channel_by_user_id(user_id, Channel.BD_IMPORT)
+
 
 
 if __name__ == "__main__":

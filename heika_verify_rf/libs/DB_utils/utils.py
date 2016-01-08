@@ -763,7 +763,7 @@ where '''
 
     sql += ' order by user.register_time desc , user_id asc;'
 
-    helper.log('执行sql：' + sql)
+    helper.log('执行sql：' + sql)()
     cursor.execute(sql)
     return cursor.fetchall()
 
@@ -791,3 +791,13 @@ def get_user_info_for_verify_log(nick_name):
           "where nick_name = '%s'" % nick_name
     cursor.execute(sql)
     return cursor.fetchone()
+
+
+def update_user_channel_by_user_id(user_id, channel_type):
+    if channel_type == global_enum.Channel.BD_IMPORT:
+        sql = "UPDATE `user` SET `channel`='%s' WHERE `user_id`='%s'" % ('BD_IMPORT', user_id)
+    elif channel_type == global_enum.Channel.PERSONAL_REGISTER:
+        sql = "UPDATE `user` SET `channel`='%s' WHERE `user_id`='%s'" % ('PERSONAL_REGISTER', user_id)
+    else:
+        raise AssertionError('No code can handle this kind of channel type')
+    commit(sql)

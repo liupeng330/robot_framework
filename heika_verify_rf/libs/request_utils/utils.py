@@ -40,9 +40,22 @@ class RequestUtil(object):
         response.raise_for_status()
         return response
 
+    def commit_to_verify_fail(self, user_id, online_time, note, **investigate_results):
+        post_data = {"onlineTime": online_time, "note": note, "userId": user_id}
+        post_data.update(investigate_results)
+        response = requests.post(self.base_URL + "/taskMgrInvestigate/commitToAdditionalFile", data=post_data, headers=self.headers)
+        response.raise_for_status()
+        return response
+
     def commit_to_second_verify(self, user_id, amount, card_product_id, cash_ratio, note):
         post_data = {"userId": user_id, "firstVerifyAmount": amount, "firstVerifyCardProductId": card_product_id, "firstCashRatio": cash_ratio, "firstVerifyNote": note}
         response = requests.post(self.base_URL + "/taskMgrVerify/commitToSecondVerify", data=post_data, headers=self.headers)
+        response.raise_for_status()
+        return response
+
+    def commit_to_first_verify_sendback(self, user_id, note):
+        post_data = {"userId": user_id, "firstVerifyNote": note}
+        response = requests.post(self.base_URL + "/taskMgrVerify/commitToFirstVerifyBack", data=post_data, headers=self.headers)
         response.raise_for_status()
         return response
 
@@ -52,9 +65,21 @@ class RequestUtil(object):
         response.raise_for_status()
         return response
 
+    def commit_to_second_verify_sendback(self, user_id, note):
+        post_data = {"userId": user_id, "secondVerifyNote": note}
+        response = requests.post(self.base_URL + "/taskMgrVerify/commitToSecondVerifyBack", data=post_data, headers=self.headers)
+        response.raise_for_status()
+        return response
+
     def commit_to_pass_signed_approval(self, user_id, amount, card_product_id, cash_ratio, note):
         post_data = {"userId": user_id, "signedApprovalAmount": amount, "signedApprovalCardProductId":card_product_id, "thirdCashRatio":cash_ratio, "signedApprovalNote":note}
         response = requests.post(self.base_URL + "/taskMgrVerify/commitToPassSignedApproval", data=post_data, headers=self.headers)
+        response.raise_for_status()
+        return response
+
+    def commit_to_refuse(self, user_id, reject_reason, note):
+        post_data = {"userId": user_id, "rejectReasonList": reject_reason, "remark": note}
+        response = requests.post(self.base_URL + "/taskMgrVerify/commitToSignedApprovalRefuse", data=post_data, headers=self.headers)
         response.raise_for_status()
         return response
 
@@ -87,5 +112,17 @@ class RequestUtil(object):
                    'hasCarInvResult': 'VALID', 'hasHouseInvResult': 'VALID', 'urgentNameInvResult': 'VALID',
                    'urgentRelationInvResult': 'VALID', 'urgentMobileInvResult': 'VALID',
                    'creditCardNumberInvResult': 'VALID'}
+
+        return results
+
+    @staticmethod
+    def get_all_notmatch_investigate_result():
+        results = {'realNameInvResult': 'NOTMATCH', 'companyInvResult': 'NOTMATCH', 'workPositionInvResult': 'NOTMATCH',
+                   'monthlySalaryInvResult': 'NOTMATCH', 'workPhoneInvResult': 'NOTMATCH', 'graduationInvResult': 'NOTMATCH',
+                   'universityInvResult': 'NOTMATCH', 'graduateYearInvResult': 'NOTMATCH', 'marriageStatusInvResult': 'NOTMATCH',
+                   'childStatusInvResult': 'NOTMATCH', 'addressInvResult': 'NOTMATCH', 'phoneInvResult': 'NOTMATCH',
+                   'hasCarInvResult': 'NOTMATCH', 'hasHouseInvResult': 'NOTMATCH', 'urgentNameInvResult': 'NOTMATCH',
+                   'urgentRelationInvResult': 'NOTMATCH', 'urgentMobileInvResult': 'NOTMATCH',
+                   'creditCardNumberInvResult': 'NOTMATCH'}
 
         return results
