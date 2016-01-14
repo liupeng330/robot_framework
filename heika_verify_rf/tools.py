@@ -27,8 +27,8 @@ if __name__ == "__main__":
 
     if sys.argv[1] == 'init':
         for user_id in sys.argv[2:]:
-            request_util = RequestUtil('http://172.16.2.37/dubbo-web-api/')
-            # request_util = RequestUtil('http://172.16.2.111:7020/heika-verify/dubbo/test/')
+            # request_util = RequestUtil('http://172.16.2.37/dubbo-web-api/')
+            request_util = RequestUtil('http://172.16.2.111:7020/heika-verify/dubbo/test/')
 
             libs.helper.log('将user_id为%s的用户置为待调查状态' % user_id)
             update_user_to_inquireing_status(user_id)

@@ -35,6 +35,9 @@ ${USER SEARCH TABLE}    xpath=//*[@id="tabs"]/div[2]/div/div/div/div/div[2]/div[
 ${USER SEARCH TYPE}     xpath=//*[@id="waitSearch"]/div/div[1]/span/input[1]
 ${USER SEARCH STATUS TYPE}  xpath=//*[@id="waitSearch"]/div/div[2]/span/input[1]
 
+${FLOW TASK IFRAME}   //iframe[contains(@src,'taskManager')]
+${FLOW TASK TABLE}     xpath=//*[@id="waitTaskTabs"]/div[2]/div/div/div[3]/div/div[1]/div[2]/div[2]/table
+
 *** Keywords ***
 Open Browser To Login Page
     Open Browser    ${LOGIN URL}    ${BROWSER}

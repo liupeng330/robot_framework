@@ -6,11 +6,15 @@ Library      ../VerifyLibrary.py   http://${SERVER}    ${ADMIN USER}    ${DUBBO 
 
 *** Test Cases ***
 Test Flow Task By People For Inquireing
+    [Documentation]    接口自动化, 测试"首次调查"按人员分配
+
     log     设置首次调查的人员
     flow setup by people for inquireing   刘鹏测试  刘鹏测试2   刘鹏测试3
     Test Flow Task For Inquireing
 
 Test Flow Task By People For First Verify
+    [Documentation]    接口自动化, 测试"一审"按人员分配
+
     log     设置首次调查的人员
     flow setup by people for inquireing   刘鹏测试  刘鹏测试2   刘鹏测试3
 
@@ -19,6 +23,8 @@ Test Flow Task By People For First Verify
     test flow task for first verify
 
 Test Flow Task By People For Second Verify
+    [Documentation]    接口自动化, 测试"二审"按人员分配
+
     log     设置首次调查的人员
     flow setup by people for inquireing   刘鹏测试  刘鹏测试2   刘鹏测试3
     log     设置一审的人员
@@ -28,6 +34,8 @@ Test Flow Task By People For Second Verify
     test flow task for second verify
 
 Test Flow Task By People For Third Verify
+    [Documentation]    接口自动化, 测试"上签"按人员分配
+
     log     设置首次调查的人员
     flow setup by people for inquireing   刘鹏测试  刘鹏测试2   刘鹏测试3
     log     设置一审的人员
@@ -39,18 +47,24 @@ Test Flow Task By People For Third Verify
     test flow task for third verify
 
 Test Flow Task By Role For Inquireing
+    [Documentation]    接口自动化, 测试"首次调查"按角色分配
+
     Set flow setup by role
     Test Flow Task For Inquireing
 
 Test Flow Task By Role For First Verify
+    [Documentation]    接口自动化, 测试"一审"按角色分配
+
     Set flow setup by role
     Test Flow Task For First Verify
 
 Test Flow Task By Role For Second Verify
+    [Documentation]    接口自动化, 测试"二审"按角色分配
     Set flow setup by role
     Test Flow Task For Second Verify
 
 Test Flow Task By Role For Third Verify
+    [Documentation]    接口自动化, 测试"上签"按角色分配
     Set flow setup by role
     Test Flow Task For Third Verify
 

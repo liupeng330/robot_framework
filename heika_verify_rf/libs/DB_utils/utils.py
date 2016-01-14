@@ -763,7 +763,7 @@ where '''
 
     sql += ' order by user.register_time desc , user_id asc;'
 
-    helper.log('执行sql：' + sql)()
+    helper.log('执行sql：' + sql)
     cursor.execute(sql)
     return cursor.fetchall()
 

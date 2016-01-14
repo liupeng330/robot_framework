@@ -49,3 +49,29 @@ class CustomSeleniumLibrary(Selenium2Library):
         else:
             return None
 
+    def get_flow_task_results(self, table_locator, row_index):
+        table = self._table_element_finder.find(self._current_browser(), table_locator)
+        ret = []
+        if table is not None:
+            rows = table.find_elements_by_xpath("./tbody/tr")
+            if len(rows) <= 0:
+                return None
+            row_index = int(row_index)
+            if len(rows)-1 < row_index:
+                raise AssertionError("The row index '%s' is large than row length '%s'." % (row_index, len(rows)))
+            for row in rows:
+                dic = {
+                    'userId': _get_table_field_value(row, 'userId'),
+                    'nickName': _get_table_field_value(row, 'nickName'),
+                    'realName': _get_table_field_value(row, 'realName'),
+                    'idCardNum': _get_table_field_value(row, 'idCardNum'),
+                    'mobile': _get_table_field_value(row, 'mobile'),
+                    'userType': _get_table_field_value(row, 'userType'),
+                    'taskName': _get_table_field_value(row, 'taskName'),
+                    'taskCreatedTime': _get_table_field_value(row, 'taskCreatedTime'),
+                }
+                ret.append(dic)
+            return ret[row_index]
+        else:
+            return None
+

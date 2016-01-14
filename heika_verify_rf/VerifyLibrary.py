@@ -380,6 +380,7 @@ class VerifyLibrary(object):
         result_from_api = self.request_utils.get_user_verify_logs(user_id)
         verify_logs_from_api = result_from_api.json()['data']['userVerifyLog']
 
+        self.built_in.log("User verify log: " + str(verify_logs_from_api))
         self.built_in.should_be_equal_as_strings(verify_logs_from_api[index]['operation'], operation, 'Compare operation for verify log')
         self.built_in.should_be_equal_as_strings(verify_logs_from_api[index]['operationResult'], operation_result, 'Compare operationResult for verify log')
 
@@ -411,6 +412,10 @@ class VerifyLibrary(object):
     def update_user_channel_type_to_db_import(self, nick_name):
         user_id = get_user_id_by_nick_name(nick_name.encode('utf-8'))
         update_user_channel_by_user_id(user_id, Channel.BD_IMPORT)
+
+    # 获取接口返回的待办任务
+    def get_pending_task(self, index):
+        return self.flow_task_request_utils.get_pending_tasks()[0][index]
 
 
 

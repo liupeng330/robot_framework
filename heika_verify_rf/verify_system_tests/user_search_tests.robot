@@ -3,7 +3,8 @@ Test Setup       Open Browser To Login Page
 Test Teardown    Close Browser
 Resource    ../resources/resource.robot
 Library     String
-Library      ../VerifyLibrary.py   http://${SERVER}    ${ADMIN USER}
+#Library      ../VerifyLibrary.py   http://${SERVER}    ${ADMIN USER}
+Library      ../VerifyLibrary.py   http://${SERVER}    ${ADMIN USER}    ${DUBBO WEB API URL}
 Test Template    Search user test
 
 *** Test Cases ***
@@ -55,6 +56,7 @@ Search user test
     Run Keyword If      '${search key}' == '手机号'    User Search Select By Mobile
     Run Keyword If      '${search key}' == '身份证'    User Search Select By IdNo
     Run Keyword If      '${search key}' == '姓名'     User Search Select By RealName
+    populate task by nick names  auto_01
     Update Verify User Status   ${user id}      ${verify status}
     Run Keyword If      '${verify status}' == '等待提交'      User Search Select By UNCOMMIT Status
     Run Keyword If      '${verify status}' == '等待调查'      User Search Select By INQUREING Status

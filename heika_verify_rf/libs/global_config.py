@@ -1,8 +1,8 @@
 __author__ = 'peng'
 
 
-db_host = '172.16.2.38'
-# db_host = '172.16.2.112'
+# db_host = '172.16.2.38'
+db_host = '172.16.2.112'
 db_port = '3306'
 db_database = 'heika_new'
 db_user_name = 'heika_dev'
