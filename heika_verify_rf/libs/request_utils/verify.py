@@ -2,7 +2,63 @@ import requests
 from .. import global_config
 
 
-class RequestUtil(object):
+class SubmitApplicationResponse(object):
+    def __int__(self):
+        self.response = None
+        self.result_code = ''
+        self.application_id = ''
+
+    def parse(self, response):
+        self.result_code = ''
+        self.application_id = ''
+
+        ret = response.json()
+        if ret.has_key('data'):
+            ret = ret['data']
+            if ret.has_key('rst'):
+                ret = ret['rst']
+                if ret.has_key('resultCode'):
+                    self.result_code = ret['resultCode']
+                if ret.has_key('applicationId'):
+                    self.application_id = ret['applicationId']
+        return self
+
+
+class LoadApplicationStatusResponse(object):
+    def __int__(self):
+        self.result_code = ''
+        self.card_product_id = 0
+        self.cash_amount_ratio = 0.0
+        self.credit_limit = 0.0
+        self.current_application_status = ''
+        self.current_application_verify_status = ''
+        self.user_key = ''
+        self.card_product_id = 0
+
+    def parse(self, response):
+        ret = response.json()
+        if ret.has_key('data'):
+            ret = ret['data']
+            if ret.has_key('rst'):
+                ret = ret['rst']
+                if ret.has_key('resultCode'):
+                    self.result_code = ret['resultCode']
+                if ret.has_key('cashAmountRatio'):
+                    self.cash_amount_ratio = ret['cashAmountRatio']
+                if ret.has_key('creditLimit'):
+                    self.credit_limit = ret['creditLimit']
+                if ret.has_key('currentApplicationStatus'):
+                    self.current_application_status = ret['currentApplicationStatus']
+                if ret.has_key('currentApplicationVerifyStatus'):
+                    self.current_application_verify_status = ret['currentApplicationVerifyStatus']
+                if ret.has_key('userKey'):
+                    self.user_key = ret['userKey']
+                if ret.has_key('cardProductId'):
+                    self.card_product_id = ret['cardProductId']
+        return self
+
+
+class VerifyRequest(object):
     def __init__(self, base_URL, username=None, password=None):
         self.base_URL = base_URL
         self.username = username
@@ -102,6 +158,22 @@ class RequestUtil(object):
         response = requests.post(self.base_URL + "/user/getUserVerifyLog", data=post_data, headers=self.headers)
         response.raise_for_status()
         return response
+
+    def submit_application(self, user_key, is_self_register, channel_id):
+        post_data = {"userKey": user_key, "productType": 0, "isSelfRegister": is_self_register}
+        if channel_id is not None:
+            post_data["channelId"] = channel_id
+        response = requests.post(self.base_URL + "/incommingApplication/submitApplication", data=post_data, headers=self.headers)
+        response.raise_for_status()
+        parsed_response = SubmitApplicationResponse()
+        return parsed_response.parse(response)
+
+    def load_application_status(self, application_id):
+        post_data = {"applicationId": application_id}
+        response = requests.post(self.base_URL + "/incommingApplication/loadApplicationStatus", data=post_data, headers=self.headers)
+        response.raise_for_status()
+        parsed_response = LoadApplicationStatusResponse()
+        return parsed_response.parse(response)
 
     @staticmethod
     def get_all_valid_investigate_result():

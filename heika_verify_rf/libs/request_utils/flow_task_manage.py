@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import requests
-import utils
+import verify
 
-class FlowTaskManage(utils.RequestUtil):
+class FlowTaskManage(verify.VerifyRequest):
 
     def flow_setup(self, domain_type, task_id, *values):
         values_in_string = '&'.join(['value=' + str(i) for i in values])

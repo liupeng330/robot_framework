@@ -23,6 +23,7 @@ Test Investigate User
     Click TreeNode		 待办任务
     Page Title Visible   待办任务
 
+    Wait Until Page Contains Element    ${FLOW TASK TABLE}
     ${row_count} =      Get Table Row Count   ${FLOW TASK TABLE}
     log     获取待办任务个数: ${row_count}
     should be equal as integers     ${row_count}    1       应该只搜索到一条数据

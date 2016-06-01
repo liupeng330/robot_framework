@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from libs.DB_utils.utils import *
-from libs.request_utils import utils
+from libs.request_utils import verify
 from libs.request_utils import flow_task_manage
 from libs.global_enum import *
 from libs.model import user_search_result
@@ -14,11 +14,11 @@ class VerifyLibrary(object):
     def __init__(self, base_URL, username, dubbo_web_base_URL=None):
         self.base_URL = base_URL
         self.username = username
-        self.request_utils = utils.RequestUtil(base_URL, username)
+        self.request_utils = verify.VerifyRequest(base_URL, username)
         self.flow_task_request_utils = flow_task_manage.FlowTaskManage(base_URL, username)
         self.built_in = BuiltIn()
         if dubbo_web_base_URL is not None:
-            self.dubbo_web_request_utils = utils.RequestUtil(dubbo_web_base_URL)
+            self.dubbo_web_request_utils = verify.VerifyRequest(dubbo_web_base_URL)
 
     def update_verify_user_role(self, email, dept_id, role_id, amount_limit=5000):
         real_name = get_verify_user_name_by_email(email)
@@ -328,7 +328,7 @@ class VerifyLibrary(object):
         verify_user_email = get_verify_user_email_by_real_name(verify_user_real_name.encode('utf-8'))
 
         self.built_in.log('Using verify user {0} to log in'.format(verify_user_email))
-        current_user_request = utils.RequestUtil(self.base_URL, verify_user_email)
+        current_user_request = verify.VerifyRequest(self.base_URL, verify_user_email)
         current_user_request.login()
 
         for user_id in user_ids:

@@ -1,8 +1,8 @@
 import requests
-import utils
+import verify
 
 
-class CouponRequest(utils.RequestUtil):
+class CouponRequest(verify.VerifyRequest):
 
     def create_coupon_batch(self, name, department, discount_type, amount, coupon_count, user_scope, time_type, start_time, end_time, validity_period, validity_type, grant_type, active_action):
         post_data = {"name": name,

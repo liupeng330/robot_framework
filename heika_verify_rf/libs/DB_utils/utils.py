@@ -583,6 +583,22 @@ def populate_user_info_result(user_id, result, verify_user_id=None):
         conn.commit()
 
 
+def get_incorrect_user_ids():
+    query = '''SELECT DISTINCT
+          v1.user_id
+        FROM
+          verify_user_status v1,
+          verify_user_info_result
+        WHERE v1.user_id NOT IN
+          (SELECT
+            user_id
+          FROM
+            verify_user_info_result)
+          AND v1.verify_user_status <> 'UNCOMMIT' ;'''
+    cursor.execute(query)
+    return cursor.fetchall()
+
+
 def delete_user_info_result(user_id):
     helper.log('将verify_user_info_result表清空\n')
     delete_sql = "DELETE FROM `verify_user_info_result` where `user_id` = %s" % user_id
@@ -719,9 +735,19 @@ def update_user_register_time_to_current_by_user_key(time, *user_key):
         conn.commit()
 
 
-def get_job_interval_time_by_job_class_name(name):
+def get_admin_job_interval_time_by_job_class_name(name):
     cursor.execute(
         "select param_value from admin_task_timer inner join admin_task_timer_param on admin_task_timer.id = admin_task_timer_param.task_id where task_class = '%s'" % name)
+    values = cursor.fetchall()
+    total = 0
+    for value in values:
+        total += int(value[0])
+    return total
+
+
+def get_verify_job_interval_time_by_job_class_name(name):
+    cursor.execute(
+        "select param_value from verify_task_timer inner join verify_task_timer_param on verify_task_timer.id = verify_task_timer_param.task_id where task_class = '%s'" % name)
     values = cursor.fetchall()
     total = 0
     for value in values:
@@ -801,3 +827,75 @@ def update_user_channel_by_user_id(user_id, channel_type):
     else:
         raise AssertionError('No code can handle this kind of channel type')
     commit(sql)
+
+
+def delete_application_status_and_user_info_by_user_key(user_key):
+    cursor.execute("""delete from verify_application_status where user_key = %s""", (user_key,))
+    cursor.execute("""delete from verify_application_status_log where user_key = %s""", (user_key,))
+    cursor.execute("""delete from verify_application_user_info where user_key = %s""", (user_key,))
+    conn.commit()
+
+
+def get_application_id_by_user_key(user_key):
+    return fetch_one("select application_id from verify_application_status where user_key = '%s'" % user_key)
+
+
+def get_application_pk_id_by_user_key(user_key):
+    return fetch_one("select id from verify_application_status where user_key = '%s'" % user_key)
+
+
+def update_user_by_user_key(user_key, mobile):
+    cursor.execute("update user set mobile='%s' where user_key='%s'" % (mobile, user_key))
+    conn.commit()
+
+
+def update_idcard_info_by_user_key(user_key, id_number, real_name):
+    cursor.execute("update idcard_info set idcard_number='%s',idcard_name='%s' where user_key='%s'" % (id_number, real_name, user_key))
+    conn.commit()
+
+
+def update_or_insert_edu_card_info_by_id_number(id_number, real_name):
+    ret = fetch_one("select id_card_name from edu_card_info where id_card_number='%s'" % id_number)
+    if ret is not None:
+        cursor.execute("update edu_card_info set id_card_name='%s',id_card_number='%s' where id_card_number='%s'" % (real_name, id_number, id_number))
+    else:
+        cursor.execute("""
+        INSERT INTO `edu_card_info`(`create_time`, `education_degree`, `enrol_date`, `graduate`, `graduate_time`, `id_card_name`,
+                        `id_card_number`, `photo_url`, `speciality_name`, `study_result`, `study_style`, `update_time`)
+        VALUES('2016-05-09 14:45:04', '专科', '2000', '老九门', '2005', '%s', '%s',
+               '/11b3464c-0f02-419f-a29d-bdb5494fb187.jpg', '削土豆111', '结业', '普通', '2016-05-16 14:10:51');
+        """ % (real_name, id_number))
+    conn.commit()
+
+
+def update_user_bank_card_info_by_user_key(user_key, bank_card_number, bank_name, real_name, id_number):
+    cursor.execute("update user_bank_card_info set "
+                   "bank_card_no='%s',"
+                   "bank_name='%s',"
+                   "bind_status='BIND_SUCCESS',"
+                   "idcard_name='%s',"
+                   "idcard_number='%s' where user_key='%s'"
+                   % (bank_card_number, bank_name, real_name, id_number, user_key))
+    conn.commit()
+
+
+def delete_policy_detail_by_application_id(application_id):
+    cursor.execute("delete from verify_policy_detail where application_id = '%s'" % (application_id,))
+    conn.commit()
+
+
+def delete_third_party_result_and_log_by_application_pk_id(id):
+    cursor.execute("delete from verify_third_party_result where verify_application_id='%s'" % (id,))
+    cursor.execute("delete from verify_third_party_request_log where verify_application_id='%s'" % (id,))
+    conn.commit()
+
+
+def get_third_party_result_by_type(type, application_pk_id):
+    third_party_type_in_str = global_enum.VerifyThirdPartyTypeEnum.get_string(type)
+    if third_party_type_in_str is not None:
+        cursor.execute("select res_status, res_detail from verify_third_party_result where verify_application_id=%s" % application_pk_id)
+        ret = cursor.fetchone()
+        if ret is not None:
+            return ret
+    return None
+

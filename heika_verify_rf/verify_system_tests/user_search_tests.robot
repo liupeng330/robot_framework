@@ -1,6 +1,6 @@
 *** Settings ***
 Test Setup       Open Browser To Login Page
-Test Teardown    Close Browser
+#Test Teardown    Close Browser
 Resource    ../resources/resource.robot
 Library     String
 #Library      ../VerifyLibrary.py   http://${SERVER}    ${ADMIN USER}

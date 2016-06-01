@@ -126,7 +126,7 @@ class TestCoupon:
         utils.update_user_register_time_to_current_by_user_key(register_time, user_key)
         utils.populate_user_into_system_grant_coupon(user_key)
 
-        wait_time_for_job = utils.get_job_interval_time_by_job_class_name(self.job_class_name)
+        wait_time_for_job = utils.get_admin_job_interval_time_by_job_class_name(self.job_class_name)
         time.sleep(wait_time_for_job/1000)
 
         response = self.request.get_coupon_receive_detail(batch_id)
