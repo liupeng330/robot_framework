@@ -26,10 +26,8 @@ if __name__ == "__main__":
         help_info()
         sys.exit(0)
 
-    # request_util = RequestUtil('http://172.16.2.37/dubbo-web-api/')
-    # request_util = VerifyRequest('http://127.0.0.1:8082/')
-    request_util = VerifyRequest('http://172.16.2.38:15081/')
-    # request_util = RequestUtil('http://172.16.2.111:7204/heika-verify/dubbo/test')
+    # request_util = VerifyRequest('http://172.16.2.38:15081/')
+    request_util = VerifyRequest('http://172.16.2.111:9096/heika-verify/')
 
     if sys.argv[1] == 'init':
         for user_id in sys.argv[2:]:
@@ -168,12 +166,12 @@ if __name__ == "__main__":
         update_user_by_user_key(user_key, user_info.mobile)
         update_idcard_info_by_user_key(user_key, user_info.id_number, user_info.real_name)
         update_or_insert_edu_card_info_by_id_number(user_info.id_number, user_info.real_name)
-        update_user_bank_card_info_by_user_key(user_key, user_info.bank_number, user_info.bank_name, user_info.real_name, user_info.id_number)
+        update_user_bank_card_info_by_user_key(user_key, user_info.bank_number, user_info.bank_name, user_info.real_name, user_info.id_number, user_info.reserve_mobile)
 
-        libs.helper.log('提交进件')
-        request_util.login()
-        response = request_util.submit_application(user_key, 'false', channel_id)
-        libs.helper.log(str.format('返回结果： {0}, {1}', response.result_code, response.application_id))
+        # libs.helper.log('提交进件')
+        # request_util.login()
+        # response = request_util.submit_application(user_key, 'false', channel_id)
+        # libs.helper.log(str.format('返回结果： {0}, {1}', response.result_code, response.application_id))
 
         libs.helper.log('Done')
 

@@ -66,7 +66,7 @@ class VerifyRequest(object):
         self.headers = {}
 
         if self.username is None:
-            self.username = 'admin@renrendai.com'
+            self.username = 'admin@heika.com'
             self.password = global_config.login_username_passwd_mapping.get(self.username)
         elif self.password is None:
             self.password = global_config.login_username_passwd_mapping.get(self.username)
@@ -174,6 +174,12 @@ class VerifyRequest(object):
         response.raise_for_status()
         parsed_response = LoadApplicationStatusResponse()
         return parsed_response.parse(response)
+
+    def change_application_status(self, application_id, user_key, operate_enum, to_status):
+        post_data = {"applicationId": application_id, "userKey": user_key, "operateEnum" : operate_enum, "toStatus" : to_status}
+        response = requests.post(self.base_URL + "/incommingApplication/changeApplicationStatus", data=post_data, headers=self.headers)
+        response.raise_for_status()
+        return response
 
     @staticmethod
     def get_all_valid_investigate_result():

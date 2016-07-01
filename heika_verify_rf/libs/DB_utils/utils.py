@@ -833,6 +833,7 @@ def delete_application_status_and_user_info_by_user_key(user_key):
     cursor.execute("""delete from verify_application_status where user_key = %s""", (user_key,))
     cursor.execute("""delete from verify_application_status_log where user_key = %s""", (user_key,))
     cursor.execute("""delete from verify_application_user_info where user_key = %s""", (user_key,))
+    cursor.execute("""delete from verify_application_submit_info where user_key = %s""", (user_key,))
     conn.commit()
 
 
@@ -854,6 +855,11 @@ def update_idcard_info_by_user_key(user_key, id_number, real_name):
     conn.commit()
 
 
+def update_verify_application_status(user_key, status):
+    cursor.execute("update verify_application_status set current_verify_status='%s' where user_key='%s'" % (status, user_key))
+    conn.commit()
+
+
 def update_or_insert_edu_card_info_by_id_number(id_number, real_name):
     ret = fetch_one("select id_card_name from edu_card_info where id_card_number='%s'" % id_number)
     if ret is not None:
@@ -868,14 +874,15 @@ def update_or_insert_edu_card_info_by_id_number(id_number, real_name):
     conn.commit()
 
 
-def update_user_bank_card_info_by_user_key(user_key, bank_card_number, bank_name, real_name, id_number):
+def update_user_bank_card_info_by_user_key(user_key, bank_card_number, bank_name, real_name, id_number, reserve_mobile):
     cursor.execute("update user_bank_card_info set "
                    "bank_card_no='%s',"
                    "bank_name='%s',"
                    "bind_status='BIND_SUCCESS',"
                    "idcard_name='%s',"
+                   "mobile='%s',"
                    "idcard_number='%s' where user_key='%s'"
-                   % (bank_card_number, bank_name, real_name, id_number, user_key))
+                   % (bank_card_number, bank_name, real_name, reserve_mobile, id_number, user_key))
     conn.commit()
 
 
