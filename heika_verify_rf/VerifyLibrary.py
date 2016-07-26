@@ -21,15 +21,17 @@ class VerifyLibrary(object):
             self.dubbo_web_request_utils = verify.VerifyRequest(dubbo_web_base_URL)
 
     def update_verify_user_role(self, email, dept_id, role_id, amount_limit=5000):
-        real_name = get_verify_user_name_by_email(email)
-        verify_user_id = get_verify_user_id_by_email(email)
+        with DBHelper() as db_helper:
+            real_name = db_helper.get_verify_user_name_by_email(email)
+            verify_user_id = db_helper.get_verify_user_id_by_email(email)
         self.request_utils.login()
         response = self.request_utils.update_verify_user(real_name, verify_user_id, amount_limit, dept_id, role_id)
         return response.json()
 
     def update_verify_user_mul_roles(self, email, dept_id, amount_limit, *role_ids):
-        real_name = get_verify_user_name_by_email(email)
-        verify_user_id = get_verify_user_id_by_email(email)
+        with DBHelper() as db_helper:
+            real_name = db_helper.get_verify_user_name_by_email(email)
+            verify_user_id = db_helper.get_verify_user_id_by_email(email)
         self.request_utils.login()
         response = self.request_utils.update_verify_user_to_mul_roles(real_name, verify_user_id, amount_limit, dept_id, *role_ids)
         return response.json()
@@ -41,14 +43,15 @@ class VerifyLibrary(object):
         verify_user_status = verify_user_status.encode('utf-8')
 
         # get user search result from DB
-        if verify_user_status is None:
-            self.built_in.log(key)
-            search_type_enum = SearchType.get_enum(search_type)
-            user_verify_status = search_user(search_type_enum, key)
-        else:
-            user_verify_status = search_user(SearchType.get_enum(search_type), key, VerifyUserStatus.get_enum(verify_user_status).name)
-        if len(user_verify_status) - 1 < ui_row_index:
-            raise AssertionError('User search result from DB has count %s, but you want to get index %s' % (len(user_verify_status), ui_row_index))
+        with DBHelper() as db_helper:
+            if verify_user_status is None:
+                self.built_in.log(key)
+                search_type_enum = SearchType.get_enum(search_type)
+                user_verify_status = db_helper.search_user(search_type_enum, key)
+            else:
+                user_verify_status = db_helper.search_user(SearchType.get_enum(search_type), key, VerifyUserStatus.get_enum(verify_user_status).name)
+            if len(user_verify_status) - 1 < ui_row_index:
+                raise AssertionError('User search result from DB has count %s, but you want to get index %s' % (len(user_verify_status), ui_row_index))
 
         self.built_in.log('Start to fetch from DB')
         user_verify_status_index = user_verify_status[ui_row_index]
@@ -66,7 +69,8 @@ class VerifyLibrary(object):
             usr_DB.operate_time = ''
         else:
             self.built_in.log('Verify user status is NOT uncommit or inquireing')
-            operator_operate_time = get_latest_verify_user_status_log(usr_DB.user_id)
+            with DBHelper() as db_helper:
+                operator_operate_time = db_helper.get_latest_verify_user_status_log(usr_DB.user_id)
             if operator_operate_time is not None and len(operator_operate_time) == 2:
                 usr_DB.operator = operator_operate_time[0]
                 usr_DB.operate_time = unicode(operator_operate_time[1].strftime('%Y-%m-%d %H:%M'), 'utf-8')
@@ -95,57 +99,61 @@ class VerifyLibrary(object):
     def update_verify_user_status(self, user_id, verify_user_status):
         user_id = int(user_id)
         verify_user_status = VerifyUserStatus.get_enum(verify_user_status.encode('utf-8'))
-        if verify_user_status == VerifyUserStatus.UNCOMMIT:
-            update_user_to_uncommit_status(user_id)
-            return
-        if verify_user_status == VerifyUserStatus.INQUIREING:
-            update_user_to_inquireing_status(user_id)
-            return
-        if verify_user_status == VerifyUserStatus.INQUIRE_SUCCESS:
-            update_user_to_inquire_success_status(user_id)
-            return
-        if verify_user_status == VerifyUserStatus.VERIFY_FAIL:
-            update_user_to_verify_fail_status(user_id)
-            return
-        if verify_user_status == VerifyUserStatus.FIRST_VERIFY_SUCCESS:
-            update_user_to_first_verify_success_status(user_id)
-            return
-        if verify_user_status == VerifyUserStatus.FIRST_SEND_BACK:
-            update_user_to_first_verify_sendback_status(user_id)
-            return
-        if verify_user_status == VerifyUserStatus.VERIFY_SUCCESS:
-            update_user_to_second_verify_success_status(user_id)
-            return
-        if verify_user_status == VerifyUserStatus.SECOND_SEND_BACK:
-            update_user_to_second_verify_sendback(user_id)
-            return
-        if verify_user_status == VerifyUserStatus.VERIFY_REJECT:
-            update_user_to_second_verify_reject(user_id)
-            return
-        raise AssertionError('No code can handle verify user status!!')
+        with DBHelper() as db_helper:
+            if verify_user_status == VerifyUserStatus.UNCOMMIT:
+                db_helper.update_user_to_uncommit_status(user_id)
+                return
+            if verify_user_status == VerifyUserStatus.INQUIREING:
+                db_helper.update_user_to_inquireing_status(user_id)
+                return
+            if verify_user_status == VerifyUserStatus.INQUIRE_SUCCESS:
+                db_helper.update_user_to_inquire_success_status(user_id)
+                return
+            if verify_user_status == VerifyUserStatus.VERIFY_FAIL:
+                db_helper.update_user_to_verify_fail_status(user_id)
+                return
+            if verify_user_status == VerifyUserStatus.FIRST_VERIFY_SUCCESS:
+                db_helper.update_user_to_first_verify_success_status(user_id)
+                return
+            if verify_user_status == VerifyUserStatus.FIRST_SEND_BACK:
+                db_helper.update_user_to_first_verify_sendback_status(user_id)
+                return
+            if verify_user_status == VerifyUserStatus.VERIFY_SUCCESS:
+                db_helper.update_user_to_second_verify_success_status(user_id)
+                return
+            if verify_user_status == VerifyUserStatus.SECOND_SEND_BACK:
+                db_helper.update_user_to_second_verify_sendback(user_id)
+                return
+            if verify_user_status == VerifyUserStatus.VERIFY_REJECT:
+                db_helper.update_user_to_second_verify_reject(user_id)
+                return
+            raise AssertionError('No code can handle verify user status!!')
 
     def cleanup_task_by_executor_names(self, *names):
-        for name in names:
-            name = name.encode('utf-8')
-            verify_user_id = get_verify_user_id_by_real_name(name)
-            delete_verify_process_task_by_executor_id(verify_user_id)
+        with DBHelper() as db_helper:
+            for name in names:
+                name = name.encode('utf-8')
+                verify_user_id = db_helper.get_verify_user_id_by_real_name(name)
+                db_helper.delete_verify_process_task_by_executor_id(verify_user_id)
 
     def populate_task_by_nick_names(self, *nick_names):
-        for nick_name in nick_names:
-            nick_name = nick_name.encode('utf-8')
-            user_id = get_user_id_by_nick_name(nick_name)
-            update_user_to_inquireing_status(user_id)
-            delete_verify_user_status_by_user_id(user_id)
-            self.dubbo_web_request_utils.init_user_from_mobile(user_id)
-            self.dubbo_web_request_utils.commit_user_from_mobile(user_id)
-            time.sleep(1)
+        with DBHelper() as db_helper:
+            for nick_name in nick_names:
+                nick_name = nick_name.encode('utf-8')
+                user_id = db_helper.get_user_id_by_nick_name(nick_name)
+                db_helper.update_user_to_inquireing_status(user_id)
+                db_helper.delete_verify_user_status_by_user_id(user_id)
+                self.dubbo_web_request_utils.init_user_from_mobile(user_id)
+                self.dubbo_web_request_utils.commit_user_from_mobile(user_id)
+                time.sleep(1)
 
     def commit_user_by_nick_names(self, *nick_names):
-        for nick_name in nick_names:
-            nick_name = nick_name.encode('utf-8')
-            user_id = get_user_id_by_nick_name(nick_name)
-            self.dubbo_web_request_utils.commit_user_from_mobile(user_id)
-            time.sleep(1)
+        with DBHelper() as db_helper:
+            for nick_name in nick_names:
+                nick_name = nick_name.encode('utf-8')
+                user_id = db_helper.get_user_id_by_nick_name(nick_name)
+                self.dubbo_web_request_utils.commit_user_from_mobile(user_id)
+                time.sleep(1)
 
     # 按人员, 首次调查
     def flow_setup_by_people_for_inquireing(self, *verify_user_names):
@@ -165,7 +173,8 @@ class VerifyLibrary(object):
 
     def _flow_setup_by_people(self, audit_user_status, *verify_user_names):
         user_name_encoded = [i.encode('utf-8') for i in verify_user_names]
-        values_in_integer = [get_verify_user_id_by_real_name(i) for i in user_name_encoded]
+        with DBHelper() as db_helper:
+            values_in_integer = [db_helper.get_verify_user_id_by_real_name(i) for i in user_name_encoded]
         self.built_in.log('Values for flow setup: ' + str(values_in_integer))
         self.flow_task_request_utils.login()
 
@@ -183,7 +192,8 @@ class VerifyLibrary(object):
 
     # 将指定的审核用户分配多个角色id
     def assign_verify_user_to_mul_roles(self, verify_user_real_name, *role_ids):
-        email = get_verify_user_email_by_real_name(verify_user_real_name.encode('utf-8'))
+        with DBHelper() as db_helper:
+            email = db_helper.get_verify_user_email_by_real_name(verify_user_real_name.encode('utf-8'))
         self.update_verify_user_mul_roles(email, 1, 5000, *role_ids)
 
     # 按角色, 首次调查
@@ -234,7 +244,8 @@ class VerifyLibrary(object):
         verify_user_name = verify_user_name.encode('utf-8')
         expected_task_with_nick_name = expected_task_with_nick_name.encode('utf-8')
 
-        email = get_verify_user_email_by_real_name(verify_user_name)
+        with DBHelper() as db_helper:
+            email = db_helper.get_verify_user_email_by_real_name(verify_user_name)
         self.built_in.log('Using user name {0} to log in'.format(email))
         flow_task_request_for_current_user = flow_task_manage.FlowTaskManage(self.base_URL, email)
         flow_task_request_for_current_user.login()
@@ -269,7 +280,8 @@ class VerifyLibrary(object):
 
     def _get_task_count(self, task_type, verify_user_name):
         verify_user_name = verify_user_name.encode('utf-8')
-        email = get_verify_user_email_by_real_name(verify_user_name)
+        with DBHelper() as db_helper:
+            email = db_helper.get_verify_user_email_by_real_name(verify_user_name)
         self.built_in.log('Using user name {0} to log in'.format(email))
         flow_task_request_for_current_user = flow_task_manage.FlowTaskManage(self.base_URL, email)
         flow_task_request_for_current_user.login()
@@ -322,10 +334,12 @@ class VerifyLibrary(object):
         task_nick_names_encode = [i.encode('utf-8') for i in task_nick_names]
 
         self.built_in.log('Getting user id by nick name')
-        user_ids = [get_user_id_by_nick_name(i) for i in task_nick_names_encode]
+        with DBHelper() as db_helper:
+            user_ids = [db_helper.get_user_id_by_nick_name(i) for i in task_nick_names_encode]
 
         self.built_in.log('Getting verify user email by real name')
-        verify_user_email = get_verify_user_email_by_real_name(verify_user_real_name.encode('utf-8'))
+        with DBHelper() as db_helper:
+            verify_user_email = db_helper.get_verify_user_email_by_real_name(verify_user_real_name.encode('utf-8'))
 
         self.built_in.log('Using verify user {0} to log in'.format(verify_user_email))
         current_user_request = verify.VerifyRequest(self.base_URL, verify_user_email)
@@ -358,11 +372,13 @@ class VerifyLibrary(object):
     # 比较审核流水中个人信息部分
     def compare_user_info_for_verify_log(self, nick_name):
         nick_name = nick_name.encode('utf-8')
-        user_id = get_user_id_by_nick_name(nick_name)
+        with DBHelper() as db_helper:
+            user_id = db_helper.get_user_id_by_nick_name(nick_name)
         self.request_utils.login()
         result_from_api = self.request_utils.get_user_verify_logs(user_id)
         user_info_from_api = result_from_api.json()['data']['userInfo']
-        user_info_from_db = get_user_info_for_verify_log(nick_name)
+        with DBHelper() as db_helper:
+            user_info_from_db = db_helper.get_user_info_for_verify_log(nick_name)
         self.built_in.should_be_equal_as_strings(user_info_from_api['nickName'], user_info_from_db[0], 'Compare nick name for user info in verify log')
         self.built_in.should_be_equal_as_strings(user_info_from_api['realName'], user_info_from_db[1], 'Compare real name for user info in verify log')
         self.built_in.should_be_equal_as_strings(user_info_from_api['mobile'], user_info_from_db[2], 'Compare mobile for user info in verify log')
@@ -375,7 +391,8 @@ class VerifyLibrary(object):
         nick_name = nick_name.encode('utf-8')
         index = int(index)
 
-        user_id = get_user_id_by_nick_name(nick_name)
+        with DBHelper() as db_helper:
+            user_id = db_helper.get_user_id_by_nick_name(nick_name)
         self.request_utils.login()
         result_from_api = self.request_utils.get_user_verify_logs(user_id)
         verify_logs_from_api = result_from_api.json()['data']['userVerifyLog']
@@ -398,25 +415,27 @@ class VerifyLibrary(object):
     # 获取审核流水中条目数
     def get_verify_log_count(self, nick_name):
         nick_name = nick_name.encode('utf-8')
-        user_id = get_user_id_by_nick_name(nick_name)
+        with DBHelper() as db_helper:
+            user_id = db_helper.get_user_id_by_nick_name(nick_name)
         self.request_utils.login()
         result_from_api = self.request_utils.get_user_verify_logs(user_id)
         return len(result_from_api.json()['data']['userVerifyLog'])
 
     # 更新用户类型为个人
     def update_user_channel_type_to_personal_register(self, nick_name):
-        user_id = get_user_id_by_nick_name(nick_name.encode('utf-8'))
-        update_user_channel_by_user_id(user_id, Channel.PERSONAL_REGISTER)
+        with DBHelper() as db_helper:
+            user_id = db_helper.get_user_id_by_nick_name(nick_name.encode('utf-8'))
+            db_helper.update_user_channel_by_user_id(user_id, Channel.PERSONAL_REGISTER)
 
     # 更新用户类型为BD导入
     def update_user_channel_type_to_db_import(self, nick_name):
-        user_id = get_user_id_by_nick_name(nick_name.encode('utf-8'))
-        update_user_channel_by_user_id(user_id, Channel.BD_IMPORT)
+        with DBHelper() as db_helper:
+            user_id = db_helper.get_user_id_by_nick_name(nick_name.encode('utf-8'))
+            db_helper.update_user_channel_by_user_id(user_id, Channel.BD_IMPORT)
 
     # 获取接口返回的待办任务
     def get_pending_task(self, index):
         return self.flow_task_request_utils.get_pending_tasks()[0][index]
-
 
 
 if __name__ == "__main__":

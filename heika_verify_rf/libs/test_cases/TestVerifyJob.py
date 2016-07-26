@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from ..request_utils import verify
-from ..DB_utils import utils
+from ..DB_utils.utils import *
 from .. import helper
 from nose import tools
 import time
@@ -56,7 +56,8 @@ class TestSystemApprovedJob:
         tools.eq_(response.user_key, self.user_key)
 
         helper.log('更改状态为审核通过')
-        utils.update_verify_application_status(self.user_key, 'INIT_OK')
+        with DBHelper() as db_helper:
+            db_helper.update_verify_application_status(self.user_key, 'INIT_OK')
         self.request.change_application_status(application_id, self.user_key, 'SYSTEM_VERIFY', 'SYSTEM_VERIFY_PASS')
         self._wait_for_credit_job_done()
 
@@ -71,8 +72,9 @@ class TestSystemApprovedJob:
         tools.eq_(response.user_key, self.user_key)
 
         # helper.log('检查第三方接口调用结果')
-        # application_pk_id = utils.get_application_pk_id_by_user_key(self.user_key)
-        # TestSystemApprovedJob._check_third_party_result_for_approved_user(application_pk_id)
+        with DBHelper() as db_helper:
+            application_pk_id = db_helper.get_application_pk_id_by_user_key(self.user_key)
+        TestSystemApprovedJob._check_third_party_result_for_approved_user(application_pk_id)
 
     def _get_input_info_by_type(self, type):
         ret = verify_job_input_info.VerifyJobInputInfo.parse_from_csv(self.input_info_csv_file_path)
@@ -82,44 +84,48 @@ class TestSystemApprovedJob:
 
     def _cleanup_application_data(self):
         helper.log('删除verify_process_task表中的数据, executor为%s' % self.executor_id)
-        utils.delete_verify_process_task_by_executor_id(self.executor_id)
+        with DBHelper() as db_helper:
+            db_helper.delete_verify_process_task_by_executor_id(self.executor_id)
+            helper.log('获取进件主键id与进件id, 使用user_key: %s' % self.user_key)
+            application_pk_id = db_helper.get_application_pk_id_by_user_key(self.user_key)
+            application_id = db_helper.get_application_id_by_user_key(self.user_key)
 
-        helper.log('获取进件主键id与进件id, 使用user_key: %s' % self.user_key)
-        application_pk_id = utils.get_application_pk_id_by_user_key(self.user_key)
-        application_id = utils.get_application_id_by_user_key(self.user_key)
+            helper.log('删除verify_application_status, verify_application_status_log'
+                            '与verify_application_user_info表中的数据, user_key为%s' % self.user_key)
+            db_helper.delete_application_status_and_user_info_by_user_key(self.user_key)
 
-        helper.log('删除verify_application_status, verify_application_status_log'
-                        '与verify_application_user_info表中的数据, user_key为%s' % self.user_key)
-        utils.delete_application_status_and_user_info_by_user_key(self.user_key)
+            if application_id is not None:
+                helper.log('删除策略输出表verify_policy_detail中application_id为%s' % application_id.encode('utf-8'))
+                db_helper.delete_policy_detail_by_application_id(application_id.encode('utf-8'))
 
-        if application_id is not None:
-            helper.log('删除策略输出表verify_policy_detail中application_id为%s' % application_id.encode('utf-8'))
-            utils.delete_policy_detail_by_application_id(application_id.encode('utf-8'))
-
-        if application_pk_id is not None:
-            helper.log('删除第三方接口调用结果，进件主键id为%s' % application_pk_id)
-            utils.delete_third_party_result_and_log_by_application_pk_id(application_pk_id)
+            if application_pk_id is not None:
+                helper.log('删除第三方接口调用结果，进件主键id为%s' % application_pk_id)
+                db_helper.delete_third_party_result_and_log_by_application_pk_id(application_pk_id)
 
     def _prepare_test_data(self, user_info):
-        utils.update_user_by_user_key(self.user_key, user_info.mobile)
-        utils.update_idcard_info_by_user_key(self.user_key, user_info.id_number, user_info.real_name)
-        utils.update_or_insert_edu_card_info_by_id_number(user_info.id_number, user_info.real_name)
-        utils.update_user_bank_card_info_by_user_key(self.user_key, user_info.bank_number, user_info.bank_name, user_info.real_name, user_info.id_number, user_info.reserve_mobile)
+        with DBHelper() as db_helper:
+            db_helper.update_user_by_user_key(self.user_key, user_info.mobile)
+            db_helper.update_idcard_info_by_user_key(self.user_key, user_info.id_number, user_info.real_name)
+            db_helper.update_or_insert_edu_card_info_by_id_number(user_info.id_number, user_info.real_name)
+            db_helper.update_user_bank_card_info_by_user_key(self.user_key, user_info.bank_number, user_info.bank_name, user_info.real_name, user_info.id_number, user_info.reserve_mobile)
 
     def _wait_for_job_done(self):
-        wait_time_for_job = utils.get_verify_job_interval_time_by_job_class_name(self.init_job_name)
-        wait_time_for_job = wait_time_for_job + utils.get_verify_job_interval_time_by_job_class_name(self.income_job_name)
-        wait_time_for_job = wait_time_for_job + utils.get_verify_job_interval_time_by_job_class_name(self.credit_job_name)
-        wait_time_for_job = wait_time_for_job + utils.get_verify_job_interval_time_by_job_class_name(self.policy_job_name)
-        time.sleep(wait_time_for_job/1000)
+        with DBHelper() as db_helper:
+            wait_time_for_job = db_helper.get_verify_job_interval_time_by_job_class_name(self.init_job_name)
+            wait_time_for_job = wait_time_for_job + db_helper.get_verify_job_interval_time_by_job_class_name(self.income_job_name)
+            wait_time_for_job = wait_time_for_job + db_helper.get_verify_job_interval_time_by_job_class_name(self.credit_job_name)
+            wait_time_for_job = wait_time_for_job + db_helper.get_verify_job_interval_time_by_job_class_name(self.policy_job_name)
+            time.sleep(wait_time_for_job/1000)
 
     def _wait_for_credit_job_done(self):
-        wait_time_for_job = utils.get_verify_job_interval_time_by_job_class_name(self.policy_job_name)
+        with DBHelper() as db_helper:
+            wait_time_for_job = db_helper.get_verify_job_interval_time_by_job_class_name(self.policy_job_name)
         time.sleep(wait_time_for_job/1000)
 
     @staticmethod
     def _check_third_party_result_for_approved_user(application_pk_id):
-        ret = utils.get_third_party_result_by_type(VerifyThirdPartyTypeEnum.JUXINLI_IDCARD, application_pk_id)
+        with DBHelper() as db_helper:
+            ret = db_helper.get_third_party_result_by_type(VerifyThirdPartyTypeEnum.JUXINLI_IDCARD, application_pk_id)
         tools.assert_is_not_none(ret)
         tools.assert_equal(2, len(ret))
         tools.assert_equal(ret[0], 'EXCHANGE_SUCCESS')

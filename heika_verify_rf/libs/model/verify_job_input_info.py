@@ -2,7 +2,8 @@
 import csv
 from ..global_enum import *
 
-class VerifyJobInputInfo:
+
+class VerifyJobInputInfo(object):
 
     def __init__(self, id_number, mobile, real_name, reserve_mobile, bank_name, bank_number, type=None):
         self.id_number = id_number

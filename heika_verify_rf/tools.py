@@ -73,7 +73,8 @@ if __name__ == "__main__":
     if sys.argv[1] == 'cleanup_by_executor_name':
         for real_name in sys.argv[2:]:
             libs.helper.log('将real_name为%s的用户任务清除' % real_name)
-            verify_user_id = get_verify_user_id_by_real_name(real_name)
+            with DBHelper() as db_helper:
+                verify_user_id = db_helper.get_verify_user_id_by_real_name(real_name)
 
             if verify_user_id is None:
                 libs.helper.log_error('未找到real_name=%s的verify_user数据' % real_name)
@@ -81,7 +82,8 @@ if __name__ == "__main__":
 
             libs.helper.log('verify_user_id = %s' % verify_user_id)
             libs.helper.log('删除verify_process_task表中的数据, executor为%s' % verify_user_id)
-            delete_verify_process_task_by_executor_id(verify_user_id)
+            with DBHelper() as db_helper:
+                db_helper.delete_verify_process_task_by_executor_id(verify_user_id)
         sys.exit(0)
 
 
@@ -90,13 +92,14 @@ if __name__ == "__main__":
         user_key = sys.argv[3]
         libs.helper.log('清空相关数据开始，审核人：%s，user_key：%s' % (executor_name, user_key))
 
-        verify_user_id = get_verify_user_id_by_real_name(executor_name)
-        libs.helper.log('删除verify_process_task表中的数据, executor为%s' % verify_user_id)
-        delete_verify_process_task_by_executor_id(verify_user_id)
+        with DBHelper() as db_helper:
+            verify_user_id = db_helper.get_verify_user_id_by_real_name(executor_name)
+            libs.helper.log('删除verify_process_task表中的数据, executor为%s' % verify_user_id)
+            db_helper.delete_verify_process_task_by_executor_id(verify_user_id)
 
-        libs.helper.log('删除verify_application_status, verify_application_status_log'
-                        '与verify_application_user_info表中的数据, user_key为%s' % user_key)
-        delete_application_status_and_user_info_by_user_key(user_key)
+            libs.helper.log('删除verify_application_status, verify_application_status_log'
+                            '与verify_application_user_info表中的数据, user_key为%s' % user_key)
+            db_helper.delete_application_status_and_user_info_by_user_key(user_key)
 
         sys.exit(0)
 
@@ -163,10 +166,11 @@ if __name__ == "__main__":
         libs.helper.log('读取数据内容如下： \n%s' % user_info)
 
         libs.helper.log('更新测试数据')
-        update_user_by_user_key(user_key, user_info.mobile)
-        update_idcard_info_by_user_key(user_key, user_info.id_number, user_info.real_name)
-        update_or_insert_edu_card_info_by_id_number(user_info.id_number, user_info.real_name)
-        update_user_bank_card_info_by_user_key(user_key, user_info.bank_number, user_info.bank_name, user_info.real_name, user_info.id_number, user_info.reserve_mobile)
+        with DBHelper() as db_helper:
+            db_helper.update_user_by_user_key(user_key, user_info.mobile)
+            db_helper.update_idcard_info_by_user_key(user_key, user_info.id_number, user_info.real_name)
+            db_helper.update_or_insert_edu_card_info_by_id_number(user_info.id_number, user_info.real_name)
+            db_helper.update_user_bank_card_info_by_user_key(user_key, user_info.bank_number, user_info.bank_name, user_info.real_name, user_info.id_number, user_info.reserve_mobile)
 
         # libs.helper.log('提交进件')
         # request_util.login()
