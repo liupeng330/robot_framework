@@ -20,8 +20,8 @@ class TestSystemApprovedJob:
         self.user_key = '5025375D22C426B987E1A9D67E03E01L'
         self.input_info_csv_file_path = '/home/peng/Desktop/test.csv'
         self.base_url = 'http://172.16.2.37:9080'
-        self.executor_id = 69;
-        self.channel_id = 25;
+        self.executor_id = 69
+        self.channel_id = 25
 
     def setup(self):
         self.request = verify.VerifyRequest(self.base_url)

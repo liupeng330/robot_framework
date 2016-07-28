@@ -23,3 +23,6 @@ def _exec_command(command):
     p_status = p.wait()
     return p_status, output
 
+
+def current_data_time_str():
+    return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
